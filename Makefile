@@ -1,27 +1,23 @@
 PYTHON ?= python3
-VENV := .venv
-PY := $(VENV)/bin/python
-PIP := $(VENV)/bin/pip
-UVICORN := $(VENV)/bin/uvicorn
+UV ?= uv
 
 .PHONY: install backend frontend dev env train eval
 
 install:
-	$(PYTHON) -m venv $(VENV)
-	$(PIP) install -r web/backend/requirements.txt
+	$(UV) sync --python 3.11
 	cd web/frontend && npm install
 
 env:
-	$(PY) -m rl.environment.gomoku
+	$(UV) run python -m rl.environment.gomoku
 
 train:
-	$(PY) -m rl.training.train
+	$(UV) run python -m rl.training.train
 
 eval:
-	$(PY) -m rl.evaluation.evaluate
+	$(UV) run python -m rl.evaluation.evaluate
 
 backend:
-	$(UVICORN) web.backend.main:app --reload --host 127.0.0.1 --port 8000
+	$(UV) run uvicorn web.backend.main:app --reload --host 127.0.0.1 --port 8000
 
 frontend:
 	cd web/frontend && npm run dev
@@ -29,5 +25,5 @@ frontend:
 dev:
 	@echo "Backend: http://127.0.0.1:8000"
 	@echo "Frontend: http://127.0.0.1:5173"
-	$(UVICORN) web.backend.main:app --reload --host 127.0.0.1 --port 8000 & \
+	$(UV) run uvicorn web.backend.main:app --reload --host 127.0.0.1 --port 8000 & \
 	cd web/frontend && npm run dev
