@@ -1,7 +1,8 @@
-"""FastAPI 展示层：人机对战，默认使用 RandomAgent。"""
+"""FastAPI 展示层：人机对战，AI 对手通过 rl/agents/registry.py 按名称切换。"""
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -13,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[2]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from rl.agents.random_agent import RandomAgent
+from rl.agents.registry import available_agents, create_agent
 from rl.environment.gomoku import GomokuEnv, decode_action, encode_action
 
 app = FastAPI(title="RL Gomoku", version="0.1.0")
@@ -29,13 +30,21 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# 默认 AI 可用环境变量 GOMOKU_AI 覆盖，例如 GOMOKU_AI=random
+DEFAULT_AGENT = os.environ.get("GOMOKU_AI", "q_learning")
+
 env = GomokuEnv()
-agent = RandomAgent()
+agent = create_agent(DEFAULT_AGENT)
+current_agent = DEFAULT_AGENT
 
 
 class MoveRequest(BaseModel):
     row: int = Field(..., ge=0)
     col: int = Field(..., ge=0)
+
+
+class AgentRequest(BaseModel):
+    name: str
 
 
 def _snapshot(ai_move: dict | None = None) -> dict:
@@ -59,6 +68,7 @@ def _snapshot(ai_move: dict | None = None) -> dict:
         "last_move": last_move,
         "winner": winner,
         "game_over": env.done,
+        "agent": current_agent,
     }
 
 
@@ -84,6 +94,23 @@ def root():
 
 @app.get("/game")
 def get_game():
+    return _snapshot()
+
+
+@app.get("/game/agents")
+def list_agents():
+    return {"agents": available_agents(), "current": current_agent}
+
+
+@app.post("/game/agent")
+def set_agent(body: AgentRequest):
+    global agent, current_agent
+    try:
+        agent = create_agent(body.name)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    current_agent = body.name
+    env.reset()
     return _snapshot()
 
 

@@ -37,3 +37,14 @@ export function playMove(row, col) {
     body: JSON.stringify({ row, col }),
   });
 }
+
+export function listAgents() {
+  return request("/game/agents", { method: "GET" });
+}
+
+export function setAgent(name) {
+  return request("/game/agent", {
+    method: "POST",
+    body: JSON.stringify({ name }),
+  });
+}
