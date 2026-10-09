@@ -1,8 +1,11 @@
 """AlphaZero-lite：MCTS + 双头（策略/价值）网络。
 
-网络输入相对当前玩家的 3 通道棋盘，输出：
-    policy logits（board_size^2 维）+ value（[-1,1] 标量，当前玩家胜率）
-MCTS 用 PUCT 选择，靠前瞻搜索发现「双杀」等组合威胁，从而超过反应式的 greedy。
+网络输入为相对当前玩家的 4 通道棋盘（己方、对手、对手上一步、当前执子方是否先手），
+输出 policy logits（board_size^2 维）与 value（[-1,1] 标量，当前玩家胜率）。
+MCTS 用 PUCT 选择，靠前瞻搜索发现「双杀」等组合威胁。
+
+「对手上一步」由 MCTS 节点自身记录（node.action = 走到该节点的那一手），
+无需把历史塞进状态里；「是否先手」由盘面棋子数的奇偶推出。
 
 训练见 rl/training/train_alphazero.py（自对弈 + 策略/价值联合损失）。
 """
@@ -15,18 +18,17 @@ import torch
 import torch.nn as nn
 
 from rl.agents.base_agent import BaseAgent
-from rl.agents.dqn import state_to_tensor
 
 
 class AlphaZeroNetwork(nn.Module):
-    """小型 CNN，双头输出：策略 logits 与价值。"""
+    """小型 CNN，4 通道输入，双头输出：策略 logits 与价值。"""
 
     def __init__(self, board_size: int = 9):
         super().__init__()
         self.board_size = board_size
         self.action_size = board_size * board_size
         self.conv = nn.Sequential(
-            nn.Conv2d(3, 64, kernel_size=3, padding=1), nn.ReLU(),
+            nn.Conv2d(4, 64, kernel_size=3, padding=1), nn.ReLU(),
             nn.Conv2d(64, 64, kernel_size=3, padding=1), nn.ReLU(),
             nn.Conv2d(64, 64, kernel_size=3, padding=1), nn.ReLU(),
         )
@@ -45,6 +47,33 @@ class AlphaZeroNetwork(nn.Module):
         policy = self.policy_head(h)   # (B, action_size)
         value = self.value_head(h)     # (B, 1)
         return policy, value
+
+
+def state_to_tensor4(state, board_size=9):
+    """(棋盘, 对手上一步) -> (4, H, W) 张量。
+
+    通道依次为：己方棋子、对手棋子、对手上一步位置、当前执子方是否先手。
+    """
+    board, last_move = state
+    t = torch.tensor(board, dtype=torch.long)
+    own = (t == 1).float()
+    opp = (t == -1).float()
+    last = torch.zeros(board_size, board_size)
+    if last_move is not None:
+        last[last_move // board_size, last_move % board_size] = 1.0
+    # 已落子数为偶数 => 轮到先手（黑）走
+    stones = int((t != 0).sum().item())
+    first = torch.full((board_size, board_size),
+                       1.0 if stones % 2 == 0 else 0.0)
+    return torch.stack([own, opp, last, first], dim=0)
+
+
+def last_move_action(last_move, board_size=9):
+    """把 env.last_move（(row, col) 或 None）转成动作编号，供网络输入使用。"""
+    if last_move is None:
+        return None
+    r, c = last_move
+    return r * board_size + c
 
 
 def _legal_actions(state, size=9):
@@ -80,17 +109,18 @@ def _move(state, action, size=9, win=5):
 class _Node:
     """MCTS 树节点。state 为相对「该节点当前玩家」的棋盘。"""
 
-    __slots__ = ("state", "P", "N", "W", "children", "terminal", "value",
-                 "add_noise")
+    __slots__ = ("state", "action", "P", "N", "W", "children", "terminal",
+                 "value", "add_noise")
 
-    def __init__(self, state, P=1.0):
+    def __init__(self, state, action=None, P=1.0):
         self.state = state
-        self.P = P          # 先验概率
-        self.N = 0          # 访问次数
-        self.W = 0.0        # 累计价值（本节点玩家视角）
-        self.children = {}  # action -> _Node
+        self.action = action  # 走到本节点的那一手（即对手上一步）
+        self.P = P            # 先验概率
+        self.N = 0            # 访问次数
+        self.W = 0.0          # 累计价值（本节点玩家视角）
+        self.children = {}    # action -> _Node
         self.terminal = False
-        self.value = 0.0    # 终局节点的价值
+        self.value = 0.0      # 终局节点的价值
         self.add_noise = False
 
 
@@ -110,9 +140,12 @@ class MCTS:
         self.noise_eps = noise_eps          # 噪声混合比例
         self.noise_alpha = noise_alpha      # Dirichlet 浓度参数
 
-    def search(self, state):
-        """返回 {action: 访问次数}；无合法动作返回 None。"""
-        root = _Node(state)
+    def search(self, state, last_move=None):
+        """返回 {action: 访问次数}；无合法动作返回 None。
+
+        state: 相对当前玩家的棋盘；last_move: 对手上一步（根节点用）。
+        """
+        root = _Node(state, action=last_move)
         root.add_noise = self.add_noise  # 仅根节点加 Dirichlet 噪声
         if not _legal_actions(state, self.board_size):
             return None
@@ -154,7 +187,8 @@ class MCTS:
         return best_a
 
     def _expand(self, node):
-        x = state_to_tensor(node.state, self.board_size).unsqueeze(0).to(self.device)
+        x = state_to_tensor4((node.state, node.action),
+                             self.board_size).unsqueeze(0).to(self.device)
         with torch.no_grad():
             logits, value = self.net(x)
         logits = logits[0]
@@ -175,7 +209,7 @@ class MCTS:
 
         for i, a in enumerate(legal):
             new_state, won = _move(node.state, a, self.board_size, self.win_count)
-            child = _Node(new_state, P=float(probs[i]))
+            child = _Node(new_state, action=a, P=float(probs[i]))
             if won:
                 child.terminal = True
                 child.value = -1.0  # 对手视角：已输
@@ -196,10 +230,15 @@ class AlphaZeroAgent(BaseAgent):
         self.rng = random.Random(seed)
 
     def select_action(self, state, legal_actions):
-        s = tuple(tuple(row) for row in state)
+        # 兼容两种输入：纯棋盘，或 (棋盘, 对手上一步)
+        if len(state) == 2 and (state[1] is None or isinstance(state[1], int)):
+            board, last_move = state
+        else:
+            board, last_move = state, None
+        s = tuple(tuple(row) for row in board)
         mcts = MCTS(self.net, self.c_puct, self.num_sims, self.device,
                     self.board_size)
-        counts = mcts.search(s)
+        counts = mcts.search(s, last_move)
         if counts is None:
             raise ValueError("没有合法动作可选择")
         return max(counts, key=counts.get)

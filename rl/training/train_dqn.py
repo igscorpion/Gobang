@@ -13,12 +13,16 @@
 用法（在项目根目录，需要装有 torch 的 Python 环境）：
 本机 GPU torch 在系统 Python 3.11 中，直接：
     py -3.11 -m rl.training.train_dqn [episodes] [mode]
+    episodes=0（默认）表示无限训练（Ctrl+C 停止）；给定 N 则训练 N 局后停止。
+
+每 100 局保存一次检查点、每 1000 局评估一次；再次运行自动从检查点续训。
 （未装 torch 的环境会报错；本机 .venv 无 torch，请勿用 uv run 跑本脚本。）
 """
 
 from __future__ import annotations
 
 import collections
+import json
 import random
 import sys
 from pathlib import Path
@@ -34,6 +38,7 @@ from rl.environment.gomoku import BLACK, GomokuEnv
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODEL_PATH = PROJECT_ROOT / "rl" / "models" / "dqn.pt"
+META_PATH = PROJECT_ROOT / "rl" / "models" / "dqn_meta.json"
 
 
 class ReplayBuffer:
@@ -122,7 +127,8 @@ def evaluate(agent, env, opponent_name, games, agent_color=BLACK):
 
 
 def main():
-    episodes = int(sys.argv[1]) if len(sys.argv) > 1 else 5000
+    # episodes=0 表示无限训练（默认，Ctrl+C 停止）；给定 N 则训练 N 局后停止
+    episodes = int(sys.argv[1]) if len(sys.argv) > 1 else 0
     mode = sys.argv[2] if len(sys.argv) > 2 else "selfplay"
     if mode not in ("selfplay", "greedy", "random", "mix"):
         raise SystemExit(f"未知 mode '{mode}'，可选: selfplay / greedy / random / mix")
@@ -136,7 +142,9 @@ def main():
     start_train = 512          # 回放缓冲攒够多少条才开始训练
     epsilon_start = 0.5
     epsilon_end = 0.05
-    eval_every = max(episodes // 20, 1)
+    decay_games = 3000         # ε 在前多少局内线性衰减到最小值
+    eval_every = 1000          # 每 1000 局评估一次（打印胜率）
+    save_every = 100           # 每 100 局保存一次检查点
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     env = GomokuEnv()
@@ -147,6 +155,22 @@ def main():
     target_net.load_state_dict(net.state_dict())
     optimizer = optim.Adam(net.parameters(), lr=lr)
     replay = ReplayBuffer(replay_capacity)
+
+    # 断点续训：存在检查点就直接从检查点继续
+    if MODEL_PATH.exists():
+        net.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+        target_net.load_state_dict(net.state_dict())
+        print(f"从检查点继续: {MODEL_PATH.relative_to(PROJECT_ROOT)}")
+
+    # 历史累计局数（跨重启保持）
+    total_done = 0
+    if META_PATH.exists():
+        try:
+            total_done = int(json.loads(META_PATH.read_text(encoding="utf-8")).get("total_games", 0))
+        except Exception:
+            total_done = 0
+    if total_done:
+        print(f"历史累计已训练 {total_done} 局")
 
     negamax = mode == "selfplay"
     greedy_opp = create_agent("greedy")
@@ -161,10 +185,13 @@ def main():
         if step % target_update == 0:
             target_net.load_state_dict(net.state_dict())
 
-    print(f"DQN 训练 {episodes} 局（mode={mode}, device={device}）...")
+    run_mode = "无限训练（Ctrl+C 停止）" if episodes == 0 else f"{episodes} 局"
+    print(f"DQN 训练 {run_mode}（mode={mode}, device={device}）...")
     step = 0
-    for episode in range(1, episodes + 1):
-        frac = (episode - 1) / max(episodes - 1, 1)
+    episode = 0
+    while episodes == 0 or episode < episodes:
+        episode += 1
+        frac = min(1.0, (episode - 1) / max(decay_games - 1, 1))
         agent.epsilon = epsilon_start + (epsilon_end - epsilon_start) * frac
 
         if negamax:
@@ -185,7 +212,7 @@ def main():
             # 固定/课程混合对手：agent 执黑，对手执白
             if mode == "mix":
                 # 课程：随训练推进，对手从 random 逐步过渡到 greedy
-                opp = greedy_opp if random.random() < (episode - 1) / max(episodes - 1, 1) else random_opp
+                opp = greedy_opp if random.random() < min(1.0, (episode - 1) / max(decay_games - 1, 1)) else random_opp
             else:
                 opp = opponent
             env.reset()
@@ -219,28 +246,19 @@ def main():
                 maybe_train(step)
                 state = next_state
 
+        if episode % save_every == 0:
+            MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+            torch.save(net.state_dict(), str(MODEL_PATH))
+            total = total_done + episode
+            META_PATH.write_text(json.dumps({"total_games": total}), encoding="utf-8")
+
         if episode % eval_every == 0:
             agent.epsilon = 0.0
             wr_greedy = evaluate(agent, env, "greedy", games=40)
             wr_random = evaluate(agent, env, "random", games=40)
-            agent.epsilon = epsilon_start + (epsilon_end - epsilon_start) * frac
-            print(f"  episode {episode:5d} | vs greedy {wr_greedy:.2f} | "
+            total = total_done + episode
+            print(f"  episode {episode:5d} (累计 {total:6d}) | vs greedy {wr_greedy:.2f} | "
                   f"vs random {wr_random:.2f}", flush=True)
-
-            # 定期保存检查点，避免长跑中断丢失进度
-            MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-            torch.save(net.state_dict(), str(MODEL_PATH))
-
-    # 最终评估并保存
-    agent.epsilon = 0.0
-    print("\n最终胜率（100 局）:")
-    for base in ("random", "greedy"):
-        wr = evaluate(agent, env, base, games=100)
-        print(f"  vs {base:8s}: 执黑 {wr:.2f}")
-
-    MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-    torch.save(net.state_dict(), str(MODEL_PATH))
-    print(f"\n模型已保存: {MODEL_PATH.relative_to(PROJECT_ROOT)}")
 
 
 if __name__ == "__main__":

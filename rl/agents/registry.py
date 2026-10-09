@@ -59,10 +59,13 @@ def _make_alphazero():
         raise ValueError("alphazero 需要 torch，请先执行 uv add torch")
     from rl.agents.alphazero import AlphaZeroAgent  # 延迟导入
 
-    agent = AlphaZeroAgent(num_sims=100)  # 服务端搜索次数（CPU 上约 0.3s/步）
+    agent = AlphaZeroAgent(num_sims=400)  # 服务端搜索次数（CPU 上约 1~2s/步）
     model = MODELS_DIR / "alphazero.pt"
     if model.exists():
-        agent.load(str(model))
+        try:
+            agent.load(str(model))
+        except Exception:
+            pass  # 检查点与网络结构不兼容时，退回未训练权重
     return agent
 
 

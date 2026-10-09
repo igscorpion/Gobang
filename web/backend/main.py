@@ -77,7 +77,11 @@ def _ai_move() -> dict | None:
         return None
     state = env.get_state()
     legal_actions = env.get_legal_actions()
-    action = agent.select_action(state, legal_actions)
+    # AlphaZero 需要「对手上一步」；env.last_move 为 (row, col)
+    last = None
+    if env.last_move is not None:
+        last = encode_action(env.last_move[0], env.last_move[1], env.board_size)
+    action = agent.select_action((state, last), legal_actions)
     env.step(action)
     row, col = decode_action(action, env.board_size)
     return {"row": row, "col": col}
