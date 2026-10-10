@@ -1,18 +1,18 @@
 # RL Gomoku
 
-本项目是一个以强化学习为核心的五子棋课程项目。当前阶段提供 **Environment、Agent 接口、Training、Evaluation** 基础框架，以及 **Vue + FastAPI** 人机对战 Demo。
+本项目是一个以强化学习为核心的五子棋课程项目，包含 **9×9 五子棋环境、多种 Agent、训练与评估脚本**，以及 **Vue + FastAPI** 人机对战 Demo。
 
-当前 **没有** 实现 Q-Learning、SARSA、Monte Carlo、DQN 等具体算法。网页对战使用 `RandomAgent`（从合法位置随机落子），用来打通前后端。
+已实现的具体算法：**线性 Q-Learning、DQN、AlphaZero-lite**；另含 `GreedyAgent`（手工贪心启发式）与 `RandomAgent`（随机落子）两个基准。网页对战时可通过下拉框切换所用 Agent。各算法的实现要点、实验结果与当前状态见 [rl/README.md](rl/README.md)。
 
 ## 项目架构
 
 ```text
 rl/                         强化学习核心（可脱离 Web 独立运行）
 ├── environment/            9x9 五子棋 Environment
-├── agents/                 BaseAgent + RandomAgent（算法在此扩展）
-├── training/               通用训练循环（不含更新公式）
+├── agents/                 BaseAgent + Random / Greedy / QLearning / DQN / AlphaZero + registry
+├── training/               训练脚本：train.py（通用循环）、train_dqn.py、train_alphazero.py
 ├── evaluation/             胜率统计框架
-└── models/                 预留给以后 save/load 的模型文件
+└── models/                 训练产物：权重、检查点、累计局数元数据
 
 web/                        展示层
 ├── backend/                FastAPI
@@ -70,7 +70,7 @@ http://127.0.0.1:5173
 这是一个前后端分离的强化学习应用。前端负责界面与交互，后端则是一个 Python 程序，提供 HTTP API、加载强化学习参数、执行推理和状态更新。这个项目的核心重点不是“直接把所有逻辑写进网页”，而是把“训练逻辑”和“部署逻辑”分开。
 
 - 前端：负责绘制 9x9 棋盘、处理点击事件、展示回合状态和胜负结果。
-- 后端：在 `web/backend/main.py` 里启动 FastAPI 服务，调用 `rl.environment.gomoku` 中的棋盘逻辑，并使用 `RandomAgent` 进行落子。
+- 后端：在 `web/backend/main.py` 里启动 FastAPI 服务，调用 `rl.environment.gomoku` 中的棋盘逻辑，并通过 `rl/agents/registry.py` 选择所用 Agent（默认 `q_learning`，可用环境变量 `GOMOKU_AI` 指定）。
 - 强化学习部分：在 `rl/` 目录里定义环境、Agent、训练和评估框架。
 
 真正的部署/演示场景里，通常不需要重头训练模型。一般做法是：先用训练脚本产出模型参数文件，再在后端启动时加载这些参数；前端只负责调用接口，展示结果。也就是说，训练和部署是两件事：
@@ -325,12 +325,17 @@ GomokuEnv self-check passed.
 
 ### 运行训练
 
+训练脚本依赖 PyTorch；本机 GPU 版 torch 装在系统 Python 3.11 中（`.venv` 内为 CPU 版，也能运行但较慢），因此请用装有 torch 的解释器执行：
+
 ```bash
-cd /path/to/Gobang
-uv run python -m rl.training.train
+# AlphaZero-lite 自对弈（无限训练，Ctrl+C 停止，再次运行自动续训）
+python -m rl.training.train_alphazero
+
+# DQN
+python -m rl.training.train_dqn
 ```
 
-当前仓库的训练模块只有框架骨架，仍然以 `RandomAgent` 作为示例方案。
+Windows 下也可直接双击项目根目录的 `训练AlphaZero.bat` / `训练DQN.bat`。训练产物见 `rl/models/`，各算法现状见 [rl/README.md](rl/README.md)。
 
 ### 运行评估
 
@@ -391,16 +396,16 @@ cd C:\path\to\Gobang
       ↓
 FastAPI 校验并调用 env.step()
       ↓
-RandomAgent 选择合法位置
+所选 Agent 选择合法位置（下拉框可切换）
       ↓
 白棋出现在棋盘上
 ```
 
-如果该路径不能跑通，先检查后端是否成功启动，再确认前端的 `API_BASE` 是否指向 `http://127.0.0.1:8000`。该项目的前端默认访问后端，不依赖单独的 WebSocket 服务。
+如果该路径不能跑通，先检查后端是否成功启动，再确认前端的 `API_BASE` 是否指向 `http://127.0.0.1:8000`（端口被占用时，可在 `web/frontend/.env` 中用 `VITE_API_PORT` 覆盖）。该项目的前端默认访问后端，不依赖单独的 WebSocket 服务。
 
-## 如何实现新的 RL 算法
+## 如何新增 RL 算法
 
-以后实现 Q-Learning、SARSA、Monte Carlo、DQN 时，在 `rl/agents/` **新增文件**，例如 `rl/agents/q_learning.py`，继承 `BaseAgent`：
+在 `rl/agents/` **新增文件**，继承 `BaseAgent`：
 
 ```python
 from rl.agents.base_agent import BaseAgent
@@ -449,7 +454,7 @@ Agent.update()
 ```
 
 **新增 RL 算法时，尽量只修改 `rl/agents/`，不要修改 Environment 和 Web。**  
-训练循环已经写在 `rl/training/train.py`；接入网页时，把 `web/backend/main.py` 里的 `RandomAgent()` 换成你的 Agent 即可。
+在 `rl/agents/registry.py` 的 `REGISTRY` 中注册后，网页下拉框即可直接选择该 Agent；训练脚本可参照 `rl/training/` 下的已有实现。
 
 ## 以后如何修改项目
 
@@ -464,4 +469,4 @@ Agent.update()
 
 ## 当前阶段明确不做
 
-不包含：具体 RL 算法、神经网络、数据库、登录、Docker、云部署、在线多人对战。这些留给后续迭代。
+不包含：数据库、登录、Docker、云部署、在线多人对战。这些留给后续迭代。
