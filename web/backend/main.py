@@ -31,7 +31,7 @@ app.add_middleware(
 )
 
 # 默认 AI 可用环境变量 GOMOKU_AI 覆盖，例如 GOMOKU_AI=random
-DEFAULT_AGENT = os.environ.get("GOMOKU_AI", "q_learning")
+DEFAULT_AGENT = os.environ.get("GOMOKU_AI", "greedy")
 
 env = GomokuEnv()
 agent = create_agent(DEFAULT_AGENT)
@@ -77,11 +77,13 @@ def _ai_move() -> dict | None:
         return None
     state = env.get_state()
     legal_actions = env.get_legal_actions()
-    # AlphaZero 需要「对手上一步」；env.last_move 为 (row, col)
-    last = None
-    if env.last_move is not None:
-        last = encode_action(env.last_move[0], env.last_move[1], env.board_size)
-    action = agent.select_action((state, last), legal_actions)
+    if agent.needs_last_move:
+        # AlphaZero 需要「对手上一步」；env.last_move 为 (row, col)
+        last = None
+        if env.last_move is not None:
+            last = encode_action(env.last_move[0], env.last_move[1], env.board_size)
+        state = (state, last)
+    action = agent.select_action(state, legal_actions)
     env.step(action)
     row, col = decode_action(action, env.board_size)
     return {"row": row, "col": col}
@@ -132,6 +134,7 @@ def reset_game():
 
 @app.post("/game/move")
 def player_move(body: MoveRequest):
+    """玩家（黑棋）落子：只落这一子并立即返回，AI 由前端随后单独请求。"""
     if env.done:
         raise HTTPException(status_code=400, detail="对局已经结束，请重新开始")
 
@@ -143,5 +146,19 @@ def player_move(body: MoveRequest):
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
-    ai_move = _ai_move()
-    return _snapshot(ai_move=ai_move)
+    return _snapshot()
+
+
+@app.post("/game/ai_move")
+def ai_move():
+    """AI（白棋）思考并落子。
+
+    与玩家落子分开，前端可先渲染玩家的棋子，再等待 AI，避免棋盘迟迟不更新的卡顿感。
+    """
+    if env.done:
+        return _snapshot()
+
+    if env.current_player != env.WHITE:
+        raise HTTPException(status_code=400, detail="当前不是白棋（AI）回合")
+
+    return _snapshot(ai_move=_ai_move())

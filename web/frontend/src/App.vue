@@ -32,6 +32,7 @@
 <script>
 import GomokuBoard from "./components/GomokuBoard.vue";
 import {
+  aiMove,
   listAgents,
   playMove,
   resetGame,
@@ -128,11 +129,18 @@ export default {
       this.busy = true;
       this.error = "";
       try {
-        this.applyState(await playMove(row, col));
+        // 先落自己的子并立即渲染，避免等待 AI 期间棋盘不动造成的卡顿感
+        const afterPlayer = await playMove(row, col);
+        this.applyState(afterPlayer);
+        if (!afterPlayer.game_over) {
+          this.busyText = "AI 落子中…";
+          this.applyState(await aiMove());
+        }
       } catch (err) {
         this.error = err.message;
       } finally {
         this.busy = false;
+        this.busyText = "";
       }
     },
     async onReset() {

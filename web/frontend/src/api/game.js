@@ -38,6 +38,10 @@ export function playMove(row, col) {
   });
 }
 
+export function aiMove() {
+  return request("/game/ai_move", { method: "POST" });
+}
+
 export function listAgents() {
   return request("/game/agents", { method: "GET" });
 }

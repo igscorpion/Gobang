@@ -220,6 +220,8 @@ class MCTS:
 class AlphaZeroAgent(BaseAgent):
     """用 MCTS + 网络选择动作；作为人机对战的 AI 或评估用 Agent。"""
 
+    needs_last_move = True  # 输入含「对手上一步」，调用方需传 (棋盘, 上一步动作)
+
     def __init__(self, board_size=9, num_sims=50, c_puct=1.4,
                  device=None, seed=None):
         self.board_size = board_size

@@ -159,9 +159,11 @@ def evaluate(agent, env, opponent_name, games, agent_color=BLACK):
         while not done:
             legal = env.get_legal_actions()
             if env.current_player == agent_color:
-                # AlphaZero 需要「对手上一步」，一并传入
-                last = last_move_action(env.last_move, env.board_size)
-                action = agent.select_action((state, last), legal)
+                payload = state
+                if agent.needs_last_move:
+                    # AlphaZero 需要「对手上一步」，一并传入
+                    payload = (state, last_move_action(env.last_move, env.board_size))
+                action = agent.select_action(payload, legal)
             else:
                 action = opponent.select_action(state, legal)
             state, _reward, done = env.step(action)
