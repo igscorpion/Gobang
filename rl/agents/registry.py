@@ -36,6 +36,16 @@ def _make_greedy():
     return GreedyAgent()
 
 
+def _make_mcts_pure():
+    """纯 MCTS（UCT + 随机模拟），不依赖训练产物，作为「无神经网络的搜索基线」。
+
+    延迟导入：mcts_pure 复用 alphazero 里的棋盘工具函数，而后者会导入 torch。
+    """
+    from rl.agents.mcts_pure import PureMCTSAgent  # 延迟导入
+
+    return PureMCTSAgent(num_playouts=1000)
+
+
 def _make_q_learning():
     """加载训练好的线性 Q-Learning 权重；无权重时用零权重。"""
     agent = QLearningAgent(epsilon=0.0)
@@ -86,6 +96,7 @@ def _make_alphazero():
 REGISTRY = {
     "random": _make_random,
     "greedy": _make_greedy,
+    "mcts_pure": _make_mcts_pure,
     "q_learning": _make_q_learning,
     "dqn": _make_dqn,
     "alphazero": _make_alphazero,
