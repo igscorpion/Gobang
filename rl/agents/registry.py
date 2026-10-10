@@ -18,9 +18,12 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODELS_DIR = PROJECT_ROOT / "rl" / "models"
 
 # AlphaZero 对战时的抽样温度：0 = 每局完全确定；>0 = 前若干手按概率抽样，
-# 避免同一局面永远走同一步（可用环境变量 GOMOKU_AI_TEMP / GOMOKU_AI_OPENING 覆盖）。
+# 避免同一局面永远走同一步。抽样只在访问次数达到最高次数 CANDIDATE 倍的走法中进行，
+# 以免把搜索已判定的强制手（如必须堵活三）换掉。
+# 可用环境变量 GOMOKU_AI_TEMP / GOMOKU_AI_OPENING / GOMOKU_AI_CANDIDATE 覆盖。
 ALPHAZERO_TEMPERATURE = float(os.environ.get("GOMOKU_AI_TEMP", "1.0"))
 ALPHAZERO_OPENING_MOVES = int(os.environ.get("GOMOKU_AI_OPENING", "6"))
+ALPHAZERO_CANDIDATE_RATIO = float(os.environ.get("GOMOKU_AI_CANDIDATE", "0.1"))
 
 
 def _make_random():
@@ -68,7 +71,8 @@ def _make_alphazero():
     # 搜索次数（CPU 上约 1~2s/步）；温度 >0 时仅开局抽样，之后仍走最优手
     agent = AlphaZeroAgent(num_sims=400,
                            temperature=ALPHAZERO_TEMPERATURE,
-                           opening_moves=ALPHAZERO_OPENING_MOVES)
+                           opening_moves=ALPHAZERO_OPENING_MOVES,
+                           candidate_ratio=ALPHAZERO_CANDIDATE_RATIO)
     model = MODELS_DIR / "alphazero.pt"
     if model.exists():
         try:

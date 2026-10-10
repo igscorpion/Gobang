@@ -221,14 +221,16 @@ class AlphaZeroAgent(BaseAgent):
     """用 MCTS + 网络选择动作；作为人机对战的 AI 或评估用 Agent。
 
     temperature = 0：取访问次数最大的点，行为完全确定（评测用，保证结果可复现）；
-    temperature > 0：仅在前 opening_moves 手按「访问次数 ^ (1/temperature)」抽样，
-    之后回到确定性最优手——既让每局开局各不相同，又不在关键处牺牲棋力。
+    temperature > 0：仅在前 opening_moves 手抽样，之后回到确定性最优手。
+    抽样只在「访问次数达到最高次数 candidate_ratio 倍」的走法中进行——搜索已明确
+    判定的强制手（如必须堵活三）不会被换掉，局面不明时仍保留多样性。
     """
 
     needs_last_move = True  # 输入含「对手上一步」，调用方需传 (棋盘, 上一步动作)
 
     def __init__(self, board_size=9, num_sims=50, c_puct=1.4,
-                 device=None, seed=None, temperature=0.0, opening_moves=6):
+                 device=None, seed=None, temperature=0.0, opening_moves=6,
+                 candidate_ratio=0.1):
         self.board_size = board_size
         self.num_sims = num_sims
         self.c_puct = c_puct
@@ -237,6 +239,7 @@ class AlphaZeroAgent(BaseAgent):
         self.rng = random.Random(seed)
         self.temperature = temperature
         self.opening_moves = opening_moves
+        self.candidate_ratio = candidate_ratio
 
     def select_action(self, state, legal_actions):
         # 兼容两种输入：纯棋盘，或 (棋盘, 对手上一步)
@@ -258,8 +261,16 @@ class AlphaZeroAgent(BaseAgent):
         if temp <= 0:
             return max(counts, key=counts.get)
 
-        # 按访问次数加权抽样：好点概率高，次优偶尔出现，坏点几乎选不中
-        actions = list(counts)
+        # 候选筛选：只保留「访问次数 ≥ 最高次数 × candidate_ratio」的走法。
+        # 搜索已明确判定优劣时（如必须堵活三）就只剩正确手，不会被抽样换掉；
+        # 局面不明、多个走法势均力敌时才体现多样性。
+        best = max(counts.values())
+        actions = [a for a, n in counts.items()
+                   if n > 0 and n >= self.candidate_ratio * best]
+        if len(actions) <= 1:
+            return max(counts, key=counts.get)
+
+        # 按访问次数加权抽样：好点概率高，次优偶尔出现，坏点已被排除
         weights = [counts[a] ** (1.0 / temp) for a in actions]
         return self.rng.choices(actions, weights=weights)[0]
 
