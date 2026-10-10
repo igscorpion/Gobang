@@ -281,17 +281,25 @@ def main():
     sp_lengths = []  # 自对弈：本次打印区间内各局手数
     sp_moves = 0
     sp_short = 0     # 其中「短局」的局数
-    start_time = time.time()
+    last_time = time.perf_counter()  # 供「本局耗时」单独计时
     while games == 0 or game < games:
         game += 1
         if greedy_agent is not None and random.random() < vs_greedy_ratio:
             # 对战固定对手：制造自对弈中不会出现的攻防局面
+            game_kind = "对贪心"
             data, winner, agent_color = vs_opponent_game(
                 net, device, board_size, num_sims, c_puct, 1.0, greedy_agent)
             vs_games += 1
             if winner == agent_color:
                 vs_wins += 1
+                game_result = "胜"
+            elif winner == 0:
+                game_result = "和"
+            else:
+                game_result = "负"
         else:
+            game_kind = "自对弈"
+            game_result = "－"  # 自对弈是网络对网络，胜负不具意义；用全角横杠与中文列同宽
             data, winner = selfplay_game(net, device, board_size, num_sims,
                                          c_puct, 1.0)
             # 自对弈手数偏长说明攻防趋于均衡；持续偏短则可能是自对弈坍塌
@@ -339,14 +347,22 @@ def main():
             META_PATH.write_text(
                 json.dumps({"total_games": total_done + game}), encoding="utf-8")
 
-        # 每局打印一行进度（均值 loss + 每局耗时），便于判断是否卡住
+        # 表头只打一次；此后每行只输出数据。两个中文列放在末尾，
+        # 前面的数字列按 ASCII 定宽，对齐不受中文双宽字符影响。
+        if game == 1:
+            print(f"  {'局数':>4} {'累计':>6} {'用时':>5} {'loss':>8} "
+                  f"{'policy':>8} {'value':>8} {'lr':>9} {'KL':>6} "
+                  f"{'类型':<5} {'结果':<2} {'状态':<5}", flush=True)
+
         n = max(loss_count, 1)
-        rate = (time.time() - start_time) / 60.0 / game
-        print(f"  game {game:6d} (累计 {total_done + game:6d}) | "
-              f"loss {loss_sum / n:.4f} (policy {policy_loss_sum / n:.4f} / "
-              f"value {value_loss_sum / n:.4f}) | lr {lr * lr_multiplier:.1e} | "
-              f"KL {kl:.3f} | {rate:.1f} 分/局 | "
-              f"{'已保存' if saved else '进行中'}", flush=True)
+        now = time.perf_counter()
+        game_sec = now - last_time
+        last_time = now
+        print(f"  {game:6d} {total_done + game:8d} {game_sec:6.1f}s "
+              f"{loss_sum / n:8.4f} {policy_loss_sum / n:8.4f} "
+              f"{value_loss_sum / n:8.4f} {lr * lr_multiplier:9.1e} "
+              f"{kl:6.3f} {game_kind:<4} {game_result:<3} "
+              f"{'已保存' if saved else '进行中':<4}", flush=True)
         loss_sum = 0.0
         policy_loss_sum = 0.0
         value_loss_sum = 0.0
