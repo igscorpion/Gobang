@@ -237,7 +237,8 @@ def main():
     buffer_capacity = 40000
     eval_every = 1000  # 每 1000 局评估一次（打印胜率）
     save_every = 10    # 每 10 局保存一次检查点（单局耗时较长，缩短间隔以减少中断损失）
-    vs_greedy_ratio = 0.5  # 每局改为对战 greedy 的概率，其余为纯自对弈
+    vs_greedy_ratio = 0.6  # 每局改为对战 greedy 的概率，其余为纯自对弈
+    short_game_moves = 11  # 自对弈手数不超过此值即视为「短局」（坍塌时几乎全是短局）
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     env = GomokuEnv()
@@ -277,8 +278,9 @@ def main():
     win_games = 0
     vs_games = 0  # 对战 greedy：整个运行期间累计的局数与胜局
     vs_wins = 0
-    sp_games = 0  # 自对弈：本次打印区间内的局数与总手数
+    sp_lengths = []  # 自对弈：本次打印区间内各局手数
     sp_moves = 0
+    sp_short = 0     # 其中「短局」的局数
     start_time = time.time()
     while games == 0 or game < games:
         game += 1
@@ -293,8 +295,11 @@ def main():
             data, winner = selfplay_game(net, device, board_size, num_sims,
                                          c_puct, 1.0)
             # 自对弈手数偏长说明攻防趋于均衡；持续偏短则可能是自对弈坍塌
-            sp_games += 1
-            sp_moves += len(data) // 8
+            length = len(data) // 8
+            sp_lengths.append(length)
+            sp_moves += length
+            if length <= short_game_moves:
+                sp_short += 1
         buffer.extend(data)
         if winner == 0:
             draw_games += 1
@@ -348,13 +353,16 @@ def main():
         loss_count = 0
 
         if saved:
-            # 定期输出两个关键健康指标：自对弈均长（近期）、对 greedy 累计胜率
-            sp_avg = sp_moves / sp_games if sp_games else 0.0
+            # 健康指标：自对弈各局手数（坍塌时又短又齐）、对 greedy 累计胜率
+            n_sp = len(sp_lengths)
+            sp_avg = sp_moves / n_sp if n_sp else 0.0
             vs_wr = vs_wins / vs_games if vs_games else 0.0
-            print(f"      自对弈均长 {sp_avg:.1f} 手（近 {sp_games} 局） | "
+            print(f"      自对弈 {sp_lengths} 均长 {sp_avg:.1f}，"
+                  f"短局(≤{short_game_moves}手) {sp_short}/{n_sp} | "
                   f"对 greedy 累计 {vs_wins}/{vs_games} = {vs_wr:.2f}", flush=True)
-            sp_games = 0
+            sp_lengths = []
             sp_moves = 0
+            sp_short = 0
 
         if game % eval_every == 0:
             agent = AlphaZeroAgent(board_size=board_size, num_sims=num_sims,
