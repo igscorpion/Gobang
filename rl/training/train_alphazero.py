@@ -1,6 +1,7 @@
-"""AlphaZero-lite 自对弈训练。
+"""AlphaZero-lite 训练。
 
-用 MCTS 自对弈产生 (棋盘, 访问概率 π, 胜负 z) 样本，训练双头网络：
+对局混合两种来源：纯自对弈，以及与 greedy 对战（后者提供网络自身难以遇到的防守局面）。
+用 MCTS 产生 (棋盘, 访问概率 π, 胜负 z) 样本，训练双头网络：
     loss = 交叉熵(policy, π) + MSE(value, z) + L2 正则
 每次更新在同一个 mini-batch 上训练若干轮，并按策略 KL 散度早停、自适应调节学习率。
 训练后保存到 rl/models/alphazero.pt，并周期性对 greedy / random 评估。
@@ -113,6 +114,55 @@ def selfplay_game(net, device, board_size, num_sims, c_puct, temp):
     return augmented, winner
 
 
+def vs_opponent_game(net, device, board_size, num_sims, c_puct, temp, opponent):
+    """让 net（+MCTS）与固定对手对弈一局，只记录 net 自己的落子。
+
+    随机决定 net 执黑还是执白，使网络同时获得「进攻」与「防守」两类局面，
+    这正是纯自对弈所缺失的（同一个网络执双方时会一路对攻、不设防）。
+
+    返回 (8 倍增强样本, 胜者)。
+    """
+    env = GomokuEnv()
+    mcts = MCTS(net, c_puct, num_sims, device, board_size, add_noise=True)
+    agent_color = random.choice((BLACK, -BLACK))
+    records = []
+    state = env.reset()
+    last_move = None
+    while True:
+        if env.current_player == agent_color:
+            board = tuple(tuple(row) for row in state)
+            counts = mcts.search(board, last_move)
+            if counts is None:
+                break
+
+            # π ∝ N^(1/temp)
+            action_size = board_size * board_size
+            weights = [0.0] * action_size
+            for a, n in counts.items():
+                weights[a] = n ** (1.0 / temp)
+            action = random.choices(range(action_size), weights=weights)[0]
+
+            total = sum(weights)
+            pi = [w / total for w in weights]
+            records.append(((board, last_move), pi, agent_color))
+        else:
+            # 对手回合不记录样本：网络要学的是自己的策略，不是模仿对手
+            action = opponent.select_action(env.get_state(),
+                                            env.get_legal_actions())
+
+        state, _, done = env.step(action)
+        last_move = action
+        if done:
+            break
+
+    winner = env.winner
+    samples = [(s, pi, float(winner * player)) for (s, pi, player) in records]
+    augmented = []
+    for s, pi, z in samples:
+        augmented.extend(_augment_record(s, pi, z, board_size))
+    return augmented, winner, agent_color
+
+
 L2_CONST = 1e-4  # L2 正则系数（与参考实现一致）
 
 
@@ -187,9 +237,12 @@ def main():
     buffer_capacity = 40000
     eval_every = 1000  # 每 1000 局评估一次（打印胜率）
     save_every = 10    # 每 10 局保存一次检查点（单局耗时较长，缩短间隔以减少中断损失）
+    vs_greedy_ratio = 0.5  # 每局改为对战 greedy 的概率，其余为纯自对弈
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     env = GomokuEnv()
+    # 混合对手：一部分对局改打 greedy，为网络提供「必须防守」的局面
+    greedy_agent = create_agent("greedy") if vs_greedy_ratio > 0 else None
     net = AlphaZeroNetwork(board_size).to(device)
     optimizer = optim.Adam(net.parameters(), lr=lr)
     buffer = collections.deque(maxlen=buffer_capacity)
@@ -213,7 +266,8 @@ def main():
         print(f"历史累计已训练 {total_done} 局")
 
     mode = "无限训练（Ctrl+C 停止）" if games == 0 else f"{games} 局"
-    print(f"AlphaZero-lite 自对弈 {mode}（device={device}, sims={num_sims}）...")
+    print(f"AlphaZero-lite 训练 {mode}（device={device}, sims={num_sims}, "
+          f"对战 greedy 占比={vs_greedy_ratio}）...")
     game = 0
     loss_sum = 0.0
     policy_loss_sum = 0.0
@@ -221,10 +275,26 @@ def main():
     loss_count = 0
     draw_games = 0
     win_games = 0
+    vs_games = 0  # 对战 greedy：整个运行期间累计的局数与胜局
+    vs_wins = 0
+    sp_games = 0  # 自对弈：本次打印区间内的局数与总手数
+    sp_moves = 0
     start_time = time.time()
     while games == 0 or game < games:
         game += 1
-        data, winner = selfplay_game(net, device, board_size, num_sims, c_puct, 1.0)
+        if greedy_agent is not None and random.random() < vs_greedy_ratio:
+            # 对战固定对手：制造自对弈中不会出现的攻防局面
+            data, winner, agent_color = vs_opponent_game(
+                net, device, board_size, num_sims, c_puct, 1.0, greedy_agent)
+            vs_games += 1
+            if winner == agent_color:
+                vs_wins += 1
+        else:
+            data, winner = selfplay_game(net, device, board_size, num_sims,
+                                         c_puct, 1.0)
+            # 自对弈手数偏长说明攻防趋于均衡；持续偏短则可能是自对弈坍塌
+            sp_games += 1
+            sp_moves += len(data) // 8
         buffer.extend(data)
         if winner == 0:
             draw_games += 1
@@ -277,6 +347,15 @@ def main():
         value_loss_sum = 0.0
         loss_count = 0
 
+        if saved:
+            # 定期输出两个关键健康指标：自对弈均长（近期）、对 greedy 累计胜率
+            sp_avg = sp_moves / sp_games if sp_games else 0.0
+            vs_wr = vs_wins / vs_games if vs_games else 0.0
+            print(f"      自对弈均长 {sp_avg:.1f} 手（近 {sp_games} 局） | "
+                  f"对 greedy 累计 {vs_wins}/{vs_games} = {vs_wr:.2f}", flush=True)
+            sp_games = 0
+            sp_moves = 0
+
         if game % eval_every == 0:
             agent = AlphaZeroAgent(board_size=board_size, num_sims=num_sims,
                                    device=device)
@@ -287,7 +366,7 @@ def main():
             played = draw_games + win_games
             draw_rate = draw_games / played if played else 0.0
             print(f"  game {game:6d} (累计 {total:6d}) | vs greedy {wr_greedy:.2f} | "
-                  f"vs random {wr_random:.2f} | 自对弈和棋率 {draw_rate:.2f}", flush=True)
+                  f"vs random {wr_random:.2f} | 和棋率 {draw_rate:.2f}", flush=True)
             draw_games = 0
             win_games = 0
 
