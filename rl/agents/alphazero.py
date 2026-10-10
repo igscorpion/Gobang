@@ -76,6 +76,27 @@ def last_move_action(last_move, board_size=9):
     return r * board_size + c
 
 
+def sample_action(counts, temperature, candidate_ratio=0.0, rng=None):
+    """按搜索访问次数选一手。
+
+    temperature <= 0：取访问次数最多的一手（评估与实战的确定性口径）。
+    temperature > 0 ：在「访问次数 ≥ 最高次数 × candidate_ratio」的候选中，
+                      按 N^(1/temperature) 加权随机抽样。
+    """
+    rng = rng or random
+    if temperature <= 0:
+        return max(counts, key=counts.get)
+    # 候选筛选：搜索已明确判定优劣时（如必须堵活三）只剩正确手，不会被抽样换掉；
+    # 局面不明、多个走法势均力敌时才体现多样性
+    best = max(counts.values())
+    candidates = [a for a, n in counts.items()
+                  if n > 0 and n >= candidate_ratio * best]
+    if len(candidates) <= 1:
+        return max(counts, key=counts.get)
+    weights = [counts[a] ** (1.0 / temperature) for a in candidates]
+    return rng.choices(candidates, weights=weights)[0]
+
+
 def _legal_actions(state, size=9):
     return [r * size + c for r in range(size) for c in range(size)
             if state[r][c] == 0]
@@ -109,13 +130,14 @@ def _move(state, action, size=9, win=5):
 class _Node:
     """MCTS 树节点。state 为相对「该节点当前玩家」的棋盘。"""
 
-    __slots__ = ("state", "action", "P", "N", "W", "children", "terminal",
-                 "value", "add_noise")
+    __slots__ = ("state", "action", "P", "P_raw", "N", "W", "children",
+                 "terminal", "value", "add_noise")
 
     def __init__(self, state, action=None, P=1.0):
         self.state = state
         self.action = action  # 走到本节点的那一手（即对手上一步）
-        self.P = P            # 先验概率
+        self.P = P            # 先验概率（根节点的子节点会混入 Dirichlet 噪声）
+        self.P_raw = P        # 未加噪的先验，供复用根时重新加噪
         self.N = 0            # 访问次数
         self.W = 0.0          # 累计价值（本节点玩家视角）
         self.children = {}    # action -> _Node
@@ -125,7 +147,11 @@ class _Node:
 
 
 class MCTS:
-    """纯 PUCT 蒙特卡洛树搜索（每步重建树，简单起见不做跨步复用）。"""
+    """PUCT 蒙特卡洛树搜索，支持跨步复用搜索树。
+
+    同一个实例连续调用 search 时，若上一棵树的根里已有「对手刚走那一手」对应的子节点、
+    且局面一致，就直接以它为新的根（保留访问次数与价值），省下对已搜索部分的重复计算。
+    """
 
     def __init__(self, net, c_puct=1.4, num_sims=50, device="cpu",
                  board_size=9, win_count=5, add_noise=False,
@@ -139,16 +165,34 @@ class MCTS:
         self.add_noise = add_noise          # 自对弈时在根节点加噪声
         self.noise_eps = noise_eps          # 噪声混合比例
         self.noise_alpha = noise_alpha      # Dirichlet 浓度参数
+        self.root = None                    # 上一次搜索的根，供跨步复用
 
     def search(self, state, last_move=None):
         """返回 {action: 访问次数}；无合法动作返回 None。
 
         state: 相对当前玩家的棋盘；last_move: 对手上一步（根节点用）。
         """
-        root = _Node(state, action=last_move)
+        # 跨步复用：上一棵树的根里若已有「对手刚走的那一手」对应的子节点，且局面一致，
+        # 就直接拿它当新根，省下对已搜索部分的重复计算。
+        root = None
+        if last_move is not None and self.root is not None:
+            candidate = self.root.children.get(last_move)
+            if candidate is not None and candidate.state == state:
+                root = candidate
+        reused = root is not None
+        if root is None:
+            root = _Node(state, action=last_move)
         root.add_noise = self.add_noise  # 仅根节点加 Dirichlet 噪声
         if not _legal_actions(state, self.board_size):
             return None
+        if reused and root.add_noise and root.children:
+            # 复用根时重新加噪：子节点先验是上一轮混过噪声的，这里从未加噪版本重新混合
+            noise = torch.distributions.Dirichlet(
+                torch.full((len(root.children),), self.noise_alpha)).sample()
+            for i, child in enumerate(root.children.values()):
+                child.P = ((1.0 - self.noise_eps) * child.P_raw
+                           + self.noise_eps * float(noise[i]))
+        self.root = root
 
         for _ in range(self.num_sims):
             node = root
@@ -199,17 +243,19 @@ class MCTS:
             return 0.0  # 棋盘填满且无人获胜 => 和棋
 
         # 只对合法动作做 softmax，得到先验概率
-        probs = torch.softmax(logits[legal], dim=0)
+        raw = torch.softmax(logits[legal], dim=0)
+        probs = raw
         if node.add_noise:
-            # 根节点加 Dirichlet 噪声，鼓励探索不同开局
+            # 根节点加 Dirichlet 噪声，鼓励探索
             concentration = torch.full((len(legal),), self.noise_alpha,
                                        device=logits.device)
             noise = torch.distributions.Dirichlet(concentration).sample()
-            probs = (1.0 - self.noise_eps) * probs + self.noise_eps * noise
+            probs = (1.0 - self.noise_eps) * raw + self.noise_eps * noise
 
         for i, a in enumerate(legal):
             new_state, won = _move(node.state, a, self.board_size, self.win_count)
             child = _Node(new_state, action=a, P=float(probs[i]))
+            child.P_raw = float(raw[i])  # 未加噪先验，供复用根时重新加噪
             if won:
                 child.terminal = True
                 child.value = -1.0  # 对手视角：已输
@@ -240,6 +286,8 @@ class AlphaZeroAgent(BaseAgent):
         self.temperature = temperature
         self.opening_moves = opening_moves
         self.candidate_ratio = candidate_ratio
+        # 常驻一个 MCTS 实例以复用搜索树；换局（局面不符）时会自动重建
+        self.mcts = MCTS(self.net, c_puct, num_sims, self.device, board_size)
 
     def select_action(self, state, legal_actions):
         # 兼容两种输入：纯棋盘，或 (棋盘, 对手上一步)
@@ -253,26 +301,10 @@ class AlphaZeroAgent(BaseAgent):
         stones = sum(1 for row in s for v in row if v != 0)
         temp = self.temperature if stones < self.opening_moves else 0.0
 
-        mcts = MCTS(self.net, self.c_puct, self.num_sims, self.device,
-                    self.board_size)
-        counts = mcts.search(s, last_move)
+        counts = self.mcts.search(s, last_move)
         if counts is None:
             raise ValueError("没有合法动作可选择")
-        if temp <= 0:
-            return max(counts, key=counts.get)
-
-        # 候选筛选：只保留「访问次数 ≥ 最高次数 × candidate_ratio」的走法。
-        # 搜索已明确判定优劣时（如必须堵活三）就只剩正确手，不会被抽样换掉；
-        # 局面不明、多个走法势均力敌时才体现多样性。
-        best = max(counts.values())
-        actions = [a for a, n in counts.items()
-                   if n > 0 and n >= self.candidate_ratio * best]
-        if len(actions) <= 1:
-            return max(counts, key=counts.get)
-
-        # 按访问次数加权抽样：好点概率高，次优偶尔出现，坏点已被排除
-        weights = [counts[a] ** (1.0 / temp) for a in actions]
-        return self.rng.choices(actions, weights=weights)[0]
+        return sample_action(counts, temp, self.candidate_ratio, self.rng)
 
     def save(self, path):
         torch.save(self.net.state_dict(), path)

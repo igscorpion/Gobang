@@ -28,12 +28,14 @@ import torch.nn.functional as F
 import torch.optim as optim
 
 from rl.agents.alphazero import (AlphaZeroAgent, AlphaZeroNetwork, MCTS,
-                                 last_move_action, state_to_tensor4)
+                                 last_move_action, sample_action,
+                                 state_to_tensor4)
 from rl.agents.registry import create_agent
 from rl.environment.gomoku import BLACK, GomokuEnv
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODEL_PATH = PROJECT_ROOT / "rl" / "models" / "alphazero.pt"
+BEST_PATH = PROJECT_ROOT / "rl" / "models" / "alphazero_best.pt"
 META_PATH = PROJECT_ROOT / "rl" / "models" / "alphazero_meta.json"
 
 
@@ -114,11 +116,13 @@ def selfplay_game(net, device, board_size, num_sims, c_puct, temp):
     return augmented, winner
 
 
-def vs_opponent_game(net, device, board_size, num_sims, c_puct, temp, opponent):
+def vs_opponent_game(net, device, board_size, num_sims, c_puct, temp, opponent,
+                     opening_moves=6, candidate_ratio=0.1):
     """让 net（+MCTS）与固定对手对弈一局，只记录 net 自己的落子。
 
     随机决定 net 执黑还是执白，使网络同时获得「进攻」与「防守」两类局面，
     这正是纯自对弈所缺失的（同一个网络执双方时会一路对攻、不设防）。
+    net 的落子只在开局前 opening_moves 手内按温度抽样，之后一律走最优手。
 
     返回 (8 倍增强样本, 胜者)。
     """
@@ -135,15 +139,19 @@ def vs_opponent_game(net, device, board_size, num_sims, c_puct, temp, opponent):
             if counts is None:
                 break
 
-            # π ∝ N^(1/temp)
+            # π ∝ N^(1/temp)：作为策略目标，保留完整的访问分布
             action_size = board_size * board_size
             weights = [0.0] * action_size
             for a, n in counts.items():
                 weights[a] = n ** (1.0 / temp)
-            action = random.choices(range(action_size), weights=weights)[0]
-
             total = sum(weights)
             pi = [w / total for w in weights]
+
+            # 落子只在开局前 opening_moves 手内抽样：否则每一步都抽样，
+            # 那些「只被访问过一两次、等于没搜过」的走法也会被选中，拉低对局与样本质量
+            stones = sum(1 for row in board for v in row if v != 0)
+            play_temp = temp if stones < opening_moves else 0.0
+            action = sample_action(counts, play_temp, candidate_ratio)
             records.append(((board, last_move), pi, agent_color))
         else:
             # 对手回合不记录样本：网络要学的是自己的策略，不是模仿对手
@@ -236,8 +244,11 @@ def main():
     kl_targ = 0.02       # KL 目标：早停与学习率调节的依据
     buffer_capacity = 40000
     eval_every = 1000  # 每 1000 局评估一次（打印胜率）
+    eval_games = 10    # 每次评估每个对手打多少局（局数越多，"最佳"判断越可靠）
     save_every = 10    # 每 10 局保存一次检查点（单局耗时较长，缩短间隔以减少中断损失）
-    vs_greedy_ratio = 0.6  # 每局改为对战 greedy 的概率，其余为纯自对弈
+    vs_greedy_ratio = 0.6
+    opening_moves = 6      # 对战贪心：仅开局这些手内抽样，之后走最优手
+    candidate_ratio = 0.1  # 抽样候选下限：访问次数需达到最高次数的该比例  # 每局改为对战 greedy 的概率，其余为纯自对弈
     short_game_moves = 11  # 自对弈手数不超过此值即视为「短局」（坍塌时几乎全是短局）
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -256,15 +267,19 @@ def main():
         except Exception as exc:
             print(f"检查点与当前网络结构不兼容，改为从头训练（{exc}）")
 
-    # 历史累计局数（跨重启保持）
+    # 历史累计局数与历史最佳（跨重启保持）
     total_done = 0
+    best_greedy = -1.0
     if META_PATH.exists():
         try:
-            total_done = int(json.loads(META_PATH.read_text(encoding="utf-8")).get("total_games", 0))
+            meta = json.loads(META_PATH.read_text(encoding="utf-8"))
+            total_done = int(meta.get("total_games", 0))
+            best_greedy = float(meta.get("best_greedy", -1.0))
         except Exception:
-            total_done = 0
+            total_done, best_greedy = 0, -1.0
     if total_done:
-        print(f"历史累计已训练 {total_done} 局")
+        print(f"历史累计已训练 {total_done} 局"
+              + (f"，历史最佳对 greedy {best_greedy:.2f}" if best_greedy >= 0 else ""))
 
     mode = "无限训练（Ctrl+C 停止）" if games == 0 else f"{games} 局"
     print(f"AlphaZero-lite 训练 {mode}（device={device}, sims={num_sims}, "
@@ -288,7 +303,8 @@ def main():
             # 对战固定对手：制造自对弈中不会出现的攻防局面
             game_kind = "对贪心"
             data, winner, agent_color = vs_opponent_game(
-                net, device, board_size, num_sims, c_puct, 1.0, greedy_agent)
+                net, device, board_size, num_sims, c_puct, 1.0, greedy_agent,
+                opening_moves, candidate_ratio)
             vs_games += 1
             if winner == agent_color:
                 vs_wins += 1
@@ -345,7 +361,8 @@ def main():
             MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
             torch.save(net.state_dict(), str(MODEL_PATH))
             META_PATH.write_text(
-                json.dumps({"total_games": total_done + game}), encoding="utf-8")
+                json.dumps({"total_games": total_done + game,
+                            "best_greedy": round(best_greedy, 4)}), encoding="utf-8")
 
         # 表头只打一次；此后每行只输出数据。两个中文列放在末尾，
         # 前面的数字列按 ASCII 定宽，对齐不受中文双宽字符影响。
@@ -384,13 +401,24 @@ def main():
             agent = AlphaZeroAgent(board_size=board_size, num_sims=num_sims,
                                    device=device)
             agent.net.load_state_dict(net.state_dict())
-            wr_greedy = evaluate(agent, env, "greedy", games=5)
-            wr_random = evaluate(agent, env, "random", games=5)
+            wr_greedy = evaluate(agent, env, "greedy", games=eval_games)
+            wr_random = evaluate(agent, env, "random", games=eval_games)
             total = total_done + game
             played = draw_games + win_games
             draw_rate = draw_games / played if played else 0.0
+            # 只在更好时更新 best：避免低谷期的权重覆盖掉历史最佳
+            if wr_greedy > best_greedy:
+                best_greedy = wr_greedy
+                torch.save(net.state_dict(), str(BEST_PATH))
+                META_PATH.write_text(
+                    json.dumps({"total_games": total,
+                                "best_greedy": round(best_greedy, 4)}),
+                    encoding="utf-8")
+                mark = f"  ← 新最佳，已存 {BEST_PATH.name}"
+            else:
+                mark = ""
             print(f"  game {game:6d} (累计 {total:6d}) | vs greedy {wr_greedy:.2f} | "
-                  f"vs random {wr_random:.2f} | 和棋率 {draw_rate:.2f}", flush=True)
+                  f"vs random {wr_random:.2f} | 和棋率 {draw_rate:.2f}{mark}", flush=True)
             draw_games = 0
             win_games = 0
 
