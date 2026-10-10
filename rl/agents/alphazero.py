@@ -218,18 +218,25 @@ class MCTS:
 
 
 class AlphaZeroAgent(BaseAgent):
-    """用 MCTS + 网络选择动作；作为人机对战的 AI 或评估用 Agent。"""
+    """用 MCTS + 网络选择动作；作为人机对战的 AI 或评估用 Agent。
+
+    temperature = 0：取访问次数最大的点，行为完全确定（评测用，保证结果可复现）；
+    temperature > 0：仅在前 opening_moves 手按「访问次数 ^ (1/temperature)」抽样，
+    之后回到确定性最优手——既让每局开局各不相同，又不在关键处牺牲棋力。
+    """
 
     needs_last_move = True  # 输入含「对手上一步」，调用方需传 (棋盘, 上一步动作)
 
     def __init__(self, board_size=9, num_sims=50, c_puct=1.4,
-                 device=None, seed=None):
+                 device=None, seed=None, temperature=0.0, opening_moves=6):
         self.board_size = board_size
         self.num_sims = num_sims
         self.c_puct = c_puct
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
         self.net = AlphaZeroNetwork(board_size).to(self.device)
         self.rng = random.Random(seed)
+        self.temperature = temperature
+        self.opening_moves = opening_moves
 
     def select_action(self, state, legal_actions):
         # 兼容两种输入：纯棋盘，或 (棋盘, 对手上一步)
@@ -238,12 +245,23 @@ class AlphaZeroAgent(BaseAgent):
         else:
             board, last_move = state, None
         s = tuple(tuple(row) for row in board)
+
+        # 温度调度：只在前 opening_moves 手抽样，之后取最优手
+        stones = sum(1 for row in s for v in row if v != 0)
+        temp = self.temperature if stones < self.opening_moves else 0.0
+
         mcts = MCTS(self.net, self.c_puct, self.num_sims, self.device,
                     self.board_size)
         counts = mcts.search(s, last_move)
         if counts is None:
             raise ValueError("没有合法动作可选择")
-        return max(counts, key=counts.get)
+        if temp <= 0:
+            return max(counts, key=counts.get)
+
+        # 按访问次数加权抽样：好点概率高，次优偶尔出现，坏点几乎选不中
+        actions = list(counts)
+        weights = [counts[a] ** (1.0 / temp) for a in actions]
+        return self.rng.choices(actions, weights=weights)[0]
 
     def save(self, path):
         torch.save(self.net.state_dict(), path)

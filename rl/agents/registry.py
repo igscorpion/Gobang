@@ -6,6 +6,7 @@ Web 端即可按名称切换，无需改动 backend / frontend 的切换逻辑�
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 from rl.agents.greedy_agent import GreedyAgent
@@ -15,6 +16,11 @@ from rl.agents.q_learning import QLearningAgent
 # 项目根目录 = rl/agents 的上上级
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODELS_DIR = PROJECT_ROOT / "rl" / "models"
+
+# AlphaZero 对战时的抽样温度：0 = 每局完全确定；>0 = 前若干手按概率抽样，
+# 避免同一局面永远走同一步（可用环境变量 GOMOKU_AI_TEMP / GOMOKU_AI_OPENING 覆盖）。
+ALPHAZERO_TEMPERATURE = float(os.environ.get("GOMOKU_AI_TEMP", "1.0"))
+ALPHAZERO_OPENING_MOVES = int(os.environ.get("GOMOKU_AI_OPENING", "6"))
 
 
 def _make_random():
@@ -59,7 +65,10 @@ def _make_alphazero():
         raise ValueError("alphazero 需要 torch，请先执行 uv add torch")
     from rl.agents.alphazero import AlphaZeroAgent  # 延迟导入
 
-    agent = AlphaZeroAgent(num_sims=400)  # 服务端搜索次数（CPU 上约 1~2s/步）
+    # 搜索次数（CPU 上约 1~2s/步）；温度 >0 时仅开局抽样，之后仍走最优手
+    agent = AlphaZeroAgent(num_sims=400,
+                           temperature=ALPHAZERO_TEMPERATURE,
+                           opening_moves=ALPHAZERO_OPENING_MOVES)
     model = MODELS_DIR / "alphazero.pt"
     if model.exists():
         try:
