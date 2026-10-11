@@ -1,4 +1,4 @@
-const API_BASE = "http://127.0.0.1:8000";
+const API_BASE = `http://127.0.0.1:${import.meta.env.VITE_API_PORT || "8000"}`;
 
 async function request(path, options = {}) {
   const response = await fetch(`${API_BASE}${path}`, {
@@ -35,5 +35,20 @@ export function playMove(row, col) {
   return request("/game/move", {
     method: "POST",
     body: JSON.stringify({ row, col }),
+  });
+}
+
+export function aiMove() {
+  return request("/game/ai_move", { method: "POST" });
+}
+
+export function listAgents() {
+  return request("/game/agents", { method: "GET" });
+}
+
+export function setAgent(name) {
+  return request("/game/agent", {
+    method: "POST",
+    body: JSON.stringify({ name }),
   });
 }

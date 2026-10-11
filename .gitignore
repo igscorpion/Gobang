@@ -16,6 +16,12 @@ build/
 node_modules/
 web/frontend/dist/
 
+# uv cache
+.uv-cache/
+
+# references
+references/
+
 # Environment and secrets
 .env
 .env.*

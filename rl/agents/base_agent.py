@@ -8,10 +8,15 @@ from __future__ import annotations
 
 
 class BaseAgent:
+    # 为 True 表示该 Agent 除棋盘外还需要「对手上一步」，
+    # 此时调用方传入的 state 应为 (棋盘, 上一步动作)。
+    needs_last_move = False
+
     def select_action(self, state, legal_actions):
         """根据当前状态从合法动作中选择一个动作。
 
-        state: 相对当前玩家的棋盘（1 自己，-1 对手，0 空）
+        state: 相对当前玩家的棋盘（1 自己，-1 对手，0 空）；
+               若 needs_last_move 为 True，则为 (棋盘, 对手上一步动作)
         legal_actions: 可落子位置列表，动作为 row * board_size + col
         """
         raise NotImplementedError

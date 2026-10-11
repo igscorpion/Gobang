@@ -1,0 +1,453 @@
+"""AlphaZero-lite 训练。
+
+对局混合两种来源：纯自对弈，以及与 greedy 对战（后者提供网络自身难以遇到的防守局面）。
+用 MCTS 产生 (棋盘, 访问概率 π, 胜负 z) 样本，训练双头网络：
+    loss = 交叉熵(policy, π) + MSE(value, z) + L2 正则
+每次更新在同一个 mini-batch 上训练若干轮，并按策略 KL 散度早停、自适应调节学习率。
+训练后保存到 rl/models/alphazero.pt，并周期性对 greedy / random 评估。
+
+用法（项目根目录，需要装有 torch 的 Python，本机用系统 Python 3.11 + GPU）：
+    py -3.11 -m rl.training.train_alphazero [games] [num_sims]
+    games=0（默认）表示无限训练（Ctrl+C 停止）；给定 N 则训练 N 局后停止。
+
+每 10 局保存一次检查点（单局耗时较长，缩短间隔以减少中断损失）、每 1000 局评估一次；
+再次运行自动从检查点续训。
+"""
+
+from __future__ import annotations
+
+import collections
+import copy
+import json
+import random
+import sys
+import time
+from pathlib import Path
+
+import torch
+import torch.nn.functional as F
+import torch.optim as optim
+
+from rl.agents.alphazero import (AlphaZeroAgent, AlphaZeroNetwork, MCTS,
+                                 last_move_action, sample_action,
+                                 state_to_tensor4)
+from rl.agents.registry import create_agent
+from rl.environment.gomoku import BLACK, GomokuEnv
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+MODEL_PATH = PROJECT_ROOT / "rl" / "models" / "alphazero.pt"
+BEST_PATH = PROJECT_ROOT / "rl" / "models" / "alphazero_best.pt"
+META_PATH = PROJECT_ROOT / "rl" / "models" / "alphazero_meta.json"
+
+
+def _board_transforms(size):
+    """正方形的 8 个对称变换（D4 群）：每个是 (r, c) -> (r', c')。"""
+    n = size - 1
+    return [
+        lambda r, c: (r, c),
+        lambda r, c: (c, n - r),
+        lambda r, c: (n - r, n - c),
+        lambda r, c: (n - c, r),
+        lambda r, c: (r, n - c),
+        lambda r, c: (n - r, c),
+        lambda r, c: (c, r),
+        lambda r, c: (n - c, n - r),
+    ]
+
+
+def _augment_record(state, pi, z, size):
+    """把一个 (state, pi, z) 扩成 8 个旋转/镜像等价样本。
+
+    state = (棋盘, 对手上一步)，棋盘与「上一步」都要做同一变换。
+    """
+    board, last_move = state
+    out = []
+    for f in _board_transforms(size):
+        new_board = [[0] * size for _ in range(size)]
+        new_pi = [0.0] * (size * size)
+        for r in range(size):
+            for c in range(size):
+                nr, nc = f(r, c)
+                new_board[nr][nc] = board[r][c]
+                new_pi[nr * size + nc] = pi[r * size + c]
+        new_last = None
+        if last_move is not None:
+            lr_, lc_ = divmod(last_move, size)
+            nlr, nlc = f(lr_, lc_)
+            new_last = nlr * size + nlc
+        out.append(((tuple(tuple(row) for row in new_board), new_last), new_pi, z))
+    return out
+
+
+def selfplay_game(net, device, board_size, num_sims, c_puct, temp):
+    """自对弈一局，返回 8 倍增强后的 [(state, pi, z), ...]。"""
+    env = GomokuEnv()
+    mcts = MCTS(net, c_puct, num_sims, device, board_size, add_noise=True)
+    records = []
+    state = env.reset()
+    last_move = None
+    while True:
+        board = tuple(tuple(row) for row in state)
+        counts = mcts.search(board, last_move)
+        if counts is None:
+            break
+
+        # π ∝ N^(1/temp)
+        action_size = board_size * board_size
+        weights = [0.0] * action_size
+        for a, n in counts.items():
+            weights[a] = n ** (1.0 / temp)
+        action = random.choices(range(action_size), weights=weights)[0]
+
+        total = sum(weights)
+        pi = [w / total for w in weights]
+        records.append(((board, last_move), pi, env.current_player))
+
+        state, _, done = env.step(action)
+        last_move = action
+        if done:
+            break
+
+    winner = env.winner
+    samples = [(s, pi, float(winner * player)) for (s, pi, player) in records]
+    # 8 倍数据增强（旋转 + 镜像），显著提升有限算力下的样本量
+    augmented = []
+    for s, pi, z in samples:
+        augmented.extend(_augment_record(s, pi, z, board_size))
+    return augmented, winner
+
+
+def vs_opponent_game(net, device, board_size, num_sims, c_puct, temp, opponent,
+                     opening_moves=6, candidate_ratio=0.1):
+    """让 net（+MCTS）与固定对手对弈一局，只记录 net 自己的落子。
+
+    随机决定 net 执黑还是执白，使网络同时获得「进攻」与「防守」两类局面，
+    这正是纯自对弈所缺失的（同一个网络执双方时会一路对攻、不设防）。
+    net 的落子只在开局前 opening_moves 手内按温度抽样，之后一律走最优手。
+
+    返回 (8 倍增强样本, 胜者)。
+    """
+    env = GomokuEnv()
+    mcts = MCTS(net, c_puct, num_sims, device, board_size, add_noise=True)
+    agent_color = random.choice((BLACK, -BLACK))
+    records = []
+    state = env.reset()
+    last_move = None
+    while True:
+        if env.current_player == agent_color:
+            board = tuple(tuple(row) for row in state)
+            counts = mcts.search(board, last_move)
+            if counts is None:
+                break
+
+            # π ∝ N^(1/temp)：作为策略目标，保留完整的访问分布
+            action_size = board_size * board_size
+            weights = [0.0] * action_size
+            for a, n in counts.items():
+                weights[a] = n ** (1.0 / temp)
+            total = sum(weights)
+            pi = [w / total for w in weights]
+
+            # 落子只在开局前 opening_moves 手内抽样：否则每一步都抽样，
+            # 那些「只被访问过一两次、等于没搜过」的走法也会被选中，拉低对局与样本质量
+            stones = sum(1 for row in board for v in row if v != 0)
+            play_temp = temp if stones < opening_moves else 0.0
+            action = sample_action(counts, play_temp, candidate_ratio)
+            records.append(((board, last_move), pi, agent_color))
+        else:
+            # 对手回合不记录样本：网络要学的是自己的策略，不是模仿对手
+            action = opponent.select_action(env.get_state(),
+                                            env.get_legal_actions())
+
+        state, _, done = env.step(action)
+        last_move = action
+        if done:
+            break
+
+    winner = env.winner
+    samples = [(s, pi, float(winner * player)) for (s, pi, player) in records]
+    augmented = []
+    for s, pi, z in samples:
+        augmented.extend(_augment_record(s, pi, z, board_size))
+    return augmented, winner, agent_color
+
+
+L2_CONST = 1e-4  # L2 正则系数（与参考实现一致）
+
+
+def _batch_tensor(batch, device, board_size):
+    return torch.stack([state_to_tensor4(s, board_size)
+                        for s, _, _ in batch]).to(device)
+
+
+def _policy_probs(net, xs):
+    """批量计算策略概率，用于 KL 监控。"""
+    with torch.no_grad():
+        logits, _ = net(xs)
+        return torch.softmax(logits, dim=1)
+
+
+def train_step(net, optimizer, batch, device, board_size, lr):
+    xs = _batch_tensor(batch, device, board_size)
+    pi_t = torch.tensor([pi for _, pi, _ in batch],
+                        dtype=torch.float32).to(device)
+    z_t = torch.tensor([z for _, _, z in batch],
+                       dtype=torch.float32).to(device).unsqueeze(1)
+
+    logits, v = net(xs)
+    log_p = torch.log_softmax(logits, dim=1)
+    policy_loss = -(pi_t * log_p).sum(dim=1).mean()
+    value_loss = F.mse_loss(v, z_t)
+    l2 = sum(p.pow(2).sum() for p in net.parameters())
+    loss = policy_loss + value_loss + L2_CONST * l2
+
+    for group in optimizer.param_groups:  # 学习率由外部按 KL 自适应调节
+        group["lr"] = lr
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+    return policy_loss.item(), value_loss.item()
+
+
+def evaluate(agent, env, opponent_name, games, agent_color=BLACK):
+    """与对手对弈 games 局，返回 (胜率, 和率, 负率)。
+
+    和棋指棋盘填满且无人成五。五子棋先手优势明显，和棋对执黑 / 执白含义不同，
+    因此与败局分开统计，避免混为一个「非胜」。
+    """
+    opponent = create_agent(opponent_name)
+    wins = 0
+    draws = 0
+    for _ in range(games):
+        state = env.reset()
+        done = False
+        while not done:
+            legal = env.get_legal_actions()
+            if env.current_player == agent_color:
+                payload = state
+                if agent.needs_last_move:
+                    # AlphaZero 需要「对手上一步」，一并传入
+                    payload = (state, last_move_action(env.last_move, env.board_size))
+                action = agent.select_action(payload, legal)
+            else:
+                action = opponent.select_action(state, legal)
+            state, _reward, done = env.step(action)
+        if env.winner == agent_color:
+            wins += 1
+        elif env.winner == env.EMPTY:
+            draws += 1
+    return wins / games, draws / games, (games - wins - draws) / games
+
+
+def main():
+    # games=0 表示无限训练（默认，Ctrl+C 停止）；给定 N 则训练 N 局后停止
+    games = int(sys.argv[1]) if len(sys.argv) > 1 else 0
+    num_sims = int(sys.argv[2]) if len(sys.argv) > 2 else 100
+
+    board_size = 9
+    c_puct = 1.4
+    lr = 2e-3          # 基准学习率
+    lr_multiplier = 1.0  # 按 KL 自适应调节的倍率
+    lr_decay_games = 2000  # 基础学习率每累计这么多局减半，帮助后期收敛
+    ema_decay = 0.999      # 权重滑动平均的衰减系数，越大越平滑
+    batch_size = 512
+    train_epochs = 5     # 每次更新在同一个 mini-batch 上训练几轮
+    kl_targ = 0.02       # KL 目标：早停与学习率调节的依据
+    buffer_capacity = 40000
+    eval_every = 1000  # 每 1000 局评估一次（打印胜率）
+    eval_games = 10    # 每次评估每个对手打多少局（局数越多，"最佳"判断越可靠）
+    save_every = 10    # 每 10 局保存一次检查点（单局耗时较长，缩短间隔以减少中断损失）
+    vs_greedy_ratio = 0.6
+    opening_moves = 6      # 对战贪心：仅开局这些手内抽样，之后走最优手
+    candidate_ratio = 0.1  # 抽样候选下限：访问次数需达到最高次数的该比例  # 每局改为对战 greedy 的概率，其余为纯自对弈
+    short_game_moves = 11  # 自对弈手数不超过此值即视为「短局」（坍塌时几乎全是短局）
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    env = GomokuEnv()
+    # 混合对手：一部分对局改打 greedy，为网络提供「必须防守」的局面
+    greedy_agent = create_agent("greedy") if vs_greedy_ratio > 0 else None
+    net = AlphaZeroNetwork(board_size).to(device)
+    optimizer = optim.Adam(net.parameters(), lr=lr)
+    buffer = collections.deque(maxlen=buffer_capacity)
+
+    # 断点续训：存在检查点就直接从检查点继续
+    if MODEL_PATH.exists():
+        try:
+            net.load_state_dict(torch.load(MODEL_PATH, map_location=device))
+            print(f"从检查点继续: {MODEL_PATH.relative_to(PROJECT_ROOT)}")
+        except Exception as exc:
+            print(f"检查点与当前网络结构不兼容，改为从头训练（{exc}）")
+
+    # 权重的指数滑动平均（EMA）：训练仍用原始权重，而评估、保存与 best 存档一律用 EMA。
+    # 训练后期权重常在好点附近来回摆动，平均值更平滑、通常也更稳更强。
+    ema_net = copy.deepcopy(net)
+    for p in ema_net.parameters():
+        p.requires_grad_(False)
+
+    # 历史累计局数与历史最佳（跨重启保持）
+    total_done = 0
+    best_greedy = -1.0
+    if META_PATH.exists():
+        try:
+            meta = json.loads(META_PATH.read_text(encoding="utf-8"))
+            total_done = int(meta.get("total_games", 0))
+            best_greedy = float(meta.get("best_greedy", -1.0))
+        except Exception:
+            total_done, best_greedy = 0, -1.0
+    if total_done:
+        print(f"历史累计已训练 {total_done} 局"
+              + (f"，历史最佳对 greedy {best_greedy:.2f}" if best_greedy >= 0 else ""))
+
+    mode = "无限训练（Ctrl+C 停止）" if games == 0 else f"{games} 局"
+    print(f"AlphaZero-lite 训练 {mode}（device={device}, sims={num_sims}, "
+          f"对战 greedy 占比={vs_greedy_ratio}）...")
+    game = 0
+    loss_sum = 0.0
+    policy_loss_sum = 0.0
+    value_loss_sum = 0.0
+    loss_count = 0
+    draw_games = 0
+    win_games = 0
+    vs_games = 0  # 对战 greedy：整个运行期间累计的局数与胜局
+    vs_wins = 0
+    sp_lengths = []  # 自对弈：本次打印区间内各局手数
+    sp_moves = 0
+    sp_short = 0     # 其中「短局」的局数
+    last_time = time.perf_counter()  # 供「本局耗时」单独计时
+    while games == 0 or game < games:
+        game += 1
+        if greedy_agent is not None and random.random() < vs_greedy_ratio:
+            # 对战固定对手：制造自对弈中不会出现的攻防局面
+            game_kind = "对贪心"
+            data, winner, agent_color = vs_opponent_game(
+                net, device, board_size, num_sims, c_puct, 1.0, greedy_agent,
+                opening_moves, candidate_ratio)
+            vs_games += 1
+            if winner == agent_color:
+                vs_wins += 1
+                game_result = "胜"
+            elif winner == 0:
+                game_result = "和"
+            else:
+                game_result = "负"
+        else:
+            game_kind = "自对弈"
+            game_result = "－"  # 自对弈是网络对网络，胜负不具意义；用全角横杠与中文列同宽
+            data, winner = selfplay_game(net, device, board_size, num_sims,
+                                         c_puct, 1.0)
+            # 自对弈手数偏长说明攻防趋于均衡；持续偏短则可能是自对弈坍塌
+            length = len(data) // 8
+            sp_lengths.append(length)
+            sp_moves += length
+            if length <= short_game_moves:
+                sp_short += 1
+        buffer.extend(data)
+        if winner == 0:
+            draw_games += 1
+        else:
+            win_games += 1
+
+        # 基础学习率随累计局数逐步衰减，帮助收敛（KL 自适应仍在其之上调节）
+        lr_now = lr * (0.5 ** ((total_done + game) // lr_decay_games))
+
+        kl = 0.0
+        if len(buffer) >= batch_size:
+            batch = random.sample(buffer, batch_size)
+            xs = _batch_tensor(batch, device, board_size)
+            old_probs = _policy_probs(net, xs)
+            for _ in range(train_epochs):
+                p_loss, v_loss = train_step(net, optimizer, batch, device,
+                                            board_size, lr_now * lr_multiplier)
+                with torch.no_grad():  # EMA 跟随原始权重
+                    for ep, p in zip(ema_net.parameters(), net.parameters()):
+                        ep.mul_(ema_decay).add_(p, alpha=1.0 - ema_decay)
+                new_probs = _policy_probs(net, xs)
+                kl = torch.mean(torch.sum(
+                    old_probs * (torch.log(old_probs + 1e-10)
+                                 - torch.log(new_probs + 1e-10)), dim=1)).item()
+                if kl > kl_targ * 4:  # 偏离过大，提前停止
+                    break
+
+            # 按 KL 自适应调节学习率（与参考实现一致）
+            if kl > kl_targ * 2 and lr_multiplier > 0.1:
+                lr_multiplier /= 1.5
+            elif kl < kl_targ / 2 and lr_multiplier < 10:
+                lr_multiplier *= 1.5
+
+            loss_sum += p_loss + v_loss
+            policy_loss_sum += p_loss
+            value_loss_sum += v_loss
+            loss_count += 1
+
+        saved = game % save_every == 0
+        if saved:
+            MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+            torch.save(ema_net.state_dict(), str(MODEL_PATH))
+            META_PATH.write_text(
+                json.dumps({"total_games": total_done + game,
+                            "best_greedy": round(best_greedy, 4)}), encoding="utf-8")
+
+        # 表头只打一次；此后每行只输出数据。两个中文列放在末尾，
+        # 前面的数字列按 ASCII 定宽，对齐不受中文双宽字符影响。
+        if game == 1:
+            print(f"  {'局数':>4} {'累计':>6} {'用时':>5} {'loss':>8} "
+                  f"{'policy':>8} {'value':>8} {'lr':>9} {'KL':>6} "
+                  f"{'类型':<5} {'结果':<2} {'状态':<5}", flush=True)
+
+        n = max(loss_count, 1)
+        now = time.perf_counter()
+        game_sec = now - last_time
+        last_time = now
+        print(f"  {game:6d} {total_done + game:8d} {game_sec:6.1f}s "
+              f"{loss_sum / n:8.4f} {policy_loss_sum / n:8.4f} "
+              f"{value_loss_sum / n:8.4f} {lr_now * lr_multiplier:9.1e} "
+              f"{kl:6.3f} {game_kind:<4} {game_result:<3} "
+              f"{'已保存' if saved else '进行中':<4}", flush=True)
+        loss_sum = 0.0
+        policy_loss_sum = 0.0
+        value_loss_sum = 0.0
+        loss_count = 0
+
+        if saved:
+            # 健康指标：自对弈各局手数（坍塌时又短又齐）、对 greedy 累计胜率
+            n_sp = len(sp_lengths)
+            sp_avg = sp_moves / n_sp if n_sp else 0.0
+            vs_wr = vs_wins / vs_games if vs_games else 0.0
+            print(f"      自对弈 {sp_lengths} 均长 {sp_avg:.1f}，"
+                  f"短局(≤{short_game_moves}手) {sp_short}/{n_sp} | "
+                  f"对 greedy 累计 {vs_wins}/{vs_games} = {vs_wr:.2f}", flush=True)
+            sp_lengths = []
+            sp_moves = 0
+            sp_short = 0
+
+        # 按「累计局数」触发评估：若只按本次运行的局数，频繁重启将永远等不到评估
+        if (total_done + game) % eval_every == 0:
+            agent = AlphaZeroAgent(board_size=board_size, num_sims=num_sims,
+                                   device=device)
+            agent.net.load_state_dict(ema_net.state_dict())
+            wr_greedy, dr_greedy, _ = evaluate(agent, env, "greedy",
+                                               games=eval_games)
+            wr_random, _, _ = evaluate(agent, env, "random", games=eval_games)
+            total = total_done + game
+            played = draw_games + win_games
+            draw_rate = draw_games / played if played else 0.0
+            # 只在更好时更新 best：避免低谷期的权重覆盖掉历史最佳
+            if wr_greedy > best_greedy:
+                best_greedy = wr_greedy
+                torch.save(ema_net.state_dict(), str(BEST_PATH))
+                META_PATH.write_text(
+                    json.dumps({"total_games": total,
+                                "best_greedy": round(best_greedy, 4)}),
+                    encoding="utf-8")
+                mark = f"  ← 新最佳，已存 {BEST_PATH.name}"
+            else:
+                mark = ""
+            print(f"  game {game:6d} (累计 {total:6d}) | vs greedy 胜 {wr_greedy:.2f} / "
+                  f"和 {dr_greedy:.2f} | vs random {wr_random:.2f} | "
+                  f"训练局和棋率 {draw_rate:.2f}{mark}", flush=True)
+            draw_games = 0
+            win_games = 0
+
+
+if __name__ == "__main__":
+    main()
