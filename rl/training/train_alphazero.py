@@ -397,7 +397,8 @@ def main():
             sp_moves = 0
             sp_short = 0
 
-        if game % eval_every == 0:
+        # 按「累计局数」触发评估：若只按本次运行的局数，频繁重启将永远等不到评估
+        if (total_done + game) % eval_every == 0:
             agent = AlphaZeroAgent(board_size=board_size, num_sims=num_sims,
                                    device=device)
             agent.net.load_state_dict(net.state_dict())
