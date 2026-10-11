@@ -352,7 +352,7 @@ py -3.11 -m rl.evaluation.eval_alphazero [games] [num_sims] [pure_playouts]
 
 `games` 为每个颜色的对局数（默认 20），`num_sims` 为每步模拟次数（默认 400），
 `pure_playouts` 大于 0 时额外对纯 MCTS 打同样局数。
-注意局数偏少时结果波动较大，10~20 局不足以判定 0.1 量级的差异（详见 [rl/README.md](rl/README.md)）。
+注意局数偏少时结果波动较大，10–20 局不足以判定 0.1 量级的差异（详见 [rl/README.md](rl/README.md)）。
 
 ### 运行后端
 
