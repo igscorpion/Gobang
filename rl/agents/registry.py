@@ -40,10 +40,12 @@ def _make_mcts_pure():
     """纯 MCTS（UCT + 随机模拟），不依赖训练产物，作为「无神经网络的搜索基线」。
 
     延迟导入：mcts_pure 复用 alphazero 里的棋盘工具函数，而后者会导入 torch。
+    模拟次数由 GOMOKU_AI_PURE_PLAYOUTS 控制（默认 1000），便于逐级抬高基准强度。
     """
     from rl.agents.mcts_pure import PureMCTSAgent  # 延迟导入
 
-    return PureMCTSAgent(num_playouts=1000)
+    return PureMCTSAgent(
+        num_playouts=int(os.environ.get("GOMOKU_AI_PURE_PLAYOUTS", "1000")))
 
 
 def _make_q_learning():

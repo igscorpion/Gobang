@@ -266,7 +266,8 @@ class MCTS:
 class AlphaZeroAgent(BaseAgent):
     """用 MCTS + 网络选择动作；作为人机对战的 AI 或评估用 Agent。
 
-    temperature = 0：取访问次数最大的点，行为完全确定（评测用，保证结果可复现）；
+    temperature = 0：取访问次数最大的点，行为确定（评测用；注意 GPU 浮点非确定性仍会让
+    接近的走法选择发生变化，同一检查点的重复测量并不逐局一致）；
     temperature > 0：仅在前 opening_moves 手抽样，之后回到确定性最优手。
     抽样只在「访问次数达到最高次数 candidate_ratio 倍」的走法中进行——搜索已明确
     判定的强制手（如必须堵活三）不会被换掉，局面不明时仍保留多样性。
