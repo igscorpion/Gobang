@@ -11,7 +11,7 @@ rl/                         强化学习核心（可脱离 Web 独立运行）
 ├── environment/            9x9 五子棋 Environment
 ├── agents/                 BaseAgent + Random / Greedy / QLearning / DQN / AlphaZero + registry
 ├── training/               训练脚本：train.py（通用循环）、train_dqn.py、train_alphazero.py
-├── evaluation/             胜率统计框架
+├── evaluation/             评估：通用胜率框架 + AlphaZero 专项评估（eval_alphazero.py）
 └── models/                 训练产物：权重、检查点、累计局数元数据
 
 web/                        展示层
@@ -343,6 +343,16 @@ Windows 下也可直接双击项目根目录的 `训练AlphaZero.bat` / `训练D
 cd /path/to/Gobang
 uv run python -m rl.evaluation.evaluate
 ```
+
+AlphaZero 专项评估（对 greedy 分执黑 / 执白统计胜 / 和 / 负，并给出自对弈手数分布）：
+
+```bash
+py -3.11 -m rl.evaluation.eval_alphazero [games] [num_sims] [pure_playouts]
+```
+
+`games` 为每个颜色的对局数（默认 20），`num_sims` 为每步模拟次数（默认 400），
+`pure_playouts` 大于 0 时额外对纯 MCTS 打同样局数。
+注意局数偏少时结果波动较大，10~20 局不足以判定 0.1 量级的差异（详见 [rl/README.md](rl/README.md)）。
 
 ### 运行后端
 

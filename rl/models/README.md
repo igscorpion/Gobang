@@ -4,8 +4,9 @@
 
 ```text
 rl/models/
-├── alphazero.pt            AlphaZero 检查点（当前版本，4 通道输入）
-├── alphazero_meta.json     AlphaZero 累计训练局数
+├── alphazero.pt            AlphaZero 检查点（权重的指数滑动平均，供对战与评估使用）
+├── alphazero_meta.json     AlphaZero 累计训练局数与历史最佳成绩
+├── alphazero_best.pt       AlphaZero 历史最佳，只在对 greedy 胜率创新高时写入
 ├── dqn.pt                  DQN 权重
 ├── dqn_meta.json           DQN 累计训练局数
 ├── q_learning.json         线性 Q-Learning 权重
