@@ -17,6 +17,7 @@
 from __future__ import annotations
 
 import collections
+import copy
 import json
 import random
 import sys
@@ -209,8 +210,14 @@ def train_step(net, optimizer, batch, device, board_size, lr):
 
 
 def evaluate(agent, env, opponent_name, games, agent_color=BLACK):
+    """与对手对弈 games 局，返回 (胜率, 和率, 负率)。
+
+    和棋指棋盘填满且无人成五。五子棋先手优势明显，和棋对执黑 / 执白含义不同，
+    因此与败局分开统计，避免混为一个「非胜」。
+    """
     opponent = create_agent(opponent_name)
     wins = 0
+    draws = 0
     for _ in range(games):
         state = env.reset()
         done = False
@@ -227,7 +234,9 @@ def evaluate(agent, env, opponent_name, games, agent_color=BLACK):
             state, _reward, done = env.step(action)
         if env.winner == agent_color:
             wins += 1
-    return wins / games
+        elif env.winner == env.EMPTY:
+            draws += 1
+    return wins / games, draws / games, (games - wins - draws) / games
 
 
 def main():
@@ -239,6 +248,8 @@ def main():
     c_puct = 1.4
     lr = 2e-3          # 基准学习率
     lr_multiplier = 1.0  # 按 KL 自适应调节的倍率
+    lr_decay_games = 2000  # 基础学习率每累计这么多局减半，帮助后期收敛
+    ema_decay = 0.999      # 权重滑动平均的衰减系数，越大越平滑
     batch_size = 512
     train_epochs = 5     # 每次更新在同一个 mini-batch 上训练几轮
     kl_targ = 0.02       # KL 目标：早停与学习率调节的依据
@@ -266,6 +277,12 @@ def main():
             print(f"从检查点继续: {MODEL_PATH.relative_to(PROJECT_ROOT)}")
         except Exception as exc:
             print(f"检查点与当前网络结构不兼容，改为从头训练（{exc}）")
+
+    # 权重的指数滑动平均（EMA）：训练仍用原始权重，而评估、保存与 best 存档一律用 EMA。
+    # 训练后期权重常在好点附近来回摆动，平均值更平滑、通常也更稳更强。
+    ema_net = copy.deepcopy(net)
+    for p in ema_net.parameters():
+        p.requires_grad_(False)
 
     # 历史累计局数与历史最佳（跨重启保持）
     total_done = 0
@@ -330,6 +347,9 @@ def main():
         else:
             win_games += 1
 
+        # 基础学习率随累计局数逐步衰减，帮助收敛（KL 自适应仍在其之上调节）
+        lr_now = lr * (0.5 ** ((total_done + game) // lr_decay_games))
+
         kl = 0.0
         if len(buffer) >= batch_size:
             batch = random.sample(buffer, batch_size)
@@ -337,7 +357,10 @@ def main():
             old_probs = _policy_probs(net, xs)
             for _ in range(train_epochs):
                 p_loss, v_loss = train_step(net, optimizer, batch, device,
-                                            board_size, lr * lr_multiplier)
+                                            board_size, lr_now * lr_multiplier)
+                with torch.no_grad():  # EMA 跟随原始权重
+                    for ep, p in zip(ema_net.parameters(), net.parameters()):
+                        ep.mul_(ema_decay).add_(p, alpha=1.0 - ema_decay)
                 new_probs = _policy_probs(net, xs)
                 kl = torch.mean(torch.sum(
                     old_probs * (torch.log(old_probs + 1e-10)
@@ -359,7 +382,7 @@ def main():
         saved = game % save_every == 0
         if saved:
             MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-            torch.save(net.state_dict(), str(MODEL_PATH))
+            torch.save(ema_net.state_dict(), str(MODEL_PATH))
             META_PATH.write_text(
                 json.dumps({"total_games": total_done + game,
                             "best_greedy": round(best_greedy, 4)}), encoding="utf-8")
@@ -377,7 +400,7 @@ def main():
         last_time = now
         print(f"  {game:6d} {total_done + game:8d} {game_sec:6.1f}s "
               f"{loss_sum / n:8.4f} {policy_loss_sum / n:8.4f} "
-              f"{value_loss_sum / n:8.4f} {lr * lr_multiplier:9.1e} "
+              f"{value_loss_sum / n:8.4f} {lr_now * lr_multiplier:9.1e} "
               f"{kl:6.3f} {game_kind:<4} {game_result:<3} "
               f"{'已保存' if saved else '进行中':<4}", flush=True)
         loss_sum = 0.0
@@ -401,16 +424,17 @@ def main():
         if (total_done + game) % eval_every == 0:
             agent = AlphaZeroAgent(board_size=board_size, num_sims=num_sims,
                                    device=device)
-            agent.net.load_state_dict(net.state_dict())
-            wr_greedy = evaluate(agent, env, "greedy", games=eval_games)
-            wr_random = evaluate(agent, env, "random", games=eval_games)
+            agent.net.load_state_dict(ema_net.state_dict())
+            wr_greedy, dr_greedy, _ = evaluate(agent, env, "greedy",
+                                               games=eval_games)
+            wr_random, _, _ = evaluate(agent, env, "random", games=eval_games)
             total = total_done + game
             played = draw_games + win_games
             draw_rate = draw_games / played if played else 0.0
             # 只在更好时更新 best：避免低谷期的权重覆盖掉历史最佳
             if wr_greedy > best_greedy:
                 best_greedy = wr_greedy
-                torch.save(net.state_dict(), str(BEST_PATH))
+                torch.save(ema_net.state_dict(), str(BEST_PATH))
                 META_PATH.write_text(
                     json.dumps({"total_games": total,
                                 "best_greedy": round(best_greedy, 4)}),
@@ -418,8 +442,9 @@ def main():
                 mark = f"  ← 新最佳，已存 {BEST_PATH.name}"
             else:
                 mark = ""
-            print(f"  game {game:6d} (累计 {total:6d}) | vs greedy {wr_greedy:.2f} | "
-                  f"vs random {wr_random:.2f} | 和棋率 {draw_rate:.2f}{mark}", flush=True)
+            print(f"  game {game:6d} (累计 {total:6d}) | vs greedy 胜 {wr_greedy:.2f} / "
+                  f"和 {dr_greedy:.2f} | vs random {wr_random:.2f} | "
+                  f"训练局和棋率 {draw_rate:.2f}{mark}", flush=True)
             draw_games = 0
             win_games = 0
 
