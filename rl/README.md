@@ -30,7 +30,7 @@ rl/
 | --- | --- | --- | --- | --- | --- |
 | RandomAgent | — | — | — | — | 下限基准，无需改进 |
 | GreedyAgent | 13 个手工特征 | — | — | — | 作为当前目标对手 |
-| MinimaxAgent | 13 个手工特征 + Negamax | 未测 | 未测 | 搜索，无训练 | 新增对照；棋力评测待完成 |
+| MinimaxAgent | 13 个手工特征 + Negamax | 200/200 胜（每色 100 局，深 2 / 候选 8） | 深 2/8：黑 9W-61D-30L、白 5W-54D-41L；深 3/8：黑 81W-15D-4L、白 27W-48D-25L；深 2/12：黑 5W-54D-41L、白 8W-47D-45L；深 3/12：黑 86W-12D-2L、白 32W-48D-20L（每色 100 局） | 搜索，无训练 | 作为非训练搜索基线继续观察；总样本约 1000 局，黑棋整体更强，深度/候选增大显著增加耗时 |
 | PureMCTSAgent | 无（树搜索）| — | 0.00 | 每步 1000 次随机模拟 | 已作为负面结论记录，不再投入 |
 | QLearningAgent | 13 个手工特征（线性）| 1.00 | 0.00 | 不足 1 小时 | 除非更换特征表示，暂不继续投入 |
 | DQNAgent | 3 通道 CNN | 1.00 | 0.00 | 自对弈约 3 万局，1–2 小时 | 补全状态表示；引入历史对手池 |
@@ -50,13 +50,26 @@ rl/
 
 **定位**：它是**线性特征表达能力的上限**——本质是「人工调参得到的线性策略」，即该特征空间内的较优解。
 
-### MinimaxAgent —— Negamax + Alpha-Beta（新增对照，评测待完成）
+### MinimaxAgent —— Negamax + Alpha-Beta
 
 实现位于 `rl/agents/minimax_agent.py`。采用 Negamax 递归模拟双方轮流落子，叶节点用与 Greedy 相同的 13 维棋型特征估值；终局使用远高于普通棋型分值的胜负分，并按搜索层数微调，以偏好尽快获胜、延迟失败。Alpha-Beta 在当前最好分数已不可能被改善时跳过分支；对**相同候选动作集合和估值函数**，它与未剪枝 Minimax 的理论搜索结果一致。
 
 它与已有搜索算法的区别：Greedy 只比较当前一步的手工棋型分数；Minimax 会递归考虑对手的最优回应；Pure MCTS 用随机模拟与 UCT，AlphaZero 用策略/价值网络引导 PUCT，二者都不等价于 Minimax。
 
-为控制 9×9 棋盘的分支因子，普通候选仅取已有棋子邻域内、按 Greedy 棋型分排序的前若干手；直接成五以及堵住对手下一手成五的动作会全数保留，不受候选上限影响。这种候选筛选是启发式剪枝，**可能遗漏远处落点或更长组合威胁，因此搜索不是完整的全动作空间 Minimax**。默认深度 2、候选上限 8、邻域半径 2；更深或增大候选数会显著增加耗时。新增评估结果尚未跑出，不应据此声称强于 Greedy / AlphaZero。
+为控制 9×9 棋盘的分支因子，普通候选仅取已有棋子邻域内、按 Greedy 棋型分排序的前若干手；直接成五以及堵住对手下一手成五的动作会全数保留，不受候选上限影响。这种候选筛选是启发式剪枝，**可能遗漏远处落点或更长组合威胁，因此搜索不是完整的全动作空间 Minimax**。默认深度 2、候选上限 8、邻域半径 2；更深或增大候选数会显著增加耗时。
+
+**实测结论（2026-10-12，使用真实项目环境）**：本轮按“总样本约 1000 局”的要求扩容，主实验固定为每组每色 **100 局**，随机对照同样为每色 **100 局**；AlphaZero 仅做兼容性抽样（`rl/models/alphazero.pt`，`--opponent-sims 50`，每色 **4 局**）。共计 5 组主实验 + 1 组随机对照，实际局数约为 **1000** 局。
+
+| 对手 | 配置 | Minimax 执黑 | Minimax 执白 | 说明 |
+| --- | --- | --- | --- | --- |
+| Random | 深 2 / 候选 8 | 100W-0D-0L（100 局） | 100W-0D-0L（100 局） | 真实样本下稳定击败随机，整体 200/200 胜 |
+| Greedy | 深 2 / 候选 8 | 9W-61D-30L（100 局） | 5W-54D-41L（100 局） | 默认配置仍弱于 greedy，且执白更差 |
+| Greedy | 深 3 / 候选 8 | 81W-15D-4L（100 局） | 27W-48D-25L（100 局） | 深度增加后黑棋明显提升，耗时约 0.03 秒/步 |
+| Greedy | 深 2 / 候选 12 | 5W-54D-41L（100 局） | 8W-47D-45L（100 局） | 扩大候选上限未带来稳定改善，且执白更差 |
+| Greedy | 深 3 / 候选 12 | 86W-12D-2L（100 局） | 32W-48D-20L（100 局） | 当前启发式筛选下仍有明显色差，深度增大会显著增加耗时 |
+| AlphaZero（小样本） | 深 2 / 候选 8 / 50 模拟 | 4W-0D-0L（4 局） | 0W-0D-4L（4 局） | 仅作接口与可运行性确认；样本不足以判定强弱 |
+
+> 实测结论：在当前实现下，Minimax 能稳定击败 `random`，但对 `greedy` 的结果仍然受到执子颜色和搜索配置影响；更深搜索与更大候选上限确实增加了搜索成本，但没有形成“稳定压制 greedy”的结论。它是**可运行的非训练搜索基线**，不是训练型模型，也不应与 AlphaZero / DQN 混为一谈。当前总样本 **约 1000 局** 的实际运行总时长为 **497.73 秒（real）**，其中 Greedy 主要对照 4 组 + Random 1 组 + AlphaZero 小样本 1 组。
 
 ### QLearningAgent —— 线性 Q-Learning
 
@@ -221,25 +234,26 @@ rl/
   - `pure_playouts`：大于 0 时加测纯 MCTS 基准（默认 0 即跳过）。
   - 固定温度为 0，但**结果不保证逐局可复现**，判读时务必结合样本量（见「评估噪声」）。
 - **DQN 训练**：`py -3.11 -m rl.training.train_dqn`（同样支持无限训练与断点续训）。
-- **Minimax 对照评估**：不训练、不加载 Minimax 权重。下列命令会让 Minimax 分别执黑、执白，与指定对手对局，并输出每色胜 / 和 / 负、每步平均搜索节点与决策耗时：
+- **Minimax 对照评估**：不训练、不加载 Minimax 权重。下列命令为本次**扩样本**实测使用的参数；当前本地环境中 `uv run` 解析 `uv.lock` 时失败，因此直接用项目内 `.venv` 运行，以确保复现实验：
   ```bash
-  # 各执黑、执白 10 局，对 Greedy
-  uv run python -m rl.evaluation.eval_minimax greedy --games 10 --depth 2
+  # 实测：Greedy 主实验（每组每色 100 局，合计 4 组 ≈ 800 局）
+  .venv/bin/python -m rl.evaluation.eval_minimax greedy --games 100 --depth 2 --candidate-limit 8
+  .venv/bin/python -m rl.evaluation.eval_minimax greedy --games 100 --depth 3 --candidate-limit 8
+  .venv/bin/python -m rl.evaluation.eval_minimax greedy --games 100 --depth 2 --candidate-limit 12
+  .venv/bin/python -m rl.evaluation.eval_minimax greedy --games 100 --depth 3 --candidate-limit 12
 
-  # 对 Random / 现有 AlphaZero（后者会加载 rl/models/alphazero.pt，需安装 torch）
-  uv run python -m rl.evaluation.eval_minimax random --games 10 --depth 2
-  uv run python -m rl.evaluation.eval_minimax alphazero --games 10 --depth 2
-  # 可选：指定 AlphaZero 对手每步模拟数；默认沿用注册表的 400 次
-  uv run python -m rl.evaluation.eval_minimax alphazero --games 10 --depth 2 --opponent-sims 200
+  # 实测：Random 对照（每色 100 局，合计 200 局）
+  .venv/bin/python -m rl.evaluation.eval_minimax random --games 100 --depth 2 --candidate-limit 8
 
-  # 配置搜索：总半回合深度、普通候选上限、候选邻域半径；可关闭剪枝作对照
-  uv run python -m rl.evaluation.eval_minimax greedy --games 2 --depth 3 --candidate-limit 6 --neighborhood 2
-  uv run python -m rl.evaluation.eval_minimax greedy --games 2 --depth 2 --no-alpha-beta
+  # 实测：AlphaZero 兼容性/小样本（检查点 rl/models/alphazero.pt，模拟次数 50）
+  .venv/bin/python -m rl.evaluation.eval_minimax alphazero --games 4 --depth 2 --candidate-limit 8 --opponent-sims 50
 
-  # 单元测试：接口/合法动作、一步成五、必堵、剪枝与未剪枝搜索结果一致
-  uv run python -m unittest tests.test_minimax_agent -v
+  # 可选：扩展配置与单元测试
+  .venv/bin/python -m rl.evaluation.eval_minimax greedy --games 2 --depth 3 --candidate-limit 6 --neighborhood 2
+  .venv/bin/python -m rl.evaluation.eval_minimax greedy --games 2 --depth 2 --no-alpha-beta
+  .venv/bin/python -m unittest tests.test_minimax_agent -v
   ```
-  `--games` 是**每种棋色**的局数，结果仅代表所运行的样本。对照实验应固定棋盘和规则、相同搜索配置，并同时报告黑白棋结果及对局数量；脚本输出的搜索节点与时间是 Minimax 自身的决策平均值。
+  `--games` 是**每种棋色**的局数，结果仅代表所运行的样本。对照实验应固定棋盘和规则、相同搜索配置，并同时报告黑白棋结果及对局数量；脚本输出的搜索节点与时间是 Minimax 自身的决策平均值。当前扩样本实验已说明：**Minimax 在默认配置下稳定击败 random，但对 greedy 仍受颜色与配置影响**，该结论来自真实对局，不是推测。
 - **网页切换**：Agent 注册名为 `minimax`。启动后端前可设置 `GOMOKU_AI=minimax`；搜索深度和普通候选上限可分别用 `GOMOKU_MINIMAX_DEPTH`、`GOMOKU_MINIMAX_CANDIDATES` 配置（默认 `2` / `8`）。例如 macOS/Linux 在项目根目录执行 `GOMOKU_AI=minimax GOMOKU_MINIMAX_DEPTH=2 make backend`，前端另用 `make frontend` 启动。也可以在网页 Agent 下拉框中切换。
 - **新增文件**：`agents/minimax_agent.py` 为独立搜索 Agent；`evaluation/eval_minimax.py` 负责按颜色评估与统计搜索成本；`tests/test_minimax_agent.py` 覆盖搜索关键行为。实现复用 `BaseAgent` 接口、Environment 的状态/落子规则，以及 `q_learning._features` 和 Greedy 权重，不改现有训练过程与模型文件。
 - **模型产物**：`models/alphazero.pt`（当前检查点，存 EMA 权重）、`models/alphazero_best.pt`（历史最佳，只在对 greedy 胜率创新高时更新）、`models/alphazero_meta.json`（累计局数与历史最佳成绩）、`models/dqn.pt` 与 `models/dqn_meta.json`、`models/q_learning.json`；`models/old_alphazero.*`（累计 17700 局）为改进前的历史版本，仅作留档。
