@@ -7,9 +7,9 @@
 ```text
 rl/
 ├── environment/   9×9 五子棋环境（gomoku.py）
-├── agents/        AI 实现：BaseAgent / Random / Greedy / PureMCTS / QLearning / DQN / AlphaZero + registry
+├── agents/        AI 实现：BaseAgent / Random / Greedy / Minimax / PureMCTS / QLearning / DQN / AlphaZero + registry
 ├── training/      训练脚本：train.py（通用循环）、train_dqn.py、train_alphazero.py
-├── evaluation/    评估：evaluate.py（通用框架）、eval_alphazero.py（AlphaZero 检查点评估）
+├── evaluation/    评估：evaluate.py（通用框架）、eval_alphazero.py、eval_minimax.py（专项评估）
 ├── models/        训练产物：权重、检查点、累计局数元数据
 └── demo_qlearning.py   Q-Learning 训练/评估演示
 ```
@@ -30,6 +30,7 @@ rl/
 | --- | --- | --- | --- | --- | --- |
 | RandomAgent | — | — | — | — | 下限基准，无需改进 |
 | GreedyAgent | 13 个手工特征 | — | — | — | 作为当前目标对手 |
+| MinimaxAgent | 13 个手工特征 + Negamax | 未测 | 未测 | 搜索，无训练 | 新增对照；棋力评测待完成 |
 | PureMCTSAgent | 无（树搜索）| — | 0.00 | 每步 1000 次随机模拟 | 已作为负面结论记录，不再投入 |
 | QLearningAgent | 13 个手工特征（线性）| 1.00 | 0.00 | 不足 1 小时 | 除非更换特征表示，暂不继续投入 |
 | DQNAgent | 3 通道 CNN | 1.00 | 0.00 | 自对弈约 3 万局，1–2 小时 | 补全状态表示；引入历史对手池 |
@@ -48,6 +49,14 @@ rl/
 以 13 个手工特征（成五 / 活四 / 冲四 / 活三 / 眠三 / 活二，以及对手的对应威胁）加权打分选择落子，兼具进攻与防守。
 
 **定位**：它是**线性特征表达能力的上限**——本质是「人工调参得到的线性策略」，即该特征空间内的较优解。
+
+### MinimaxAgent —— Negamax + Alpha-Beta（新增对照，评测待完成）
+
+实现位于 `rl/agents/minimax_agent.py`。采用 Negamax 递归模拟双方轮流落子，叶节点用与 Greedy 相同的 13 维棋型特征估值；终局使用远高于普通棋型分值的胜负分，并按搜索层数微调，以偏好尽快获胜、延迟失败。Alpha-Beta 在当前最好分数已不可能被改善时跳过分支；对**相同候选动作集合和估值函数**，它与未剪枝 Minimax 的理论搜索结果一致。
+
+它与已有搜索算法的区别：Greedy 只比较当前一步的手工棋型分数；Minimax 会递归考虑对手的最优回应；Pure MCTS 用随机模拟与 UCT，AlphaZero 用策略/价值网络引导 PUCT，二者都不等价于 Minimax。
+
+为控制 9×9 棋盘的分支因子，普通候选仅取已有棋子邻域内、按 Greedy 棋型分排序的前若干手；直接成五以及堵住对手下一手成五的动作会全数保留，不受候选上限影响。这种候选筛选是启发式剪枝，**可能遗漏远处落点或更长组合威胁，因此搜索不是完整的全动作空间 Minimax**。默认深度 2、候选上限 8、邻域半径 2；更深或增大候选数会显著增加耗时。新增评估结果尚未跑出，不应据此声称强于 Greedy / AlphaZero。
 
 ### QLearningAgent —— 线性 Q-Learning
 
@@ -212,4 +221,25 @@ rl/
   - `pure_playouts`：大于 0 时加测纯 MCTS 基准（默认 0 即跳过）。
   - 固定温度为 0，但**结果不保证逐局可复现**，判读时务必结合样本量（见「评估噪声」）。
 - **DQN 训练**：`py -3.11 -m rl.training.train_dqn`（同样支持无限训练与断点续训）。
+- **Minimax 对照评估**：不训练、不加载 Minimax 权重。下列命令会让 Minimax 分别执黑、执白，与指定对手对局，并输出每色胜 / 和 / 负、每步平均搜索节点与决策耗时：
+  ```bash
+  # 各执黑、执白 10 局，对 Greedy
+  uv run python -m rl.evaluation.eval_minimax greedy --games 10 --depth 2
+
+  # 对 Random / 现有 AlphaZero（后者会加载 rl/models/alphazero.pt，需安装 torch）
+  uv run python -m rl.evaluation.eval_minimax random --games 10 --depth 2
+  uv run python -m rl.evaluation.eval_minimax alphazero --games 10 --depth 2
+  # 可选：指定 AlphaZero 对手每步模拟数；默认沿用注册表的 400 次
+  uv run python -m rl.evaluation.eval_minimax alphazero --games 10 --depth 2 --opponent-sims 200
+
+  # 配置搜索：总半回合深度、普通候选上限、候选邻域半径；可关闭剪枝作对照
+  uv run python -m rl.evaluation.eval_minimax greedy --games 2 --depth 3 --candidate-limit 6 --neighborhood 2
+  uv run python -m rl.evaluation.eval_minimax greedy --games 2 --depth 2 --no-alpha-beta
+
+  # 单元测试：接口/合法动作、一步成五、必堵、剪枝与未剪枝搜索结果一致
+  uv run python -m unittest tests.test_minimax_agent -v
+  ```
+  `--games` 是**每种棋色**的局数，结果仅代表所运行的样本。对照实验应固定棋盘和规则、相同搜索配置，并同时报告黑白棋结果及对局数量；脚本输出的搜索节点与时间是 Minimax 自身的决策平均值。
+- **网页切换**：Agent 注册名为 `minimax`。启动后端前可设置 `GOMOKU_AI=minimax`；搜索深度和普通候选上限可分别用 `GOMOKU_MINIMAX_DEPTH`、`GOMOKU_MINIMAX_CANDIDATES` 配置（默认 `2` / `8`）。例如 macOS/Linux 在项目根目录执行 `GOMOKU_AI=minimax GOMOKU_MINIMAX_DEPTH=2 make backend`，前端另用 `make frontend` 启动。也可以在网页 Agent 下拉框中切换。
+- **新增文件**：`agents/minimax_agent.py` 为独立搜索 Agent；`evaluation/eval_minimax.py` 负责按颜色评估与统计搜索成本；`tests/test_minimax_agent.py` 覆盖搜索关键行为。实现复用 `BaseAgent` 接口、Environment 的状态/落子规则，以及 `q_learning._features` 和 Greedy 权重，不改现有训练过程与模型文件。
 - **模型产物**：`models/alphazero.pt`（当前检查点，存 EMA 权重）、`models/alphazero_best.pt`（历史最佳，只在对 greedy 胜率创新高时更新）、`models/alphazero_meta.json`（累计局数与历史最佳成绩）、`models/dqn.pt` 与 `models/dqn_meta.json`、`models/q_learning.json`；`models/old_alphazero.*`（累计 17700 局）为改进前的历史版本，仅作留档。

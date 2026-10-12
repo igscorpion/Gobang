@@ -2,14 +2,14 @@
 
 本项目是一个以强化学习为核心的五子棋课程项目，包含 **9×9 五子棋环境、多种 Agent、训练与评估脚本**，以及 **Vue + FastAPI** 人机对战 Demo。
 
-已实现的具体算法：**线性 Q-Learning、DQN、AlphaZero-lite**；另含 `GreedyAgent`（手工贪心启发式）与 `RandomAgent`（随机落子）两个基准。网页对战时可通过下拉框切换所用 Agent。各算法的实现要点、实验结果与当前状态见 [rl/README.md](rl/README.md)。
+已实现的具体算法：**线性 Q-Learning、DQN、AlphaZero-lite、Minimax + Alpha-Beta**；另含 `GreedyAgent`（手工贪心启发式）、`PureMCTSAgent` 与 `RandomAgent` 等对照。网页对战时可通过下拉框切换所用 Agent。各算法的实现要点、实验结果与当前状态见 [rl/README.md](rl/README.md)。
 
 ## 项目架构
 
 ```text
 rl/                         强化学习核心（可脱离 Web 独立运行）
 ├── environment/            9x9 五子棋 Environment
-├── agents/                 BaseAgent + Random / Greedy / QLearning / DQN / AlphaZero + registry
+├── agents/                 BaseAgent + Random / Greedy / Minimax / QLearning / DQN / AlphaZero + registry
 ├── training/               训练脚本：train.py（通用循环）、train_dqn.py、train_alphazero.py
 ├── evaluation/             评估：通用胜率框架 + AlphaZero 专项评估（eval_alphazero.py）
 └── models/                 训练产物：权重、检查点、累计局数元数据
@@ -70,7 +70,7 @@ http://127.0.0.1:5173
 这是一个前后端分离的强化学习应用。前端负责界面与交互，后端则是一个 Python 程序，提供 HTTP API、加载强化学习参数、执行推理和状态更新。这个项目的核心重点不是“直接把所有逻辑写进网页”，而是把“训练逻辑”和“部署逻辑”分开。
 
 - 前端：负责绘制 9x9 棋盘、处理点击事件、展示回合状态和胜负结果。
-- 后端：在 `web/backend/main.py` 里启动 FastAPI 服务，调用 `rl.environment.gomoku` 中的棋盘逻辑，并通过 `rl/agents/registry.py` 选择所用 Agent（默认 `q_learning`，可用环境变量 `GOMOKU_AI` 指定）。
+- 后端：在 `web/backend/main.py` 里启动 FastAPI 服务，调用 `rl.environment.gomoku` 中的棋盘逻辑，并通过 `rl/agents/registry.py` 选择所用 Agent（默认 `greedy`，可用环境变量 `GOMOKU_AI` 指定）。
 - 强化学习部分：在 `rl/` 目录里定义环境、Agent、训练和评估框架。
 
 真正的部署/演示场景里，通常不需要重头训练模型。一般做法是：先用训练脚本产出模型参数文件，再在后端启动时加载这些参数；前端只负责调用接口，展示结果。也就是说，训练和部署是两件事：
@@ -107,6 +107,22 @@ http://127.0.0.1:5173
 ```
 
 启动顺序一般是：先启动后端 Python 程序，再启动前端；如果只是改页面样式或交互，不一定要重新训练。只有在更换算法、更新权重文件、改训练逻辑时，才需要重新评估“是否需要重新训练”。
+
+## Minimax 对照 Agent
+
+新增的 `MinimaxAgent` 在 [rl/agents/minimax_agent.py](rl/agents/minimax_agent.py) 中实现 Negamax 与 Alpha-Beta 剪枝，不需要训练或模型文件。它复用 Greedy 的手工棋型特征作叶节点估值，并递归模拟双方后续落子；普通候选动作使用邻域与数量上限筛选，因此不是全动作空间上的完备搜索。直接获胜点和阻止对手下一手获胜的点不受候选上限截断。算法细节、参数、测试与对照命令见 [rl/README.md](rl/README.md)。
+
+```bash
+# Minimax 分别执黑、执白对 Random，每种颜色 2 局
+uv run python -m rl.evaluation.eval_minimax random --games 2 --depth 2
+
+# 与 Greedy 或已保存的 AlphaZero 检查点对照
+uv run python -m rl.evaluation.eval_minimax greedy --games 10 --depth 2
+uv run python -m rl.evaluation.eval_minimax alphazero --games 10 --depth 2
+
+# 核心规则、Alpha-Beta 一致性与接口测试
+uv run python -m unittest tests.test_minimax_agent -v
+```
 
 ### 常见问题
 

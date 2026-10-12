@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 
 from rl.agents.greedy_agent import GreedyAgent
+from rl.agents.minimax_agent import MinimaxAgent
 from rl.agents.random_agent import RandomAgent
 from rl.agents.q_learning import QLearningAgent
 
@@ -34,6 +35,14 @@ def _make_random():
 def _make_greedy():
     """贪心启发式，会进攻与防守，作为更强的基准 / 训练对手。"""
     return GreedyAgent()
+
+
+def _make_minimax():
+    """Negamax + Alpha-Beta 搜索；深度与分支上限可由环境变量配置。"""
+    return MinimaxAgent(
+        depth=int(os.environ.get("GOMOKU_MINIMAX_DEPTH", "2")),
+        candidate_limit=int(os.environ.get("GOMOKU_MINIMAX_CANDIDATES", "8")),
+    )
 
 
 def _make_mcts_pure():
@@ -98,6 +107,7 @@ def _make_alphazero():
 REGISTRY = {
     "random": _make_random,
     "greedy": _make_greedy,
+    "minimax": _make_minimax,
     "mcts_pure": _make_mcts_pure,
     "q_learning": _make_q_learning,
     "dqn": _make_dqn,
