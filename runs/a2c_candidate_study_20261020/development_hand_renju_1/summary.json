@@ -1,0 +1,18 @@
+{
+  "mode": "development",
+  "ranking": "hand",
+  "rules": "renju",
+  "color": 1,
+  "games": 40,
+  "wins": 15,
+  "draws": 18,
+  "losses": 7,
+  "win_rate": 0.375,
+  "score": 0.6,
+  "wilson_95": [
+    0.2422277353579172,
+    0.529678399454681
+  ],
+  "mean_inference_ms": 86.63581585154859,
+  "base_seed": 3300000
+}

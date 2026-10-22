@@ -1,0 +1,1648 @@
+{
+  "format": "a2c_explicit_frozen_final_queue_v1",
+  "manifest_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json",
+  "manifest_sha256": "4d0d0acc5a49fa604d1d773b5730ea352c08b77f935dfda592d83017f8721c7a",
+  "sources": {
+    "rl/evaluation/a2c_research_final_suite.py": "65975832487c33e80d5be82e200bfb19f4ea0b119f135e631e9c4badc6d0b406",
+    "rl/training/a2c_research_suite.py": "6dd61c71e4a4a170c550d3686ef3af44f61adb17c1a88d141f0d56eced65228f",
+    "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+    "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+    "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+    "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+    "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+    "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+    "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+    "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+    "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+    "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+    "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+    "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+    "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+    "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+    "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b",
+    "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+    "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+    "rl/agents/alphazero.py": "3750b94b5101f3b1063b6903cb4f0e7622a17bc80afc42430bb265fad0987b05"
+  },
+  "jobs": [
+    {
+      "name": "residual_seed11_guarded_freestyle_greedy",
+      "identity_index": 0,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      }
+    },
+    {
+      "name": "residual_seed11_guarded_freestyle_random",
+      "identity_index": 1,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      }
+    },
+    {
+      "name": "residual_seed11_guarded_renju_greedy",
+      "identity_index": 2,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      }
+    },
+    {
+      "name": "residual_seed11_guarded_renju_random",
+      "identity_index": 3,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      }
+    },
+    {
+      "name": "residual_seed11_policy_freestyle_greedy",
+      "identity_index": 4,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      }
+    },
+    {
+      "name": "residual_seed11_policy_freestyle_random",
+      "identity_index": 5,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      }
+    },
+    {
+      "name": "residual_seed11_policy_renju_greedy",
+      "identity_index": 6,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      }
+    },
+    {
+      "name": "residual_seed11_policy_renju_random",
+      "identity_index": 7,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      }
+    },
+    {
+      "name": "residual_seed22_guarded_freestyle_greedy",
+      "identity_index": 8,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train/candidates/episode_015000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      }
+    },
+    {
+      "name": "residual_seed22_guarded_freestyle_random",
+      "identity_index": 9,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train/candidates/episode_015000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      }
+    },
+    {
+      "name": "residual_seed22_guarded_renju_greedy",
+      "identity_index": 10,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train/candidates/episode_015000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      }
+    },
+    {
+      "name": "residual_seed22_guarded_renju_random",
+      "identity_index": 11,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train/candidates/episode_015000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      }
+    },
+    {
+      "name": "residual_seed22_policy_freestyle_greedy",
+      "identity_index": 12,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train/candidates/episode_015000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      }
+    },
+    {
+      "name": "residual_seed22_policy_freestyle_random",
+      "identity_index": 13,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train/candidates/episode_015000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      }
+    },
+    {
+      "name": "residual_seed22_policy_renju_greedy",
+      "identity_index": 14,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train/candidates/episode_015000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      }
+    },
+    {
+      "name": "residual_seed22_policy_renju_random",
+      "identity_index": 15,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train/candidates/episode_015000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      }
+    },
+    {
+      "name": "residual_seed33_guarded_freestyle_greedy",
+      "identity_index": 16,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/candidates/episode_025000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      }
+    },
+    {
+      "name": "residual_seed33_guarded_freestyle_random",
+      "identity_index": 17,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/candidates/episode_025000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      }
+    },
+    {
+      "name": "residual_seed33_guarded_renju_greedy",
+      "identity_index": 18,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/candidates/episode_025000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      }
+    },
+    {
+      "name": "residual_seed33_guarded_renju_random",
+      "identity_index": 19,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/candidates/episode_025000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      }
+    },
+    {
+      "name": "residual_seed33_policy_freestyle_greedy",
+      "identity_index": 20,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/candidates/episode_025000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      }
+    },
+    {
+      "name": "residual_seed33_policy_freestyle_random",
+      "identity_index": 21,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/candidates/episode_025000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      }
+    },
+    {
+      "name": "residual_seed33_policy_renju_greedy",
+      "identity_index": 22,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/candidates/episode_025000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      }
+    },
+    {
+      "name": "residual_seed33_policy_renju_random",
+      "identity_index": 23,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/candidates/episode_025000.pt",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      }
+    },
+    {
+      "name": "flat_seed22_guarded_freestyle_greedy",
+      "identity_index": 24,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/flat_tactical10_seed22/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "flat_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/flat_tactical10_seed22/train",
+        "training_protocol_sha256": "a747e624f437f027b775c07ec28da28fa2f89fa93eca44d1f0f31a316c9efc55",
+        "checkpoint_sha256": "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1"
+      }
+    },
+    {
+      "name": "flat_seed22_guarded_renju_greedy",
+      "identity_index": 25,
+      "checkpoint": "runs/a2c_research_20261020/confirmation/flat_tactical10_seed22/train/candidates/episode_030000.pt",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "flat_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/flat_tactical10_seed22/train",
+        "training_protocol_sha256": "a747e624f437f027b775c07ec28da28fa2f89fa93eca44d1f0f31a316c9efc55",
+        "checkpoint_sha256": "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1"
+      }
+    },
+    {
+      "name": "original_a2c4_tactical_freestyle_greedy",
+      "identity_index": 26,
+      "checkpoint": "runs/production/a2c4_seed22/best.pt",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "original_a2c4_tactical_seed22",
+        "training_seed": 22,
+        "training_run": "runs/production/a2c4_seed22",
+        "training_protocol_sha256": "ae15a86b9dfc7d909f208d85587036c34de79d2e397188f8ccde7c6fe0c4f299",
+        "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2"
+      }
+    },
+    {
+      "name": "original_a2c4_tactical_renju_greedy",
+      "identity_index": 27,
+      "checkpoint": "runs/production/a2c4_seed22/best.pt",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "original_a2c4_tactical_seed22",
+        "training_seed": 22,
+        "training_run": "runs/production/a2c4_seed22",
+        "training_protocol_sha256": "ae15a86b9dfc7d909f208d85587036c34de79d2e397188f8ccde7c6fe0c4f299",
+        "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2"
+      }
+    },
+    {
+      "name": "alphazero_width128_alphazero_freestyle_greedy",
+      "identity_index": 28,
+      "checkpoint": "runs/production/az_width128_fixed/best.pt",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "alphazero_width128_400",
+        "training_seed": 11,
+        "training_run": "runs/production/az_width128_fixed",
+        "training_protocol_sha256": "0b96d341f66ab1138df6e46c1ca886528e2edbbf4cdf596001f833722cc825c3",
+        "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf"
+      }
+    },
+    {
+      "name": "alphazero_width128_alphazero_renju_greedy",
+      "identity_index": 29,
+      "checkpoint": "runs/production/az_width128_fixed/best.pt",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "alphazero_width128_400",
+        "training_seed": 11,
+        "training_run": "runs/production/az_width128_fixed",
+        "training_protocol_sha256": "0b96d341f66ab1138df6e46c1ca886528e2edbbf4cdf596001f833722cc825c3",
+        "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf"
+      }
+    },
+    {
+      "name": "minimax_depth2_minimax_freestyle_greedy",
+      "identity_index": 30,
+      "checkpoint": null,
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "minimax_depth2_candidates8",
+        "training_seed": null,
+        "training_run": null,
+        "training_protocol_sha256": null,
+        "checkpoint_sha256": null
+      }
+    },
+    {
+      "name": "minimax_depth2_minimax_renju_greedy",
+      "identity_index": 31,
+      "checkpoint": null,
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "minimax_depth2_candidates8",
+        "training_seed": null,
+        "training_run": null,
+        "training_protocol_sha256": null,
+        "checkpoint_sha256": null
+      }
+    }
+  ],
+  "provenance": {
+    "residual_seed11_guarded_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+          "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed11_guarded_freestyle_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+          "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed11_guarded_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+          "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed11_guarded_renju_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+          "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed11_policy_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+          "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed11_policy_freestyle_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+          "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed11_policy_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+          "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed11_policy_renju_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 11,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train",
+        "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+          "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed22_guarded_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed22_guarded_freestyle_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed22_guarded_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed22_guarded_renju_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed22_policy_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed22_policy_freestyle_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed22_policy_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed22_policy_renju_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed22/train",
+        "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+        "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed33_guarded_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+          "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed33_guarded_freestyle_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+          "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed33_guarded_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+          "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed33_guarded_renju_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+          "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed33_policy_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+          "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed33_policy_freestyle_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+          "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed33_policy_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+          "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "residual_seed33_policy_renju_random": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "context": {
+        "role": "candidate",
+        "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 33,
+        "training_run": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train",
+        "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+        "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+          "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "flat_seed22_guarded_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "flat_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/flat_tactical10_seed22/train",
+        "training_protocol_sha256": "a747e624f437f027b775c07ec28da28fa2f89fa93eca44d1f0f31a316c9efc55",
+        "checkpoint_sha256": "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "b3fef35d5c708fedee88e3dbca95dae69ecaba07159a8e5aaff430b1dfd72572",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "6f1fc49b7a113ff89b3cb1af91addffb38695d500093f03690b915773e9c2ffc"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "flat_seed22_guarded_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "flat_tactical10_ce20_a2c_ce01_dev_selected",
+        "training_seed": 22,
+        "training_run": "runs/a2c_research_20261020/confirmation/flat_tactical10_seed22/train",
+        "training_protocol_sha256": "a747e624f437f027b775c07ec28da28fa2f89fa93eca44d1f0f31a316c9efc55",
+        "checkpoint_sha256": "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train\\protocol.json",
+      "legacy_config": false,
+      "companion_sha256": "b3fef35d5c708fedee88e3dbca95dae69ecaba07159a8e5aaff430b1dfd72572",
+      "companion_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train\\candidates\\episode_030000.checkpoint",
+      "lineage": {
+        "initial_model": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "6f1fc49b7a113ff89b3cb1af91addffb38695d500093f03690b915773e9c2ffc"
+        },
+        "dataset": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+          "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+        }
+      },
+      "training_sources": {
+        "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+        "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+        "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+        "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+        "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+        "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+        "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+        "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+        "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+        "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+        "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+        "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+      },
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": true
+    },
+    "original_a2c4_tactical_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22\\best.pt",
+      "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "original_a2c4_tactical_seed22",
+        "training_seed": 22,
+        "training_run": "runs/production/a2c4_seed22",
+        "training_protocol_sha256": "ae15a86b9dfc7d909f208d85587036c34de79d2e397188f8ccde7c6fe0c4f299",
+        "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22\\config.json",
+      "legacy_config": true,
+      "companion_sha256": null,
+      "companion_path": null,
+      "lineage": {},
+      "training_sources": {},
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": null
+    },
+    "original_a2c4_tactical_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22\\best.pt",
+      "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "original_a2c4_tactical_seed22",
+        "training_seed": 22,
+        "training_run": "runs/production/a2c4_seed22",
+        "training_protocol_sha256": "ae15a86b9dfc7d909f208d85587036c34de79d2e397188f8ccde7c6fe0c4f299",
+        "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22\\config.json",
+      "legacy_config": true,
+      "companion_sha256": null,
+      "companion_path": null,
+      "lineage": {},
+      "training_sources": {},
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": null
+    },
+    "alphazero_width128_alphazero_freestyle_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\best.pt",
+      "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "alphazero_width128_400",
+        "training_seed": 11,
+        "training_run": "runs/production/az_width128_fixed",
+        "training_protocol_sha256": "0b96d341f66ab1138df6e46c1ca886528e2edbbf4cdf596001f833722cc825c3",
+        "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\config.json",
+      "legacy_config": true,
+      "companion_sha256": null,
+      "companion_path": null,
+      "lineage": {},
+      "training_sources": {},
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": null
+    },
+    "alphazero_width128_alphazero_renju_greedy": {
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\best.pt",
+      "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf",
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "alphazero_width128_400",
+        "training_seed": 11,
+        "training_run": "runs/production/az_width128_fixed",
+        "training_protocol_sha256": "0b96d341f66ab1138df6e46c1ca886528e2edbbf4cdf596001f833722cc825c3",
+        "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf"
+      },
+      "training_protocol": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\config.json",
+      "legacy_config": true,
+      "companion_sha256": null,
+      "companion_path": null,
+      "lineage": {},
+      "training_sources": {},
+      "training_completion_verified": true,
+      "selected_has_A2C_updates": null
+    },
+    "minimax_depth2_minimax_freestyle_greedy": {
+      "checkpoint": null,
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "minimax_depth2_candidates8",
+        "training_seed": null,
+        "training_run": null,
+        "training_protocol_sha256": null,
+        "checkpoint_sha256": null
+      },
+      "training_completion_verified": true
+    },
+    "minimax_depth2_minimax_renju_greedy": {
+      "checkpoint": null,
+      "context": {
+        "role": "contextual_reference",
+        "recipe": "minimax_depth2_candidates8",
+        "training_seed": null,
+        "training_run": null,
+        "training_protocol_sha256": null,
+        "checkpoint_sha256": null
+      },
+      "training_completion_verified": true
+    }
+  },
+  "scope": "Explicit frozen evaluation only; no selection, tuning or automatic freeze",
+  "workers": 2,
+  "max_attempts": 3,
+  "model_selection_allowed": false,
+  "automatic_freezing_allowed": false
+}

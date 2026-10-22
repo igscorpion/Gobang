@@ -1,0 +1,5869 @@
+{
+  "format": "a2c_expert_demonstrations_v1",
+  "sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+  "protocol": {
+    "format": "a2c_parallel_expert_generator_v1",
+    "source": "fresh_generated_expert_games",
+    "config": {
+      "teacher_checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\best.pt",
+      "simulations": 400,
+      "c_puct": 1.4,
+      "device": "cpu",
+      "rules": "freestyle",
+      "train_games": 512,
+      "validation_games": 64,
+      "train_seed": 5000000,
+      "validation_seed": 5100000,
+      "random_opening": 6,
+      "teacher_probability": 0.8,
+      "greedy_probability": 0.1,
+      "random_probability": 0.1,
+      "workers": 4,
+      "sims": 400
+    },
+    "sources": {
+      "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+      "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+      "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+      "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+      "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+      "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+      "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+      "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+      "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+      "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+      "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+      "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+      "rl/agents/alphazero.py": "3750b94b5101f3b1063b6903cb4f0e7622a17bc80afc42430bb265fad0987b05",
+      "rl/agents/base_agent.py": "491e18208d3b2a4b503c980268ca370a7dabd1a8527fefbf0f94b7264c44161e",
+      "rl/training/a2c_expert_dataset.py": "83b43962d1a17d6c14e94bfe77662f011c2afdfd3eb1eaf948f378ed72c169ba"
+    },
+    "expert": {
+      "kind": "alphazero_mcts",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\best.pt",
+      "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf",
+      "channels": [
+        64,
+        64,
+        128
+      ],
+      "input_channels": 4,
+      "num_simulations": 400,
+      "c_puct": 1.4,
+      "temperature": 0.0,
+      "opening_moves": 6,
+      "candidate_ratio": 0.1,
+      "root_dirichlet_noise": false,
+      "noise_eps_inactive": 0.25,
+      "noise_alpha_inactive": 0.3,
+      "reuse_tree_between_labels": true,
+      "new_tree_each_game": true,
+      "device": "cpu",
+      "board_size": 9,
+      "win_count": 5,
+      "rules": "freestyle"
+    },
+    "external_trajectories_allowed": false,
+    "split": "disjoint game seeds; global board+side+D4 train/validation exclusion, plus validation internal deduplication",
+    "behavior": {
+      "teacher": 0.8,
+      "greedy": 0.1,
+      "random": 0.1
+    },
+    "prefix": {
+      "distribution": "independent uniform integer 0..maximum, then uniform legal actions",
+      "maximum_plies": 6,
+      "prefix_states_labeled": false
+    },
+    "durable_unit": "complete independently seeded game",
+    "torch_version": "2.9.1+cu128",
+    "python_version": "3.11.17 (main, Oct  3 2026, 01:03:09) [MSC v.1944 64 bit (AMD64)]",
+    "protocol_id": "bb20e44bd6993f03fe7149265e39cca8f780df7e6e60810c82e1f156c3b97547"
+  },
+  "train_samples": 12673,
+  "validation_samples": 1745,
+  "train_games": 512,
+  "validation_games": 64,
+  "committed_games": 576,
+  "games": [
+    {
+      "game_id": "train_000000_seed5000000",
+      "split": "train",
+      "index": 0,
+      "seed": 5000000,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000001_seed5000001",
+      "split": "train",
+      "index": 1,
+      "seed": 5000001,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000002_seed5000002",
+      "split": "train",
+      "index": 2,
+      "seed": 5000002,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000003_seed5000003",
+      "split": "train",
+      "index": 3,
+      "seed": 5000003,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000004_seed5000004",
+      "split": "train",
+      "index": 4,
+      "seed": 5000004,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000005_seed5000005",
+      "split": "train",
+      "index": 5,
+      "seed": 5000005,
+      "raw_labels": 28,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000006_seed5000006",
+      "split": "train",
+      "index": 6,
+      "seed": 5000006,
+      "raw_labels": 9,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000007_seed5000007",
+      "split": "train",
+      "index": 7,
+      "seed": 5000007,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000008_seed5000008",
+      "split": "train",
+      "index": 8,
+      "seed": 5000008,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000009_seed5000009",
+      "split": "train",
+      "index": 9,
+      "seed": 5000009,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000010_seed5000010",
+      "split": "train",
+      "index": 10,
+      "seed": 5000010,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000011_seed5000011",
+      "split": "train",
+      "index": 11,
+      "seed": 5000011,
+      "raw_labels": 15,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000012_seed5000012",
+      "split": "train",
+      "index": 12,
+      "seed": 5000012,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000013_seed5000013",
+      "split": "train",
+      "index": 13,
+      "seed": 5000013,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000014_seed5000014",
+      "split": "train",
+      "index": 14,
+      "seed": 5000014,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000015_seed5000015",
+      "split": "train",
+      "index": 15,
+      "seed": 5000015,
+      "raw_labels": 12,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000016_seed5000016",
+      "split": "train",
+      "index": 16,
+      "seed": 5000016,
+      "raw_labels": 43,
+      "winner": 1,
+      "plies": 43
+    },
+    {
+      "game_id": "train_000017_seed5000017",
+      "split": "train",
+      "index": 17,
+      "seed": 5000017,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000018_seed5000018",
+      "split": "train",
+      "index": 18,
+      "seed": 5000018,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000019_seed5000019",
+      "split": "train",
+      "index": 19,
+      "seed": 5000019,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000020_seed5000020",
+      "split": "train",
+      "index": 20,
+      "seed": 5000020,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000021_seed5000021",
+      "split": "train",
+      "index": 21,
+      "seed": 5000021,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000022_seed5000022",
+      "split": "train",
+      "index": 22,
+      "seed": 5000022,
+      "raw_labels": 41,
+      "winner": -1,
+      "plies": 42
+    },
+    {
+      "game_id": "train_000023_seed5000023",
+      "split": "train",
+      "index": 23,
+      "seed": 5000023,
+      "raw_labels": 27,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000024_seed5000024",
+      "split": "train",
+      "index": 24,
+      "seed": 5000024,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000025_seed5000025",
+      "split": "train",
+      "index": 25,
+      "seed": 5000025,
+      "raw_labels": 30,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000026_seed5000026",
+      "split": "train",
+      "index": 26,
+      "seed": 5000026,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000027_seed5000027",
+      "split": "train",
+      "index": 27,
+      "seed": 5000027,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000028_seed5000028",
+      "split": "train",
+      "index": 28,
+      "seed": 5000028,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000029_seed5000029",
+      "split": "train",
+      "index": 29,
+      "seed": 5000029,
+      "raw_labels": 7,
+      "winner": -1,
+      "plies": 10
+    },
+    {
+      "game_id": "train_000030_seed5000030",
+      "split": "train",
+      "index": 30,
+      "seed": 5000030,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000031_seed5000031",
+      "split": "train",
+      "index": 31,
+      "seed": 5000031,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000032_seed5000032",
+      "split": "train",
+      "index": 32,
+      "seed": 5000032,
+      "raw_labels": 23,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000033_seed5000033",
+      "split": "train",
+      "index": 33,
+      "seed": 5000033,
+      "raw_labels": 42,
+      "winner": 1,
+      "plies": 43
+    },
+    {
+      "game_id": "train_000034_seed5000034",
+      "split": "train",
+      "index": 34,
+      "seed": 5000034,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000035_seed5000035",
+      "split": "train",
+      "index": 35,
+      "seed": 5000035,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000036_seed5000036",
+      "split": "train",
+      "index": 36,
+      "seed": 5000036,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000037_seed5000037",
+      "split": "train",
+      "index": 37,
+      "seed": 5000037,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000038_seed5000038",
+      "split": "train",
+      "index": 38,
+      "seed": 5000038,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000039_seed5000039",
+      "split": "train",
+      "index": 39,
+      "seed": 5000039,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000040_seed5000040",
+      "split": "train",
+      "index": 40,
+      "seed": 5000040,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000041_seed5000041",
+      "split": "train",
+      "index": 41,
+      "seed": 5000041,
+      "raw_labels": 8,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000042_seed5000042",
+      "split": "train",
+      "index": 42,
+      "seed": 5000042,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000043_seed5000043",
+      "split": "train",
+      "index": 43,
+      "seed": 5000043,
+      "raw_labels": 22,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000044_seed5000044",
+      "split": "train",
+      "index": 44,
+      "seed": 5000044,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000045_seed5000045",
+      "split": "train",
+      "index": 45,
+      "seed": 5000045,
+      "raw_labels": 15,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000046_seed5000046",
+      "split": "train",
+      "index": 46,
+      "seed": 5000046,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000047_seed5000047",
+      "split": "train",
+      "index": 47,
+      "seed": 5000047,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000048_seed5000048",
+      "split": "train",
+      "index": 48,
+      "seed": 5000048,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000049_seed5000049",
+      "split": "train",
+      "index": 49,
+      "seed": 5000049,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000050_seed5000050",
+      "split": "train",
+      "index": 50,
+      "seed": 5000050,
+      "raw_labels": 8,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000051_seed5000051",
+      "split": "train",
+      "index": 51,
+      "seed": 5000051,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000052_seed5000052",
+      "split": "train",
+      "index": 52,
+      "seed": 5000052,
+      "raw_labels": 8,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000053_seed5000053",
+      "split": "train",
+      "index": 53,
+      "seed": 5000053,
+      "raw_labels": 38,
+      "winner": -1,
+      "plies": 42
+    },
+    {
+      "game_id": "train_000054_seed5000054",
+      "split": "train",
+      "index": 54,
+      "seed": 5000054,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000055_seed5000055",
+      "split": "train",
+      "index": 55,
+      "seed": 5000055,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000056_seed5000056",
+      "split": "train",
+      "index": 56,
+      "seed": 5000056,
+      "raw_labels": 7,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000057_seed5000057",
+      "split": "train",
+      "index": 57,
+      "seed": 5000057,
+      "raw_labels": 29,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000058_seed5000058",
+      "split": "train",
+      "index": 58,
+      "seed": 5000058,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000059_seed5000059",
+      "split": "train",
+      "index": 59,
+      "seed": 5000059,
+      "raw_labels": 29,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000060_seed5000060",
+      "split": "train",
+      "index": 60,
+      "seed": 5000060,
+      "raw_labels": 8,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000061_seed5000061",
+      "split": "train",
+      "index": 61,
+      "seed": 5000061,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000062_seed5000062",
+      "split": "train",
+      "index": 62,
+      "seed": 5000062,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000063_seed5000063",
+      "split": "train",
+      "index": 63,
+      "seed": 5000063,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000064_seed5000064",
+      "split": "train",
+      "index": 64,
+      "seed": 5000064,
+      "raw_labels": 26,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000065_seed5000065",
+      "split": "train",
+      "index": 65,
+      "seed": 5000065,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000066_seed5000066",
+      "split": "train",
+      "index": 66,
+      "seed": 5000066,
+      "raw_labels": 41,
+      "winner": -1,
+      "plies": 46
+    },
+    {
+      "game_id": "train_000067_seed5000067",
+      "split": "train",
+      "index": 67,
+      "seed": 5000067,
+      "raw_labels": 80,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000068_seed5000068",
+      "split": "train",
+      "index": 68,
+      "seed": 5000068,
+      "raw_labels": 81,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000069_seed5000069",
+      "split": "train",
+      "index": 69,
+      "seed": 5000069,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000070_seed5000070",
+      "split": "train",
+      "index": 70,
+      "seed": 5000070,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000071_seed5000071",
+      "split": "train",
+      "index": 71,
+      "seed": 5000071,
+      "raw_labels": 37,
+      "winner": 1,
+      "plies": 37
+    },
+    {
+      "game_id": "train_000072_seed5000072",
+      "split": "train",
+      "index": 72,
+      "seed": 5000072,
+      "raw_labels": 75,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000073_seed5000073",
+      "split": "train",
+      "index": 73,
+      "seed": 5000073,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000074_seed5000074",
+      "split": "train",
+      "index": 74,
+      "seed": 5000074,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000075_seed5000075",
+      "split": "train",
+      "index": 75,
+      "seed": 5000075,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000076_seed5000076",
+      "split": "train",
+      "index": 76,
+      "seed": 5000076,
+      "raw_labels": 26,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000077_seed5000077",
+      "split": "train",
+      "index": 77,
+      "seed": 5000077,
+      "raw_labels": 75,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000078_seed5000078",
+      "split": "train",
+      "index": 78,
+      "seed": 5000078,
+      "raw_labels": 35,
+      "winner": -1,
+      "plies": 38
+    },
+    {
+      "game_id": "train_000079_seed5000079",
+      "split": "train",
+      "index": 79,
+      "seed": 5000079,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000080_seed5000080",
+      "split": "train",
+      "index": 80,
+      "seed": 5000080,
+      "raw_labels": 43,
+      "winner": 1,
+      "plies": 43
+    },
+    {
+      "game_id": "train_000081_seed5000081",
+      "split": "train",
+      "index": 81,
+      "seed": 5000081,
+      "raw_labels": 12,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000082_seed5000082",
+      "split": "train",
+      "index": 82,
+      "seed": 5000082,
+      "raw_labels": 34,
+      "winner": 1,
+      "plies": 37
+    },
+    {
+      "game_id": "train_000083_seed5000083",
+      "split": "train",
+      "index": 83,
+      "seed": 5000083,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000084_seed5000084",
+      "split": "train",
+      "index": 84,
+      "seed": 5000084,
+      "raw_labels": 8,
+      "winner": -1,
+      "plies": 10
+    },
+    {
+      "game_id": "train_000085_seed5000085",
+      "split": "train",
+      "index": 85,
+      "seed": 5000085,
+      "raw_labels": 8,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000086_seed5000086",
+      "split": "train",
+      "index": 86,
+      "seed": 5000086,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000087_seed5000087",
+      "split": "train",
+      "index": 87,
+      "seed": 5000087,
+      "raw_labels": 80,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000088_seed5000088",
+      "split": "train",
+      "index": 88,
+      "seed": 5000088,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000089_seed5000089",
+      "split": "train",
+      "index": 89,
+      "seed": 5000089,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000090_seed5000090",
+      "split": "train",
+      "index": 90,
+      "seed": 5000090,
+      "raw_labels": 28,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000091_seed5000091",
+      "split": "train",
+      "index": 91,
+      "seed": 5000091,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000092_seed5000092",
+      "split": "train",
+      "index": 92,
+      "seed": 5000092,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000093_seed5000093",
+      "split": "train",
+      "index": 93,
+      "seed": 5000093,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000094_seed5000094",
+      "split": "train",
+      "index": 94,
+      "seed": 5000094,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000095_seed5000095",
+      "split": "train",
+      "index": 95,
+      "seed": 5000095,
+      "raw_labels": 34,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000096_seed5000096",
+      "split": "train",
+      "index": 96,
+      "seed": 5000096,
+      "raw_labels": 5,
+      "winner": 1,
+      "plies": 9
+    },
+    {
+      "game_id": "train_000097_seed5000097",
+      "split": "train",
+      "index": 97,
+      "seed": 5000097,
+      "raw_labels": 31,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000098_seed5000098",
+      "split": "train",
+      "index": 98,
+      "seed": 5000098,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000099_seed5000099",
+      "split": "train",
+      "index": 99,
+      "seed": 5000099,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000100_seed5000100",
+      "split": "train",
+      "index": 100,
+      "seed": 5000100,
+      "raw_labels": 77,
+      "winner": 1,
+      "plies": 77
+    },
+    {
+      "game_id": "train_000101_seed5000101",
+      "split": "train",
+      "index": 101,
+      "seed": 5000101,
+      "raw_labels": 25,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000102_seed5000102",
+      "split": "train",
+      "index": 102,
+      "seed": 5000102,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000103_seed5000103",
+      "split": "train",
+      "index": 103,
+      "seed": 5000103,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000104_seed5000104",
+      "split": "train",
+      "index": 104,
+      "seed": 5000104,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000105_seed5000105",
+      "split": "train",
+      "index": 105,
+      "seed": 5000105,
+      "raw_labels": 35,
+      "winner": -1,
+      "plies": 36
+    },
+    {
+      "game_id": "train_000106_seed5000106",
+      "split": "train",
+      "index": 106,
+      "seed": 5000106,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000107_seed5000107",
+      "split": "train",
+      "index": 107,
+      "seed": 5000107,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000108_seed5000108",
+      "split": "train",
+      "index": 108,
+      "seed": 5000108,
+      "raw_labels": 45,
+      "winner": -1,
+      "plies": 46
+    },
+    {
+      "game_id": "train_000109_seed5000109",
+      "split": "train",
+      "index": 109,
+      "seed": 5000109,
+      "raw_labels": 30,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000110_seed5000110",
+      "split": "train",
+      "index": 110,
+      "seed": 5000110,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000111_seed5000111",
+      "split": "train",
+      "index": 111,
+      "seed": 5000111,
+      "raw_labels": 27,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000112_seed5000112",
+      "split": "train",
+      "index": 112,
+      "seed": 5000112,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000113_seed5000113",
+      "split": "train",
+      "index": 113,
+      "seed": 5000113,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000114_seed5000114",
+      "split": "train",
+      "index": 114,
+      "seed": 5000114,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000115_seed5000115",
+      "split": "train",
+      "index": 115,
+      "seed": 5000115,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000116_seed5000116",
+      "split": "train",
+      "index": 116,
+      "seed": 5000116,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000117_seed5000117",
+      "split": "train",
+      "index": 117,
+      "seed": 5000117,
+      "raw_labels": 29,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000118_seed5000118",
+      "split": "train",
+      "index": 118,
+      "seed": 5000118,
+      "raw_labels": 81,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000119_seed5000119",
+      "split": "train",
+      "index": 119,
+      "seed": 5000119,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000120_seed5000120",
+      "split": "train",
+      "index": 120,
+      "seed": 5000120,
+      "raw_labels": 71,
+      "winner": 1,
+      "plies": 71
+    },
+    {
+      "game_id": "train_000121_seed5000121",
+      "split": "train",
+      "index": 121,
+      "seed": 5000121,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000122_seed5000122",
+      "split": "train",
+      "index": 122,
+      "seed": 5000122,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000123_seed5000123",
+      "split": "train",
+      "index": 123,
+      "seed": 5000123,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000124_seed5000124",
+      "split": "train",
+      "index": 124,
+      "seed": 5000124,
+      "raw_labels": 32,
+      "winner": -1,
+      "plies": 36
+    },
+    {
+      "game_id": "train_000125_seed5000125",
+      "split": "train",
+      "index": 125,
+      "seed": 5000125,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000126_seed5000126",
+      "split": "train",
+      "index": 126,
+      "seed": 5000126,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000127_seed5000127",
+      "split": "train",
+      "index": 127,
+      "seed": 5000127,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000128_seed5000128",
+      "split": "train",
+      "index": 128,
+      "seed": 5000128,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000129_seed5000129",
+      "split": "train",
+      "index": 129,
+      "seed": 5000129,
+      "raw_labels": 5,
+      "winner": 1,
+      "plies": 9
+    },
+    {
+      "game_id": "train_000130_seed5000130",
+      "split": "train",
+      "index": 130,
+      "seed": 5000130,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000131_seed5000131",
+      "split": "train",
+      "index": 131,
+      "seed": 5000131,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000132_seed5000132",
+      "split": "train",
+      "index": 132,
+      "seed": 5000132,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000133_seed5000133",
+      "split": "train",
+      "index": 133,
+      "seed": 5000133,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000134_seed5000134",
+      "split": "train",
+      "index": 134,
+      "seed": 5000134,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000135_seed5000135",
+      "split": "train",
+      "index": 135,
+      "seed": 5000135,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000136_seed5000136",
+      "split": "train",
+      "index": 136,
+      "seed": 5000136,
+      "raw_labels": 15,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000137_seed5000137",
+      "split": "train",
+      "index": 137,
+      "seed": 5000137,
+      "raw_labels": 28,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000138_seed5000138",
+      "split": "train",
+      "index": 138,
+      "seed": 5000138,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000139_seed5000139",
+      "split": "train",
+      "index": 139,
+      "seed": 5000139,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000140_seed5000140",
+      "split": "train",
+      "index": 140,
+      "seed": 5000140,
+      "raw_labels": 36,
+      "winner": 1,
+      "plies": 37
+    },
+    {
+      "game_id": "train_000141_seed5000141",
+      "split": "train",
+      "index": 141,
+      "seed": 5000141,
+      "raw_labels": 14,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000142_seed5000142",
+      "split": "train",
+      "index": 142,
+      "seed": 5000142,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000143_seed5000143",
+      "split": "train",
+      "index": 143,
+      "seed": 5000143,
+      "raw_labels": 23,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000144_seed5000144",
+      "split": "train",
+      "index": 144,
+      "seed": 5000144,
+      "raw_labels": 81,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000145_seed5000145",
+      "split": "train",
+      "index": 145,
+      "seed": 5000145,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000146_seed5000146",
+      "split": "train",
+      "index": 146,
+      "seed": 5000146,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000147_seed5000147",
+      "split": "train",
+      "index": 147,
+      "seed": 5000147,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000148_seed5000148",
+      "split": "train",
+      "index": 148,
+      "seed": 5000148,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000149_seed5000149",
+      "split": "train",
+      "index": 149,
+      "seed": 5000149,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000150_seed5000150",
+      "split": "train",
+      "index": 150,
+      "seed": 5000150,
+      "raw_labels": 26,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000151_seed5000151",
+      "split": "train",
+      "index": 151,
+      "seed": 5000151,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 35
+    },
+    {
+      "game_id": "train_000152_seed5000152",
+      "split": "train",
+      "index": 152,
+      "seed": 5000152,
+      "raw_labels": 38,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000153_seed5000153",
+      "split": "train",
+      "index": 153,
+      "seed": 5000153,
+      "raw_labels": 39,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000154_seed5000154",
+      "split": "train",
+      "index": 154,
+      "seed": 5000154,
+      "raw_labels": 32,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000155_seed5000155",
+      "split": "train",
+      "index": 155,
+      "seed": 5000155,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000156_seed5000156",
+      "split": "train",
+      "index": 156,
+      "seed": 5000156,
+      "raw_labels": 7,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000157_seed5000157",
+      "split": "train",
+      "index": 157,
+      "seed": 5000157,
+      "raw_labels": 42,
+      "winner": -1,
+      "plies": 48
+    },
+    {
+      "game_id": "train_000158_seed5000158",
+      "split": "train",
+      "index": 158,
+      "seed": 5000158,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000159_seed5000159",
+      "split": "train",
+      "index": 159,
+      "seed": 5000159,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000160_seed5000160",
+      "split": "train",
+      "index": 160,
+      "seed": 5000160,
+      "raw_labels": 22,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000161_seed5000161",
+      "split": "train",
+      "index": 161,
+      "seed": 5000161,
+      "raw_labels": 31,
+      "winner": 1,
+      "plies": 37
+    },
+    {
+      "game_id": "train_000162_seed5000162",
+      "split": "train",
+      "index": 162,
+      "seed": 5000162,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000163_seed5000163",
+      "split": "train",
+      "index": 163,
+      "seed": 5000163,
+      "raw_labels": 49,
+      "winner": -1,
+      "plies": 50
+    },
+    {
+      "game_id": "train_000164_seed5000164",
+      "split": "train",
+      "index": 164,
+      "seed": 5000164,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000165_seed5000165",
+      "split": "train",
+      "index": 165,
+      "seed": 5000165,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000166_seed5000166",
+      "split": "train",
+      "index": 166,
+      "seed": 5000166,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000167_seed5000167",
+      "split": "train",
+      "index": 167,
+      "seed": 5000167,
+      "raw_labels": 32,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000168_seed5000168",
+      "split": "train",
+      "index": 168,
+      "seed": 5000168,
+      "raw_labels": 37,
+      "winner": -1,
+      "plies": 38
+    },
+    {
+      "game_id": "train_000169_seed5000169",
+      "split": "train",
+      "index": 169,
+      "seed": 5000169,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000170_seed5000170",
+      "split": "train",
+      "index": 170,
+      "seed": 5000170,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000171_seed5000171",
+      "split": "train",
+      "index": 171,
+      "seed": 5000171,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000172_seed5000172",
+      "split": "train",
+      "index": 172,
+      "seed": 5000172,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000173_seed5000173",
+      "split": "train",
+      "index": 173,
+      "seed": 5000173,
+      "raw_labels": 76,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000174_seed5000174",
+      "split": "train",
+      "index": 174,
+      "seed": 5000174,
+      "raw_labels": 29,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000175_seed5000175",
+      "split": "train",
+      "index": 175,
+      "seed": 5000175,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000176_seed5000176",
+      "split": "train",
+      "index": 176,
+      "seed": 5000176,
+      "raw_labels": 29,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000177_seed5000177",
+      "split": "train",
+      "index": 177,
+      "seed": 5000177,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000178_seed5000178",
+      "split": "train",
+      "index": 178,
+      "seed": 5000178,
+      "raw_labels": 14,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000179_seed5000179",
+      "split": "train",
+      "index": 179,
+      "seed": 5000179,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000180_seed5000180",
+      "split": "train",
+      "index": 180,
+      "seed": 5000180,
+      "raw_labels": 78,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000181_seed5000181",
+      "split": "train",
+      "index": 181,
+      "seed": 5000181,
+      "raw_labels": 32,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000182_seed5000182",
+      "split": "train",
+      "index": 182,
+      "seed": 5000182,
+      "raw_labels": 25,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000183_seed5000183",
+      "split": "train",
+      "index": 183,
+      "seed": 5000183,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000184_seed5000184",
+      "split": "train",
+      "index": 184,
+      "seed": 5000184,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000185_seed5000185",
+      "split": "train",
+      "index": 185,
+      "seed": 5000185,
+      "raw_labels": 33,
+      "winner": -1,
+      "plies": 36
+    },
+    {
+      "game_id": "train_000186_seed5000186",
+      "split": "train",
+      "index": 186,
+      "seed": 5000186,
+      "raw_labels": 8,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000187_seed5000187",
+      "split": "train",
+      "index": 187,
+      "seed": 5000187,
+      "raw_labels": 35,
+      "winner": -1,
+      "plies": 36
+    },
+    {
+      "game_id": "train_000188_seed5000188",
+      "split": "train",
+      "index": 188,
+      "seed": 5000188,
+      "raw_labels": 57,
+      "winner": 1,
+      "plies": 63
+    },
+    {
+      "game_id": "train_000189_seed5000189",
+      "split": "train",
+      "index": 189,
+      "seed": 5000189,
+      "raw_labels": 37,
+      "winner": 1,
+      "plies": 43
+    },
+    {
+      "game_id": "train_000190_seed5000190",
+      "split": "train",
+      "index": 190,
+      "seed": 5000190,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000191_seed5000191",
+      "split": "train",
+      "index": 191,
+      "seed": 5000191,
+      "raw_labels": 35,
+      "winner": -1,
+      "plies": 36
+    },
+    {
+      "game_id": "train_000192_seed5000192",
+      "split": "train",
+      "index": 192,
+      "seed": 5000192,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000193_seed5000193",
+      "split": "train",
+      "index": 193,
+      "seed": 5000193,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000194_seed5000194",
+      "split": "train",
+      "index": 194,
+      "seed": 5000194,
+      "raw_labels": 33,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000195_seed5000195",
+      "split": "train",
+      "index": 195,
+      "seed": 5000195,
+      "raw_labels": 29,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000196_seed5000196",
+      "split": "train",
+      "index": 196,
+      "seed": 5000196,
+      "raw_labels": 10,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000197_seed5000197",
+      "split": "train",
+      "index": 197,
+      "seed": 5000197,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000198_seed5000198",
+      "split": "train",
+      "index": 198,
+      "seed": 5000198,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000199_seed5000199",
+      "split": "train",
+      "index": 199,
+      "seed": 5000199,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000200_seed5000200",
+      "split": "train",
+      "index": 200,
+      "seed": 5000200,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000201_seed5000201",
+      "split": "train",
+      "index": 201,
+      "seed": 5000201,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000202_seed5000202",
+      "split": "train",
+      "index": 202,
+      "seed": 5000202,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000203_seed5000203",
+      "split": "train",
+      "index": 203,
+      "seed": 5000203,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000204_seed5000204",
+      "split": "train",
+      "index": 204,
+      "seed": 5000204,
+      "raw_labels": 15,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000205_seed5000205",
+      "split": "train",
+      "index": 205,
+      "seed": 5000205,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000206_seed5000206",
+      "split": "train",
+      "index": 206,
+      "seed": 5000206,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000207_seed5000207",
+      "split": "train",
+      "index": 207,
+      "seed": 5000207,
+      "raw_labels": 79,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000208_seed5000208",
+      "split": "train",
+      "index": 208,
+      "seed": 5000208,
+      "raw_labels": 7,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000209_seed5000209",
+      "split": "train",
+      "index": 209,
+      "seed": 5000209,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000210_seed5000210",
+      "split": "train",
+      "index": 210,
+      "seed": 5000210,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000211_seed5000211",
+      "split": "train",
+      "index": 211,
+      "seed": 5000211,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000212_seed5000212",
+      "split": "train",
+      "index": 212,
+      "seed": 5000212,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000213_seed5000213",
+      "split": "train",
+      "index": 213,
+      "seed": 5000213,
+      "raw_labels": 77,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000214_seed5000214",
+      "split": "train",
+      "index": 214,
+      "seed": 5000214,
+      "raw_labels": 24,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000215_seed5000215",
+      "split": "train",
+      "index": 215,
+      "seed": 5000215,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000216_seed5000216",
+      "split": "train",
+      "index": 216,
+      "seed": 5000216,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000217_seed5000217",
+      "split": "train",
+      "index": 217,
+      "seed": 5000217,
+      "raw_labels": 32,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000218_seed5000218",
+      "split": "train",
+      "index": 218,
+      "seed": 5000218,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000219_seed5000219",
+      "split": "train",
+      "index": 219,
+      "seed": 5000219,
+      "raw_labels": 46,
+      "winner": -1,
+      "plies": 52
+    },
+    {
+      "game_id": "train_000220_seed5000220",
+      "split": "train",
+      "index": 220,
+      "seed": 5000220,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000221_seed5000221",
+      "split": "train",
+      "index": 221,
+      "seed": 5000221,
+      "raw_labels": 26,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000222_seed5000222",
+      "split": "train",
+      "index": 222,
+      "seed": 5000222,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000223_seed5000223",
+      "split": "train",
+      "index": 223,
+      "seed": 5000223,
+      "raw_labels": 76,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000224_seed5000224",
+      "split": "train",
+      "index": 224,
+      "seed": 5000224,
+      "raw_labels": 78,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000225_seed5000225",
+      "split": "train",
+      "index": 225,
+      "seed": 5000225,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000226_seed5000226",
+      "split": "train",
+      "index": 226,
+      "seed": 5000226,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000227_seed5000227",
+      "split": "train",
+      "index": 227,
+      "seed": 5000227,
+      "raw_labels": 37,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000228_seed5000228",
+      "split": "train",
+      "index": 228,
+      "seed": 5000228,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000229_seed5000229",
+      "split": "train",
+      "index": 229,
+      "seed": 5000229,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000230_seed5000230",
+      "split": "train",
+      "index": 230,
+      "seed": 5000230,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000231_seed5000231",
+      "split": "train",
+      "index": 231,
+      "seed": 5000231,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000232_seed5000232",
+      "split": "train",
+      "index": 232,
+      "seed": 5000232,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000233_seed5000233",
+      "split": "train",
+      "index": 233,
+      "seed": 5000233,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000234_seed5000234",
+      "split": "train",
+      "index": 234,
+      "seed": 5000234,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000235_seed5000235",
+      "split": "train",
+      "index": 235,
+      "seed": 5000235,
+      "raw_labels": 52,
+      "winner": 1,
+      "plies": 53
+    },
+    {
+      "game_id": "train_000236_seed5000236",
+      "split": "train",
+      "index": 236,
+      "seed": 5000236,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000237_seed5000237",
+      "split": "train",
+      "index": 237,
+      "seed": 5000237,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000238_seed5000238",
+      "split": "train",
+      "index": 238,
+      "seed": 5000238,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000239_seed5000239",
+      "split": "train",
+      "index": 239,
+      "seed": 5000239,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000240_seed5000240",
+      "split": "train",
+      "index": 240,
+      "seed": 5000240,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000241_seed5000241",
+      "split": "train",
+      "index": 241,
+      "seed": 5000241,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000242_seed5000242",
+      "split": "train",
+      "index": 242,
+      "seed": 5000242,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000243_seed5000243",
+      "split": "train",
+      "index": 243,
+      "seed": 5000243,
+      "raw_labels": 34,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000244_seed5000244",
+      "split": "train",
+      "index": 244,
+      "seed": 5000244,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000245_seed5000245",
+      "split": "train",
+      "index": 245,
+      "seed": 5000245,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000246_seed5000246",
+      "split": "train",
+      "index": 246,
+      "seed": 5000246,
+      "raw_labels": 31,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000247_seed5000247",
+      "split": "train",
+      "index": 247,
+      "seed": 5000247,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000248_seed5000248",
+      "split": "train",
+      "index": 248,
+      "seed": 5000248,
+      "raw_labels": 23,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000249_seed5000249",
+      "split": "train",
+      "index": 249,
+      "seed": 5000249,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000250_seed5000250",
+      "split": "train",
+      "index": 250,
+      "seed": 5000250,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000251_seed5000251",
+      "split": "train",
+      "index": 251,
+      "seed": 5000251,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000252_seed5000252",
+      "split": "train",
+      "index": 252,
+      "seed": 5000252,
+      "raw_labels": 47,
+      "winner": -1,
+      "plies": 50
+    },
+    {
+      "game_id": "train_000253_seed5000253",
+      "split": "train",
+      "index": 253,
+      "seed": 5000253,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000254_seed5000254",
+      "split": "train",
+      "index": 254,
+      "seed": 5000254,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000255_seed5000255",
+      "split": "train",
+      "index": 255,
+      "seed": 5000255,
+      "raw_labels": 81,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000256_seed5000256",
+      "split": "train",
+      "index": 256,
+      "seed": 5000256,
+      "raw_labels": 31,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000257_seed5000257",
+      "split": "train",
+      "index": 257,
+      "seed": 5000257,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000258_seed5000258",
+      "split": "train",
+      "index": 258,
+      "seed": 5000258,
+      "raw_labels": 30,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000259_seed5000259",
+      "split": "train",
+      "index": 259,
+      "seed": 5000259,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000260_seed5000260",
+      "split": "train",
+      "index": 260,
+      "seed": 5000260,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000261_seed5000261",
+      "split": "train",
+      "index": 261,
+      "seed": 5000261,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000262_seed5000262",
+      "split": "train",
+      "index": 262,
+      "seed": 5000262,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000263_seed5000263",
+      "split": "train",
+      "index": 263,
+      "seed": 5000263,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000264_seed5000264",
+      "split": "train",
+      "index": 264,
+      "seed": 5000264,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000265_seed5000265",
+      "split": "train",
+      "index": 265,
+      "seed": 5000265,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000266_seed5000266",
+      "split": "train",
+      "index": 266,
+      "seed": 5000266,
+      "raw_labels": 29,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000267_seed5000267",
+      "split": "train",
+      "index": 267,
+      "seed": 5000267,
+      "raw_labels": 52,
+      "winner": -1,
+      "plies": 56
+    },
+    {
+      "game_id": "train_000268_seed5000268",
+      "split": "train",
+      "index": 268,
+      "seed": 5000268,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000269_seed5000269",
+      "split": "train",
+      "index": 269,
+      "seed": 5000269,
+      "raw_labels": 6,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000270_seed5000270",
+      "split": "train",
+      "index": 270,
+      "seed": 5000270,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000271_seed5000271",
+      "split": "train",
+      "index": 271,
+      "seed": 5000271,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000272_seed5000272",
+      "split": "train",
+      "index": 272,
+      "seed": 5000272,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000273_seed5000273",
+      "split": "train",
+      "index": 273,
+      "seed": 5000273,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000274_seed5000274",
+      "split": "train",
+      "index": 274,
+      "seed": 5000274,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000275_seed5000275",
+      "split": "train",
+      "index": 275,
+      "seed": 5000275,
+      "raw_labels": 79,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000276_seed5000276",
+      "split": "train",
+      "index": 276,
+      "seed": 5000276,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000277_seed5000277",
+      "split": "train",
+      "index": 277,
+      "seed": 5000277,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000278_seed5000278",
+      "split": "train",
+      "index": 278,
+      "seed": 5000278,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000279_seed5000279",
+      "split": "train",
+      "index": 279,
+      "seed": 5000279,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000280_seed5000280",
+      "split": "train",
+      "index": 280,
+      "seed": 5000280,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000281_seed5000281",
+      "split": "train",
+      "index": 281,
+      "seed": 5000281,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000282_seed5000282",
+      "split": "train",
+      "index": 282,
+      "seed": 5000282,
+      "raw_labels": 24,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000283_seed5000283",
+      "split": "train",
+      "index": 283,
+      "seed": 5000283,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000284_seed5000284",
+      "split": "train",
+      "index": 284,
+      "seed": 5000284,
+      "raw_labels": 9,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000285_seed5000285",
+      "split": "train",
+      "index": 285,
+      "seed": 5000285,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000286_seed5000286",
+      "split": "train",
+      "index": 286,
+      "seed": 5000286,
+      "raw_labels": 25,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000287_seed5000287",
+      "split": "train",
+      "index": 287,
+      "seed": 5000287,
+      "raw_labels": 28,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000288_seed5000288",
+      "split": "train",
+      "index": 288,
+      "seed": 5000288,
+      "raw_labels": 12,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000289_seed5000289",
+      "split": "train",
+      "index": 289,
+      "seed": 5000289,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000290_seed5000290",
+      "split": "train",
+      "index": 290,
+      "seed": 5000290,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000291_seed5000291",
+      "split": "train",
+      "index": 291,
+      "seed": 5000291,
+      "raw_labels": 41,
+      "winner": 1,
+      "plies": 41
+    },
+    {
+      "game_id": "train_000292_seed5000292",
+      "split": "train",
+      "index": 292,
+      "seed": 5000292,
+      "raw_labels": 8,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000293_seed5000293",
+      "split": "train",
+      "index": 293,
+      "seed": 5000293,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000294_seed5000294",
+      "split": "train",
+      "index": 294,
+      "seed": 5000294,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000295_seed5000295",
+      "split": "train",
+      "index": 295,
+      "seed": 5000295,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000296_seed5000296",
+      "split": "train",
+      "index": 296,
+      "seed": 5000296,
+      "raw_labels": 22,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000297_seed5000297",
+      "split": "train",
+      "index": 297,
+      "seed": 5000297,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000298_seed5000298",
+      "split": "train",
+      "index": 298,
+      "seed": 5000298,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000299_seed5000299",
+      "split": "train",
+      "index": 299,
+      "seed": 5000299,
+      "raw_labels": 27,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000300_seed5000300",
+      "split": "train",
+      "index": 300,
+      "seed": 5000300,
+      "raw_labels": 12,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000301_seed5000301",
+      "split": "train",
+      "index": 301,
+      "seed": 5000301,
+      "raw_labels": 8,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000302_seed5000302",
+      "split": "train",
+      "index": 302,
+      "seed": 5000302,
+      "raw_labels": 71,
+      "winner": 1,
+      "plies": 75
+    },
+    {
+      "game_id": "train_000303_seed5000303",
+      "split": "train",
+      "index": 303,
+      "seed": 5000303,
+      "raw_labels": 39,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000304_seed5000304",
+      "split": "train",
+      "index": 304,
+      "seed": 5000304,
+      "raw_labels": 32,
+      "winner": 1,
+      "plies": 37
+    },
+    {
+      "game_id": "train_000305_seed5000305",
+      "split": "train",
+      "index": 305,
+      "seed": 5000305,
+      "raw_labels": 42,
+      "winner": 1,
+      "plies": 45
+    },
+    {
+      "game_id": "train_000306_seed5000306",
+      "split": "train",
+      "index": 306,
+      "seed": 5000306,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000307_seed5000307",
+      "split": "train",
+      "index": 307,
+      "seed": 5000307,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000308_seed5000308",
+      "split": "train",
+      "index": 308,
+      "seed": 5000308,
+      "raw_labels": 36,
+      "winner": -1,
+      "plies": 38
+    },
+    {
+      "game_id": "train_000309_seed5000309",
+      "split": "train",
+      "index": 309,
+      "seed": 5000309,
+      "raw_labels": 22,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000310_seed5000310",
+      "split": "train",
+      "index": 310,
+      "seed": 5000310,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000311_seed5000311",
+      "split": "train",
+      "index": 311,
+      "seed": 5000311,
+      "raw_labels": 75,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000312_seed5000312",
+      "split": "train",
+      "index": 312,
+      "seed": 5000312,
+      "raw_labels": 42,
+      "winner": 1,
+      "plies": 47
+    },
+    {
+      "game_id": "train_000313_seed5000313",
+      "split": "train",
+      "index": 313,
+      "seed": 5000313,
+      "raw_labels": 59,
+      "winner": 1,
+      "plies": 59
+    },
+    {
+      "game_id": "train_000314_seed5000314",
+      "split": "train",
+      "index": 314,
+      "seed": 5000314,
+      "raw_labels": 9,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000315_seed5000315",
+      "split": "train",
+      "index": 315,
+      "seed": 5000315,
+      "raw_labels": 37,
+      "winner": 1,
+      "plies": 37
+    },
+    {
+      "game_id": "train_000316_seed5000316",
+      "split": "train",
+      "index": 316,
+      "seed": 5000316,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000317_seed5000317",
+      "split": "train",
+      "index": 317,
+      "seed": 5000317,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000318_seed5000318",
+      "split": "train",
+      "index": 318,
+      "seed": 5000318,
+      "raw_labels": 33,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000319_seed5000319",
+      "split": "train",
+      "index": 319,
+      "seed": 5000319,
+      "raw_labels": 7,
+      "winner": -1,
+      "plies": 10
+    },
+    {
+      "game_id": "train_000320_seed5000320",
+      "split": "train",
+      "index": 320,
+      "seed": 5000320,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000321_seed5000321",
+      "split": "train",
+      "index": 321,
+      "seed": 5000321,
+      "raw_labels": 19,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000322_seed5000322",
+      "split": "train",
+      "index": 322,
+      "seed": 5000322,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000323_seed5000323",
+      "split": "train",
+      "index": 323,
+      "seed": 5000323,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000324_seed5000324",
+      "split": "train",
+      "index": 324,
+      "seed": 5000324,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000325_seed5000325",
+      "split": "train",
+      "index": 325,
+      "seed": 5000325,
+      "raw_labels": 12,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000326_seed5000326",
+      "split": "train",
+      "index": 326,
+      "seed": 5000326,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000327_seed5000327",
+      "split": "train",
+      "index": 327,
+      "seed": 5000327,
+      "raw_labels": 9,
+      "winner": -1,
+      "plies": 10
+    },
+    {
+      "game_id": "train_000328_seed5000328",
+      "split": "train",
+      "index": 328,
+      "seed": 5000328,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000329_seed5000329",
+      "split": "train",
+      "index": 329,
+      "seed": 5000329,
+      "raw_labels": 34,
+      "winner": -1,
+      "plies": 40
+    },
+    {
+      "game_id": "train_000330_seed5000330",
+      "split": "train",
+      "index": 330,
+      "seed": 5000330,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000331_seed5000331",
+      "split": "train",
+      "index": 331,
+      "seed": 5000331,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000332_seed5000332",
+      "split": "train",
+      "index": 332,
+      "seed": 5000332,
+      "raw_labels": 30,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000333_seed5000333",
+      "split": "train",
+      "index": 333,
+      "seed": 5000333,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000334_seed5000334",
+      "split": "train",
+      "index": 334,
+      "seed": 5000334,
+      "raw_labels": 27,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000335_seed5000335",
+      "split": "train",
+      "index": 335,
+      "seed": 5000335,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000336_seed5000336",
+      "split": "train",
+      "index": 336,
+      "seed": 5000336,
+      "raw_labels": 15,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000337_seed5000337",
+      "split": "train",
+      "index": 337,
+      "seed": 5000337,
+      "raw_labels": 14,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000338_seed5000338",
+      "split": "train",
+      "index": 338,
+      "seed": 5000338,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000339_seed5000339",
+      "split": "train",
+      "index": 339,
+      "seed": 5000339,
+      "raw_labels": 27,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000340_seed5000340",
+      "split": "train",
+      "index": 340,
+      "seed": 5000340,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000341_seed5000341",
+      "split": "train",
+      "index": 341,
+      "seed": 5000341,
+      "raw_labels": 39,
+      "winner": -1,
+      "plies": 40
+    },
+    {
+      "game_id": "train_000342_seed5000342",
+      "split": "train",
+      "index": 342,
+      "seed": 5000342,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000343_seed5000343",
+      "split": "train",
+      "index": 343,
+      "seed": 5000343,
+      "raw_labels": 31,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000344_seed5000344",
+      "split": "train",
+      "index": 344,
+      "seed": 5000344,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000345_seed5000345",
+      "split": "train",
+      "index": 345,
+      "seed": 5000345,
+      "raw_labels": 24,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000346_seed5000346",
+      "split": "train",
+      "index": 346,
+      "seed": 5000346,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000347_seed5000347",
+      "split": "train",
+      "index": 347,
+      "seed": 5000347,
+      "raw_labels": 78,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000348_seed5000348",
+      "split": "train",
+      "index": 348,
+      "seed": 5000348,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000349_seed5000349",
+      "split": "train",
+      "index": 349,
+      "seed": 5000349,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000350_seed5000350",
+      "split": "train",
+      "index": 350,
+      "seed": 5000350,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000351_seed5000351",
+      "split": "train",
+      "index": 351,
+      "seed": 5000351,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000352_seed5000352",
+      "split": "train",
+      "index": 352,
+      "seed": 5000352,
+      "raw_labels": 26,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000353_seed5000353",
+      "split": "train",
+      "index": 353,
+      "seed": 5000353,
+      "raw_labels": 35,
+      "winner": 1,
+      "plies": 35
+    },
+    {
+      "game_id": "train_000354_seed5000354",
+      "split": "train",
+      "index": 354,
+      "seed": 5000354,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000355_seed5000355",
+      "split": "train",
+      "index": 355,
+      "seed": 5000355,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000356_seed5000356",
+      "split": "train",
+      "index": 356,
+      "seed": 5000356,
+      "raw_labels": 25,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000357_seed5000357",
+      "split": "train",
+      "index": 357,
+      "seed": 5000357,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000358_seed5000358",
+      "split": "train",
+      "index": 358,
+      "seed": 5000358,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000359_seed5000359",
+      "split": "train",
+      "index": 359,
+      "seed": 5000359,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000360_seed5000360",
+      "split": "train",
+      "index": 360,
+      "seed": 5000360,
+      "raw_labels": 15,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000361_seed5000361",
+      "split": "train",
+      "index": 361,
+      "seed": 5000361,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 37
+    },
+    {
+      "game_id": "train_000362_seed5000362",
+      "split": "train",
+      "index": 362,
+      "seed": 5000362,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000363_seed5000363",
+      "split": "train",
+      "index": 363,
+      "seed": 5000363,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000364_seed5000364",
+      "split": "train",
+      "index": 364,
+      "seed": 5000364,
+      "raw_labels": 25,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000365_seed5000365",
+      "split": "train",
+      "index": 365,
+      "seed": 5000365,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000366_seed5000366",
+      "split": "train",
+      "index": 366,
+      "seed": 5000366,
+      "raw_labels": 24,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000367_seed5000367",
+      "split": "train",
+      "index": 367,
+      "seed": 5000367,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000368_seed5000368",
+      "split": "train",
+      "index": 368,
+      "seed": 5000368,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000369_seed5000369",
+      "split": "train",
+      "index": 369,
+      "seed": 5000369,
+      "raw_labels": 52,
+      "winner": -1,
+      "plies": 54
+    },
+    {
+      "game_id": "train_000370_seed5000370",
+      "split": "train",
+      "index": 370,
+      "seed": 5000370,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000371_seed5000371",
+      "split": "train",
+      "index": 371,
+      "seed": 5000371,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000372_seed5000372",
+      "split": "train",
+      "index": 372,
+      "seed": 5000372,
+      "raw_labels": 36,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000373_seed5000373",
+      "split": "train",
+      "index": 373,
+      "seed": 5000373,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000374_seed5000374",
+      "split": "train",
+      "index": 374,
+      "seed": 5000374,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000375_seed5000375",
+      "split": "train",
+      "index": 375,
+      "seed": 5000375,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000376_seed5000376",
+      "split": "train",
+      "index": 376,
+      "seed": 5000376,
+      "raw_labels": 52,
+      "winner": 1,
+      "plies": 55
+    },
+    {
+      "game_id": "train_000377_seed5000377",
+      "split": "train",
+      "index": 377,
+      "seed": 5000377,
+      "raw_labels": 37,
+      "winner": 1,
+      "plies": 41
+    },
+    {
+      "game_id": "train_000378_seed5000378",
+      "split": "train",
+      "index": 378,
+      "seed": 5000378,
+      "raw_labels": 26,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000379_seed5000379",
+      "split": "train",
+      "index": 379,
+      "seed": 5000379,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000380_seed5000380",
+      "split": "train",
+      "index": 380,
+      "seed": 5000380,
+      "raw_labels": 29,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000381_seed5000381",
+      "split": "train",
+      "index": 381,
+      "seed": 5000381,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000382_seed5000382",
+      "split": "train",
+      "index": 382,
+      "seed": 5000382,
+      "raw_labels": 38,
+      "winner": 1,
+      "plies": 41
+    },
+    {
+      "game_id": "train_000383_seed5000383",
+      "split": "train",
+      "index": 383,
+      "seed": 5000383,
+      "raw_labels": 42,
+      "winner": -1,
+      "plies": 42
+    },
+    {
+      "game_id": "train_000384_seed5000384",
+      "split": "train",
+      "index": 384,
+      "seed": 5000384,
+      "raw_labels": 32,
+      "winner": -1,
+      "plies": 38
+    },
+    {
+      "game_id": "train_000385_seed5000385",
+      "split": "train",
+      "index": 385,
+      "seed": 5000385,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000386_seed5000386",
+      "split": "train",
+      "index": 386,
+      "seed": 5000386,
+      "raw_labels": 22,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000387_seed5000387",
+      "split": "train",
+      "index": 387,
+      "seed": 5000387,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000388_seed5000388",
+      "split": "train",
+      "index": 388,
+      "seed": 5000388,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000389_seed5000389",
+      "split": "train",
+      "index": 389,
+      "seed": 5000389,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000390_seed5000390",
+      "split": "train",
+      "index": 390,
+      "seed": 5000390,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000391_seed5000391",
+      "split": "train",
+      "index": 391,
+      "seed": 5000391,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000392_seed5000392",
+      "split": "train",
+      "index": 392,
+      "seed": 5000392,
+      "raw_labels": 30,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000393_seed5000393",
+      "split": "train",
+      "index": 393,
+      "seed": 5000393,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000394_seed5000394",
+      "split": "train",
+      "index": 394,
+      "seed": 5000394,
+      "raw_labels": 7,
+      "winner": -1,
+      "plies": 10
+    },
+    {
+      "game_id": "train_000395_seed5000395",
+      "split": "train",
+      "index": 395,
+      "seed": 5000395,
+      "raw_labels": 46,
+      "winner": -1,
+      "plies": 52
+    },
+    {
+      "game_id": "train_000396_seed5000396",
+      "split": "train",
+      "index": 396,
+      "seed": 5000396,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000397_seed5000397",
+      "split": "train",
+      "index": 397,
+      "seed": 5000397,
+      "raw_labels": 30,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000398_seed5000398",
+      "split": "train",
+      "index": 398,
+      "seed": 5000398,
+      "raw_labels": 32,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000399_seed5000399",
+      "split": "train",
+      "index": 399,
+      "seed": 5000399,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000400_seed5000400",
+      "split": "train",
+      "index": 400,
+      "seed": 5000400,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000401_seed5000401",
+      "split": "train",
+      "index": 401,
+      "seed": 5000401,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000402_seed5000402",
+      "split": "train",
+      "index": 402,
+      "seed": 5000402,
+      "raw_labels": 79,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000403_seed5000403",
+      "split": "train",
+      "index": 403,
+      "seed": 5000403,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000404_seed5000404",
+      "split": "train",
+      "index": 404,
+      "seed": 5000404,
+      "raw_labels": 26,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000405_seed5000405",
+      "split": "train",
+      "index": 405,
+      "seed": 5000405,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000406_seed5000406",
+      "split": "train",
+      "index": 406,
+      "seed": 5000406,
+      "raw_labels": 22,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000407_seed5000407",
+      "split": "train",
+      "index": 407,
+      "seed": 5000407,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000408_seed5000408",
+      "split": "train",
+      "index": 408,
+      "seed": 5000408,
+      "raw_labels": 34,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000409_seed5000409",
+      "split": "train",
+      "index": 409,
+      "seed": 5000409,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000410_seed5000410",
+      "split": "train",
+      "index": 410,
+      "seed": 5000410,
+      "raw_labels": 32,
+      "winner": -1,
+      "plies": 36
+    },
+    {
+      "game_id": "train_000411_seed5000411",
+      "split": "train",
+      "index": 411,
+      "seed": 5000411,
+      "raw_labels": 47,
+      "winner": 1,
+      "plies": 49
+    },
+    {
+      "game_id": "train_000412_seed5000412",
+      "split": "train",
+      "index": 412,
+      "seed": 5000412,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000413_seed5000413",
+      "split": "train",
+      "index": 413,
+      "seed": 5000413,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000414_seed5000414",
+      "split": "train",
+      "index": 414,
+      "seed": 5000414,
+      "raw_labels": 9,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000415_seed5000415",
+      "split": "train",
+      "index": 415,
+      "seed": 5000415,
+      "raw_labels": 27,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000416_seed5000416",
+      "split": "train",
+      "index": 416,
+      "seed": 5000416,
+      "raw_labels": 38,
+      "winner": -1,
+      "plies": 44
+    },
+    {
+      "game_id": "train_000417_seed5000417",
+      "split": "train",
+      "index": 417,
+      "seed": 5000417,
+      "raw_labels": 33,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000418_seed5000418",
+      "split": "train",
+      "index": 418,
+      "seed": 5000418,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000419_seed5000419",
+      "split": "train",
+      "index": 419,
+      "seed": 5000419,
+      "raw_labels": 81,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000420_seed5000420",
+      "split": "train",
+      "index": 420,
+      "seed": 5000420,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000421_seed5000421",
+      "split": "train",
+      "index": 421,
+      "seed": 5000421,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000422_seed5000422",
+      "split": "train",
+      "index": 422,
+      "seed": 5000422,
+      "raw_labels": 26,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000423_seed5000423",
+      "split": "train",
+      "index": 423,
+      "seed": 5000423,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000424_seed5000424",
+      "split": "train",
+      "index": 424,
+      "seed": 5000424,
+      "raw_labels": 24,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000425_seed5000425",
+      "split": "train",
+      "index": 425,
+      "seed": 5000425,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000426_seed5000426",
+      "split": "train",
+      "index": 426,
+      "seed": 5000426,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000427_seed5000427",
+      "split": "train",
+      "index": 427,
+      "seed": 5000427,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000428_seed5000428",
+      "split": "train",
+      "index": 428,
+      "seed": 5000428,
+      "raw_labels": 42,
+      "winner": 1,
+      "plies": 47
+    },
+    {
+      "game_id": "train_000429_seed5000429",
+      "split": "train",
+      "index": 429,
+      "seed": 5000429,
+      "raw_labels": 29,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000430_seed5000430",
+      "split": "train",
+      "index": 430,
+      "seed": 5000430,
+      "raw_labels": 31,
+      "winner": 1,
+      "plies": 35
+    },
+    {
+      "game_id": "train_000431_seed5000431",
+      "split": "train",
+      "index": 431,
+      "seed": 5000431,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000432_seed5000432",
+      "split": "train",
+      "index": 432,
+      "seed": 5000432,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000433_seed5000433",
+      "split": "train",
+      "index": 433,
+      "seed": 5000433,
+      "raw_labels": 27,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000434_seed5000434",
+      "split": "train",
+      "index": 434,
+      "seed": 5000434,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000435_seed5000435",
+      "split": "train",
+      "index": 435,
+      "seed": 5000435,
+      "raw_labels": 8,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000436_seed5000436",
+      "split": "train",
+      "index": 436,
+      "seed": 5000436,
+      "raw_labels": 78,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000437_seed5000437",
+      "split": "train",
+      "index": 437,
+      "seed": 5000437,
+      "raw_labels": 12,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000438_seed5000438",
+      "split": "train",
+      "index": 438,
+      "seed": 5000438,
+      "raw_labels": 20,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000439_seed5000439",
+      "split": "train",
+      "index": 439,
+      "seed": 5000439,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000440_seed5000440",
+      "split": "train",
+      "index": 440,
+      "seed": 5000440,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000441_seed5000441",
+      "split": "train",
+      "index": 441,
+      "seed": 5000441,
+      "raw_labels": 27,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000442_seed5000442",
+      "split": "train",
+      "index": 442,
+      "seed": 5000442,
+      "raw_labels": 29,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "train_000443_seed5000443",
+      "split": "train",
+      "index": 443,
+      "seed": 5000443,
+      "raw_labels": 12,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000444_seed5000444",
+      "split": "train",
+      "index": 444,
+      "seed": 5000444,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000445_seed5000445",
+      "split": "train",
+      "index": 445,
+      "seed": 5000445,
+      "raw_labels": 7,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000446_seed5000446",
+      "split": "train",
+      "index": 446,
+      "seed": 5000446,
+      "raw_labels": 23,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000447_seed5000447",
+      "split": "train",
+      "index": 447,
+      "seed": 5000447,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000448_seed5000448",
+      "split": "train",
+      "index": 448,
+      "seed": 5000448,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000449_seed5000449",
+      "split": "train",
+      "index": 449,
+      "seed": 5000449,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000450_seed5000450",
+      "split": "train",
+      "index": 450,
+      "seed": 5000450,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000451_seed5000451",
+      "split": "train",
+      "index": 451,
+      "seed": 5000451,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000452_seed5000452",
+      "split": "train",
+      "index": 452,
+      "seed": 5000452,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000453_seed5000453",
+      "split": "train",
+      "index": 453,
+      "seed": 5000453,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000454_seed5000454",
+      "split": "train",
+      "index": 454,
+      "seed": 5000454,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000455_seed5000455",
+      "split": "train",
+      "index": 455,
+      "seed": 5000455,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "train_000456_seed5000456",
+      "split": "train",
+      "index": 456,
+      "seed": 5000456,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000457_seed5000457",
+      "split": "train",
+      "index": 457,
+      "seed": 5000457,
+      "raw_labels": 22,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000458_seed5000458",
+      "split": "train",
+      "index": 458,
+      "seed": 5000458,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "train_000459_seed5000459",
+      "split": "train",
+      "index": 459,
+      "seed": 5000459,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000460_seed5000460",
+      "split": "train",
+      "index": 460,
+      "seed": 5000460,
+      "raw_labels": 57,
+      "winner": 1,
+      "plies": 63
+    },
+    {
+      "game_id": "train_000461_seed5000461",
+      "split": "train",
+      "index": 461,
+      "seed": 5000461,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000462_seed5000462",
+      "split": "train",
+      "index": 462,
+      "seed": 5000462,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000463_seed5000463",
+      "split": "train",
+      "index": 463,
+      "seed": 5000463,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "train_000464_seed5000464",
+      "split": "train",
+      "index": 464,
+      "seed": 5000464,
+      "raw_labels": 46,
+      "winner": 1,
+      "plies": 47
+    },
+    {
+      "game_id": "train_000465_seed5000465",
+      "split": "train",
+      "index": 465,
+      "seed": 5000465,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "train_000466_seed5000466",
+      "split": "train",
+      "index": 466,
+      "seed": 5000466,
+      "raw_labels": 30,
+      "winner": 1,
+      "plies": 35
+    },
+    {
+      "game_id": "train_000467_seed5000467",
+      "split": "train",
+      "index": 467,
+      "seed": 5000467,
+      "raw_labels": 50,
+      "winner": 1,
+      "plies": 51
+    },
+    {
+      "game_id": "train_000468_seed5000468",
+      "split": "train",
+      "index": 468,
+      "seed": 5000468,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000469_seed5000469",
+      "split": "train",
+      "index": 469,
+      "seed": 5000469,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "train_000470_seed5000470",
+      "split": "train",
+      "index": 470,
+      "seed": 5000470,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000471_seed5000471",
+      "split": "train",
+      "index": 471,
+      "seed": 5000471,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000472_seed5000472",
+      "split": "train",
+      "index": 472,
+      "seed": 5000472,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "train_000473_seed5000473",
+      "split": "train",
+      "index": 473,
+      "seed": 5000473,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000474_seed5000474",
+      "split": "train",
+      "index": 474,
+      "seed": 5000474,
+      "raw_labels": 9,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "train_000475_seed5000475",
+      "split": "train",
+      "index": 475,
+      "seed": 5000475,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000476_seed5000476",
+      "split": "train",
+      "index": 476,
+      "seed": 5000476,
+      "raw_labels": 23,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "train_000477_seed5000477",
+      "split": "train",
+      "index": 477,
+      "seed": 5000477,
+      "raw_labels": 30,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000478_seed5000478",
+      "split": "train",
+      "index": 478,
+      "seed": 5000478,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "train_000479_seed5000479",
+      "split": "train",
+      "index": 479,
+      "seed": 5000479,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000480_seed5000480",
+      "split": "train",
+      "index": 480,
+      "seed": 5000480,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000481_seed5000481",
+      "split": "train",
+      "index": 481,
+      "seed": 5000481,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000482_seed5000482",
+      "split": "train",
+      "index": 482,
+      "seed": 5000482,
+      "raw_labels": 26,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000483_seed5000483",
+      "split": "train",
+      "index": 483,
+      "seed": 5000483,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000484_seed5000484",
+      "split": "train",
+      "index": 484,
+      "seed": 5000484,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000485_seed5000485",
+      "split": "train",
+      "index": 485,
+      "seed": 5000485,
+      "raw_labels": 27,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "train_000486_seed5000486",
+      "split": "train",
+      "index": 486,
+      "seed": 5000486,
+      "raw_labels": 31,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "train_000487_seed5000487",
+      "split": "train",
+      "index": 487,
+      "seed": 5000487,
+      "raw_labels": 20,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "train_000488_seed5000488",
+      "split": "train",
+      "index": 488,
+      "seed": 5000488,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000489_seed5000489",
+      "split": "train",
+      "index": 489,
+      "seed": 5000489,
+      "raw_labels": 9,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "train_000490_seed5000490",
+      "split": "train",
+      "index": 490,
+      "seed": 5000490,
+      "raw_labels": 7,
+      "winner": 1,
+      "plies": 9
+    },
+    {
+      "game_id": "train_000491_seed5000491",
+      "split": "train",
+      "index": 491,
+      "seed": 5000491,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "train_000492_seed5000492",
+      "split": "train",
+      "index": 492,
+      "seed": 5000492,
+      "raw_labels": 8,
+      "winner": -1,
+      "plies": 10
+    },
+    {
+      "game_id": "train_000493_seed5000493",
+      "split": "train",
+      "index": 493,
+      "seed": 5000493,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "train_000494_seed5000494",
+      "split": "train",
+      "index": 494,
+      "seed": 5000494,
+      "raw_labels": 28,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000495_seed5000495",
+      "split": "train",
+      "index": 495,
+      "seed": 5000495,
+      "raw_labels": 34,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000496_seed5000496",
+      "split": "train",
+      "index": 496,
+      "seed": 5000496,
+      "raw_labels": 78,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000497_seed5000497",
+      "split": "train",
+      "index": 497,
+      "seed": 5000497,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "train_000498_seed5000498",
+      "split": "train",
+      "index": 498,
+      "seed": 5000498,
+      "raw_labels": 34,
+      "winner": -1,
+      "plies": 34
+    },
+    {
+      "game_id": "train_000499_seed5000499",
+      "split": "train",
+      "index": 499,
+      "seed": 5000499,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000500_seed5000500",
+      "split": "train",
+      "index": 500,
+      "seed": 5000500,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "train_000501_seed5000501",
+      "split": "train",
+      "index": 501,
+      "seed": 5000501,
+      "raw_labels": 37,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "train_000502_seed5000502",
+      "split": "train",
+      "index": 502,
+      "seed": 5000502,
+      "raw_labels": 25,
+      "winner": -1,
+      "plies": 28
+    },
+    {
+      "game_id": "train_000503_seed5000503",
+      "split": "train",
+      "index": 503,
+      "seed": 5000503,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000504_seed5000504",
+      "split": "train",
+      "index": 504,
+      "seed": 5000504,
+      "raw_labels": 6,
+      "winner": -1,
+      "plies": 10
+    },
+    {
+      "game_id": "train_000505_seed5000505",
+      "split": "train",
+      "index": 505,
+      "seed": 5000505,
+      "raw_labels": 8,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "train_000506_seed5000506",
+      "split": "train",
+      "index": 506,
+      "seed": 5000506,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 21
+    },
+    {
+      "game_id": "train_000507_seed5000507",
+      "split": "train",
+      "index": 507,
+      "seed": 5000507,
+      "raw_labels": 17,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "train_000508_seed5000508",
+      "split": "train",
+      "index": 508,
+      "seed": 5000508,
+      "raw_labels": 81,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "train_000509_seed5000509",
+      "split": "train",
+      "index": 509,
+      "seed": 5000509,
+      "raw_labels": 26,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "train_000510_seed5000510",
+      "split": "train",
+      "index": 510,
+      "seed": 5000510,
+      "raw_labels": 63,
+      "winner": 1,
+      "plies": 69
+    },
+    {
+      "game_id": "train_000511_seed5000511",
+      "split": "train",
+      "index": 511,
+      "seed": 5000511,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "validation_000000_seed5100000",
+      "split": "validation",
+      "index": 0,
+      "seed": 5100000,
+      "raw_labels": 9,
+      "winner": 1,
+      "plies": 9
+    },
+    {
+      "game_id": "validation_000001_seed5100001",
+      "split": "validation",
+      "index": 1,
+      "seed": 5100001,
+      "raw_labels": 15,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "validation_000002_seed5100002",
+      "split": "validation",
+      "index": 2,
+      "seed": 5100002,
+      "raw_labels": 24,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "validation_000003_seed5100003",
+      "split": "validation",
+      "index": 3,
+      "seed": 5100003,
+      "raw_labels": 39,
+      "winner": -1,
+      "plies": 40
+    },
+    {
+      "game_id": "validation_000004_seed5100004",
+      "split": "validation",
+      "index": 4,
+      "seed": 5100004,
+      "raw_labels": 22,
+      "winner": -1,
+      "plies": 22
+    },
+    {
+      "game_id": "validation_000005_seed5100005",
+      "split": "validation",
+      "index": 5,
+      "seed": 5100005,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "validation_000006_seed5100006",
+      "split": "validation",
+      "index": 6,
+      "seed": 5100006,
+      "raw_labels": 22,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "validation_000007_seed5100007",
+      "split": "validation",
+      "index": 7,
+      "seed": 5100007,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "validation_000008_seed5100008",
+      "split": "validation",
+      "index": 8,
+      "seed": 5100008,
+      "raw_labels": 79,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "validation_000009_seed5100009",
+      "split": "validation",
+      "index": 9,
+      "seed": 5100009,
+      "raw_labels": 17,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "validation_000010_seed5100010",
+      "split": "validation",
+      "index": 10,
+      "seed": 5100010,
+      "raw_labels": 40,
+      "winner": 1,
+      "plies": 41
+    },
+    {
+      "game_id": "validation_000011_seed5100011",
+      "split": "validation",
+      "index": 11,
+      "seed": 5100011,
+      "raw_labels": 16,
+      "winner": 1,
+      "plies": 19
+    },
+    {
+      "game_id": "validation_000012_seed5100012",
+      "split": "validation",
+      "index": 12,
+      "seed": 5100012,
+      "raw_labels": 18,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "validation_000013_seed5100013",
+      "split": "validation",
+      "index": 13,
+      "seed": 5100013,
+      "raw_labels": 25,
+      "winner": 1,
+      "plies": 25
+    },
+    {
+      "game_id": "validation_000014_seed5100014",
+      "split": "validation",
+      "index": 14,
+      "seed": 5100014,
+      "raw_labels": 19,
+      "winner": -1,
+      "plies": 20
+    },
+    {
+      "game_id": "validation_000015_seed5100015",
+      "split": "validation",
+      "index": 15,
+      "seed": 5100015,
+      "raw_labels": 78,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "validation_000016_seed5100016",
+      "split": "validation",
+      "index": 16,
+      "seed": 5100016,
+      "raw_labels": 77,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "validation_000017_seed5100017",
+      "split": "validation",
+      "index": 17,
+      "seed": 5100017,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "validation_000018_seed5100018",
+      "split": "validation",
+      "index": 18,
+      "seed": 5100018,
+      "raw_labels": 32,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "validation_000019_seed5100019",
+      "split": "validation",
+      "index": 19,
+      "seed": 5100019,
+      "raw_labels": 31,
+      "winner": 1,
+      "plies": 31
+    },
+    {
+      "game_id": "validation_000020_seed5100020",
+      "split": "validation",
+      "index": 20,
+      "seed": 5100020,
+      "raw_labels": 29,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "validation_000021_seed5100021",
+      "split": "validation",
+      "index": 21,
+      "seed": 5100021,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "validation_000022_seed5100022",
+      "split": "validation",
+      "index": 22,
+      "seed": 5100022,
+      "raw_labels": 5,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "validation_000023_seed5100023",
+      "split": "validation",
+      "index": 23,
+      "seed": 5100023,
+      "raw_labels": 18,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "validation_000024_seed5100024",
+      "split": "validation",
+      "index": 24,
+      "seed": 5100024,
+      "raw_labels": 28,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "validation_000025_seed5100025",
+      "split": "validation",
+      "index": 25,
+      "seed": 5100025,
+      "raw_labels": 11,
+      "winner": 1,
+      "plies": 11
+    },
+    {
+      "game_id": "validation_000026_seed5100026",
+      "split": "validation",
+      "index": 26,
+      "seed": 5100026,
+      "raw_labels": 77,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "validation_000027_seed5100027",
+      "split": "validation",
+      "index": 27,
+      "seed": 5100027,
+      "raw_labels": 28,
+      "winner": 1,
+      "plies": 33
+    },
+    {
+      "game_id": "validation_000028_seed5100028",
+      "split": "validation",
+      "index": 28,
+      "seed": 5100028,
+      "raw_labels": 48,
+      "winner": 1,
+      "plies": 51
+    },
+    {
+      "game_id": "validation_000029_seed5100029",
+      "split": "validation",
+      "index": 29,
+      "seed": 5100029,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "validation_000030_seed5100030",
+      "split": "validation",
+      "index": 30,
+      "seed": 5100030,
+      "raw_labels": 6,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "validation_000031_seed5100031",
+      "split": "validation",
+      "index": 31,
+      "seed": 5100031,
+      "raw_labels": 23,
+      "winner": -1,
+      "plies": 26
+    },
+    {
+      "game_id": "validation_000032_seed5100032",
+      "split": "validation",
+      "index": 32,
+      "seed": 5100032,
+      "raw_labels": 80,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "validation_000033_seed5100033",
+      "split": "validation",
+      "index": 33,
+      "seed": 5100033,
+      "raw_labels": 41,
+      "winner": 1,
+      "plies": 47
+    },
+    {
+      "game_id": "validation_000034_seed5100034",
+      "split": "validation",
+      "index": 34,
+      "seed": 5100034,
+      "raw_labels": 9,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "validation_000035_seed5100035",
+      "split": "validation",
+      "index": 35,
+      "seed": 5100035,
+      "raw_labels": 21,
+      "winner": -1,
+      "plies": 24
+    },
+    {
+      "game_id": "validation_000036_seed5100036",
+      "split": "validation",
+      "index": 36,
+      "seed": 5100036,
+      "raw_labels": 8,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "validation_000037_seed5100037",
+      "split": "validation",
+      "index": 37,
+      "seed": 5100037,
+      "raw_labels": 41,
+      "winner": 1,
+      "plies": 43
+    },
+    {
+      "game_id": "validation_000038_seed5100038",
+      "split": "validation",
+      "index": 38,
+      "seed": 5100038,
+      "raw_labels": 21,
+      "winner": 1,
+      "plies": 23
+    },
+    {
+      "game_id": "validation_000039_seed5100039",
+      "split": "validation",
+      "index": 39,
+      "seed": 5100039,
+      "raw_labels": 33,
+      "winner": 1,
+      "plies": 39
+    },
+    {
+      "game_id": "validation_000040_seed5100040",
+      "split": "validation",
+      "index": 40,
+      "seed": 5100040,
+      "raw_labels": 6,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "validation_000041_seed5100041",
+      "split": "validation",
+      "index": 41,
+      "seed": 5100041,
+      "raw_labels": 77,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "validation_000042_seed5100042",
+      "split": "validation",
+      "index": 42,
+      "seed": 5100042,
+      "raw_labels": 29,
+      "winner": 1,
+      "plies": 29
+    },
+    {
+      "game_id": "validation_000043_seed5100043",
+      "split": "validation",
+      "index": 43,
+      "seed": 5100043,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "validation_000044_seed5100044",
+      "split": "validation",
+      "index": 44,
+      "seed": 5100044,
+      "raw_labels": 30,
+      "winner": 1,
+      "plies": 35
+    },
+    {
+      "game_id": "validation_000045_seed5100045",
+      "split": "validation",
+      "index": 45,
+      "seed": 5100045,
+      "raw_labels": 32,
+      "winner": 1,
+      "plies": 35
+    },
+    {
+      "game_id": "validation_000046_seed5100046",
+      "split": "validation",
+      "index": 46,
+      "seed": 5100046,
+      "raw_labels": 58,
+      "winner": -1,
+      "plies": 58
+    },
+    {
+      "game_id": "validation_000047_seed5100047",
+      "split": "validation",
+      "index": 47,
+      "seed": 5100047,
+      "raw_labels": 75,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "validation_000048_seed5100048",
+      "split": "validation",
+      "index": 48,
+      "seed": 5100048,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 12
+    },
+    {
+      "game_id": "validation_000049_seed5100049",
+      "split": "validation",
+      "index": 49,
+      "seed": 5100049,
+      "raw_labels": 11,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "validation_000050_seed5100050",
+      "split": "validation",
+      "index": 50,
+      "seed": 5100050,
+      "raw_labels": 29,
+      "winner": -1,
+      "plies": 32
+    },
+    {
+      "game_id": "validation_000051_seed5100051",
+      "split": "validation",
+      "index": 51,
+      "seed": 5100051,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "validation_000052_seed5100052",
+      "split": "validation",
+      "index": 52,
+      "seed": 5100052,
+      "raw_labels": 26,
+      "winner": -1,
+      "plies": 30
+    },
+    {
+      "game_id": "validation_000053_seed5100053",
+      "split": "validation",
+      "index": 53,
+      "seed": 5100053,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 17
+    },
+    {
+      "game_id": "validation_000054_seed5100054",
+      "split": "validation",
+      "index": 54,
+      "seed": 5100054,
+      "raw_labels": 13,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "validation_000055_seed5100055",
+      "split": "validation",
+      "index": 55,
+      "seed": 5100055,
+      "raw_labels": 13,
+      "winner": -1,
+      "plies": 16
+    },
+    {
+      "game_id": "validation_000056_seed5100056",
+      "split": "validation",
+      "index": 56,
+      "seed": 5100056,
+      "raw_labels": 16,
+      "winner": -1,
+      "plies": 18
+    },
+    {
+      "game_id": "validation_000057_seed5100057",
+      "split": "validation",
+      "index": 57,
+      "seed": 5100057,
+      "raw_labels": 12,
+      "winner": 1,
+      "plies": 15
+    },
+    {
+      "game_id": "validation_000058_seed5100058",
+      "split": "validation",
+      "index": 58,
+      "seed": 5100058,
+      "raw_labels": 81,
+      "winner": 0,
+      "plies": 81
+    },
+    {
+      "game_id": "validation_000059_seed5100059",
+      "split": "validation",
+      "index": 59,
+      "seed": 5100059,
+      "raw_labels": 10,
+      "winner": 1,
+      "plies": 13
+    },
+    {
+      "game_id": "validation_000060_seed5100060",
+      "split": "validation",
+      "index": 60,
+      "seed": 5100060,
+      "raw_labels": 14,
+      "winner": -1,
+      "plies": 14
+    },
+    {
+      "game_id": "validation_000061_seed5100061",
+      "split": "validation",
+      "index": 61,
+      "seed": 5100061,
+      "raw_labels": 32,
+      "winner": -1,
+      "plies": 36
+    },
+    {
+      "game_id": "validation_000062_seed5100062",
+      "split": "validation",
+      "index": 62,
+      "seed": 5100062,
+      "raw_labels": 23,
+      "winner": 1,
+      "plies": 27
+    },
+    {
+      "game_id": "validation_000063_seed5100063",
+      "split": "validation",
+      "index": 63,
+      "seed": 5100063,
+      "raw_labels": 8,
+      "winner": 1,
+      "plies": 9
+    }
+  ],
+  "train_seed_range": [
+    5000000,
+    5000511
+  ],
+  "validation_seed_range": [
+    5100000,
+    5100063
+  ],
+  "validation_d4_overlap_removed": 108,
+  "validation_internal_duplicates_removed": 0,
+  "behavior_counts": {
+    "random": 1424,
+    "teacher": 11657,
+    "greedy": 1445
+  },
+  "game_file_sha256": {
+    "shards/worker_00/games/train_000000_seed5000000.pt": "98f2f202ff393412d4364b1e291eb3c06942f0e1b5c9cd3ca9be701caaec8a69",
+    "shards/worker_01/games/train_000001_seed5000001.pt": "32ec0beeca28c403283070a9a6cb91000d9b2ea5e5cb176534f061ef40941453",
+    "shards/worker_02/games/train_000002_seed5000002.pt": "883dbd9b05e9040de5fa24a60830524f69c43e2a4568aecf77a68e0873f4cc18",
+    "shards/worker_03/games/train_000003_seed5000003.pt": "9dcdef1aebd501e5ab4818a4a932ade0f94bfe69dfe399467252ee2ffda34577",
+    "shards/worker_00/games/train_000004_seed5000004.pt": "4022cca29b37dbfcb589d41d543059f28084c5e50aaeacf65ff2eb25052d1adc",
+    "shards/worker_01/games/train_000005_seed5000005.pt": "f5659b7b036b3596645220b14bd3dd4a711de2469870fe50a76dc24ec243d121",
+    "shards/worker_02/games/train_000006_seed5000006.pt": "ec8cd8f3196739ad253ff9b5244b03938ae46c6178b770487aadfc28af3109d8",
+    "shards/worker_03/games/train_000007_seed5000007.pt": "c894d4c5dc290be63e036d773da757ea0612a9692352ea6dbc8ef0622dd4f7d4",
+    "shards/worker_00/games/train_000008_seed5000008.pt": "c652b1ac5f4e45d52cee88c6a9456a957b8a62a23d794bee7bec7beaa6729159",
+    "shards/worker_01/games/train_000009_seed5000009.pt": "84f81e97413178e25dcc370d0c9f7cfe84b6824f6446f8ceb7284dac9e6a385d",
+    "shards/worker_02/games/train_000010_seed5000010.pt": "b84f2d340ebf2b77cc3871b1fa1849cc67394f6160554ca422d8d6b799517818",
+    "shards/worker_03/games/train_000011_seed5000011.pt": "bbe75d9712aac4d4ed0378ad95fef1fff1f59640e2e2f787dca05354e523f926",
+    "shards/worker_00/games/train_000012_seed5000012.pt": "3346abe30e6929b4ec77293f4b2eb058e445e607ad4bd00ccfe0b1fca55a67ea",
+    "shards/worker_01/games/train_000013_seed5000013.pt": "3be68d1afe499723b6d6afbd19d3c9c90aa2c92ccdbc18cfe6b036324bffda4b",
+    "shards/worker_02/games/train_000014_seed5000014.pt": "d796ea6660e950449ea0e6dcd3552eb0284858528d4a679f3181b954d34a6d1d",
+    "shards/worker_03/games/train_000015_seed5000015.pt": "95de4cacf6bf19a8fb519c2a9f6f3202a8a11195e52bda4e75be190efe98889c",
+    "shards/worker_00/games/train_000016_seed5000016.pt": "0ca3879be03f3dcf93412e3906208b0e7d7422c16e9ff9d0a80981a321af8246",
+    "shards/worker_01/games/train_000017_seed5000017.pt": "042bc01f7da6266942a961c2a1ea3b75c4e0e61ca7a272222579a6224f5f33b1",
+    "shards/worker_02/games/train_000018_seed5000018.pt": "7634e3995901f2b5b1c437e85d762dd46f3c5e6cc68b9b8758e4f286e9658046",
+    "shards/worker_03/games/train_000019_seed5000019.pt": "107edf20be37527b03f5c87f65bf8f71f02aee04084aa2419e8459c1ba12bfb9",
+    "shards/worker_00/games/train_000020_seed5000020.pt": "28d5422b59d0668e93618c697a2138b81b74c511d9310a57ba42da42fbd1cc4f",
+    "shards/worker_01/games/train_000021_seed5000021.pt": "c5e5183c464093fe06cd2ebe1fcb32e81d3b1821d1df381f013a71d2a5dcf53f",
+    "shards/worker_02/games/train_000022_seed5000022.pt": "867d1ffc2ade0d1e12f4fc5894fcd02c31a483b1f17f9ff3965ddd620805fe79",
+    "shards/worker_03/games/train_000023_seed5000023.pt": "8f99a946d51216a177136c6b797f42a20a45814692d1fd9dd93c7370d0cd158f",
+    "shards/worker_00/games/train_000024_seed5000024.pt": "15fc15f3953de904785044c73aafcdfe97c243bd5a69fba50beed8eda7e31042",
+    "shards/worker_01/games/train_000025_seed5000025.pt": "286488788490a2da16746448c99a82eec698f2c112de2429120dc7bfd7f90caf",
+    "shards/worker_02/games/train_000026_seed5000026.pt": "e82d90023dd8bce6fa3735a7e68b896cc3b6cd737be129648020ff863dbe5a00",
+    "shards/worker_03/games/train_000027_seed5000027.pt": "8032a2fe6ea21a754bd3eb6c3dc0ff1d5a841ec8be3837a58187556ec2466d76",
+    "shards/worker_00/games/train_000028_seed5000028.pt": "691e5972dbb94fe5212b184856459cf0e60ab24d8e080f778e0cf3f45136890f",
+    "shards/worker_01/games/train_000029_seed5000029.pt": "c2179e75088b8cf649ef20151ba03386b9118a1868a518d1ee3ffdf0a1d7fbce",
+    "shards/worker_02/games/train_000030_seed5000030.pt": "b2b244d1044ac28d478305411a2b8c436751ffd0b9d378d09998a39ac6c5d03f",
+    "shards/worker_03/games/train_000031_seed5000031.pt": "f665e438aebe1ada42657930af54d76b320517a7dc3adba62ebb02d0f780e2c4",
+    "shards/worker_00/games/train_000032_seed5000032.pt": "264171b43c1c91667fe8d88b2803afb7ae12acd5d5b8e666f2a080100fcf2669",
+    "shards/worker_01/games/train_000033_seed5000033.pt": "6f099aa63b45ba6753a5fa7aa618e2d4344ebd07ad613b69fe0bd2c497e6d4db",
+    "shards/worker_02/games/train_000034_seed5000034.pt": "f3120aa3d112edab508bbb8c8df6a99b06585cdb625614f73cd68458f9daf75b",
+    "shards/worker_03/games/train_000035_seed5000035.pt": "a2bfd1af6d86dfddcc98fb70ae35cace333e24389ff34e69427e98152cd4f2d8",
+    "shards/worker_00/games/train_000036_seed5000036.pt": "2644ad95c8537ad21617fac408adf2114b152eeb77db95d74f737d08c33c81cb",
+    "shards/worker_01/games/train_000037_seed5000037.pt": "6cbc178a70837acb554249eacd8314f3e3ce4a4beb5f681a2f1cb8ef99f68378",
+    "shards/worker_02/games/train_000038_seed5000038.pt": "cd6f9579d27bc4ad86c37d7988b486dfefb4afcbff4232db9507f6bf7cafb8d9",
+    "shards/worker_03/games/train_000039_seed5000039.pt": "beeaeecd018604113bf35bf3dfce92ff8112b701e8dc95051a28d49964d4eddf",
+    "shards/worker_00/games/train_000040_seed5000040.pt": "2920f9c35aa56393a61dd439446b7c7ca91b8427369c63f8431243a503e0ba96",
+    "shards/worker_01/games/train_000041_seed5000041.pt": "0c79e8ee0cc6173da5fa6bfe2027f944321f7f54683e30a1a3c43405cba78a29",
+    "shards/worker_02/games/train_000042_seed5000042.pt": "599d279663e39ff41704c0afddbdfa6c00f7f9918efc8d799dfafa24a7204718",
+    "shards/worker_03/games/train_000043_seed5000043.pt": "911669c3fc02d2d43ded58caed318f80eb30282fbbd99c0613b2a5ba9a48910c",
+    "shards/worker_00/games/train_000044_seed5000044.pt": "a1093aae2b2d4531eb8642591aeb827c7980c3d1443cc226a0c815c70c5934b4",
+    "shards/worker_01/games/train_000045_seed5000045.pt": "3fc0d75910e15fa9887ba302ed30cb3e06a372d4523c8ac07544598e3c8abc4e",
+    "shards/worker_02/games/train_000046_seed5000046.pt": "98a4acbcb14f60e7917a6e25eca85e6405d9e6de7e6a655f5aa54ec6bb87435c",
+    "shards/worker_03/games/train_000047_seed5000047.pt": "db858f08b30d3d1becacbc86ef2611ad4fe5b561b05efbf4a1f9486c4682b87c",
+    "shards/worker_00/games/train_000048_seed5000048.pt": "705d28967f16c1fd80f8beefe2af53b7080f301e0a7675a84d61964f2c25f730",
+    "shards/worker_01/games/train_000049_seed5000049.pt": "4b02f9282a3e420e0c4a62d9a2e4ae2954bfe4c713a045ce6bb227c4910b0a84",
+    "shards/worker_02/games/train_000050_seed5000050.pt": "84fe6b15a066df1df6fa888b12c25b3bab5f940cdee2fcb92037e965176b39e5",
+    "shards/worker_03/games/train_000051_seed5000051.pt": "4acb4d344aa7c01e449aa84199f5a51c064bd8b770f9e13f7e2980b62828d776",
+    "shards/worker_00/games/train_000052_seed5000052.pt": "97e02279db5619478c4a8e8ac7201e5771551381fd526a064ed95a68fcb0feba",
+    "shards/worker_01/games/train_000053_seed5000053.pt": "339e7b451405a2f3317d4f2bbc100a3d2c4b3a1d25f8bc7dad76252804bc4941",
+    "shards/worker_02/games/train_000054_seed5000054.pt": "b2d94922175b28830e5e57366c9ae7672aad3a85c585fe18071149153e0a9c9e",
+    "shards/worker_03/games/train_000055_seed5000055.pt": "ec9a47cd09ed4a762b5b2fe968f481f15844c47e8a10885e674fbd52951454e7",
+    "shards/worker_00/games/train_000056_seed5000056.pt": "7bb9e111d8319141dbb0cbea1ceed47931c211e079baccefa58c4f88d8180cd5",
+    "shards/worker_01/games/train_000057_seed5000057.pt": "3b8a560a48b2428589f9d6ef867dbc8372603efc5b9f0db9c99892a64e470269",
+    "shards/worker_02/games/train_000058_seed5000058.pt": "782542f88374933fa2851a11644c3cbd1c5f58b143d539fa199a0df12b0470f6",
+    "shards/worker_03/games/train_000059_seed5000059.pt": "546bd5285d3a9d16d4b1b75710be5a995e2fe4a64f13c6b0f4f28b22f11d756d",
+    "shards/worker_00/games/train_000060_seed5000060.pt": "59b15fe5775cca133e26ac3c78035b5c3f0ede4fe0132e35a91f00f9169b5e4d",
+    "shards/worker_01/games/train_000061_seed5000061.pt": "5321eeed47a46d135aa88876c441f31a72dbbf19886daf73380df23610de68de",
+    "shards/worker_02/games/train_000062_seed5000062.pt": "13c41dd22c4fc15aeb66fa4a984bde2b7e764d23e61006be357b83a0b48121b9",
+    "shards/worker_03/games/train_000063_seed5000063.pt": "c9aeb3f354de1bb22b355245d68ed6b1714bdf9db228b61812785acda8ec6e74",
+    "shards/worker_00/games/train_000064_seed5000064.pt": "6c9235446832ed09f34d49e02dcbb9e8fc0cee2130a242ed56c38fc5950aaa0d",
+    "shards/worker_01/games/train_000065_seed5000065.pt": "7dff2d095d4c801adb2e8d6ae825adc47eca3b4026ca89c1b08a233b6dc7d0ad",
+    "shards/worker_02/games/train_000066_seed5000066.pt": "d1c8e3a3fdb85760425285c96e6ceccecc537c5762b5ae781dab3d3f62ca80ba",
+    "shards/worker_03/games/train_000067_seed5000067.pt": "00288bff01114ba37f2bf39dc0bdb37032654308c5b3bea8c5089d25695ccf63",
+    "shards/worker_00/games/train_000068_seed5000068.pt": "39383ef886cbf5737e4d58e4ea87a7455849be474e367af110dfa3dd4bcee410",
+    "shards/worker_01/games/train_000069_seed5000069.pt": "247a8d9d8a56605775308f87492043fb21ead4c1fdd11f1ff174060852215b06",
+    "shards/worker_02/games/train_000070_seed5000070.pt": "e4ddb4006be30b338df8ae01522c5fd90f41705d41013efed953bfcbc8ebbc09",
+    "shards/worker_03/games/train_000071_seed5000071.pt": "ca92b4d160e4e063f5b8588cd8e00a4f944db129f4f917b5f40a29dfaac12340",
+    "shards/worker_00/games/train_000072_seed5000072.pt": "0c97c6ba1e73ebc923ffc2f5654c576b528f0834882dd816ea58a7941c494e2b",
+    "shards/worker_01/games/train_000073_seed5000073.pt": "3e31d3f601aec2ebec2e74da8725c08bc4bdd30dafc4ae27c0ac00efcda52fdd",
+    "shards/worker_02/games/train_000074_seed5000074.pt": "a47ac760adf1ad0fd05faaecab92b963a0370e2f7c2e4306423dfcdd5e67f30c",
+    "shards/worker_03/games/train_000075_seed5000075.pt": "6d396bb875cd3c8cd0ba3f9181f85a5970239cfd5f1d5b92a1bd5001a47e7f66",
+    "shards/worker_00/games/train_000076_seed5000076.pt": "74705205d27e9bcbcf4dc6f8121525a9563161b66e96d469ba2c79e0db8185c0",
+    "shards/worker_01/games/train_000077_seed5000077.pt": "1f20ad31810507a7ba5e58b27ff8df4e56ad45394a5290217365dfa778a9805b",
+    "shards/worker_02/games/train_000078_seed5000078.pt": "c6f7a0e866ce647002d756d5e4a8fba01ee6b2ac59637d5a8c9fe6ac7eb407bb",
+    "shards/worker_03/games/train_000079_seed5000079.pt": "1e07ecead5b6a40685ed9ad29aaa501ffd0551a6cf21aea3d0af4e0b230d520f",
+    "shards/worker_00/games/train_000080_seed5000080.pt": "dd50467ad7c231f9eea017f23e9c146dad48c1ae54ce60a114be33107234907d",
+    "shards/worker_01/games/train_000081_seed5000081.pt": "db724591be51908b28536b51d0fdffca1e60afbf114fac5855280736c2d2a3e0",
+    "shards/worker_02/games/train_000082_seed5000082.pt": "777ae35317d369150eea1cba7cbf962a6dad5c35e82cb8ca52efa0863a0dab82",
+    "shards/worker_03/games/train_000083_seed5000083.pt": "91a9f22cfb96bffc0cced0ea6212debcd7e342aa36572ea5b92e7e1da607b758",
+    "shards/worker_00/games/train_000084_seed5000084.pt": "7bc8dc1c75a1eb55b14dcf064eddea7d89a63d458c71e4b7e0b5ef47130ca98b",
+    "shards/worker_01/games/train_000085_seed5000085.pt": "211947d425b7a30f263acfaf36e761759d30256e1ad8bed0edfdbf4c82c0bddd",
+    "shards/worker_02/games/train_000086_seed5000086.pt": "0bc7f6faeaac4a28c80058616918f8a9404a426a330755df3e801647405f76fb",
+    "shards/worker_03/games/train_000087_seed5000087.pt": "0ba647f29f868ac4ea417265c960557b27317d35fc85197c869532183f20e312",
+    "shards/worker_00/games/train_000088_seed5000088.pt": "5ab96613943eb0c426bdc381515e32481f25e57724a8a490860eef41450ecf26",
+    "shards/worker_01/games/train_000089_seed5000089.pt": "76b9f7a771c1c57c8b291b3f1d98c5b0ef2d73e5e0ba5aa9ebd89231e269f531",
+    "shards/worker_02/games/train_000090_seed5000090.pt": "85c689d7a69c536d74ab753fdb891cf51174ac557e7c292d7c11c031abaa848f",
+    "shards/worker_03/games/train_000091_seed5000091.pt": "3734990809ede0d808ba5be0bc2706942a9f092d9f01bf53540732873d40dc8f",
+    "shards/worker_00/games/train_000092_seed5000092.pt": "5acbea71c685dac5ba8313b59ddfc480d2d289cbff56a1844a00d77a69272183",
+    "shards/worker_01/games/train_000093_seed5000093.pt": "c99ac14a1c32e8d407179ab4269d40e46a11e5876bdbd11a3e1ed7e12a5d69e2",
+    "shards/worker_02/games/train_000094_seed5000094.pt": "7e49149f7e1eca9732cfd99db5067a70f450a5d6e3a90d48cbeb3eeea56e6bf3",
+    "shards/worker_03/games/train_000095_seed5000095.pt": "15e3b94cb01362bafc651ffcbb62d89894e063c1de404e35ce3a6e904e9f6ae0",
+    "shards/worker_00/games/train_000096_seed5000096.pt": "fbb56fc079aa447690fcf5c376711460b1c198a6610e6b4fbd4d9e15ac874d69",
+    "shards/worker_01/games/train_000097_seed5000097.pt": "06469000a323a2e35803c32eb93268ebec3b80090bf1f8d0a789e1b43e27d044",
+    "shards/worker_02/games/train_000098_seed5000098.pt": "2fb07c1dd74f427147da663c20f40cf605b38fc07c516f5591a7cb3db2b62589",
+    "shards/worker_03/games/train_000099_seed5000099.pt": "468d1b671f6af18b6c836e6d22cdcd58a201538a4a5193fa31d35607ddfc6e04",
+    "shards/worker_00/games/train_000100_seed5000100.pt": "9391034252732a78839839bf4701ed71c21b8c171d92f61a205d30e11af14996",
+    "shards/worker_01/games/train_000101_seed5000101.pt": "75e8e96075e315f7e26fedeec575b38cc1547392beea802e6d4790169d9c840f",
+    "shards/worker_02/games/train_000102_seed5000102.pt": "39b2fd53699220c1410a973708a41d1d92522a5f6e6834a41a796d899d0a53d8",
+    "shards/worker_03/games/train_000103_seed5000103.pt": "be0c953497e3a45fae4ac0f110060560367c0f18c919618b5585df2c23da5ad1",
+    "shards/worker_00/games/train_000104_seed5000104.pt": "f819cc00ee3b5179de8d4b60876ed87e23ae62da9f64719010ac1e9d765ed7b6",
+    "shards/worker_01/games/train_000105_seed5000105.pt": "9e3ca7196cfcc215aa2946d485b94d0ec5894d25f6c745544121563eb27c480d",
+    "shards/worker_02/games/train_000106_seed5000106.pt": "2fa887a327819d5580a63bf4b73209c25b17de34b3d8a45b3456416cd2a1024a",
+    "shards/worker_03/games/train_000107_seed5000107.pt": "d8255dcc6d212d177433ce110f2f25de123855e69771072c1adf37220c565901",
+    "shards/worker_00/games/train_000108_seed5000108.pt": "4af80d68913bd4c405614be0b0914f06b59d9cee67f609d2486a98b4bb8351bb",
+    "shards/worker_01/games/train_000109_seed5000109.pt": "2c0c55dd1bc592466270dd6c04b0c6b31a8d2caaef415636d945c016de0419fa",
+    "shards/worker_02/games/train_000110_seed5000110.pt": "23f0fa23561c18434a44454eb6d2cb5e9c967ad6925899f9e9d1840158bd07e4",
+    "shards/worker_03/games/train_000111_seed5000111.pt": "e4ad5c13dc82cc6ae853814f20e15f568ecde45a582f9dfc2bbc99423977ab8a",
+    "shards/worker_00/games/train_000112_seed5000112.pt": "a0706415c12d56b8c33ea27d93e1420388fb728b0b17af4ce158cd2eee670b0d",
+    "shards/worker_01/games/train_000113_seed5000113.pt": "ba72a2a780d7241d71439e0db8e6772ba2205a9adb7cb83c9113ed7ee40f81d6",
+    "shards/worker_02/games/train_000114_seed5000114.pt": "69e4b486c5b26229cde52b779c7aecda4b522977dfb39ff312ebc48d3b2fe542",
+    "shards/worker_03/games/train_000115_seed5000115.pt": "b97cae9d0033076eddee3cf833ed10bd8ef8923b2819bd98ecb31e269e42cf4a",
+    "shards/worker_00/games/train_000116_seed5000116.pt": "3afbe22acb4e0736a10134c06d7f387d68139756ecd7a4cdfc108a21c5670061",
+    "shards/worker_01/games/train_000117_seed5000117.pt": "afb48f43512ad1546debd9d13fcde7d6140beabc6467c50f5ce77b6df4108dc1",
+    "shards/worker_02/games/train_000118_seed5000118.pt": "afce5767b563b553bf6e6839475b1d4c198df0071f3a98035c8aa2831967e2a6",
+    "shards/worker_03/games/train_000119_seed5000119.pt": "b2019df1a51bbbfcbca20c06d7a8ce022df219c7168b11734d32fe196a401003",
+    "shards/worker_00/games/train_000120_seed5000120.pt": "a0b338ebedba60613e20d9122b4baf2b7f82710404b9e3007e83a8cf5ad6a5bb",
+    "shards/worker_01/games/train_000121_seed5000121.pt": "82155cc834581c7aac538136394c4c34a5b2ef7bc03d6c03a14f44725af7cb4b",
+    "shards/worker_02/games/train_000122_seed5000122.pt": "162ae8627243342a2d851cf00d2f13e77f458a69fa8c54705a5a2285c9b7f168",
+    "shards/worker_03/games/train_000123_seed5000123.pt": "dc74d6a358b52696b22b042db3f871df3d8540ae5a4f04b4f5546bb2d932e23d",
+    "shards/worker_00/games/train_000124_seed5000124.pt": "b4cdef27173901fe35729d5177dcf1f4ed85e89ec6def8542f954555739f1b0e",
+    "shards/worker_01/games/train_000125_seed5000125.pt": "a2bf7a57a1c6a5dca3272175eaced4d4cf78157fe1be67049d4dee1df5f98e8e",
+    "shards/worker_02/games/train_000126_seed5000126.pt": "2434460ecdb696f65ac17e76c397365ab221128fb7c85438e02bc4db63fbf858",
+    "shards/worker_03/games/train_000127_seed5000127.pt": "5b691ecb0dcd75e6a2a0e0f43fe647b613908589589e0ec30287670ce47daf61",
+    "shards/worker_00/games/train_000128_seed5000128.pt": "ec1c0eb9c379be6ee864b700415c0e0d462f2d7ea6357f196c7d7b416cf01ba5",
+    "shards/worker_01/games/train_000129_seed5000129.pt": "aeed622960c8b4ee659a37994c120996b7d7e41be5ff1ea04a8ad863c2451a59",
+    "shards/worker_02/games/train_000130_seed5000130.pt": "8d5407a2381ae9cf82b58836df3de34283f4bc118f3d1330e6686c56de01dc11",
+    "shards/worker_03/games/train_000131_seed5000131.pt": "aeadfdc94a49cae711250141da5cf8a1920f0c91523cf132e07da63fdf6b076c",
+    "shards/worker_00/games/train_000132_seed5000132.pt": "02beba90624819f2d3b5ab48020d4378953a5a286082da56750a4aab29ca190e",
+    "shards/worker_01/games/train_000133_seed5000133.pt": "011e11fbd8096205932fe5cd108c43139ee96467c51cfb2f613c298d3137fef0",
+    "shards/worker_02/games/train_000134_seed5000134.pt": "7b7987e61d8f6dd930ae35ca4b259c02766951f13d6d5a98f4d22b14510b6475",
+    "shards/worker_03/games/train_000135_seed5000135.pt": "680df0ba9c379fe2a45b44506e988751489acd0ec7aa995673afeba964c8d971",
+    "shards/worker_00/games/train_000136_seed5000136.pt": "468545b46bd5dbdf3d7df3778132f7fcd44af990212f0db2d721176221384fa1",
+    "shards/worker_01/games/train_000137_seed5000137.pt": "7f52398930035c8394b06b760ac58aacfeefe0578d9aae88a227d13f1cebd979",
+    "shards/worker_02/games/train_000138_seed5000138.pt": "dbd1bb2ebe8ef4dc4f7eca64279c98decf45564c7b99c47c09b6c0144aa3b858",
+    "shards/worker_03/games/train_000139_seed5000139.pt": "d555eef2634030e3f8f4eebf7f040d0a4dd60d0913aca6e34226220598797918",
+    "shards/worker_00/games/train_000140_seed5000140.pt": "f2f130d2ffa0be27803ead26d20007606227c7e7520007544d3a1514b81aec10",
+    "shards/worker_01/games/train_000141_seed5000141.pt": "a39c9af4e9cb85992bd404a6ad24c6a7ed930d1dd4705e0645ee50f4a272dd19",
+    "shards/worker_02/games/train_000142_seed5000142.pt": "a7f1bb7c200f44aba416c9499bf4f038f56d66721721db46172ba4cfbfc217f7",
+    "shards/worker_03/games/train_000143_seed5000143.pt": "1afc2538a4096c06f24730bf62801b3ac58de982c8947cb8efa7f92db07bae28",
+    "shards/worker_00/games/train_000144_seed5000144.pt": "86437f1c7448069881027e67893e2b6a0f4004f4edf3fd6677c5541ea1462b2c",
+    "shards/worker_01/games/train_000145_seed5000145.pt": "4c84576acbfa1345a7a88aed6a3314d01ffb2efc735bf370983f17e0260c44d5",
+    "shards/worker_02/games/train_000146_seed5000146.pt": "45ac0de0c1eeff9ec56dd2b6dd68571778c15fc27700b3df609e50bcca1f8db2",
+    "shards/worker_03/games/train_000147_seed5000147.pt": "96ba5a47d041d255a9b50a4155be48aac23860498147a1a5e5c7380ad5174c32",
+    "shards/worker_00/games/train_000148_seed5000148.pt": "2284f3a16590713227aaf3f73460ea1bf69124057f89f573603485df08ef0d9a",
+    "shards/worker_01/games/train_000149_seed5000149.pt": "90e2e52a5f1b3ef1a9a9716ef1b112e2ec0759d2298f2227c6c2b2280def64f1",
+    "shards/worker_02/games/train_000150_seed5000150.pt": "2adfecaea89a5f22c2f29b54a0730211e7d99c5aa2129b9a8f9e9b5ca855409f",
+    "shards/worker_03/games/train_000151_seed5000151.pt": "3240958953fa00dfd1a6274c0d91e10d7f171d310b59ce97c8facde52d3162c6",
+    "shards/worker_00/games/train_000152_seed5000152.pt": "4d8e6e86d70dccd04923c5e5bccc05bf09a2ddabb82c06729b219b7e79a56d86",
+    "shards/worker_01/games/train_000153_seed5000153.pt": "5184d285826b9146667e8305939ef2918d17bc59b603e37476b39736c5a72ca7",
+    "shards/worker_02/games/train_000154_seed5000154.pt": "685f11d2e7c4c95e38c85747c8266a8babd595137423a1d4cfb7d83666304b76",
+    "shards/worker_03/games/train_000155_seed5000155.pt": "75f81d8616a90c36f7a88963901a398ed4f1b9369da979216d7669b402819e2a",
+    "shards/worker_00/games/train_000156_seed5000156.pt": "afaf3de5c9f372450beb2eddf04b5381b009c24e908b57f858d23be947758d49",
+    "shards/worker_01/games/train_000157_seed5000157.pt": "7aae90dfb2afba94c94d1438b62e8e5ebfc3f1164b04bd776dc8341a151908e7",
+    "shards/worker_02/games/train_000158_seed5000158.pt": "f9ea4d9eb9d20ef7ddfd84bfdbe6c35560714287be2d1102189375073aefe960",
+    "shards/worker_03/games/train_000159_seed5000159.pt": "167422c2a96d7bdf95b6178fdc22e35cc4c3fd0de99de3b1a916cd6b7439d5f2",
+    "shards/worker_00/games/train_000160_seed5000160.pt": "78eee9645f6cf864d4c6503efcd994b62610bb303a3a91d8d3bdb1e9f7e65e97",
+    "shards/worker_01/games/train_000161_seed5000161.pt": "22d21c3573ca1970b1745dba50bc6e66220a4ceb83d587b12f6873de09d486dd",
+    "shards/worker_02/games/train_000162_seed5000162.pt": "f66e8050d533f8a3adebab5f3e7baec162e0f9e3c1adc3acb62d0be4b59dc75f",
+    "shards/worker_03/games/train_000163_seed5000163.pt": "9b8cc296e608a2f8651fbb86e1e281def68b7c4f05bd90a9ad2053b31301a342",
+    "shards/worker_00/games/train_000164_seed5000164.pt": "336b126fce7917a239fc898bd76070dcee578039a201922c2ab1bf7f62c66f19",
+    "shards/worker_01/games/train_000165_seed5000165.pt": "0eead61de690bda99c730fc2fbc499686f0cee644316e5befcde11a84979b51b",
+    "shards/worker_02/games/train_000166_seed5000166.pt": "4e296b753323b24959d4da37dfd1b121f30dd18020b4f55f21a425e53d99c1e4",
+    "shards/worker_03/games/train_000167_seed5000167.pt": "2def75be5ee158e6ef5b2b55426734bb86a677d24f178a5df57e87ac02ae710e",
+    "shards/worker_00/games/train_000168_seed5000168.pt": "c974d4b746f2ed3621b045c9e39de4dce15b7ee047270a80a8db335caa81e07a",
+    "shards/worker_01/games/train_000169_seed5000169.pt": "036c66551b9849c26c39b0c14228f6e73ab965758a98fbbdf690f09337bfc05c",
+    "shards/worker_02/games/train_000170_seed5000170.pt": "e4ce65b8a06379c24a82bef956d027cce705ceea6bba895e71608dd384419eee",
+    "shards/worker_03/games/train_000171_seed5000171.pt": "139a6571af00bf1edfdde8440f6375abda61d0521c23e883e68e038c23665408",
+    "shards/worker_00/games/train_000172_seed5000172.pt": "fbce118b0c45aec40587c6a93efe04f1cceb48c31c00f42e95fdced3257cce42",
+    "shards/worker_01/games/train_000173_seed5000173.pt": "7ecf99aafdb086e523ca0d4981379c588652f2304b25ae7963f5cc71f67627f5",
+    "shards/worker_02/games/train_000174_seed5000174.pt": "f2542e93407529c08748766c2e56ff7be8d970ef1fabbab85a680080bfdd7be4",
+    "shards/worker_03/games/train_000175_seed5000175.pt": "88ef1903e4091272052f006728514782d85826312cb75a8462696d8816a48700",
+    "shards/worker_00/games/train_000176_seed5000176.pt": "7fbbb62997c3047ee6dcdac17f2c1d687bc84fffd499235b885163e436e3cb25",
+    "shards/worker_01/games/train_000177_seed5000177.pt": "6d16b792d98776610bd38b4e56816f61b1dd360b0fffc292d4723679487f4868",
+    "shards/worker_02/games/train_000178_seed5000178.pt": "f9710cd1dbcc7f4d8ec924d92aaa49dc35ac8e7dabc2a75927bc856b881791d3",
+    "shards/worker_03/games/train_000179_seed5000179.pt": "a3aaeca8cae1079c779b4ffff939dcaf2afe09f3c944ab5e4211f0dc1a86c00f",
+    "shards/worker_00/games/train_000180_seed5000180.pt": "91e3cea88b4501aab77bbae3a73f2704682b793b881648e9668d5a5a24181848",
+    "shards/worker_01/games/train_000181_seed5000181.pt": "e4e63722e2464b623a80ac5c03fd42595b703c88082a5c09bbf08118e3fce4af",
+    "shards/worker_02/games/train_000182_seed5000182.pt": "95f2bcf191137b5c86e33a071f95f30de3c84fcf80107d3b7f652750b19de93b",
+    "shards/worker_03/games/train_000183_seed5000183.pt": "386ea8289a8dda760c63c2a910cdf87c004a9336c9f4a6aef418fdb009c1a5ce",
+    "shards/worker_00/games/train_000184_seed5000184.pt": "6d5cf20123df681fbb5d26c23115ad199ed3ec1e3b3651978d3e16713beeec05",
+    "shards/worker_01/games/train_000185_seed5000185.pt": "e0bcbd10e76d9164238b1b0a8cfe148ef12828a423e17e1442f1c42a5404031b",
+    "shards/worker_02/games/train_000186_seed5000186.pt": "333306ef3d03e21c5ae38ccb80121acd1b173d049b78677472a038c56cdaac27",
+    "shards/worker_03/games/train_000187_seed5000187.pt": "43400d94331d6c20374cad62bc2c2e7abcfc9a5edcfe1c798aea58dba15fb966",
+    "shards/worker_00/games/train_000188_seed5000188.pt": "e89d34c937f7c488188244ac7516ec266f78d4f8d696b0174ed579b67cdd4b9d",
+    "shards/worker_01/games/train_000189_seed5000189.pt": "3cc1cecbedc32bc459621dccbf107694a429cb3302572e37b5d90547f7527ee1",
+    "shards/worker_02/games/train_000190_seed5000190.pt": "9891c8e06d44d2781dcace8e24d3a86958805ddaaac24bc8a981c2ce91f12970",
+    "shards/worker_03/games/train_000191_seed5000191.pt": "11540631c86c162c16d7f7dd88679788f5f035a2a9c774a9681b2358146e3a07",
+    "shards/worker_00/games/train_000192_seed5000192.pt": "49a14e8a069a34ce67cd471c7f63e8b97269ae0b623025ee305eaf315ce7fd04",
+    "shards/worker_01/games/train_000193_seed5000193.pt": "e589b68b9277081951d1097e14eac15cea7b6647e8fd3779bcf28e2f655f4453",
+    "shards/worker_02/games/train_000194_seed5000194.pt": "c3070110977e577772fcfa5ce486ce754a3c33b95812093168c0dc7dd9b4a98e",
+    "shards/worker_03/games/train_000195_seed5000195.pt": "2a41a033d0a71cc12e3c57c06b1f2da65ab6847d4b990a99024bd7b0507076fd",
+    "shards/worker_00/games/train_000196_seed5000196.pt": "35caa66b0d0beeed70f1169a40295f19726146514d5861f4daf6a4245f0e24c5",
+    "shards/worker_01/games/train_000197_seed5000197.pt": "eccaf0ba8615134f8d6cc14700cebb13f65c44c42547cc1133425cde939802a7",
+    "shards/worker_02/games/train_000198_seed5000198.pt": "24d1fe226e936004d868586d0ccd067233e8abbab6240aaaeb49166d40cc9264",
+    "shards/worker_03/games/train_000199_seed5000199.pt": "a65851b2881e54211137bfe38d4064dac4f5325eb336e309f0e52dcda1114a62",
+    "shards/worker_00/games/train_000200_seed5000200.pt": "3ee09192bd197a5decc56d63b3e5ff4a7f56a0cdb3ac1b9630f285a7e61675d3",
+    "shards/worker_01/games/train_000201_seed5000201.pt": "cd10556a55dda59bcb17bc31f4b8df85540442eecdd51e49cf75c7ac9f68efe9",
+    "shards/worker_02/games/train_000202_seed5000202.pt": "cf7b96d45b97086ddd0bd70b4b8ebf38a635237ce0afa475c5d7beb7dfdeef9c",
+    "shards/worker_03/games/train_000203_seed5000203.pt": "e1e8eb2a16c874b9222f3be8e17b4a1d2bd6dadfc740d6f7737972d14123ad24",
+    "shards/worker_00/games/train_000204_seed5000204.pt": "b42644cf8689c4d1c128de3709cbe985a0a451ecb3828774cf12b3549cad2384",
+    "shards/worker_01/games/train_000205_seed5000205.pt": "4a79ee878ca103fd3057f7cd8c5fde729eafbd57088114c477f4c410e2687445",
+    "shards/worker_02/games/train_000206_seed5000206.pt": "aea581ec40bd344ba00e819c9ee805c00fbbf1344d33b92f22014a85135fbe57",
+    "shards/worker_03/games/train_000207_seed5000207.pt": "733fd739e15d744050c4520037b402949d62e9014f5bdefd9486c02e949a0c48",
+    "shards/worker_00/games/train_000208_seed5000208.pt": "0ab6d07cb527d3d713b00a297164b20061538699198df03797af4072fbd090d3",
+    "shards/worker_01/games/train_000209_seed5000209.pt": "25259b71f9f8c72cf5b277d0fb4f29de54b466e629876ce7fc97e611a775040b",
+    "shards/worker_02/games/train_000210_seed5000210.pt": "a6282bca79cac16928110e6b0e3bb61c979f6d3a7885f9f768c3ef144a7ee466",
+    "shards/worker_03/games/train_000211_seed5000211.pt": "e6dfa065eca45151519da297958cec52b1bc27060e67bc7c8e4a15eb6b5b4d6d",
+    "shards/worker_00/games/train_000212_seed5000212.pt": "447569f4cb6171a8b72a6c15a59972a5097d286bbf5ff9a6f38aec257a5ccf59",
+    "shards/worker_01/games/train_000213_seed5000213.pt": "3b220818cdd91a5a9c81ada0ef36317047cfbd5e4880e7dea7499a451aa49dc6",
+    "shards/worker_02/games/train_000214_seed5000214.pt": "96995b02c09e77857bf093d69a6d440c660feb636e4cb991315fb74cbd49a241",
+    "shards/worker_03/games/train_000215_seed5000215.pt": "c73dd3e7ec29fe1641dd56a7c9ada5d2f9b8b1bcddb03ef3c59a7a08ed709707",
+    "shards/worker_00/games/train_000216_seed5000216.pt": "41d32477855296f7d1fee21881f343f63e29a32a567ffd592666190f90bfadf3",
+    "shards/worker_01/games/train_000217_seed5000217.pt": "906130b88335d7c4cd9bfd6b77a056c2b3355b7e802299d073e7a72d3019764b",
+    "shards/worker_02/games/train_000218_seed5000218.pt": "90ac644511f244069f2b01aacc6778a63905d84defcc6c379fa38c2343e52d09",
+    "shards/worker_03/games/train_000219_seed5000219.pt": "58a3a8df3161ed0715098db2e2cd997781ae73a853304977685337b547f56f51",
+    "shards/worker_00/games/train_000220_seed5000220.pt": "806c699f7415e438e0f5cdee1b88e6dac1cb18f3b0d2fd50a0b2692f905d0c86",
+    "shards/worker_01/games/train_000221_seed5000221.pt": "33337ea8ec14ecad8000abddeff8c489ab795290426c2842374b3694a5f0cfbc",
+    "shards/worker_02/games/train_000222_seed5000222.pt": "c8d6a0023406de252e43cc626ba0391de93398239a87c8a0c2ec22a2b720b718",
+    "shards/worker_03/games/train_000223_seed5000223.pt": "9696e364c2adca92cafbbb25d2bfb38a56d41999fc729a7c368ca38a33fd562b",
+    "shards/worker_00/games/train_000224_seed5000224.pt": "a0e6dc24fe739f02150d961a16c6ef18cece9e36eb22d0b99cd1a37089941401",
+    "shards/worker_01/games/train_000225_seed5000225.pt": "23a6e584102a4859f98b29abf66bdc2bdd445f2dfb420b7529adb2d432ec3fc4",
+    "shards/worker_02/games/train_000226_seed5000226.pt": "29071267ba4c93f7e5732efdbe4f5798317785781269d7585a6fed060a5e90cb",
+    "shards/worker_03/games/train_000227_seed5000227.pt": "0149b1e4bcd2ebbcab148698c67bd0c6fda6ebcb8f9d00cc22053271564151d1",
+    "shards/worker_00/games/train_000228_seed5000228.pt": "4db2945d849ffd6207b637800b4392ab62111f3d1b47004ec13b7c16b2b41761",
+    "shards/worker_01/games/train_000229_seed5000229.pt": "50c104fd26c2367e036c9ba543530543aab839fc68645e4796c3d0fb94c00631",
+    "shards/worker_02/games/train_000230_seed5000230.pt": "ddc6432f527d35056f0ab44094a985cb3f11bde19446f46c260c14074abb549e",
+    "shards/worker_03/games/train_000231_seed5000231.pt": "d5511db531ac334776fc6ece4ff3e38f2afa0c0de08046335d3f9221e881c533",
+    "shards/worker_00/games/train_000232_seed5000232.pt": "d9c764e93d5ca0034e8f9ae2e1a7ff306b3b75011bc55992cd5650fb6112db58",
+    "shards/worker_01/games/train_000233_seed5000233.pt": "059a4a8928ad22bb654029d44375ebad2ca2e17772ae1d6fd69bf884ce831808",
+    "shards/worker_02/games/train_000234_seed5000234.pt": "2d884aef28d0f051d020bfd1ffec1018fc71d22a34f0bd2061c416bc244a8869",
+    "shards/worker_03/games/train_000235_seed5000235.pt": "1c1760b677a916ddd7f8f4467bbe35d8b105b342d076e9bfb70caf4f1330340f",
+    "shards/worker_00/games/train_000236_seed5000236.pt": "546c68294e0bba2758af40b45805a73e9bd85934a2d7202d3c8903f3f98f772b",
+    "shards/worker_01/games/train_000237_seed5000237.pt": "25e8b4baa20c06a09490f2cec744674fef6af572bf81117c4cbca1f020ee5c34",
+    "shards/worker_02/games/train_000238_seed5000238.pt": "437088c2a1f3c4a0647dcb4185a554c465f469062d2d2e011a78ef8bdc0d2dec",
+    "shards/worker_03/games/train_000239_seed5000239.pt": "e3db9f37745aefa788be63b9956928ba70da369c544ee5e92fcc9027e172c290",
+    "shards/worker_00/games/train_000240_seed5000240.pt": "97d33728e334db1705b65fd3a1d7a39e3c651d30a66ba1f42e3b041c9194ee2a",
+    "shards/worker_01/games/train_000241_seed5000241.pt": "1a40db732f5c3ba3384f57085669966f725049e2ae501e007d022182d3557696",
+    "shards/worker_02/games/train_000242_seed5000242.pt": "735dd0adfd977797e52da8fdbfe6d902f87f6ddc7acd13f6fe72363df10c67c2",
+    "shards/worker_03/games/train_000243_seed5000243.pt": "d8cd770132f292f783c1da86c9f80f357f45ec95b2b9576d1d3257a4a72faf9e",
+    "shards/worker_00/games/train_000244_seed5000244.pt": "eb1953ddb6bf86e7082fd123ed31fa6f17b30e71add1ac66fa4f068cbcb85dae",
+    "shards/worker_01/games/train_000245_seed5000245.pt": "2259f1076ab94bb52c92ff1431ea13aa9b0385b632c39b23e4d506bcac6440a2",
+    "shards/worker_02/games/train_000246_seed5000246.pt": "5c8a58bc0aa20c870b2a31819affdccf82cff40e3a2508b899f3959fe56870f0",
+    "shards/worker_03/games/train_000247_seed5000247.pt": "6c2832619eac0fe80f3fd8a7722cc96c9cf50f060d2be9d2c41e302dd4e977e7",
+    "shards/worker_00/games/train_000248_seed5000248.pt": "149da82172573a2a6efb7a4046cb11590efcf927927cfde869980088bbef452a",
+    "shards/worker_01/games/train_000249_seed5000249.pt": "a4c46645a8be3b1b0ea86b2981cf03e5eb20a643e7c5c358b26550c91a39ca9f",
+    "shards/worker_02/games/train_000250_seed5000250.pt": "11b54f2b97ec70c9c4584bbb77fb159ef4c0fc3912ee6f2f65811ba467ff498c",
+    "shards/worker_03/games/train_000251_seed5000251.pt": "a142d4a530290410bc45952df1436b348b97dab38fc94a6ea2959f7e9eff3f73",
+    "shards/worker_00/games/train_000252_seed5000252.pt": "afc2a0e0f4c9035dd3943cc85c273470b45900bc2c49d382e98720dfbf5f62d5",
+    "shards/worker_01/games/train_000253_seed5000253.pt": "ba34ddeebf079f01fac392e4440628957f3c2f883e710fc58c50bc1dffec4c2d",
+    "shards/worker_02/games/train_000254_seed5000254.pt": "fcc89aa9deacadfbad9ebc3b94c99277627062fbe03b4d39bc25677b7b44a1c7",
+    "shards/worker_03/games/train_000255_seed5000255.pt": "b9a4472eeb4faa61e8f3fce53372e0c389f34f40d4759d54647040ed4b10a78b",
+    "shards/worker_00/games/train_000256_seed5000256.pt": "c3b02061612cc1ccc40d91b021df89b59f41e3ec5e0423dfa790d38588d4c1cc",
+    "shards/worker_01/games/train_000257_seed5000257.pt": "8cdd6cdd5a12b62f878237eb0b39075a09c61659a60f483f37097963a672d5cf",
+    "shards/worker_02/games/train_000258_seed5000258.pt": "c366b7a8ec4f15089fa5aedab4d427750032c19c5ef7842409f2592ef861deea",
+    "shards/worker_03/games/train_000259_seed5000259.pt": "55a1280cbe3ce63dac6ebb58a50f406c7d8223221a9146c6d0de63feaed21621",
+    "shards/worker_00/games/train_000260_seed5000260.pt": "ffd3ecd79a864e63feba3e0d1c100bf839db25beb140f4646302996242198e24",
+    "shards/worker_01/games/train_000261_seed5000261.pt": "53b9af8244776dca12ccfc6bde9bbd15892f50e8e29006adbc74e66f33779061",
+    "shards/worker_02/games/train_000262_seed5000262.pt": "361d902b4ed975df533ba0b37de287598d124f28f48fe0840735d143ccbae039",
+    "shards/worker_03/games/train_000263_seed5000263.pt": "ad01275504878534b5d3670d6e6dd052fba09af6e1cd1bd7ea492121d317fabb",
+    "shards/worker_00/games/train_000264_seed5000264.pt": "5879b636993bc1ca4568798e458e495fe8c6579a1230ad74d21f677aa74b9c1a",
+    "shards/worker_01/games/train_000265_seed5000265.pt": "dad12c7c376b3051fc94257b5b67b83109684a4b5b223fc5a5d3f38aad65a29b",
+    "shards/worker_02/games/train_000266_seed5000266.pt": "46f37c0e052a53f545f432da37e358963b3ad36f19ac9953a3930378133d6fb9",
+    "shards/worker_03/games/train_000267_seed5000267.pt": "3c60367d44ccd6112e9f2b59f179432c95ac903dd73bd982697740969e4af2c2",
+    "shards/worker_00/games/train_000268_seed5000268.pt": "f4507fb8cdd92a5aa8ca6137ce067b06e71a01afd08754ea8188f35cf47eed1d",
+    "shards/worker_01/games/train_000269_seed5000269.pt": "dad707f7233ee13f6c1a499be34d0de665f5f7892d7fabb11e666ca70ee8ae54",
+    "shards/worker_02/games/train_000270_seed5000270.pt": "9be8be6248f3ad9e3e8c140b20834a987539625483d6220593c1d67bac9c155f",
+    "shards/worker_03/games/train_000271_seed5000271.pt": "d76236f7a8995d42076b852732fbba9a23a568d734e5b876688eca3ac1bc0739",
+    "shards/worker_00/games/train_000272_seed5000272.pt": "b793989d8ad9401b9758a34fe5ae72ae872c528057b800f5f510f641677f07bc",
+    "shards/worker_01/games/train_000273_seed5000273.pt": "2af85b0afb1eefe985812dc4932326b594750de10eb75688e9b19cbe697f8030",
+    "shards/worker_02/games/train_000274_seed5000274.pt": "edc18cd692398cfdf9723e51b36c61dfaaf684281696e4564e411faf8add34c6",
+    "shards/worker_03/games/train_000275_seed5000275.pt": "5abc002d88399a660c47eb7076d79da727ac126af8471f83bfeabaf77136ba10",
+    "shards/worker_00/games/train_000276_seed5000276.pt": "1ba0493f1bb58a7d8bae6303fbe8de24dc946c8f19b6e02bd1c74c7ccf75353e",
+    "shards/worker_01/games/train_000277_seed5000277.pt": "88ab73ae2dcd10593eb5db392a8543391de0ce1a07908384d48cb82fe06ee53b",
+    "shards/worker_02/games/train_000278_seed5000278.pt": "fc0e45b3da2e965815d4842dab33067ee2743f0a83dbc43d228fd7ac91e92e8a",
+    "shards/worker_03/games/train_000279_seed5000279.pt": "d3c205e3b30de7856a9d4f44a6c4d9ed796cd0e60c2717b2464d982681678e7a",
+    "shards/worker_00/games/train_000280_seed5000280.pt": "d3dddf39a087e38dd889014366161d85bda28478e359b5f08e5a681a760a42dc",
+    "shards/worker_01/games/train_000281_seed5000281.pt": "3802a4217a7181a03d5ea21e40d0fb9314fc2cc27f247c382d1a622b8074fe61",
+    "shards/worker_02/games/train_000282_seed5000282.pt": "6c190673ff612c6894a454b9dfbf7984b2cc89c4b7b3d04fb4a40d0c87d161cd",
+    "shards/worker_03/games/train_000283_seed5000283.pt": "e151a465775aa734be478049c4a67f33fa5584752cb63ccbc6d06975346aa30f",
+    "shards/worker_00/games/train_000284_seed5000284.pt": "b50fd59706721bc58d22f8ba5f27c27eaf21326838f8d73e1810b48f778fec87",
+    "shards/worker_01/games/train_000285_seed5000285.pt": "a8b6f8af5e552d47741d23b04fb475c5359a536388ca75abb734b3a8ca8f32da",
+    "shards/worker_02/games/train_000286_seed5000286.pt": "4e8dcb29ce10ad687749c4ae72fddf0aae43ae6bb2b160a976164cbf167adfc7",
+    "shards/worker_03/games/train_000287_seed5000287.pt": "79d030add1bd326b5d6ea69a7ecbbfcce077caf93079f4524dcac99fbe1ea80f",
+    "shards/worker_00/games/train_000288_seed5000288.pt": "677299c098deede9deeb52c86413e61301b57ad896078f43b5762e9c27196b7d",
+    "shards/worker_01/games/train_000289_seed5000289.pt": "9e238178b5065491db0d2b8ab722a88e4f5b86179db345eab34ef8e465e1dcc8",
+    "shards/worker_02/games/train_000290_seed5000290.pt": "dcdb22ce54b84783e747c8af507a3bade58b70c7fb1f12ecbaf6f29ac55b0f19",
+    "shards/worker_03/games/train_000291_seed5000291.pt": "73b7773874e5a52d9641973f316a2a5a7a29b00669e0a560a1459f1f2ad34667",
+    "shards/worker_00/games/train_000292_seed5000292.pt": "70d47560bcc3b8039cc8e26c048bfe8c835e978f979e9f8abc6ea0aace0be115",
+    "shards/worker_01/games/train_000293_seed5000293.pt": "10a2ba39155c981ecfb08d001d719a9c2d24b3128c76d2297731ecba521a5c6f",
+    "shards/worker_02/games/train_000294_seed5000294.pt": "d3b723d5c381a81a0507da86334624cfc1dc7bfd509fe78adc6f07d64941db14",
+    "shards/worker_03/games/train_000295_seed5000295.pt": "54d776a6dd70bea5f1d251ef3f05532fcd6bc4cb4be435ba707ddd756f7b29b4",
+    "shards/worker_00/games/train_000296_seed5000296.pt": "e4fa6c4317a68360569147dbc44213a924b371f6378b0f5fa75c1d93735bb136",
+    "shards/worker_01/games/train_000297_seed5000297.pt": "6c025e1dc15eefd39cf44566e313e19e9717e52dd499db48e986a5cc89b1ca14",
+    "shards/worker_02/games/train_000298_seed5000298.pt": "5e305ebed33132e65ddca31f802ddf30de852f0b68dafd9f6c5e6a337f2ab291",
+    "shards/worker_03/games/train_000299_seed5000299.pt": "8bc531e04578d961137aaa3baf784f64d05e48dde8625d4578a70a97b4b0f53e",
+    "shards/worker_00/games/train_000300_seed5000300.pt": "28bbaa82fef432fe25ecfa95e02b131ec9f609b8b9ff13679866d12dbec23237",
+    "shards/worker_01/games/train_000301_seed5000301.pt": "52c7284742bc55778e29e0ada0168c09458234627e67556aa13fb3f3c6640bed",
+    "shards/worker_02/games/train_000302_seed5000302.pt": "b9743d77b72cd1d4a72528e4cd2fbd97582d787b626565997aa94890064caa3a",
+    "shards/worker_03/games/train_000303_seed5000303.pt": "0ee0a88403249ff8563bf2d84098fa3dcf57594c29bab5d3caea81131b02bea5",
+    "shards/worker_00/games/train_000304_seed5000304.pt": "3d3c5a3ed794114e7722f5beca9489b1ce1127edf080580849153429b77626db",
+    "shards/worker_01/games/train_000305_seed5000305.pt": "2a1aaede806d3f4d3d764e80d7c89d2c15a67acdf8009e2acfc7745fc841bdb6",
+    "shards/worker_02/games/train_000306_seed5000306.pt": "f6d66af91ebcab628ed273167f108f2cc463d4188746efd547d181a14b708eff",
+    "shards/worker_03/games/train_000307_seed5000307.pt": "f1ac21d4275fbf44ba53f12c380b70384e4790cec716e5825d6ceb3379fb678b",
+    "shards/worker_00/games/train_000308_seed5000308.pt": "df295a72b6b69b089efb4e8258007af61476a744967c5164d8144510612b4cce",
+    "shards/worker_01/games/train_000309_seed5000309.pt": "415383f8e7062d65b95c55261521f20cb6ec946d8ff51a9474eacbeba2746c48",
+    "shards/worker_02/games/train_000310_seed5000310.pt": "ff0a8d7a515283ddad3739bb8f7d89603ff66db6fd289ccddb60fa60108955a9",
+    "shards/worker_03/games/train_000311_seed5000311.pt": "23194144ba1ae37708df7551fde8ca6ade4be7c8ba0c75ab94f8e31914823554",
+    "shards/worker_00/games/train_000312_seed5000312.pt": "bafab38ee2f91c0ed343a1dcb4dc94001215dc56edeb36338fa9628358e21f5d",
+    "shards/worker_01/games/train_000313_seed5000313.pt": "a30658ed3f9aa15394c6d6186094cd54dbe02d1e212bfcd9516046429e409386",
+    "shards/worker_02/games/train_000314_seed5000314.pt": "6dae33e8c25c3c0f6023f90d9ee5017f0302fc68ee5cfbf2e9af1646ddd09a1d",
+    "shards/worker_03/games/train_000315_seed5000315.pt": "5cbc744641365edda527edf017aaa1a1b5ba26354193e5fe037a4ff9878d4767",
+    "shards/worker_00/games/train_000316_seed5000316.pt": "3ac556738f253cd3014eaf3089af8a78537b29eaa8502f529adc4b155be8a97c",
+    "shards/worker_01/games/train_000317_seed5000317.pt": "4f63a62d3c61c52a1ccba46041979783a9292496689ab0c3b0980a0c99e5e075",
+    "shards/worker_02/games/train_000318_seed5000318.pt": "f42a99ef1340c10b5ccb122553c4ec7307239f903d837beeac7d621632e34b49",
+    "shards/worker_03/games/train_000319_seed5000319.pt": "7539b29b367b2b8b9d355fdbcb4186e48e8df9d6dce190c84c901f7aaf1f4cb7",
+    "shards/worker_00/games/train_000320_seed5000320.pt": "19cfb559941b38c9f39a6586d9873c9cc6e2f5076e0d3a921d7cb16535f5c5c4",
+    "shards/worker_01/games/train_000321_seed5000321.pt": "350658c63340fc8c5fc6da192fe284f34025422ab8e9c3959f34bde604b3a112",
+    "shards/worker_02/games/train_000322_seed5000322.pt": "094f8ab29b1a8b94e65ff5e8807f78f5934067a54fd5c9f1afddbb43bd78a105",
+    "shards/worker_03/games/train_000323_seed5000323.pt": "cc21786ed4a8ac824dae07764074621350fc56cdc3c0e729aa5d731fc2aafb32",
+    "shards/worker_00/games/train_000324_seed5000324.pt": "f329f79537e5b6fff498c6635ac9d5faef03b149b34c1820c4ca38f034479587",
+    "shards/worker_01/games/train_000325_seed5000325.pt": "127d7bea112e339ab9cf12b280d6fb7c4d3fe6cb411d6890c1f61ce20f23b7a7",
+    "shards/worker_02/games/train_000326_seed5000326.pt": "9a53954bb9c3b419499797aa077f99210d615136cbc8a85c5e1db4d9632b00f1",
+    "shards/worker_03/games/train_000327_seed5000327.pt": "e9a87475d470b18662b13ca4b2257ff3295f7ca19d691e89c78adfc876d9d67e",
+    "shards/worker_00/games/train_000328_seed5000328.pt": "68b58e7780ed5d7b53e3f7c90e37a8a7abf7e348c869d5958032a80273a24234",
+    "shards/worker_01/games/train_000329_seed5000329.pt": "1ccfeb743f82ceca79efefe9672b3d2e166a5ba9bd51f299464975a615466d96",
+    "shards/worker_02/games/train_000330_seed5000330.pt": "c339366507c1fed1b2d03ae7db03e921ea6119f59bf5f3ce11c03188d6840609",
+    "shards/worker_03/games/train_000331_seed5000331.pt": "55ec106b836dc52a86a0141f08e9f7996190bd62cc868a4317f5adce1e21a2db",
+    "shards/worker_00/games/train_000332_seed5000332.pt": "bea14e85f8bcb983f33fad48ae3c29ef9a596820309eb0bc20916f4fad475653",
+    "shards/worker_01/games/train_000333_seed5000333.pt": "218bea42251cba4a59f453ec1553328941b49d2d6f63a70b56d98946dc5978b6",
+    "shards/worker_02/games/train_000334_seed5000334.pt": "38a5ee190195a088e7b4af26d18e79a4cf826ff6f1934b55389d85b0ca35f823",
+    "shards/worker_03/games/train_000335_seed5000335.pt": "aaa090c28a2dcd9cfb2cc95cb68ddbe55acbab40a6ab6adbac17501551587d52",
+    "shards/worker_00/games/train_000336_seed5000336.pt": "4d519e6a336edb5ddd599dd77c147ee99d0e4b72d0dca70ad553bcffd0701d0c",
+    "shards/worker_01/games/train_000337_seed5000337.pt": "42edb20f556a913f5e9d40628e010bce999561d45b3bd0c0387a9300e955802c",
+    "shards/worker_02/games/train_000338_seed5000338.pt": "2fc89855ca9a7a003d1d1eecec7712603bbee45738b63d29076e556b3d61bdc9",
+    "shards/worker_03/games/train_000339_seed5000339.pt": "39d69ab001a37200e391775193ddfa13c140d08ac1f546068d35f142bacb91c1",
+    "shards/worker_00/games/train_000340_seed5000340.pt": "3fdd215afde7aac5f7c4935f3339326b81064f646c279bd06047f5d17d30b2c0",
+    "shards/worker_01/games/train_000341_seed5000341.pt": "ea2f1afb0e7215b9467ef6d04c36fe671573d0830947f22d62208575192a216a",
+    "shards/worker_02/games/train_000342_seed5000342.pt": "18d0cf11a23369248c42de2a35fc8c238cfd6526554df96d13f16d24ea516e3e",
+    "shards/worker_03/games/train_000343_seed5000343.pt": "57cdfdf31c0552465686dcb350624bc2226ab374815fbf06c0a3b8ba0519e942",
+    "shards/worker_00/games/train_000344_seed5000344.pt": "7f4622b7599b94b39c711231b6ee754f1a420322c06dc771d5703ab4feb26243",
+    "shards/worker_01/games/train_000345_seed5000345.pt": "3e8377a6aeab7087b76902443ad828d6f2b36e9704c196df630e5847747e603c",
+    "shards/worker_02/games/train_000346_seed5000346.pt": "bf5be573be11544df5f159dac1192c9f3999265c7f5228f7e8623bd78748148e",
+    "shards/worker_03/games/train_000347_seed5000347.pt": "159f8af327c3be3399d80725e5d2632d9165c812e09ab0cf4c3dffb8bd2a73b8",
+    "shards/worker_00/games/train_000348_seed5000348.pt": "8d91584d36248feb7030dfb06bceefbeb7aa0d1735c5880b628a6fb2d9854267",
+    "shards/worker_01/games/train_000349_seed5000349.pt": "049a576d1116609053c43b5232010edc1dad7db2735aa7ae2b33e49be5f1c57b",
+    "shards/worker_02/games/train_000350_seed5000350.pt": "a500cf6c0cf4eea0a06c7db590e3ae6b57ae8c453f74c75a80e505715c0b619b",
+    "shards/worker_03/games/train_000351_seed5000351.pt": "1ff4b90f0eab516f68f745a22ef769a64a074ef2c191a383338413b28266e066",
+    "shards/worker_00/games/train_000352_seed5000352.pt": "e0eaa4e64ffc04bdd9fbfcadd27daf98b4b7b4fb1ff6b1a05e10e64338f56082",
+    "shards/worker_01/games/train_000353_seed5000353.pt": "e6510279ed4fd7af6b818afe58c5a55182bb338f2f1d3c8ead8c445d3d3e2575",
+    "shards/worker_02/games/train_000354_seed5000354.pt": "b585ba1c2b69d72f97163c0cbf2b69d50a8f4babc037f445ab0e36db980eae2e",
+    "shards/worker_03/games/train_000355_seed5000355.pt": "ff304784acb483c76a572f531227f6260e42a0a6c236102e9c00bfd91eacda15",
+    "shards/worker_00/games/train_000356_seed5000356.pt": "11a680560eca71083d4e9ec4c2b9fb1e8571b7625fd02f96aacfc61842d9c81f",
+    "shards/worker_01/games/train_000357_seed5000357.pt": "95554fb8b1761bc133c0e008015fd073e482187f3e70f8c1591cfa0568569e8c",
+    "shards/worker_02/games/train_000358_seed5000358.pt": "0ade0b23f7315b3d9f6957e6a00a8bc39da2a718d36117ccec44aeb392c2b784",
+    "shards/worker_03/games/train_000359_seed5000359.pt": "e11f5d41b501ded2056029a25d0da271a73c9dba623935244d00d8b7b626c1be",
+    "shards/worker_00/games/train_000360_seed5000360.pt": "59224e524a0c912c05f3a826e569bc316130d54c631bda16806568518e02a134",
+    "shards/worker_01/games/train_000361_seed5000361.pt": "0b9636fdea349f72b99afa4fe0e285c0cf870acbbce95fde15793a506feb976e",
+    "shards/worker_02/games/train_000362_seed5000362.pt": "57ffca4bfb14631df0f4c16117698e1f99a877039460094b29ab0dac347a7549",
+    "shards/worker_03/games/train_000363_seed5000363.pt": "4887967a508fc169c27e3cf670e34ad7ce3014b04984082a6093c96078f591ff",
+    "shards/worker_00/games/train_000364_seed5000364.pt": "8d2ab64937c2a5bc7a3b1015ed2710b2d8463cc3426011c112c6da76760380b6",
+    "shards/worker_01/games/train_000365_seed5000365.pt": "aceb6860773b57f78aeebc54e3909ff79c7ee18fd2eb621f571f857b5b3e5e00",
+    "shards/worker_02/games/train_000366_seed5000366.pt": "88c81b90bc7ad69edec70ac9213c728bf1611062db58c645e599db72ed909774",
+    "shards/worker_03/games/train_000367_seed5000367.pt": "ccd68ff3b2548a56ca4131ab3c3460f3682b33a5c9755dc392633d469a625658",
+    "shards/worker_00/games/train_000368_seed5000368.pt": "fdfe4461d6ba8809184f774fe5362db80da70445b9923f6d8c187f17f7f0ae21",
+    "shards/worker_01/games/train_000369_seed5000369.pt": "5609a0b9cf468df802a1f78b491891a7726d086bdc0a00daceb400f9639eb9d0",
+    "shards/worker_02/games/train_000370_seed5000370.pt": "4d67b05916946f5552b09f1fc8387658d954c1533900952d5ed0c7ada9983624",
+    "shards/worker_03/games/train_000371_seed5000371.pt": "184020a6826a865d6b38f752c0fccc46e2a3d40a6925748a6776929576bcf9e8",
+    "shards/worker_00/games/train_000372_seed5000372.pt": "4ccfcf4aef1504fa1f9c095600ba34929928acaa31de4911869c6149bc17c427",
+    "shards/worker_01/games/train_000373_seed5000373.pt": "c1eb8d67fe1914202fa3976fa630b0ac4c3ed271210579350e138defadfb2af5",
+    "shards/worker_02/games/train_000374_seed5000374.pt": "1a265512f35aa471e45f99ba6be7e6af552c79afe7362a9c66c19c56ba8736a5",
+    "shards/worker_03/games/train_000375_seed5000375.pt": "10ad2e5fbfce54c2cc78d4f2e4c1abffef6409cd9be8cf415d3d0218b8613a62",
+    "shards/worker_00/games/train_000376_seed5000376.pt": "460f9dd0f47f50a409ec2149d75b1257d58bb398237e6d38b492223609f3c7b5",
+    "shards/worker_01/games/train_000377_seed5000377.pt": "1b086f8a02e9b0168ffd341a929c96396b743addd2ddbce3c1eca3a3993f32db",
+    "shards/worker_02/games/train_000378_seed5000378.pt": "f62ecfb205a38fef5e0b097d14505afdf335ec060c00eeaf65dcc3f8b4429ae0",
+    "shards/worker_03/games/train_000379_seed5000379.pt": "6bc56121c45e06bb75cabac96903a646f32f8328402e799a45f19b7cbf357959",
+    "shards/worker_00/games/train_000380_seed5000380.pt": "c487870eab9a41bccb5ec55c317c11a5d988416f4b84f566713fda02c705e14d",
+    "shards/worker_01/games/train_000381_seed5000381.pt": "a41e2a7825fffa4c42a1869a076dfaa0fcc9a997222da66e2c0732f9c46a28b2",
+    "shards/worker_02/games/train_000382_seed5000382.pt": "3c8e30e9dafcb4ef0d99202f7e18ad949944ced4bae80698d73a05c20f078b5a",
+    "shards/worker_03/games/train_000383_seed5000383.pt": "5b01002cdaa3fcbd44ae9cb4bbc5829ec6cb74ff40d741f15263134a023d1d1e",
+    "shards/worker_00/games/train_000384_seed5000384.pt": "b64a5541b063144235e5caf77d91b77341693d2d511629e869d9a10c4bd2fef1",
+    "shards/worker_01/games/train_000385_seed5000385.pt": "d8480307e981fbeefe39502d091ae35ca8708bd9d33444ae7e90075fb314f27e",
+    "shards/worker_02/games/train_000386_seed5000386.pt": "d1efdd9ad0f7215471161dadf96e19290ee37445f99c7e8a243fcf6f11683257",
+    "shards/worker_03/games/train_000387_seed5000387.pt": "fdc62dc1d866d87aa2200b69a939baf23ee1078efe0dd0af2637694a6d3bc8a5",
+    "shards/worker_00/games/train_000388_seed5000388.pt": "2bbedb73961194ac7a51c13272aa736ea6776d84c006592f43528c72539d72b9",
+    "shards/worker_01/games/train_000389_seed5000389.pt": "d37b831f0da8c0f4a06c2e29e8844b7b0a6e604b7733894664ac1b40fb6179c4",
+    "shards/worker_02/games/train_000390_seed5000390.pt": "71618fc79433dc513961a0b0a21988c59340438517870d4a374b6ab334d960fa",
+    "shards/worker_03/games/train_000391_seed5000391.pt": "65163c40b9da11174392612deffbf487c84beaaa1354f912c867eb5bb53829a8",
+    "shards/worker_00/games/train_000392_seed5000392.pt": "da2ad11a5ed1aedd8e9165baa82cbda8a6183640765a4b23732354381d0f17b4",
+    "shards/worker_01/games/train_000393_seed5000393.pt": "5ea51ed07db20ec578e2f5d63b1b20f1fd744c31329324eee204a7ab9f99139f",
+    "shards/worker_02/games/train_000394_seed5000394.pt": "e77abb4aaafb51196dc1b21844cd3518c1d1a4fee14c4f985a66c84ddc4631d8",
+    "shards/worker_03/games/train_000395_seed5000395.pt": "386fa03455a38b924af4719af8d3f1603191661fcd45c82237eb95fbbfdd1af5",
+    "shards/worker_00/games/train_000396_seed5000396.pt": "7579f57140439f2bc13cd1d1451f86df551fa77326d9ca58ad62c1b18240ae77",
+    "shards/worker_01/games/train_000397_seed5000397.pt": "3a538bd05d06eca3b2ff7a8c52e18ff8746a2a95ab9e4ba1aa432e3b66fe67e4",
+    "shards/worker_02/games/train_000398_seed5000398.pt": "39eba730862f130ae8f550078c1aff336a684c6711f0cdfeda26a67e2a0814e5",
+    "shards/worker_03/games/train_000399_seed5000399.pt": "1d41ef824c6f574095dbbec780de70c33ebb2126817a7c8d734784a09ba38bb0",
+    "shards/worker_00/games/train_000400_seed5000400.pt": "b7d4feda782a5072e698f7cbda795ac6bbf52d3d0bfadc1eab4bf8ef3503796b",
+    "shards/worker_01/games/train_000401_seed5000401.pt": "a2bc88099144b54de53c0ad878f8e04ed4d2f775d3acba7a46b8ac17cf8a943b",
+    "shards/worker_02/games/train_000402_seed5000402.pt": "de00236959b232837409ba331643c8d2470212b8e4704d4d4f98585da197f22e",
+    "shards/worker_03/games/train_000403_seed5000403.pt": "0fa4f413ce0f6a207916f4874b0cceb73555d30e3d42e4b61466111aa1d545c6",
+    "shards/worker_00/games/train_000404_seed5000404.pt": "be6a6f0acc789b3a0cb1a8d847c6d289b23a5af93faa016f0cae15bdd08df7b4",
+    "shards/worker_01/games/train_000405_seed5000405.pt": "c43a9460169e8ff11327281abcd503d71a6c23eeca557d91b5c20375c548db5e",
+    "shards/worker_02/games/train_000406_seed5000406.pt": "5d8c7df87fc562554da7523b3a3f74367cf2b422d16f5bd987713f4e6d762806",
+    "shards/worker_03/games/train_000407_seed5000407.pt": "900a6c847fbfb882b730dfe76cc2d5045c58d8b0da6ece7f3a9b5c7395f3a9e0",
+    "shards/worker_00/games/train_000408_seed5000408.pt": "6b7bd50f7d0ae2640eaf327eb70602a137026849f7355d35b42820a0a895f612",
+    "shards/worker_01/games/train_000409_seed5000409.pt": "846ce20584fdc073438d415ea0f2c715d13f4601707ae93f8d70450a5077b6d0",
+    "shards/worker_02/games/train_000410_seed5000410.pt": "314f8ae4872396e38b498f3426435746b9109c66001cdb4b72e9833b1e76fa16",
+    "shards/worker_03/games/train_000411_seed5000411.pt": "793ac03db4a3c125f240f0a3dc23097a238e8a3094ca0e8a6be7cab98e4c6a66",
+    "shards/worker_00/games/train_000412_seed5000412.pt": "fe890958932696653c070278bcf8a6386bb58c4e363c47a7c519e11fd0668712",
+    "shards/worker_01/games/train_000413_seed5000413.pt": "61044e558ec186bcbd03a0bc323c7b215e03ad7401c5eebb2d0368063c63de86",
+    "shards/worker_02/games/train_000414_seed5000414.pt": "efc87387c2659e16fdf91a6778ddd93b60c53cd6e8fb8c70a07fe1c52bb95885",
+    "shards/worker_03/games/train_000415_seed5000415.pt": "3ebe86d406ca51fdaee5cb4f24f5de1090fafb2325d893369d09785e1aa6278e",
+    "shards/worker_00/games/train_000416_seed5000416.pt": "74a5d53ba2061dbec5dd37b95a40eb06d7e60cdaf6111542dd40aefaf9949210",
+    "shards/worker_01/games/train_000417_seed5000417.pt": "4ebee9c92c2c6e2b504e238fc3f9c5b533e40a20fd451ad7ef764c4a8eacc2e9",
+    "shards/worker_02/games/train_000418_seed5000418.pt": "afed11868cf62aab55209f14931467219405546dd66378a0e635c7b2be4a6bf0",
+    "shards/worker_03/games/train_000419_seed5000419.pt": "452c2569779bcba8189dce261e63add641a686633be285a9b9348d07f72f32ca",
+    "shards/worker_00/games/train_000420_seed5000420.pt": "93c4fba135bc02d8f9bc2a9c95188764bb4ff8f9bbca63494efa53f9c8fd92a9",
+    "shards/worker_01/games/train_000421_seed5000421.pt": "6b46591dbf8c42cf2aad63f8b272fdce4084b3da7c5a21a9d170b940398e2609",
+    "shards/worker_02/games/train_000422_seed5000422.pt": "8620213a7003bf653e2454d18f8a3792e99b7686079495ae6f1a936de91c50f8",
+    "shards/worker_03/games/train_000423_seed5000423.pt": "b850dd938d894bcfe6102713a20d72b7390d5537551a84474245e350090479f2",
+    "shards/worker_00/games/train_000424_seed5000424.pt": "4a46875cb0ba4b8fb66ff9159809f13d3c373253c6fa8e85bf967c359e1614ec",
+    "shards/worker_01/games/train_000425_seed5000425.pt": "739652829c45a16c44c2b0e0edcb79208782d4a081a46ccdc4cdc1b11679d256",
+    "shards/worker_02/games/train_000426_seed5000426.pt": "23b95c74f2d89b72a8807d4fb807aa472742a05ae912ee22223ea78aebf1f01e",
+    "shards/worker_03/games/train_000427_seed5000427.pt": "30813543330ceef8e85409ec59d3de397be6663ba6985f3547afdc6c50652682",
+    "shards/worker_00/games/train_000428_seed5000428.pt": "16fe120a4c082eb431d14016404fadd8e31a97899e992904a18a12bff27460de",
+    "shards/worker_01/games/train_000429_seed5000429.pt": "db106c61c5d757838a08532d944b3f043885d09fae62d93ec44e127a3688df9f",
+    "shards/worker_02/games/train_000430_seed5000430.pt": "a599cbffc891c1d7cd8f77185386e15c6b0600af195ed927f43e77f7c7d987c4",
+    "shards/worker_03/games/train_000431_seed5000431.pt": "9902952f1cd50d9afd88eee0c0c1a96e175f7d56af2a9c54f37bc353c884a6be",
+    "shards/worker_00/games/train_000432_seed5000432.pt": "9ae6f83000101d0b14f5cc55eb7c2535be6efe88cf3eff2ff2793d73a955ec55",
+    "shards/worker_01/games/train_000433_seed5000433.pt": "a0dccd7361359c964d980ef7d7c0a665c2915c504f43285c440fdb26c737feef",
+    "shards/worker_02/games/train_000434_seed5000434.pt": "e72c3d8264148eb126554c47c135b19caaa7fb2bd0dc86f618af971aa340501a",
+    "shards/worker_03/games/train_000435_seed5000435.pt": "ec008dbc2aa3bd8acb2a1b8305b2a7bb530e1a48b1bd87f75f75d9cacc7f141c",
+    "shards/worker_00/games/train_000436_seed5000436.pt": "15d33875f89c443d32ccc27918faf394420b696b291366c694341f9932de3a00",
+    "shards/worker_01/games/train_000437_seed5000437.pt": "1186b5f3a412bc1ce8654eb75ca5bae1649b7b30a1494dc7ee6df584394d87eb",
+    "shards/worker_02/games/train_000438_seed5000438.pt": "abac4f5d396b968bda18fd6670d9fb05fda156396a5e45233749bc32bbec05cc",
+    "shards/worker_03/games/train_000439_seed5000439.pt": "153a15229609453630fb01b8f6efc62cc29c5d95c2a7c3dfdba3ddc42688e225",
+    "shards/worker_00/games/train_000440_seed5000440.pt": "fc013bdca788b535c9c3f6d88db2d95d973fc9542171b04c3809b47fdd6bc0d7",
+    "shards/worker_01/games/train_000441_seed5000441.pt": "7361494f3357152a7d358be518b0ae83b81c51c670e963b2d75a3b658b7ce929",
+    "shards/worker_02/games/train_000442_seed5000442.pt": "02afa7fc6a4a6b2e82a212e281b5aad02107242c55971a079372f9ab3172b5a5",
+    "shards/worker_03/games/train_000443_seed5000443.pt": "cd45eae182ecf40fba3a3a30598e5909f2dbffb1a2516a00761df3811c55a416",
+    "shards/worker_00/games/train_000444_seed5000444.pt": "0117b9b15515dbcd7db876488d11a0762c998662841fced302f4ef857acd3573",
+    "shards/worker_01/games/train_000445_seed5000445.pt": "836d4d8afd20bf225d246801eec1642c12fc1501dea90b1f323f85843bb66419",
+    "shards/worker_02/games/train_000446_seed5000446.pt": "b0cddedd456c13a60aadf299cba34447aaddbd1d1b6120de771b08dc262ad1e1",
+    "shards/worker_03/games/train_000447_seed5000447.pt": "5879b97a85130e09533a803383f3e7ff4abc79c6955b7d269c2cc30169539996",
+    "shards/worker_00/games/train_000448_seed5000448.pt": "066020f7e29756202d854782dae015734130833589c78e86aa85c4e883898b03",
+    "shards/worker_01/games/train_000449_seed5000449.pt": "bd64bedf528a30b16e606a40246fb7e45d0ba84a3a01da13dbd9cc688e76dea7",
+    "shards/worker_02/games/train_000450_seed5000450.pt": "3adb16a403c09e58e5108dc1eef9b8c6d8d45a25d6af998302a0a1136ac8720a",
+    "shards/worker_03/games/train_000451_seed5000451.pt": "f69ea7db3a63b2ba44bc38dd2110aed86f7f2038426ab4b2c57f5deb5b6e21b8",
+    "shards/worker_00/games/train_000452_seed5000452.pt": "fc7197f0d296777210e991e3614309953fb82235e76989384c92e9e2686f8626",
+    "shards/worker_01/games/train_000453_seed5000453.pt": "9281c8bc0641ca5b9b3da5f99089baea6f16cda391565bc7882ad86ef4faacc3",
+    "shards/worker_02/games/train_000454_seed5000454.pt": "31f3f7a27b78983e27aad246a03d63d005d8f7347a0c296da10aef04a5a8e1f9",
+    "shards/worker_03/games/train_000455_seed5000455.pt": "d365620cb6ecd36a35bb2cd046115fa79a81270798370515b1e3e130494c2018",
+    "shards/worker_00/games/train_000456_seed5000456.pt": "4abaa1e6ec1e19089c120a22f15e9af2d82b05d91a6809c174f41325e43ad22a",
+    "shards/worker_01/games/train_000457_seed5000457.pt": "91281ae3f31bfee4914ed535a007a8873694bcf50b89b0a9e23cad9a677dc6f8",
+    "shards/worker_02/games/train_000458_seed5000458.pt": "affbbca71256499bcaca10a3b2b3bad4248d78eea0fe3f0c09e435cc1ed419bb",
+    "shards/worker_03/games/train_000459_seed5000459.pt": "ee855af36c0c5e2f741f1c2aa09610c944e7a47779b7e10c4a9871944c1fceb8",
+    "shards/worker_00/games/train_000460_seed5000460.pt": "fd1928c629375cbe941d09dfa294a3266274d70ef72c20cd936d0e037aa372b1",
+    "shards/worker_01/games/train_000461_seed5000461.pt": "2cbc9f8f668d46324600b9f8f74ec174498e31e524aa8cb247c9fe4f87c8122e",
+    "shards/worker_02/games/train_000462_seed5000462.pt": "a2ee0f16418359cc42a4f7d15ca32d374ffb487765b3212f0bd45c935431d0e5",
+    "shards/worker_03/games/train_000463_seed5000463.pt": "fc359ec134fd81c27035b182d9c0ef098c0b5c55727ff725f5a90050c338e9d6",
+    "shards/worker_00/games/train_000464_seed5000464.pt": "c697bcc7a58508726022a768fb8ac816b59f10d4932373520b9db3e1b53283f8",
+    "shards/worker_01/games/train_000465_seed5000465.pt": "8f32968dc2ed41904de9e3bdd6a217648f828b86cb677d0f4f2803fc0f0dee42",
+    "shards/worker_02/games/train_000466_seed5000466.pt": "bd0baeba8e36d203f44a1f458777e8b1844808681961df8dba9cf2b645f934a7",
+    "shards/worker_03/games/train_000467_seed5000467.pt": "7052fb2807ae9a9034031deeeb62774b7a7d98d0e630d83788c061dba10d5b12",
+    "shards/worker_00/games/train_000468_seed5000468.pt": "4082c10538e8238c1ce4a88d3f32969ff1ff06344556305d1311d3abfe9540eb",
+    "shards/worker_01/games/train_000469_seed5000469.pt": "01c2ccc451fdb2294473884b2dfb23a90e40498098c77924180442756a8fe992",
+    "shards/worker_02/games/train_000470_seed5000470.pt": "f0aabf133b7ba369d1bbb843bf0126f56adf1b1dbbf9248f8bd00a26c5cae757",
+    "shards/worker_03/games/train_000471_seed5000471.pt": "35fd06ab84d6b4380e62fb6a5f7f2deb02dcc453e507a45359cb5c156e616dab",
+    "shards/worker_00/games/train_000472_seed5000472.pt": "4f4af8d8626b3659496ff7cd9568dc9f5d48c4753f8edb9976a86ecc08de60b7",
+    "shards/worker_01/games/train_000473_seed5000473.pt": "d0c3ade969fadb2e980a8136f1171d2bf945a04e09aa50ff8e1ee976dcd501fe",
+    "shards/worker_02/games/train_000474_seed5000474.pt": "28648300b7ed01bce9503db9c7b4da02facf8552f567b3c4b89b5218926ef522",
+    "shards/worker_03/games/train_000475_seed5000475.pt": "7479cac7ecda3e503f7ffbfbe74077283aca69d06c618b0fb2164b50ee3b1dce",
+    "shards/worker_00/games/train_000476_seed5000476.pt": "f3381f3994352fa801456d648545b9aedf375c6e44cb0aba98d77c6345cd73bc",
+    "shards/worker_01/games/train_000477_seed5000477.pt": "7c452ad7e7ec7682539777c1f867ab795f2d59da0b2654b05065d2c86b329915",
+    "shards/worker_02/games/train_000478_seed5000478.pt": "47a06c925c7d3ffbbe8078afab6f6761cc1ad05ec3bf71a09d5ba83a1bf628c2",
+    "shards/worker_03/games/train_000479_seed5000479.pt": "26bf1ef0292a2f2983032940954a785c521871cca41a6ad8dc1ed2a5603e571f",
+    "shards/worker_00/games/train_000480_seed5000480.pt": "ace608858a9e42888f5bdc681a31737136d765b2216b0992818d58d0738e6cee",
+    "shards/worker_01/games/train_000481_seed5000481.pt": "08653d1c2c4f86350dc6c629c525c19c517aea25648367da4608680235b49103",
+    "shards/worker_02/games/train_000482_seed5000482.pt": "373d8ac660734de59a29770559fa80faba9f2346e9af676a3acb4ba38806dc05",
+    "shards/worker_03/games/train_000483_seed5000483.pt": "b7a7f769c6dae20207d1b0c2f31fc506df73cfea8d57b9f6b5c7e33ae3723d5f",
+    "shards/worker_00/games/train_000484_seed5000484.pt": "67bb23cf5bc0a230339442f080d051e78d3c04b3fe9ad4e3e7df68e78da9a06e",
+    "shards/worker_01/games/train_000485_seed5000485.pt": "0417025fc39317cdc64b443cf029e3b0fbbc50112d463ac03d1ca61af61f7080",
+    "shards/worker_02/games/train_000486_seed5000486.pt": "00edd7ce2b5e949172227fbdf003314b112dd26b0fce0ebe4fecb1edb860171d",
+    "shards/worker_03/games/train_000487_seed5000487.pt": "39648917a14f43de2ab87046fa8f8caf990da57b23a1b1110a8fdc1d9e7c5520",
+    "shards/worker_00/games/train_000488_seed5000488.pt": "263e05da55deca91fa3799d6c0c778fca4c3ef714622217c25c961a0d84cb985",
+    "shards/worker_01/games/train_000489_seed5000489.pt": "d5a8410b7119d9c3a5be6373a634526d4dcc0704e893125ee732230cef384e71",
+    "shards/worker_02/games/train_000490_seed5000490.pt": "80bf3fd695b1af1e2fc8a46fbe5f7a081853b0c5586f73528408f59c8ee7650a",
+    "shards/worker_03/games/train_000491_seed5000491.pt": "759c3f13b2fdafe54a127c687f96242e08c72c4ed60d275ca57b42531aad9497",
+    "shards/worker_00/games/train_000492_seed5000492.pt": "a97295690bebf263e3da5feb538e8254d6be3336d971d8e96f61351254544e2e",
+    "shards/worker_01/games/train_000493_seed5000493.pt": "75984485efaa85d0cb553f23e732437e9795261d45b1e7c4f3cc5f8cf7a36a88",
+    "shards/worker_02/games/train_000494_seed5000494.pt": "e885da26fbcffb1cc11ab3a66a81c109726cb8454470658d69f2ed1daa12562b",
+    "shards/worker_03/games/train_000495_seed5000495.pt": "6acaafb50df073f88564ba4226f880daf0e2dfc13c8e6046679aa8fcf35e4fdf",
+    "shards/worker_00/games/train_000496_seed5000496.pt": "d050565f4a374243b9e0dc04e2e89551e449f21abba2f7bfcafdd44dba46b065",
+    "shards/worker_01/games/train_000497_seed5000497.pt": "6d59d2765e4d7ff2c46a78d61db8d821cf8ada1f486aedc646a6492fec66ddab",
+    "shards/worker_02/games/train_000498_seed5000498.pt": "3f423a5f6c09ded46dd023081b2c5ecf1d0e2cef38d7fda3224a9f3a3670e016",
+    "shards/worker_03/games/train_000499_seed5000499.pt": "cc4677fcf504f9f62d9c753d5ee93c6d51ba7aeafccc9a91862c15c486d1e6b1",
+    "shards/worker_00/games/train_000500_seed5000500.pt": "6179a816ddf1131be989454e7f2ea473b6ac49d49efb4a2e5b3d31390d3a437f",
+    "shards/worker_01/games/train_000501_seed5000501.pt": "c92fce1397c401bfdc2270e7d7112823791cc532290cf54a477b93ca483b6546",
+    "shards/worker_02/games/train_000502_seed5000502.pt": "f1448e05dc8ec0e6509f32df61c446efaa21585eec2053fe1f65ae6469ae7fcb",
+    "shards/worker_03/games/train_000503_seed5000503.pt": "dd1bd0987c62fad43f1e5d6956a68479b41ef37869eca17b9d732076d9da0425",
+    "shards/worker_00/games/train_000504_seed5000504.pt": "d5edd7bf94901b0fd257331b4f02bd192cc90bdde97c5d3150faef8ee53adc62",
+    "shards/worker_01/games/train_000505_seed5000505.pt": "8e79e3244de50870cadedc7b79cd89f2f36d1c814283dba28b7c05d8a160ebce",
+    "shards/worker_02/games/train_000506_seed5000506.pt": "2313714c702510ec8d017090f147e8c5f3a7b7143e7fa8657f712cbb1c3fcba9",
+    "shards/worker_03/games/train_000507_seed5000507.pt": "3eb934680eba125757dca4ba585883d4552bd7a791e242fc4056b445173d497f",
+    "shards/worker_00/games/train_000508_seed5000508.pt": "a0e24aba872cdce7bf933200ce6845bffbc45602ca20852b2f61e92a30332cdb",
+    "shards/worker_01/games/train_000509_seed5000509.pt": "71fc0e00ef767cdf48133d537199c02edd873357238249729d143d902cf93872",
+    "shards/worker_02/games/train_000510_seed5000510.pt": "30a94caa49dcf9091536ccbccd575c4d37833e7c88ff04a06400679e7af31377",
+    "shards/worker_03/games/train_000511_seed5000511.pt": "264c88785fed4f83fc3a730ce10602fbaeaa822c9529706e48ef6fec96c4779c",
+    "shards/worker_00/games/validation_000000_seed5100000.pt": "1866bc46e283aa3203cf8ed68ab9b7b3497611333b989750917a3a8af6caf760",
+    "shards/worker_01/games/validation_000001_seed5100001.pt": "1d46121ff6e7079f880812e168d4e8ea1e45f2c83a80033de7468bd7b19cbc61",
+    "shards/worker_02/games/validation_000002_seed5100002.pt": "77eb5b65def8f09d70ed5a4321db9bd69cce2fbd8363d1084de81321ec26b479",
+    "shards/worker_03/games/validation_000003_seed5100003.pt": "e6ebf1e1c86ae1779e7ef0ebc3fc8ed062655e466725661d79c0eed6df784435",
+    "shards/worker_00/games/validation_000004_seed5100004.pt": "67fbabd531ca70e008812541794619abbf9cf4b48b12171cc019ec75d33a57ac",
+    "shards/worker_01/games/validation_000005_seed5100005.pt": "3fc51635e1ff35e0d4a57f871df9e1cd57e20281e4120f7a13ae3324f089c3da",
+    "shards/worker_02/games/validation_000006_seed5100006.pt": "6db02eb6d7e4a52821a6ad2b7cc52e53743b1214d7ffbed2a7e2517477948473",
+    "shards/worker_03/games/validation_000007_seed5100007.pt": "112782e060287b0c505b23d3114028f2150cf769c64e25a1d1e3582e524269f0",
+    "shards/worker_00/games/validation_000008_seed5100008.pt": "2222021d377219781c95b4460bf7826c8ea4b2758efc165d42f451c4085ab9c3",
+    "shards/worker_01/games/validation_000009_seed5100009.pt": "111016bf29bb5fe9a7c131ab1a0a92ca1a8fea0f8a7b6709eb7aa2b952fd3c3e",
+    "shards/worker_02/games/validation_000010_seed5100010.pt": "af8da39edd9378b92234811ee7002dc14d3208f274ff37e0abc32be7e723a67e",
+    "shards/worker_03/games/validation_000011_seed5100011.pt": "29a43b5cd72de08e43c28e432b24ff9420382d6e7342061de9e0bd20642552b6",
+    "shards/worker_00/games/validation_000012_seed5100012.pt": "637cb8f36a28ef49c95bf252fe3839fead066dfc8baeb170fdbb080ab7e25d89",
+    "shards/worker_01/games/validation_000013_seed5100013.pt": "dcdf2fc52321ec07bc784b5e6bf41d626849c59708c765fd4c439eeac8c9f90d",
+    "shards/worker_02/games/validation_000014_seed5100014.pt": "d85c036b8663dc734415dd5482f001572403b4919c93005f51d7424d42dc3e6a",
+    "shards/worker_03/games/validation_000015_seed5100015.pt": "5a8aea6d4dd3a3172d6c4b53a38c9eacead6c3692b0798b4529a367805e4f6d5",
+    "shards/worker_00/games/validation_000016_seed5100016.pt": "386e6d2ec275a71038d7365643b1809c9ab7349a8835d909096b8ba031ff7fde",
+    "shards/worker_01/games/validation_000017_seed5100017.pt": "7f9df466b6932b55fda008ae742fe4d0a9cdbc7a06240b48f4577fb9c406020d",
+    "shards/worker_02/games/validation_000018_seed5100018.pt": "c3e20c72f894160445b3df05ba1bb1ee94b67ba94c759bb85abbd6d2b8449a88",
+    "shards/worker_03/games/validation_000019_seed5100019.pt": "23fb5528a633f95afa3c02c3ce8a8a8965ce219d5b724b4ba5487fc526fbf968",
+    "shards/worker_00/games/validation_000020_seed5100020.pt": "789971fdc7b58be2256d095bfc1be0376634f20d55e0fc0e62df01d8d14070c8",
+    "shards/worker_01/games/validation_000021_seed5100021.pt": "7482304451a37d2c4ac696d183974729bd69b1c2976a7fd346a902ca5e21f5ff",
+    "shards/worker_02/games/validation_000022_seed5100022.pt": "da3e88e7e1cf5c1c6f087c0e700b039cead0565d5d50a83a1cdf4f901a4411ff",
+    "shards/worker_03/games/validation_000023_seed5100023.pt": "150f14a8d00a2b2678ded6899676ceb0230d2c2ea6e1084fafedfdfffa3c2086",
+    "shards/worker_00/games/validation_000024_seed5100024.pt": "d339e23dd978ad98aa2ea3b06da8331f0125b6e1f8206da6897233a91b4131d4",
+    "shards/worker_01/games/validation_000025_seed5100025.pt": "d6d8ad69a249cb937379bba04f5b254f086762091fabf0a66b6e01f7755917c3",
+    "shards/worker_02/games/validation_000026_seed5100026.pt": "2a680244e457091f754692565f4e99e5db0777ba8911f6cbc092ea237817febf",
+    "shards/worker_03/games/validation_000027_seed5100027.pt": "9d2c05722d9f7f64ced76ac160f1158b3630b108ccf00b572eddd95befb40903",
+    "shards/worker_00/games/validation_000028_seed5100028.pt": "8c8cdbc0d1057946b970d3c7e55bc80c5c042e4b18ade8c5e2f662102f40d99a",
+    "shards/worker_01/games/validation_000029_seed5100029.pt": "b8f0795d4320c9ced4c75dc4ad9e3c28293b60f6025de0908ea81c1e303ec3d6",
+    "shards/worker_02/games/validation_000030_seed5100030.pt": "a02ca972b24b8778e211fd83cdbc09c66783e15fbd56c8f877edac9d4b162e63",
+    "shards/worker_03/games/validation_000031_seed5100031.pt": "f6a0578cda4217c67f5d8c5a715a593576a723b3013917e6391656b1ef390643",
+    "shards/worker_00/games/validation_000032_seed5100032.pt": "5935d1aa285f25e62cc94125276242f80392857b59e08e3945cced2a1201e37b",
+    "shards/worker_01/games/validation_000033_seed5100033.pt": "f433c61e1a7854e75533a2467555b7836ed5042157af6059faa5a22d87633c84",
+    "shards/worker_02/games/validation_000034_seed5100034.pt": "f4b62ed5f2bdf6888e522cb4bcbba3a2a5fe2ebc895ea83716a5123433715393",
+    "shards/worker_03/games/validation_000035_seed5100035.pt": "9bd074584b707644895a7383b313916b59ce32e068b9e002c9d86227a13a0c62",
+    "shards/worker_00/games/validation_000036_seed5100036.pt": "bc874de9b9ff57b62eff332ec9a101340e867c58ae513703006ae350e2d6e222",
+    "shards/worker_01/games/validation_000037_seed5100037.pt": "5381b7f74abd9c92b9d6e94e6da349b420201a3d46ddbf4c3d6b7074769905e1",
+    "shards/worker_02/games/validation_000038_seed5100038.pt": "945449c9e63fe21406cf7b873c3fd81add69b93a88d887daa80b21eb04b0a336",
+    "shards/worker_03/games/validation_000039_seed5100039.pt": "337803145ad191d9c7e083c4fcf6afe7d13d9c7ac3306cd512e73978d1d58ea9",
+    "shards/worker_00/games/validation_000040_seed5100040.pt": "ebc8009c221c8c7f563a7186fe02b77c80aae7ca9b66a32a447a1591c560fb7a",
+    "shards/worker_01/games/validation_000041_seed5100041.pt": "62c1080258c6ee9b102698e42e8c255df1b8d82357918ece7a01da8fbf1de765",
+    "shards/worker_02/games/validation_000042_seed5100042.pt": "ac3b4cefced94a626f76093de9aa82a48f0c9c96139e662a8e741d995436b158",
+    "shards/worker_03/games/validation_000043_seed5100043.pt": "34598e8d34bc887c3674674f82ffbbc2de9ee8267c199066b79966d97feb85a9",
+    "shards/worker_00/games/validation_000044_seed5100044.pt": "5f235e105d1da02f0458d605b9e1b42da3b2b5877a5444dedf72ac81b4656fe6",
+    "shards/worker_01/games/validation_000045_seed5100045.pt": "960ecc1ebd4cf68a600480df7e08c8b7369ab026c3ad20b420614adda302e4ce",
+    "shards/worker_02/games/validation_000046_seed5100046.pt": "354157b969e5eaf8a542ded0ca11e96d2af73606f017a01c7d7f3c809ff0703b",
+    "shards/worker_03/games/validation_000047_seed5100047.pt": "5274eaa855681d854644fd57a80591f8e6b8113428e63a6fa29f09aea049757b",
+    "shards/worker_00/games/validation_000048_seed5100048.pt": "887b0f14125fe0dbe443602ac04ced63a0166a61e19b1eb9d509a1a5788a353d",
+    "shards/worker_01/games/validation_000049_seed5100049.pt": "da6b07e2f4e788f740c9d014dbbb93df22088836b38ea227477a8d686ba5242f",
+    "shards/worker_02/games/validation_000050_seed5100050.pt": "d796890167fcb6b7e9e0b98aeda1c36782bc985c4a8b6d7494a219a0bb141daf",
+    "shards/worker_03/games/validation_000051_seed5100051.pt": "a072e1ea5616dada80fb703a470e251cf2392f61df3c6586d087483259628284",
+    "shards/worker_00/games/validation_000052_seed5100052.pt": "2f0720708099fa1c2a7d7ec2f6bb4aa914e038a0b1eb8638ee7a669d6c3392c1",
+    "shards/worker_01/games/validation_000053_seed5100053.pt": "4ac6e860a03cd6f34a05e1597b5e1a0129dd4cdfc97ab4ff6f003a5174fa005b",
+    "shards/worker_02/games/validation_000054_seed5100054.pt": "619e3e0188c3ce3e40b74eb215972a4f2fafab3ecad1a05e97225c34b4cfea8c",
+    "shards/worker_03/games/validation_000055_seed5100055.pt": "9b0b93979016dbebc97d324c588991b6eddda59e12f2f303e2a31d93dc8af439",
+    "shards/worker_00/games/validation_000056_seed5100056.pt": "498d46f60b34bc45bc25f225284eb909aaea27b8fdec04f4093ace9ed57a2626",
+    "shards/worker_01/games/validation_000057_seed5100057.pt": "aee6009e2e426390ca305b0b508f6e106dc37849121c03f8b97d8e91ac1bcd10",
+    "shards/worker_02/games/validation_000058_seed5100058.pt": "77d3b2f902f33ed948044d13c978183f73b0b6dc63300cb08b5925d5e0c6e2f7",
+    "shards/worker_03/games/validation_000059_seed5100059.pt": "2fbcf4ff792f29d7b67b68359a3ddaa8770ef1c0e1f2e31aa1f3cf165b37fe8c",
+    "shards/worker_00/games/validation_000060_seed5100060.pt": "18fe6d15455533fd22b83eec090d038fdf14a89645d703d1e4bd3501f0e09a42",
+    "shards/worker_01/games/validation_000061_seed5100061.pt": "e85c599c330f82c2e602c6e403476bfd64bac1bb981c521ecd896baf64e0aca3",
+    "shards/worker_02/games/validation_000062_seed5100062.pt": "30e18ca8a30be812494be27553dc71fb871a71a8c219924bfbd487a8ad950e64",
+    "shards/worker_03/games/validation_000063_seed5100063.pt": "3ec5101d784f4cd56000732e4abfc41d76c7af4dfe6c582cc09e2724b6ce7410"
+  },
+  "audit": "all game identities/seeds/prefix and behavior RNG/teacher legality/observations/masks/D4 IDs/outcomes replayed; load_demonstrations passed",
+  "teacher_search_recomputed_in_audit": false
+}

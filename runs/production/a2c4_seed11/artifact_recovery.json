@@ -1,0 +1,22 @@
+{
+  "recovered_at": "2026-10-15T12:40:10.859735+08:00",
+  "damaged_files": [
+    "final_evaluation_model.json",
+    "inference_latency.json"
+  ],
+  "original_files_preserved": "runs\\production\\a2c4_seed11\\artifact-recovery-20261015-124010",
+  "checkpoint": "best.pt",
+  "checkpoint_sha256": "0780be21b0414aa3bd9e260c85415149a61150a6c4f15d76276684b9ff7c3736",
+  "selected_episode": 1000,
+  "validation_score": 0.0,
+  "verified_games": 400,
+  "per_game_exact_match": true,
+  "summary_exact_match": true,
+  "weights_unchanged": true,
+  "training_rerun": false,
+  "test_used_for_selection": false,
+  "latency_original_status_preserved": true,
+  "additional_damaged_registry": "runs/production/models.json",
+  "registry_recovery": "Original registry rebuilt by existing local_suite --report-only from completed stages and validation-only model selection; no training process launched.",
+  "registered_a2c_model_load_verified": true
+}

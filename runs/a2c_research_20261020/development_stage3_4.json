@@ -1,0 +1,837 @@
+{
+  "date": "2026-10-21T04:23:00.950648+08:00",
+  "role": "development only; not final testing",
+  "all_12_stages_complete": true,
+  "dataset_games": 576,
+  "dataset_train_samples": 12673,
+  "dataset_validation_samples": 1745,
+  "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+  "groups": [
+    {
+      "group": "strong_only_seed22",
+      "candidate": "episode_020000",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\strong_only_seed22\\candidates\\episode_020000.pt",
+      "checkpoint_sha256": "d3ad43c9478c188125c84da1a7cf44da181a9b078d3f564ec350aefbc804d4e0",
+      "mean_score": 0.6875,
+      "mean_win_rate": 0.5875,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 26,
+        "draws": 8,
+        "losses": 6,
+        "win_rate": 0.65,
+        "score": 0.75,
+        "wilson_95": [
+          0.4950559699353738,
+          0.7786566682895086
+        ],
+        "mean_game_plies": 35.6,
+        "inference_samples": 729,
+        "mean_move_ms": 41.756820850543306,
+        "median_move_ms": 43.26260001107585,
+        "p95_move_ms": 99.54090000246651,
+        "max_move_ms": 135.34610001079272,
+        "tactical_reasons": {
+          "quiet_candidates": 189,
+          "tactical_candidates": 295,
+          "defend_forcing_threat": 88,
+          "block_immediate_win": 85,
+          "create_double_threat": 25,
+          "immediate_win": 26,
+          "forced_win": 15,
+          "unavoidable_loss": 6
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 21,
+        "draws": 8,
+        "losses": 11,
+        "win_rate": 0.525,
+        "score": 0.625,
+        "wilson_95": [
+          0.37497106853929735,
+          0.6706477044981831
+        ],
+        "mean_game_plies": 39.425,
+        "inference_samples": 779,
+        "mean_move_ms": 45.912474326128695,
+        "median_move_ms": 52.4893000110751,
+        "p95_move_ms": 103.53569999278989,
+        "max_move_ms": 136.9614000141155,
+        "tactical_reasons": {
+          "quiet_candidates": 150,
+          "tactical_candidates": 300,
+          "defend_forcing_threat": 153,
+          "block_immediate_win": 113,
+          "unavoidable_loss": 11,
+          "forced_win": 10,
+          "create_double_threat": 21,
+          "immediate_win": 21
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "warm_imitation_seed22",
+      "candidate": "best_expert_ce",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\warm_imitation_seed22\\best.pt",
+      "checkpoint_sha256": "9cdc572bf183518df9bc654959ae9c8df7fa1683805c4480c0d7ea349e6b6315",
+      "mean_score": 0.7250000000000001,
+      "mean_win_rate": 0.5625,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 23,
+        "draws": 13,
+        "losses": 4,
+        "win_rate": 0.575,
+        "score": 0.7375,
+        "wilson_95": [
+          0.42194800436059987,
+          0.7149083147518411
+        ],
+        "mean_game_plies": 42.05,
+        "inference_samples": 859,
+        "mean_move_ms": 30.274943655209857,
+        "median_move_ms": 28.92250000149943,
+        "p95_move_ms": 71.88020000467077,
+        "max_move_ms": 84.1569000040181,
+        "tactical_reasons": {
+          "quiet_candidates": 288,
+          "tactical_candidates": 348,
+          "block_immediate_win": 82,
+          "defend_forcing_threat": 86,
+          "unavoidable_loss": 4,
+          "create_double_threat": 23,
+          "immediate_win": 23,
+          "forced_win": 5
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 22,
+        "draws": 13,
+        "losses": 5,
+        "win_rate": 0.55,
+        "score": 0.7125,
+        "wilson_95": [
+          0.39828829888440775,
+          0.6929492471905531
+        ],
+        "mean_game_plies": 44.45,
+        "inference_samples": 880,
+        "mean_move_ms": 31.76311840892264,
+        "median_move_ms": 29.37145000032615,
+        "p95_move_ms": 77.67280000553001,
+        "max_move_ms": 111.02359999495093,
+        "tactical_reasons": {
+          "quiet_candidates": 252,
+          "tactical_candidates": 318,
+          "defend_forcing_threat": 133,
+          "forced_win": 11,
+          "create_double_threat": 22,
+          "immediate_win": 22,
+          "block_immediate_win": 117,
+          "unavoidable_loss": 5
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "demo_a2c_seed22",
+      "candidate": "episode_000000",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\demo_a2c_seed22\\candidates\\episode_000000.pt",
+      "checkpoint_sha256": "031020d37d145cd1cf188941f15ce3af7d7dfb596b90f33115222845c2fb4a24",
+      "mean_score": 0.7250000000000001,
+      "mean_win_rate": 0.5625,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 23,
+        "draws": 13,
+        "losses": 4,
+        "win_rate": 0.575,
+        "score": 0.7375,
+        "wilson_95": [
+          0.42194800436059987,
+          0.7149083147518411
+        ],
+        "mean_game_plies": 42.05,
+        "inference_samples": 859,
+        "mean_move_ms": 31.65216379529866,
+        "median_move_ms": 30.537500002537854,
+        "p95_move_ms": 75.17840000218712,
+        "max_move_ms": 91.30230000300799,
+        "tactical_reasons": {
+          "quiet_candidates": 288,
+          "tactical_candidates": 348,
+          "block_immediate_win": 82,
+          "defend_forcing_threat": 86,
+          "unavoidable_loss": 4,
+          "create_double_threat": 23,
+          "immediate_win": 23,
+          "forced_win": 5
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 22,
+        "draws": 13,
+        "losses": 5,
+        "win_rate": 0.55,
+        "score": 0.7125,
+        "wilson_95": [
+          0.39828829888440775,
+          0.6929492471905531
+        ],
+        "mean_game_plies": 44.45,
+        "inference_samples": 880,
+        "mean_move_ms": 32.29063568161854,
+        "median_move_ms": 29.743049999524374,
+        "p95_move_ms": 78.80970000405796,
+        "max_move_ms": 105.85639999771956,
+        "tactical_reasons": {
+          "quiet_candidates": 252,
+          "tactical_candidates": 318,
+          "defend_forcing_threat": 133,
+          "forced_win": 11,
+          "create_double_threat": 22,
+          "immediate_win": 22,
+          "block_immediate_win": 117,
+          "unavoidable_loss": 5
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "demo_regularized_seed22",
+      "candidate": "episode_005000",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\demo_regularized_seed22\\candidates\\episode_005000.pt",
+      "checkpoint_sha256": "2edfcc37ffd96522ccb6af711c57434a4019961e6fc038f1c351104e138d31d0",
+      "mean_score": 0.73125,
+      "mean_win_rate": 0.6,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 33,
+        "draws": 3,
+        "losses": 4,
+        "win_rate": 0.825,
+        "score": 0.8625,
+        "wilson_95": [
+          0.6804970794560755,
+          0.9125469700311694
+        ],
+        "mean_game_plies": 28.05,
+        "inference_samples": 579,
+        "mean_move_ms": 37.658813816885505,
+        "median_move_ms": 47.850600007222965,
+        "p95_move_ms": 80.13950000167824,
+        "max_move_ms": 87.70260000892449,
+        "tactical_reasons": {
+          "quiet_candidates": 146,
+          "tactical_candidates": 206,
+          "defend_forcing_threat": 117,
+          "block_immediate_win": 37,
+          "create_double_threat": 33,
+          "immediate_win": 33,
+          "forced_win": 3,
+          "unavoidable_loss": 4
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 15,
+        "draws": 18,
+        "losses": 7,
+        "win_rate": 0.375,
+        "score": 0.6,
+        "wilson_95": [
+          0.2422277353579172,
+          0.529678399454681
+        ],
+        "mean_game_plies": 51.875,
+        "inference_samples": 1025,
+        "mean_move_ms": 30.614993365853458,
+        "median_move_ms": 25.768500010599382,
+        "p95_move_ms": 77.13869999861345,
+        "max_move_ms": 113.77830000128597,
+        "tactical_reasons": {
+          "quiet_candidates": 314,
+          "tactical_candidates": 374,
+          "defend_forcing_threat": 147,
+          "block_immediate_win": 141,
+          "unavoidable_loss": 7,
+          "forced_win": 12,
+          "create_double_threat": 15,
+          "immediate_win": 15
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "flat_base4_seed22_pretrain",
+      "candidate": "best_expert_ce",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_base4_seed22\\pretrain\\best.pt",
+      "checkpoint_sha256": "214a99485175f65e77748128ff81b3593d862894a0b91455e7f6dac8f9f4226e",
+      "mean_score": 0.65,
+      "mean_win_rate": 0.4625,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 25,
+        "draws": 9,
+        "losses": 6,
+        "win_rate": 0.625,
+        "score": 0.7375,
+        "wilson_95": [
+          0.47032160054531913,
+          0.7577722646420829
+        ],
+        "mean_game_plies": 35.85,
+        "inference_samples": 734,
+        "mean_move_ms": 31.85671253357595,
+        "median_move_ms": 33.89020000031451,
+        "p95_move_ms": 73.94840000779368,
+        "max_move_ms": 103.95860001153778,
+        "tactical_reasons": {
+          "quiet_candidates": 239,
+          "tactical_candidates": 293,
+          "defend_forcing_threat": 77,
+          "block_immediate_win": 63,
+          "create_double_threat": 25,
+          "immediate_win": 25,
+          "unavoidable_loss": 6,
+          "forced_win": 6
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 12,
+        "draws": 21,
+        "losses": 7,
+        "win_rate": 0.3,
+        "score": 0.5625,
+        "wilson_95": [
+          0.18074670915695296,
+          0.454303106543204
+        ],
+        "mean_game_plies": 55.85,
+        "inference_samples": 1103,
+        "mean_move_ms": 29.205400906839888,
+        "median_move_ms": 23.113500006729737,
+        "p95_move_ms": 76.99600000341889,
+        "max_move_ms": 113.68480000237469,
+        "tactical_reasons": {
+          "quiet_candidates": 365,
+          "tactical_candidates": 374,
+          "defend_forcing_threat": 179,
+          "block_immediate_win": 148,
+          "forced_win": 6,
+          "create_double_threat": 12,
+          "immediate_win": 12,
+          "unavoidable_loss": 7
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "flat_base4_seed22",
+      "candidate": "episode_010000",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_base4_seed22\\train\\candidates\\episode_010000.pt",
+      "checkpoint_sha256": "b762dfe193d2e2b009d1fd8d3bac311d3c691710a715a578a7c21ec5d4f3b25d",
+      "mean_score": 0.6625000000000001,
+      "mean_win_rate": 0.5,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 27,
+        "draws": 8,
+        "losses": 5,
+        "win_rate": 0.675,
+        "score": 0.775,
+        "wilson_95": [
+          0.52017458088898,
+          0.7991568303733828
+        ],
+        "mean_game_plies": 35.425,
+        "inference_samples": 726,
+        "mean_move_ms": 31.04017713483514,
+        "median_move_ms": 32.77774999878602,
+        "p95_move_ms": 74.8063000064576,
+        "max_move_ms": 100.39629999664612,
+        "tactical_reasons": {
+          "quiet_candidates": 236,
+          "tactical_candidates": 282,
+          "defend_forcing_threat": 76,
+          "block_immediate_win": 61,
+          "unavoidable_loss": 5,
+          "forced_win": 12,
+          "create_double_threat": 27,
+          "immediate_win": 27
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 13,
+        "draws": 18,
+        "losses": 9,
+        "win_rate": 0.325,
+        "score": 0.55,
+        "wilson_95": [
+          0.20084316962661725,
+          0.4798254191110201
+        ],
+        "mean_game_plies": 52.825,
+        "inference_samples": 1043,
+        "mean_move_ms": 30.201576126706232,
+        "median_move_ms": 25.286799995228648,
+        "p95_move_ms": 76.36579999234527,
+        "max_move_ms": 102.99189999932423,
+        "tactical_reasons": {
+          "quiet_candidates": 329,
+          "tactical_candidates": 372,
+          "defend_forcing_threat": 172,
+          "block_immediate_win": 129,
+          "create_double_threat": 13,
+          "immediate_win": 13,
+          "forced_win": 6,
+          "unavoidable_loss": 9
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "flat_tactical10_seed22_pretrain",
+      "candidate": "best_expert_ce",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_tactical10_seed22\\pretrain\\best.pt",
+      "checkpoint_sha256": "6f1fc49b7a113ff89b3cb1af91addffb38695d500093f03690b915773e9c2ffc",
+      "mean_score": 0.8500000000000001,
+      "mean_win_rate": 0.7375,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 34,
+        "draws": 6,
+        "losses": 0,
+        "win_rate": 0.85,
+        "score": 0.925,
+        "wilson_95": [
+          0.7092737396097997,
+          0.9293890829149256
+        ],
+        "mean_game_plies": 32.2,
+        "inference_samples": 664,
+        "mean_move_ms": 35.41231551192261,
+        "median_move_ms": 42.80864999600453,
+        "p95_move_ms": 76.31960000435356,
+        "max_move_ms": 85.91579999483656,
+        "tactical_reasons": {
+          "quiet_candidates": 214,
+          "tactical_candidates": 277,
+          "defend_forcing_threat": 61,
+          "block_immediate_win": 28,
+          "create_double_threat": 34,
+          "immediate_win": 34,
+          "forced_win": 16
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 25,
+        "draws": 12,
+        "losses": 3,
+        "win_rate": 0.625,
+        "score": 0.775,
+        "wilson_95": [
+          0.47032160054531913,
+          0.7577722646420829
+        ],
+        "mean_game_plies": 43.275,
+        "inference_samples": 858,
+        "mean_move_ms": 34.34773041969295,
+        "median_move_ms": 35.96254999138182,
+        "p95_move_ms": 79.46869998704642,
+        "max_move_ms": 92.57959999376908,
+        "tactical_reasons": {
+          "quiet_candidates": 241,
+          "tactical_candidates": 356,
+          "defend_forcing_threat": 128,
+          "forced_win": 11,
+          "create_double_threat": 24,
+          "immediate_win": 25,
+          "block_immediate_win": 70,
+          "unavoidable_loss": 3
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "flat_tactical10_seed22",
+      "candidate": "episode_000000",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_tactical10_seed22\\train\\candidates\\episode_000000.pt",
+      "checkpoint_sha256": "6bd1d9c4bf035d533be9bcecb6cc1e8bdb21d5bd8a6877c63559243ceb880f2b",
+      "mean_score": 0.8500000000000001,
+      "mean_win_rate": 0.7375,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 34,
+        "draws": 6,
+        "losses": 0,
+        "win_rate": 0.85,
+        "score": 0.925,
+        "wilson_95": [
+          0.7092737396097997,
+          0.9293890829149256
+        ],
+        "mean_game_plies": 32.2,
+        "inference_samples": 664,
+        "mean_move_ms": 35.929613253164824,
+        "median_move_ms": 43.51570000289939,
+        "p95_move_ms": 77.07880000816658,
+        "max_move_ms": 88.47599998989608,
+        "tactical_reasons": {
+          "quiet_candidates": 214,
+          "tactical_candidates": 277,
+          "defend_forcing_threat": 61,
+          "block_immediate_win": 28,
+          "create_double_threat": 34,
+          "immediate_win": 34,
+          "forced_win": 16
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 25,
+        "draws": 12,
+        "losses": 3,
+        "win_rate": 0.625,
+        "score": 0.775,
+        "wilson_95": [
+          0.47032160054531913,
+          0.7577722646420829
+        ],
+        "mean_game_plies": 43.275,
+        "inference_samples": 858,
+        "mean_move_ms": 34.83129417236978,
+        "median_move_ms": 36.129000000073574,
+        "p95_move_ms": 79.97099999920465,
+        "max_move_ms": 93.98369998962153,
+        "tactical_reasons": {
+          "quiet_candidates": 241,
+          "tactical_candidates": 356,
+          "defend_forcing_threat": 128,
+          "forced_win": 11,
+          "create_double_threat": 24,
+          "immediate_win": 25,
+          "block_immediate_win": 70,
+          "unavoidable_loss": 3
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "residual_base4_seed22_pretrain",
+      "candidate": "best_expert_ce",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_base4_seed22\\pretrain\\best.pt",
+      "checkpoint_sha256": "c33f98596c1645e213926d4ac9c198f3a5386f12792ffa5f800db813a66ad23b",
+      "mean_score": 0.83125,
+      "mean_win_rate": 0.75,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 34,
+        "draws": 5,
+        "losses": 1,
+        "win_rate": 0.85,
+        "score": 0.9125,
+        "wilson_95": [
+          0.7092737396097997,
+          0.9293890829149256
+        ],
+        "mean_game_plies": 31.425,
+        "inference_samples": 648,
+        "mean_move_ms": 34.85567407392128,
+        "median_move_ms": 43.3742999957758,
+        "p95_move_ms": 73.01799999549985,
+        "max_move_ms": 90.71049999329261,
+        "tactical_reasons": {
+          "quiet_candidates": 182,
+          "tactical_candidates": 314,
+          "create_double_threat": 34,
+          "immediate_win": 34,
+          "defend_forcing_threat": 45,
+          "forced_win": 6,
+          "block_immediate_win": 32,
+          "unavoidable_loss": 1
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 26,
+        "draws": 8,
+        "losses": 6,
+        "win_rate": 0.65,
+        "score": 0.75,
+        "wilson_95": [
+          0.4950559699353738,
+          0.7786566682895086
+        ],
+        "mean_game_plies": 41.1,
+        "inference_samples": 815,
+        "mean_move_ms": 33.47451190192444,
+        "median_move_ms": 37.63279999839142,
+        "p95_move_ms": 75.97200000600424,
+        "max_move_ms": 90.83499999542255,
+        "tactical_reasons": {
+          "quiet_candidates": 187,
+          "tactical_candidates": 381,
+          "defend_forcing_threat": 109,
+          "forced_win": 12,
+          "create_double_threat": 26,
+          "immediate_win": 26,
+          "block_immediate_win": 68,
+          "unavoidable_loss": 6
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "residual_base4_seed22",
+      "candidate": "episode_000000",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_base4_seed22\\train\\candidates\\episode_000000.pt",
+      "checkpoint_sha256": "7cc38265e0687dc596d349e1e60706e7a80e432350f8173b77f201efa6fb0103",
+      "mean_score": 0.83125,
+      "mean_win_rate": 0.75,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 34,
+        "draws": 5,
+        "losses": 1,
+        "win_rate": 0.85,
+        "score": 0.9125,
+        "wilson_95": [
+          0.7092737396097997,
+          0.9293890829149256
+        ],
+        "mean_game_plies": 31.425,
+        "inference_samples": 648,
+        "mean_move_ms": 36.016572839664015,
+        "median_move_ms": 44.799349998356774,
+        "p95_move_ms": 75.09260000369977,
+        "max_move_ms": 94.51559999433812,
+        "tactical_reasons": {
+          "quiet_candidates": 182,
+          "tactical_candidates": 314,
+          "create_double_threat": 34,
+          "immediate_win": 34,
+          "defend_forcing_threat": 45,
+          "forced_win": 6,
+          "block_immediate_win": 32,
+          "unavoidable_loss": 1
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 26,
+        "draws": 8,
+        "losses": 6,
+        "win_rate": 0.65,
+        "score": 0.75,
+        "wilson_95": [
+          0.4950559699353738,
+          0.7786566682895086
+        ],
+        "mean_game_plies": 41.1,
+        "inference_samples": 815,
+        "mean_move_ms": 34.459780122991226,
+        "median_move_ms": 38.68880000663921,
+        "p95_move_ms": 78.8027999951737,
+        "max_move_ms": 94.59310000238474,
+        "tactical_reasons": {
+          "quiet_candidates": 187,
+          "tactical_candidates": 381,
+          "defend_forcing_threat": 109,
+          "forced_win": 12,
+          "create_double_threat": 26,
+          "immediate_win": 26,
+          "block_immediate_win": 68,
+          "unavoidable_loss": 6
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "residual_tactical10_seed22_pretrain",
+      "candidate": "best_expert_ce",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+      "checkpoint_sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4",
+      "mean_score": 0.75,
+      "mean_win_rate": 0.5875,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 31,
+        "draws": 7,
+        "losses": 2,
+        "win_rate": 0.775,
+        "score": 0.8625,
+        "wilson_95": [
+          0.6249660359590695,
+          0.8768404674532148
+        ],
+        "mean_game_plies": 33.55,
+        "inference_samples": 690,
+        "mean_move_ms": 35.62526492776511,
+        "median_move_ms": 42.995100004191045,
+        "p95_move_ms": 75.38399999612011,
+        "max_move_ms": 96.7609000072116,
+        "tactical_reasons": {
+          "quiet_candidates": 209,
+          "tactical_candidates": 327,
+          "defend_forcing_threat": 54,
+          "block_immediate_win": 31,
+          "immediate_win": 31,
+          "create_double_threat": 29,
+          "forced_win": 7,
+          "unavoidable_loss": 2
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 16,
+        "draws": 19,
+        "losses": 5,
+        "win_rate": 0.4,
+        "score": 0.6375,
+        "wilson_95": [
+          0.2634811061240136,
+          0.5540438017260649
+        ],
+        "mean_game_plies": 54.15,
+        "inference_samples": 1071,
+        "mean_move_ms": 31.63782138179381,
+        "median_move_ms": 30.35970000200905,
+        "p95_move_ms": 75.60479998937808,
+        "max_move_ms": 125.93850000121165,
+        "tactical_reasons": {
+          "quiet_candidates": 310,
+          "tactical_candidates": 487,
+          "defend_forcing_threat": 126,
+          "block_immediate_win": 105,
+          "forced_win": 6,
+          "create_double_threat": 16,
+          "immediate_win": 16,
+          "unavoidable_loss": 5
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    },
+    {
+      "group": "residual_tactical10_seed22",
+      "candidate": "episode_010000",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\train\\candidates\\episode_010000.pt",
+      "checkpoint_sha256": "e2cb85f02161a22638f50685a844f40a7794f43c7b92631e8e455fc2892b80a5",
+      "mean_score": 0.83125,
+      "mean_win_rate": 0.75,
+      "black": {
+        "color": 1,
+        "games": 40,
+        "wins": 37,
+        "draws": 3,
+        "losses": 0,
+        "win_rate": 0.925,
+        "score": 0.9625,
+        "wilson_95": [
+          0.8013546984090248,
+          0.9741644432281419
+        ],
+        "mean_game_plies": 27.6,
+        "inference_samples": 572,
+        "mean_move_ms": 39.04130751735382,
+        "median_move_ms": 49.46979999658652,
+        "p95_move_ms": 78.09989999805111,
+        "max_move_ms": 119.48410001059528,
+        "tactical_reasons": {
+          "quiet_candidates": 157,
+          "tactical_candidates": 279,
+          "defend_forcing_threat": 44,
+          "create_double_threat": 36,
+          "immediate_win": 37,
+          "forced_win": 11,
+          "block_immediate_win": 8
+        },
+        "mean_search_nodes": 0
+      },
+      "white": {
+        "color": -1,
+        "games": 40,
+        "wins": 23,
+        "draws": 10,
+        "losses": 7,
+        "win_rate": 0.575,
+        "score": 0.7,
+        "wilson_95": [
+          0.42194800436059987,
+          0.7149083147518411
+        ],
+        "mean_game_plies": 40.675,
+        "inference_samples": 805,
+        "mean_move_ms": 35.29261627340449,
+        "median_move_ms": 40.2106000110507,
+        "p95_move_ms": 79.200199994375,
+        "max_move_ms": 91.36739998939447,
+        "tactical_reasons": {
+          "quiet_candidates": 193,
+          "tactical_candidates": 382,
+          "defend_forcing_threat": 103,
+          "block_immediate_win": 65,
+          "create_double_threat": 23,
+          "immediate_win": 23,
+          "unavoidable_loss": 7,
+          "forced_win": 9
+        },
+        "mean_search_nodes": 0
+      },
+      "best_pure": null
+    }
+  ],
+  "next": "Pure and exact-rule guarded validation, leading recipe confirmation across seeds11/22/33; final seeds unopened"
+}

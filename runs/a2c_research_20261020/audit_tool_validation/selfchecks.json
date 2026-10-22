@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "synthetic_only_for_statistics_and_random": true,
+  "final_test_results_read_or_generated": false,
+  "checks": [
+    "seeded Random trajectories and legal RNG tamper rejection",
+    "read-only OS-held lock refuses duplicate and preserves bytes",
+    "development/default/final-budget and reserved-seed refusal",
+    "synthetic frozen identity exact keys and SHA-indexed provenance",
+    "unfinished unlocked evaluation is refused before replay",
+    "three actual-seed sample SD, per-color Wilson and paired seed annotation",
+    "duplicate seed and same-weight false replication rejected",
+    "same checkpoint across different wrappers allowed and n1 SD null",
+    "legacy standard A2C and AlphaZero config provenance",
+    "Minimax contextual reference has no invented training seed",
+    "episode-zero selection retains CE lineage without A2C gain claim"
+  ],
+  "random_replay": {
+    "passed": true,
+    "synthetic_games": 2,
+    "reserved_test_results_read": false,
+    "random_actions_reproduced": 60,
+    "legal_action_rng_tamper_rejected": true
+  },
+  "tool_sha256": "a0a5268cd09f301a03a8786d381fc6fcee900a2d4398e81781e3422b2e6a73ce"
+}

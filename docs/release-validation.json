@@ -1,0 +1,147 @@
+{
+  "format": "gobang_github_release_validation_v1",
+  "validated_at_utc": "2026-10-22T08:54:58.447835+00:00",
+  "branch": "A2C",
+  "python": "3.11.17",
+  "torch": "2.9.1+cu128",
+  "code_root": ".",
+  "passed": true,
+  "source_copy_hashes_checked": 1928,
+  "unexplained_hash_changes": [],
+  "selected_frozen_checkpoint_hashes_verified": 6,
+  "frozen_selection_sha256": "4d0d0acc5a49fa604d1d773b5730ea352c08b77f935dfda592d83017f8721c7a",
+  "preserved_final_audit_sha256": "bdd441be7ded416b1daa8608e17b5d94c7f92636476b65b5adc9b8b3ed45fa05",
+  "research_scope": {
+    "completed_jobs": 31,
+    "complete_games": 6200,
+    "az400_renju_reference": "cancelled by user; partial excluded"
+  },
+  "pytest": {
+    "core_registry_reports": {
+      "passed": 60,
+      "failed": 0
+    },
+    "isolated_http": {
+      "passed": 4,
+      "failed": 0
+    },
+    "files": [
+      "tests/test_local_changes.py",
+      "tests/test_a2c_core.py",
+      "tests/test_a2c_guarded.py",
+      "tests/test_a2c_tactical_registry.py",
+      "tests/test_a2c_research_registry.py",
+      "tests/test_local_web.py",
+      "tests/test_a2c_report.py",
+      "tests/test_capacity_report.py"
+    ],
+    "execution_note": "The first sandboxed HTTP fixture timed out (4 setup errors); rerun outside the sandbox with localhost proxy bypass passed all 4. The remaining 60 passed on the first run."
+  },
+  "frontend_build": {
+    "passed": true,
+    "vite": "6.4.3",
+    "modules": 13,
+    "execution_note": "Offline npm ci used the existing package cache; dependencies are ignored. Initial sandbox output mkdir was denied; an independent build output directory outside the sandbox succeeded."
+  },
+  "registry_actual_weight_smoke": [
+    {
+      "rules": "freestyle",
+      "name": "a2c4",
+      "loaded": true,
+      "two_legal_moves": [
+        41,
+        32
+      ]
+    },
+    {
+      "rules": "freestyle",
+      "name": "a2c4_tactical",
+      "loaded": true,
+      "two_legal_moves": [
+        41,
+        32
+      ]
+    },
+    {
+      "rules": "freestyle",
+      "name": "a2c_residual10_guarded",
+      "loaded": true,
+      "two_legal_moves": [
+        49,
+        39
+      ]
+    },
+    {
+      "rules": "freestyle",
+      "name": "alphazero_wide",
+      "loaded": true
+    },
+    {
+      "rules": "freestyle",
+      "name": "dqn4",
+      "loaded": true
+    },
+    {
+      "rules": "renju",
+      "name": "a2c4",
+      "loaded": true,
+      "two_legal_moves": [
+        41,
+        32
+      ]
+    },
+    {
+      "rules": "renju",
+      "name": "a2c4_tactical",
+      "loaded": true,
+      "two_legal_moves": [
+        41,
+        32
+      ]
+    },
+    {
+      "rules": "renju",
+      "name": "a2c_residual10_guarded",
+      "loaded": true,
+      "two_legal_moves": [
+        49,
+        39
+      ]
+    },
+    {
+      "rules": "renju",
+      "name": "alphazero_wide",
+      "loaded": true
+    },
+    {
+      "rules": "renju",
+      "name": "dqn4",
+      "loaded": true
+    }
+  ],
+  "navigation_documents_checked": [
+    "README.md",
+    "docs/changes-20261022.md",
+    "runs/a2c_research_20261020/final_report.md",
+    "runs/a2c_research_20261020/final_report_technical_20261022.md"
+  ],
+  "missing_relative_navigation_links": [],
+  "high_confidence_secret_scan_findings": [],
+  "staging_candidates": 1932,
+  "copied_source_bytes": 182408470,
+  "limitations": [
+    "Original research audit retained, not rerun during upload.",
+    "No new training or final game execution; smoke moves are software checks.",
+    "Historical evidence may reference original absolute paths and excluded training checkpoints.",
+    "Selected inference weights included; full training resume archive excluded.",
+    "No browser visual test repeated during this publication; original local deployment evidence retained."
+  ],
+  "git_staging": {
+    "selected_paths_verified": 1932,
+    "changed_files": 1896,
+    "content_check": "Every selected index blob SHA1 equals the exact working file bytes; no line-ending filters altered frozen/audited evidence.",
+    "diff_check": "passed with cr-at-eol; archived upstream README excluded for its one original trailing-space line (482)",
+    "new_trailing_whitespace_findings": 0,
+    "largest_included_file_bytes": 8210841
+  }
+}

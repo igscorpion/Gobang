@@ -1,0 +1,32 @@
+{
+  "rows": [
+    {
+      "rules": "freestyle",
+      "games": 4,
+      "black_win_rate": 0.0,
+      "draw_rate": 0.5,
+      "wilson_low": 0.0,
+      "wilson_high": 0.48990002040399916
+    },
+    {
+      "rules": "renju",
+      "games": 4,
+      "black_win_rate": 0.0,
+      "draw_rate": 0.5,
+      "wilson_low": 0.0,
+      "wilson_high": 0.48990002040399916
+    }
+  ],
+  "matched_openings": true,
+  "config": {
+    "output": "runs/smoke_rules",
+    "algorithm": "greedy",
+    "model": null,
+    "games": 4,
+    "sims": 400,
+    "device": "cpu",
+    "opening_moves": 4,
+    "seed": 700000
+  },
+  "interpretation": "Rule effects under the frozen policy and random opening protocol; cannot prove first-player forced win or exclude learned color bias."
+}

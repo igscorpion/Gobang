@@ -1,0 +1,14 @@
+{
+  "tool_sha256": "a0a5268cd09f301a03a8786d381fc6fcee900a2d4398e81781e3422b2e6a73ce",
+  "artifacts": {
+    "tools/audit_final_a2c_research.py": "a0a5268cd09f301a03a8786d381fc6fcee900a2d4398e81781e3422b2e6a73ce",
+    "tools/test_audit_final_a2c_research.py": "e96e6da3c4adb171a519a0b9af0e1607cd1238a79d6e083a7b6782a471c33789",
+    "runs/a2c_research_20261020/audit_tool_validation/selfchecks.json": "aecfaf81ca95ac17eb305b9982451944e4851f9e9be2760679e4799871b52b36",
+    "runs/a2c_research_20261020/audit_tool_validation/development_smoke240.json": "496ccd1ac8801e261ca2d7e68c26efeeebd84f7d60229f8741f816b266eadb25",
+    "runs/a2c_research_20261020/audit_tool_validation/manifest_smoke160.json": "678fd1f96b8357724a80fa665f6f59478c6b10dc8e419535ad61514d551f9e0a",
+    "runs/a2c_research_20261020/audit_tool_validation/independent_review.json": "53af19488e2f82b591b764cc69dc494b1a2ffb7001a49ac999c0a813bc161a30",
+    "runs/a2c_research_20261020/audit_tool_validation/independent_review_smoke160.json": "48a84ed5b770e22f51d6f724d59068bc54a06d13cb2c6db98f2445ab75243e07",
+    "runs/a2c_research_20261020/audit_tool_validation/independent_selfchecks.json": "aecfaf81ca95ac17eb305b9982451944e4851f9e9be2760679e4799871b52b36"
+  },
+  "final_test_read_or_run": false
+}

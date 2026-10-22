@@ -1,0 +1,62 @@
+{
+  "format": "a2c_confirmation_cost_index_v1",
+  "created_at_utc": "2026-10-21T11:31:41.464221+00:00",
+  "script_sha256": "ba8889175f0e94f06e5c640ad7899aac68a1eef7aea7701e152055e8af428de9",
+  "project_root": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work",
+  "scope": "Four completed confirmation lineages only, not the full research history or final evaluation cost.",
+  "final_test_results_read": false,
+  "locks_acquired_or_probed": false,
+  "models": [
+    {
+      "name": "residual_tactical10_seed11",
+      "file": "residual_tactical10_seed11.json",
+      "sha256": "076ab9c6e080da552950b0a76b2e6db82689f170362f924baf53e58d80cd65cc"
+    },
+    {
+      "name": "residual_tactical10_seed22",
+      "file": "residual_tactical10_seed22.json",
+      "sha256": "36fe954186b0d30ca10786aa592a570121ee75eef379de5a3953eeec062cf63c"
+    },
+    {
+      "name": "residual_tactical10_seed33",
+      "file": "residual_tactical10_seed33.json",
+      "sha256": "bf4c4212f1e0be7f34c1aa9105b8f88cf1d118ad1441de254aac5d536b056ece"
+    },
+    {
+      "name": "flat_tactical10_seed22",
+      "file": "flat_tactical10_seed22.json",
+      "sha256": "e0edeb56c3dc17fbadb7417c13b40c3c5f3189e1811f66350bed14e486b98200"
+    }
+  ],
+  "shared_expert": {
+    "file": "shared_expert_generation.json",
+    "sha256": "5d4931bfa36f2237380c0fa736ef31c8779fa8ee3f351fdb5c7da972d58fb01b"
+  },
+  "unique_a2c_training_totals": {
+    "episodes": 120000,
+    "updates": 58341,
+    "learner_transitions": 2220013,
+    "environment_plies": 3594602,
+    "trainer_wall_seconds": 8252.36155109998,
+    "auxiliary_ce_draws_with_replacement": 3733824
+  },
+  "new_confirmation_only": {
+    "episodes": 100000,
+    "updates": 49685,
+    "learner_transitions": 1890046,
+    "environment_plies": 3051890,
+    "trainer_wall_seconds": 7074.741581099981,
+    "auxiliary_ce_draws_with_replacement": 3179840
+  },
+  "ce_pretraining_totals": {
+    "unique_runs": 4,
+    "epochs_run": 80,
+    "optimizer_updates_run": 4000,
+    "training_state_presentations_run": 1013840
+  },
+  "notes": [
+    "Copied 10k records are already part of each cumulative 30k; copying adds zero optimizer steps.",
+    "Sampled auxiliary CE presentations use replacement and D4 augmentation, not distinct expert positions.",
+    "Durations are descriptive under concurrent workloads and are not equal-hardware algorithmic speed measurements."
+  ]
+}

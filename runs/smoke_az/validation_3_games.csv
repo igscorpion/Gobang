@@ -1,0 +1,5 @@
+opponent,color,game,seed,outcome,moves,rules
+random,1,0,300000,1,9,freestyle
+random,-1,0,400000,1,10,freestyle
+greedy,1,0,300000,1,21,freestyle
+greedy,-1,0,400000,0,81,freestyle

@@ -1,0 +1,23 @@
+rules,color,game,seed,ply,player,actor,action,inference_seconds,tactical_reason,proven,proof_scope
+renju,-1,0,2300000,1,1,greedy,73,0.0006341000043903477,,,
+renju,-1,0,2300000,2,-1,a2c4_tactical,40,0.059714000002713874,quiet_candidates,False,
+renju,-1,0,2300000,3,1,greedy,74,0.0006337000013445504,,,
+renju,-1,0,2300000,4,-1,a2c4_tactical,41,0.07005600000411505,tactical_candidates,False,
+renju,-1,0,2300000,5,1,greedy,75,0.000614999997196719,,,
+renju,-1,0,2300000,6,-1,a2c4_tactical,76,0.23953529999562306,defend_forcing_threat,False,
+renju,-1,0,2300000,7,1,greedy,42,0.0006039999934728257,,,
+renju,-1,0,2300000,8,-1,a2c4_tactical,32,0.7514128999973764,quiet_candidates,False,
+renju,-1,0,2300000,9,1,greedy,50,0.0011634000038611703,,,
+renju,-1,0,2300000,10,-1,a2c4_tactical,31,0.992494699996314,tactical_candidates,False,
+renju,-1,0,2300000,11,1,greedy,34,0.0010412999981781468,,,
+renju,-1,0,2300000,12,-1,a2c4_tactical,23,0.9137104999972507,tactical_candidates,False,
+renju,-1,0,2300000,13,1,greedy,58,0.001039499999023974,,,
+renju,-1,0,2300000,14,-1,a2c4_tactical,26,0.007491800002753735,block_immediate_win,False,removes every legal next-move win; no deeper safety claim
+renju,-1,0,2300000,15,1,greedy,14,0.0010387000002083369,,,
+renju,-1,0,2300000,16,-1,a2c4_tactical,33,0.8526626999955624,tactical_candidates,False,
+renju,-1,0,2300000,17,1,greedy,30,0.0010976000048685819,,,
+renju,-1,0,2300000,18,-1,a2c4_tactical,24,0.8071681000001263,tactical_candidates,False,
+renju,-1,0,2300000,19,1,greedy,25,0.0009521000029053539,,,
+renju,-1,0,2300000,20,-1,a2c4_tactical,48,0.005157500003406312,create_double_threat,True,"two legal winning endpoints; every opponent reply loses, unless already terminal"
+renju,-1,0,2300000,21,1,greedy,16,0.0009329000022262335,,,
+renju,-1,0,2300000,22,-1,a2c4_tactical,56,0.00020020000374643132,immediate_win,True,legal win on this move

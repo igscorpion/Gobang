@@ -1,0 +1,33 @@
+{
+  "output": "runs/a2c_smoke_cpu",
+  "episodes": 8,
+  "seed": 17,
+  "device": "cpu",
+  "rules": "freestyle",
+  "num_envs": 2,
+  "rollout_steps": 3,
+  "gamma": 0.99,
+  "learning_rate": 0.0003,
+  "value_coef": 0.5,
+  "entropy_coef": 0.01,
+  "max_gradient_norm": 5.0,
+  "save_every": 4,
+  "eval_every": 4,
+  "history_every": 4,
+  "validation_games": 1,
+  "final_games": 1,
+  "resume": false,
+  "parameters": 1405042,
+  "channels": [
+    32,
+    64,
+    64
+  ],
+  "hidden_units": 256,
+  "input_channels": 4,
+  "device_used": "cpu",
+  "algorithm": "synchronous_n_step_A2C",
+  "gamma_unit": "learner transition; signed for alternating self-play",
+  "reward_shaping": false,
+  "torch_version": "2.9.1+cu128"
+}

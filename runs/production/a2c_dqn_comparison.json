@@ -1,0 +1,711 @@
+{
+  "experiment": "a2c4_vs_dqn4",
+  "a2c_complete": true,
+  "experiments": [
+    {
+      "name": "a2c4_seed11",
+      "family": "a2c4",
+      "seed": 11,
+      "state": "complete",
+      "issues": [],
+      "episode": 30000,
+      "target_episodes": 30000,
+      "config": {
+        "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed11",
+        "episodes": 30000,
+        "seed": 11,
+        "device": "cuda",
+        "rules": "freestyle",
+        "num_envs": 8,
+        "rollout_steps": 5,
+        "gamma": 0.99,
+        "learning_rate": 0.0003,
+        "value_coef": 0.5,
+        "entropy_coef": 0.01,
+        "max_gradient_norm": 5.0,
+        "save_every": 250,
+        "eval_every": 1000,
+        "history_every": 1000,
+        "validation_games": 40,
+        "final_games": 100,
+        "resume": true,
+        "parameters": 1405042,
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "hidden_units": 256,
+        "input_channels": 4,
+        "device_used": "cuda",
+        "algorithm": "synchronous_n_step_A2C",
+        "gamma_unit": "learner transition; signed for alternating self-play",
+        "reward_shaping": false,
+        "torch_version": "2.9.1+cu128"
+      },
+      "cost_metrics": {
+        "parameters": 1405042,
+        "environment_plies": 762777,
+        "learner_transitions": 647695,
+        "updates": 16763,
+        "actual_rollout_samples": 647695,
+        "training_seconds": 653.58131559717,
+        "validation_seconds": 102.06914279994089,
+        "test_seconds": 8.410166499990737,
+        "inference_latency_ms": 1.7528000025777146,
+        "opponent_counts_by_kind_and_color": {
+          "random:-1": 2245,
+          "random:1": 2218,
+          "selfplay:both": 18074,
+          "greedy:1": 1522,
+          "greedy:-1": 1543,
+          "history:-1": 2185,
+          "history:1": 2213
+        }
+      },
+      "best_episode": 1000,
+      "validation_score": 0.0,
+      "checkpoint_sha256": "0780be21b0414aa3bd9e260c85415149a61150a6c4f15d76276684b9ff7c3736",
+      "evaluation_model": {
+        "checkpoint": "best.pt",
+        "selection": "validation greedy score only",
+        "selected_episode": 1000,
+        "test_seed": 800000,
+        "recovered_at": "2026-10-15T12:40:10.859735+08:00",
+        "checkpoint_sha256": "0780be21b0414aa3bd9e260c85415149a61150a6c4f15d76276684b9ff7c3736",
+        "recovery_evidence": "Validation, durable checkpoint and status agree; all 400 independently rerun game rows and summary match the original frozen test exactly."
+      },
+      "test": [
+        {
+          "opponent": "random",
+          "color": 1,
+          "games": 100,
+          "wins": 97,
+          "draws": 0,
+          "losses": 3,
+          "win_rate": 0.97,
+          "score": 0.97,
+          "wilson_low": 0.915479219195973,
+          "wilson_high": 0.9897456617765851,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "random",
+          "color": -1,
+          "games": 100,
+          "wins": 98,
+          "draws": 0,
+          "losses": 2,
+          "win_rate": 0.98,
+          "score": 0.98,
+          "wilson_low": 0.9299868370580063,
+          "wilson_high": 0.9944981477650318,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        }
+      ]
+    },
+    {
+      "name": "dqn4_seed11",
+      "family": "dqn4",
+      "seed": 11,
+      "state": "complete",
+      "issues": [],
+      "episode": 30000,
+      "target_episodes": 30000,
+      "config": {
+        "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\dqn4_seed11",
+        "episodes": 30000,
+        "seed": 11,
+        "input_channels": 4,
+        "device": "cuda",
+        "rules": "freestyle",
+        "fixed_ratio": null,
+        "epsilon_decay": 15000,
+        "replay_capacity": 30000,
+        "batch_size": 64,
+        "save_every": 250,
+        "eval_every": 1000,
+        "validation_games": 40,
+        "final_games": 100,
+        "resume": true,
+        "warm_start": null
+      },
+      "cost_metrics": {},
+      "best_episode": 1000,
+      "validation_score": 0.0,
+      "checkpoint_sha256": "e131461af1a9334d460f1b5e0be38b75104738a5affcc275a5adf471b24b2d7e",
+      "evaluation_model": {
+        "checkpoint": "best.pt",
+        "selection": "validation greedy score only",
+        "test_seed": 800000
+      },
+      "test": [
+        {
+          "opponent": "random",
+          "color": 1,
+          "games": 100,
+          "wins": 74,
+          "draws": 0,
+          "losses": 26,
+          "win_rate": 0.74,
+          "score": 0.74,
+          "wilson_low": 0.6462882736813838,
+          "wilson_high": 0.8159542187301354,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "random",
+          "color": -1,
+          "games": 100,
+          "wins": 67,
+          "draws": 0,
+          "losses": 33,
+          "win_rate": 0.67,
+          "score": 0.67,
+          "wilson_low": 0.5730516033971139,
+          "wilson_high": 0.7543701620610456,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        }
+      ]
+    },
+    {
+      "name": "a2c4_seed22",
+      "family": "a2c4",
+      "seed": 22,
+      "state": "complete",
+      "issues": [],
+      "episode": 30000,
+      "target_episodes": 30000,
+      "config": {
+        "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22",
+        "episodes": 30000,
+        "seed": 22,
+        "device": "cuda",
+        "rules": "freestyle",
+        "num_envs": 8,
+        "rollout_steps": 5,
+        "gamma": 0.99,
+        "learning_rate": 0.0003,
+        "value_coef": 0.5,
+        "entropy_coef": 0.01,
+        "max_gradient_norm": 5.0,
+        "save_every": 250,
+        "eval_every": 1000,
+        "history_every": 1000,
+        "validation_games": 40,
+        "final_games": 100,
+        "resume": true,
+        "parameters": 1405042,
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "hidden_units": 256,
+        "input_channels": 4,
+        "device_used": "cuda",
+        "algorithm": "synchronous_n_step_A2C",
+        "gamma_unit": "learner transition; signed for alternating self-play",
+        "reward_shaping": false,
+        "torch_version": "2.9.1+cu128"
+      },
+      "cost_metrics": {
+        "parameters": 1405042,
+        "environment_plies": 771030,
+        "learner_transitions": 652921,
+        "updates": 16875,
+        "actual_rollout_samples": 652921,
+        "training_seconds": 567.5380790000058,
+        "validation_seconds": 91.44905450000124,
+        "test_seconds": 8.664790900000298,
+        "inference_latency_ms": 1.6037000000324042,
+        "opponent_counts_by_kind_and_color": {
+          "greedy:-1": 1482,
+          "random:-1": 2240,
+          "selfplay:both": 18110,
+          "random:1": 2256,
+          "greedy:1": 1473,
+          "history:1": 2195,
+          "history:-1": 2244
+        }
+      },
+      "best_episode": 19000,
+      "validation_score": 0.0125,
+      "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+      "evaluation_model": {
+        "checkpoint": "best.pt",
+        "selection": "validation greedy score only",
+        "selected_episode": 19000,
+        "test_seed": 800000
+      },
+      "test": [
+        {
+          "opponent": "random",
+          "color": 1,
+          "games": 100,
+          "wins": 99,
+          "draws": 0,
+          "losses": 1,
+          "win_rate": 0.99,
+          "score": 0.99,
+          "wilson_low": 0.9455124752390653,
+          "wilson_high": 0.9982326134344526,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "random",
+          "color": -1,
+          "games": 100,
+          "wins": 99,
+          "draws": 0,
+          "losses": 1,
+          "win_rate": 0.99,
+          "score": 0.99,
+          "wilson_low": 0.9455124752390653,
+          "wilson_high": 0.9982326134344526,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 5,
+          "draws": 0,
+          "losses": 95,
+          "win_rate": 0.05,
+          "score": 0.05,
+          "wilson_low": 0.02154336145631356,
+          "wilson_high": 0.11175196527208817,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 1,
+          "draws": 0,
+          "losses": 99,
+          "win_rate": 0.01,
+          "score": 0.01,
+          "wilson_low": 0.0017673865655472645,
+          "wilson_high": 0.0544875247609346,
+          "rules": "freestyle"
+        }
+      ]
+    },
+    {
+      "name": "dqn4_seed22",
+      "family": "dqn4",
+      "seed": 22,
+      "state": "pending",
+      "issues": [],
+      "episode": null,
+      "target_episodes": 30000,
+      "config": {},
+      "cost_metrics": {}
+    },
+    {
+      "name": "a2c4_seed33",
+      "family": "a2c4",
+      "seed": 33,
+      "state": "complete",
+      "issues": [],
+      "episode": 30000,
+      "target_episodes": 30000,
+      "config": {
+        "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed33",
+        "episodes": 30000,
+        "seed": 33,
+        "device": "cuda",
+        "rules": "freestyle",
+        "num_envs": 8,
+        "rollout_steps": 5,
+        "gamma": 0.99,
+        "learning_rate": 0.0003,
+        "value_coef": 0.5,
+        "entropy_coef": 0.01,
+        "max_gradient_norm": 5.0,
+        "save_every": 250,
+        "eval_every": 1000,
+        "history_every": 1000,
+        "validation_games": 40,
+        "final_games": 100,
+        "resume": true,
+        "parameters": 1405042,
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "hidden_units": 256,
+        "input_channels": 4,
+        "device_used": "cuda",
+        "algorithm": "synchronous_n_step_A2C",
+        "gamma_unit": "learner transition; signed for alternating self-play",
+        "reward_shaping": false,
+        "torch_version": "2.9.1+cu128"
+      },
+      "cost_metrics": {
+        "parameters": 1405042,
+        "environment_plies": 793749,
+        "learner_transitions": 681251,
+        "updates": 17637,
+        "actual_rollout_samples": 681251,
+        "training_seconds": 570.1445383000364,
+        "validation_seconds": 85.08545159999812,
+        "test_seconds": 8.289872100000139,
+        "inference_latency_ms": 1.6092000000753615,
+        "opponent_counts_by_kind_and_color": {
+          "random:1": 2300,
+          "random:-1": 2276,
+          "selfplay:both": 18218,
+          "greedy:1": 1500,
+          "greedy:-1": 1483,
+          "history:-1": 2147,
+          "history:1": 2076
+        }
+      },
+      "best_episode": 1000,
+      "validation_score": 0.0,
+      "checkpoint_sha256": "be37f2224d14b2fafcc2c078d2b95c14e9052a40cd45175fa5bb0e0a1e248de9",
+      "evaluation_model": {
+        "checkpoint": "best.pt",
+        "selection": "validation greedy score only",
+        "selected_episode": 1000,
+        "test_seed": 800000
+      },
+      "test": [
+        {
+          "opponent": "random",
+          "color": 1,
+          "games": 100,
+          "wins": 98,
+          "draws": 0,
+          "losses": 2,
+          "win_rate": 0.98,
+          "score": 0.98,
+          "wilson_low": 0.9299868370580063,
+          "wilson_high": 0.9944981477650318,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "random",
+          "color": -1,
+          "games": 100,
+          "wins": 96,
+          "draws": 0,
+          "losses": 4,
+          "win_rate": 0.96,
+          "score": 0.96,
+          "wilson_low": 0.9016278276739262,
+          "wilson_high": 0.984336949448152,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        }
+      ]
+    },
+    {
+      "name": "dqn4_seed33",
+      "family": "dqn4",
+      "seed": 33,
+      "state": "pending",
+      "issues": [],
+      "episode": null,
+      "target_episodes": 30000,
+      "config": {},
+      "cost_metrics": {}
+    }
+  ],
+  "across_seeds": [
+    {
+      "family": "a2c4",
+      "opponent": "random",
+      "color": 1,
+      "win_rate": {
+        "n": 3,
+        "mean": 0.98,
+        "sample_sd": 0.010000000000000009
+      },
+      "score": {
+        "n": 3,
+        "mean": 0.98,
+        "sample_sd": 0.010000000000000009
+      }
+    },
+    {
+      "family": "a2c4",
+      "opponent": "random",
+      "color": -1,
+      "win_rate": {
+        "n": 3,
+        "mean": 0.9766666666666667,
+        "sample_sd": 0.01527525231651948
+      },
+      "score": {
+        "n": 3,
+        "mean": 0.9766666666666667,
+        "sample_sd": 0.01527525231651948
+      }
+    },
+    {
+      "family": "a2c4",
+      "opponent": "greedy",
+      "color": 1,
+      "win_rate": {
+        "n": 3,
+        "mean": 0.016666666666666666,
+        "sample_sd": 0.02886751345948129
+      },
+      "score": {
+        "n": 3,
+        "mean": 0.016666666666666666,
+        "sample_sd": 0.02886751345948129
+      }
+    },
+    {
+      "family": "a2c4",
+      "opponent": "greedy",
+      "color": -1,
+      "win_rate": {
+        "n": 3,
+        "mean": 0.0033333333333333335,
+        "sample_sd": 0.005773502691896258
+      },
+      "score": {
+        "n": 3,
+        "mean": 0.0033333333333333335,
+        "sample_sd": 0.005773502691896258
+      }
+    },
+    {
+      "family": "dqn4",
+      "opponent": "random",
+      "color": 1,
+      "win_rate": {
+        "n": 1,
+        "mean": 0.74,
+        "sample_sd": null
+      },
+      "score": {
+        "n": 1,
+        "mean": 0.74,
+        "sample_sd": null
+      }
+    },
+    {
+      "family": "dqn4",
+      "opponent": "random",
+      "color": -1,
+      "win_rate": {
+        "n": 1,
+        "mean": 0.67,
+        "sample_sd": null
+      },
+      "score": {
+        "n": 1,
+        "mean": 0.67,
+        "sample_sd": null
+      }
+    },
+    {
+      "family": "dqn4",
+      "opponent": "greedy",
+      "color": 1,
+      "win_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      },
+      "score": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      }
+    },
+    {
+      "family": "dqn4",
+      "opponent": "greedy",
+      "color": -1,
+      "win_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      },
+      "score": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      }
+    }
+  ],
+  "paired_a2c_minus_dqn": [
+    {
+      "opponent": "random",
+      "color": 1,
+      "pairs": [
+        {
+          "seed": 11,
+          "win_rate_difference_percentage_points": 23.0,
+          "score_difference": 0.22999999999999998
+        }
+      ],
+      "win_rate_difference_percentage_points": {
+        "n": 1,
+        "mean": 23.0,
+        "sample_sd": null
+      },
+      "score_difference": {
+        "n": 1,
+        "mean": 0.22999999999999998,
+        "sample_sd": null
+      }
+    },
+    {
+      "opponent": "random",
+      "color": -1,
+      "pairs": [
+        {
+          "seed": 11,
+          "win_rate_difference_percentage_points": 30.999999999999993,
+          "score_difference": 0.30999999999999994
+        }
+      ],
+      "win_rate_difference_percentage_points": {
+        "n": 1,
+        "mean": 30.999999999999993,
+        "sample_sd": null
+      },
+      "score_difference": {
+        "n": 1,
+        "mean": 0.30999999999999994,
+        "sample_sd": null
+      }
+    },
+    {
+      "opponent": "greedy",
+      "color": 1,
+      "pairs": [
+        {
+          "seed": 11,
+          "win_rate_difference_percentage_points": 0.0,
+          "score_difference": 0.0
+        }
+      ],
+      "win_rate_difference_percentage_points": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      },
+      "score_difference": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      }
+    },
+    {
+      "opponent": "greedy",
+      "color": -1,
+      "pairs": [
+        {
+          "seed": 11,
+          "win_rate_difference_percentage_points": 0.0,
+          "score_difference": 0.0
+        }
+      ],
+      "win_rate_difference_percentage_points": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      },
+      "score_difference": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      }
+    }
+  ],
+  "model_selection": "Completed best.pt candidates ranked by mean validation Greedy score only; earliest validation checkpoint and stable seed order break ties.",
+  "limitations": [
+    "Same game budget, observation, backbone and curriculum mechanism; realized opponent ratios and historical policies can differ.",
+    "A2C and DQN have different learner transitions, optimization, replay and compute costs; this is not strict compute-budget matching.",
+    "Three seeds provide limited replication; Wilson intervals describe per-seed test win rates, not across-training-seed uncertainty.",
+    "Initial validation is never reported as final test and does not select the A2C checkpoint."
+  ]
+}

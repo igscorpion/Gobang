@@ -1,0 +1,32 @@
+{
+  "kind": "paired_smoke_comparison_not_training_seed_replication",
+  "checkpoint": "runs\\production\\a2c4_seed22\\best.pt",
+  "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+  "checkpoint_selection": "validation score only",
+  "training_performed": false,
+  "rules": [
+    "freestyle",
+    "renju"
+  ],
+  "games_per_color": 2,
+  "opponent": "greedy",
+  "base_seed": 1200000,
+  "color_offset": 100000,
+  "rule_offset": 200000,
+  "device": "cpu",
+  "tactical_config": {
+    "enabled": true,
+    "forcing_depth": 5,
+    "max_nodes": 1500,
+    "candidate_limit": 12,
+    "cache_size": 4096
+  },
+  "started_at": "2026-10-20T09:04:44.021466+08:00",
+  "limitations": [
+    "Both policies use one already validation-selected A2C checkpoint.",
+    "Opponent seeds are paired, but policies induce different game trajectories.",
+    "This is not a new three-training-seed experiment or a replacement for the original final tests.",
+    "Freestyle-trained weights in renju measure rule transfer, not renju training.",
+    "Tactical A2C uses additional CPU search/heuristics; runtime is reported separately."
+  ]
+}

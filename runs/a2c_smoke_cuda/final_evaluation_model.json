@@ -1,0 +1,6 @@
+{
+  "checkpoint": "best.pt",
+  "selection": "validation greedy score only",
+  "selected_episode": 16,
+  "test_seed": 800000
+}

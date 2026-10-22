@@ -1,0 +1,15 @@
+{
+  "format": "a2c_confirmation_development_selection_v1",
+  "state": "development_selection_complete",
+  "process": {
+    "pid": 66296,
+    "alive": true,
+    "birth": "134370022396072322",
+    "exit_code": null
+  },
+  "updated_at": "2026-10-20T22:34:20.456933+00:00",
+  "completed_cases": 56,
+  "expected_cases": 56,
+  "final_testing_started": false,
+  "common_wrapper": "guarded"
+}

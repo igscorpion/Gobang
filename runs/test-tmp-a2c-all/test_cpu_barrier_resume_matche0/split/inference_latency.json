@@ -1,0 +1,8 @@
+{
+  "device": "cpu",
+  "batch_size": 1,
+  "samples": 48,
+  "median_ms": 0.6354500073939562,
+  "p95_ms": 0.7937000191304833,
+  "protocol": "fixed synthetic legal positions; encoding, transfer and argmax included"
+}

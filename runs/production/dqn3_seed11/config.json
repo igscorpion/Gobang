@@ -1,0 +1,18 @@
+{
+  "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\dqn3_seed11",
+  "episodes": 30000,
+  "seed": 11,
+  "input_channels": 3,
+  "device": "cuda",
+  "rules": "freestyle",
+  "fixed_ratio": null,
+  "epsilon_decay": 15000,
+  "replay_capacity": 30000,
+  "batch_size": 64,
+  "save_every": 250,
+  "eval_every": 1000,
+  "validation_games": 40,
+  "final_games": 100,
+  "resume": true,
+  "warm_start": null
+}

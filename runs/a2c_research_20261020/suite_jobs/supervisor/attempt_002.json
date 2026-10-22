@@ -1,0 +1,28 @@
+{
+  "name": "supervisor",
+  "pid": 58860,
+  "birth": "134369861796473880",
+  "attempt": 2,
+  "command": [
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\.venv\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "rl.training.a2c_research_suite",
+    "--device",
+    "cuda",
+    "--output",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020"
+  ],
+  "cwd": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work",
+  "destination": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020",
+  "started_at": "2026-10-20T16:09:39.651678+00:00",
+  "log": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\suite_jobs\\supervisor\\attempt_002.log",
+  "creationflags": 134218248,
+  "exit_code": null,
+  "process": {
+    "pid": 58860,
+    "alive": true,
+    "birth": "134369861796473880",
+    "exit_code": null
+  }
+}

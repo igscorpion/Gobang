@@ -1,0 +1,47 @@
+{
+  "format": "a2c_user_scoped_delivery_status_v1",
+  "state": "complete_audited_documented_and_web_verified",
+  "updated_at_utc": "2026-10-22T06:53:17.188169+00:00",
+  "original_queue_status_is_historical": true,
+  "scope": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\delivery_scope_31_jobs.json",
+  "completed_jobs": 31,
+  "included_jobs": 31,
+  "included_games": 6200,
+  "deferred_jobs": [
+    "alphazero_width128_alphazero_renju_greedy"
+  ],
+  "automatic_resume_prohibited_until_explicit_user_request": true,
+  "evidence": {
+    "delivery_scope_31_jobs.json": {
+      "path": "runs/a2c_research_20261020/final_evaluation/delivery_scope_31_jobs.json",
+      "sha256": "e477a51c3a9a3f70e87ef7d7f6a82991ca1a53ae3631b700e220805ad655fe41"
+    },
+    "final_audit_31_jobs.json": {
+      "path": "runs/a2c_research_20261020/final_evaluation/final_audit_31_jobs.json",
+      "sha256": "bdd441be7ded416b1daa8608e17b5d94c7f92636476b65b5adc9b8b3ed45fa05"
+    },
+    "operational_retry_prefix_audit_31_jobs.json": {
+      "path": "runs/a2c_research_20261020/final_evaluation/operational_retry_prefix_audit_31_jobs.json",
+      "sha256": "9f86ce6db102d002f06a78873447ef9d1225f1b1ec2221cde49192985c0fa1d5"
+    },
+    "web_integration/deployment_evidence.json": {
+      "path": "runs/a2c_research_20261020/final_evaluation/web_integration/deployment_evidence.json",
+      "sha256": "c72124fd9c1acc45cba6b602d8952e1cacfe101f2254705b804bee86e55f40e2"
+    }
+  },
+  "web_url": "http://127.0.0.1:5193",
+  "report": "../final_report.md",
+  "automation_a2c_deleted": true,
+  "automation_cleanup_status": "deleted_confirmed_by_app",
+  "latest_user_scope_disposition": {
+    "job": "alphazero_width128_alphazero_renju_greedy",
+    "current_disposition": "cancelled_for_this_delivery_by_direct_user_request",
+    "user_instruction": "这里最后一项测试我们不做了，不需要做的这么全面。",
+    "partial_preserved": true,
+    "partial_included_in_results": false,
+    "automatic_resume_prohibited": true,
+    "original_frozen_manifest_and_historical_deferred_scope_unchanged": true
+  },
+  "retrospective_report_expanded": true,
+  "technical_report_preserved": "../final_report_technical_20261022.md"
+}

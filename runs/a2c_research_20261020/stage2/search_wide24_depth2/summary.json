@@ -1,0 +1,113 @@
+{
+  "protocol": {
+    "checkpoint": "runs/production/a2c4_seed22/best.pt",
+    "network_kind": "standard",
+    "mode": "search",
+    "device": "cpu",
+    "rules": "freestyle",
+    "opponent": "greedy",
+    "split": "validation",
+    "games": 40,
+    "seed_black": 3100000,
+    "seed_white": 3200000,
+    "depth": 2,
+    "nodes": 2000,
+    "search_candidates": 8,
+    "tactical_candidates": 24,
+    "value_weight": 0.0,
+    "sims": 400,
+    "output": "runs/a2c_research_20261020/stage2/search_wide24_depth2",
+    "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+    "source_sha256": {
+      "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+      "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+      "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+      "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+      "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+      "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+      "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+      "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+      "rl/evaluation/a2c_research_eval.py": "b7391e84de18e98f296471827d21773b1a15d0200f784b46aed4211a2ada6b40",
+      "rl/agents/a2c_search.py": "a3f4f0b078837e618b70e6ad8638702254febc2317d5f01daf2e31604918abb1"
+    },
+    "training_performed": false,
+    "selection_performed": false,
+    "training_rules": "freestyle",
+    "rule_transfer": false,
+    "tactical_config": {
+      "enabled": true,
+      "forcing_depth": 5,
+      "max_nodes": 1500,
+      "candidate_limit": 24,
+      "cache_size": 4096
+    },
+    "started_at": "2026-10-20T23:47:18.924131+08:00"
+  },
+  "results": [
+    {
+      "color": 1,
+      "games": 40,
+      "wins": 2,
+      "draws": 34,
+      "losses": 4,
+      "win_rate": 0.05,
+      "score": 0.475,
+      "wilson_95": [
+        0.013820377146101098,
+        0.165041708179252
+      ],
+      "mean_game_plies": 73.9,
+      "inference_samples": 1496,
+      "mean_move_ms": 281.0239775400968,
+      "median_move_ms": 309.00245000520954,
+      "p95_move_ms": 523.7701000005472,
+      "max_move_ms": 692.7100000029895,
+      "tactical_reasons": {
+        "quiet_candidates": 930,
+        "tactical_candidates": 467,
+        "defend_forcing_threat": 51,
+        "block_immediate_win": 39,
+        "unavoidable_loss": 4,
+        "forced_win": 1,
+        "create_double_threat": 2,
+        "immediate_win": 2
+      },
+      "mean_search_nodes": 185.87433155080214
+    },
+    {
+      "color": -1,
+      "games": 40,
+      "wins": 8,
+      "draws": 28,
+      "losses": 4,
+      "win_rate": 0.2,
+      "score": 0.55,
+      "wilson_95": [
+        0.10499864973166874,
+        0.34757607381856676
+      ],
+      "mean_game_plies": 65.3,
+      "inference_samples": 1290,
+      "mean_move_ms": 259.49002085266005,
+      "median_move_ms": 281.16200000658864,
+      "p95_move_ms": 476.4675999904284,
+      "max_move_ms": 598.2531000045128,
+      "tactical_reasons": {
+        "quiet_candidates": 673,
+        "tactical_candidates": 490,
+        "defend_forcing_threat": 74,
+        "block_immediate_win": 30,
+        "create_double_threat": 8,
+        "immediate_win": 8,
+        "unavoidable_loss": 4,
+        "forced_win": 3
+      },
+      "mean_search_nodes": 182.41162790697675
+    }
+  ],
+  "total_games": 80,
+  "mean_score": 0.5125,
+  "mean_win_rate": 0.125,
+  "wall_seconds": 758.6745064999996,
+  "sources_and_weights_unchanged": true
+}

@@ -1,0 +1,42 @@
+{
+  "state": "passed",
+  "verified_at": "2026-10-21T00:09:14.907732+08:00",
+  "scope": "Independent read-only replay of stage2 and teacher development validation",
+  "result": {
+    "name": "stage2/search_depth2",
+    "games": 80,
+    "legal_moves": 5574,
+    "greedy_moves": 2786,
+    "black_wdl": [
+      6,
+      31,
+      3
+    ],
+    "white_wdl": [
+      5,
+      30,
+      5
+    ],
+    "scores": [
+      0.5375,
+      0.5
+    ],
+    "mean_search_nodes": [
+      102.0794096978215,
+      97.88791208791208
+    ],
+    "file_sha256": {
+      "games.csv": "a3044b20bc308291815b30e3ec1e51b6c326581cbffed9e601ae43ea70687303",
+      "moves.csv": "e075ba4c5f8a782ff026339f4f441b51e5b6d05dadf4a775054b70a6e1ea0012",
+      "protocol.json": "0f0f1174b2d56a975f582a83f2740d53e9961b81c77cddd41cd3b6a8b277d810",
+      "summary.json": "047560386b6bb2ce4fafcff5fc65c6837457e625300eef364e81a3226e7c6607"
+    }
+  },
+  "global_audit": "../../audit_development_stage2.json",
+  "limitations": [
+    "Candidate policy actions were not regenerated; legal replay, Greedy reproducibility and logged metrics were audited.",
+    "AlphaZero mean_search_nodes=0 is unavailable instrumentation, not absence of search.",
+    "These shared development validation seeds are not independent final tests.",
+    "Archived sources preserve provenance before the evaluator integrity guard was extended."
+  ]
+}

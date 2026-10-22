@@ -1,0 +1,72 @@
+{
+  "format": "a2c_research_v1",
+  "config": {
+    "command": "pretrain",
+    "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain",
+    "initial_model": null,
+    "dataset": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+    "architecture": "residual",
+    "features": "tactical10",
+    "rules": "freestyle",
+    "device": "cuda",
+    "seed": 11,
+    "learning_rate": 0.0003,
+    "max_gradient_norm": 5.0,
+    "resume": false,
+    "epochs": 20,
+    "batch_size": 256
+  },
+  "sources": {
+    "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+    "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+    "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+    "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+    "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+    "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+    "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+    "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+    "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+    "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+    "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+    "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8"
+  },
+  "spec": {
+    "architecture": "residual",
+    "features": "tactical10",
+    "board_size": 9,
+    "channels": [
+      32,
+      64,
+      64
+    ],
+    "hidden_units": 256,
+    "residual_width": 64,
+    "residual_blocks": 4
+  },
+  "parameters": 305538,
+  "feature_names": [
+    "own_stones",
+    "opponent_stones",
+    "opponent_last_move",
+    "is_black_to_move",
+    "own_legal_points",
+    "opponent_legal_points_if_playing_now",
+    "own_legal_immediate_wins",
+    "opponent_legal_immediate_wins",
+    "own_local_threat_strength",
+    "opponent_local_threat_strength"
+  ],
+  "initial_sha256": null,
+  "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+  "optimizer_initialization": "new Adam; no source optimizer state inherited",
+  "final_test_automatic": false,
+  "torch_version": "2.9.1+cu128",
+  "precision": {
+    "cuda_matmul_tf32": false,
+    "cudnn_tf32": false,
+    "float32_matmul_precision": "highest",
+    "behavior_guard_atol": 2e-05,
+    "behavior_guard_rtol": 2e-05,
+    "sampled_action_guard": "exact identity with the recorded categorical sample"
+  }
+}

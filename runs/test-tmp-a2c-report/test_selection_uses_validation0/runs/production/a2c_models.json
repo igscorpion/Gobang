@@ -1,0 +1,10 @@
+{
+  "a2c4": {
+    "algorithm": "a2c",
+    "checkpoint": "runs/production/a2c4_seed11/best.pt",
+    "selection": "validation score only",
+    "validation_score": 0.8,
+    "seed": 11,
+    "selected_episode": 1000
+  }
+}

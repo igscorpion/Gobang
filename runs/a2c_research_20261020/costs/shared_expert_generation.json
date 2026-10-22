@@ -1,0 +1,75 @@
+{
+  "format": "a2c_shared_expert_cost_record_v1",
+  "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+  "games_generated_once": 576,
+  "train_games": 512,
+  "validation_games": 64,
+  "train_unique_states": 12673,
+  "validation_unique_states": 1745,
+  "raw_teacher_labels": 14526,
+  "retained_total_states": 14418,
+  "validation_D4_overlap_removed": 108,
+  "teacher": {
+    "kind": "alphazero_mcts",
+    "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\best.pt",
+    "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf",
+    "channels": [
+      64,
+      64,
+      128
+    ],
+    "input_channels": 4,
+    "num_simulations": 400,
+    "c_puct": 1.4,
+    "temperature": 0.0,
+    "opening_moves": 6,
+    "candidate_ratio": 0.1,
+    "root_dirichlet_noise": false,
+    "noise_eps_inactive": 0.25,
+    "noise_alpha_inactive": 0.3,
+    "reuse_tree_between_labels": true,
+    "new_tree_each_game": true,
+    "device": "cpu",
+    "board_size": 9,
+    "win_count": 5,
+    "rules": "freestyle"
+  },
+  "workers": 4,
+  "configured_mcts_simulation_iterations_for_label_calls": 5810400,
+  "simulation_count_basis": "Derived from the source's 400-iteration MCTS loop per nonterminal teacher-label call; not a measured neural-forward count or CPU instruction count. Reused trees and terminal simulations change expansion work.",
+  "total_environment_plies": 16138,
+  "behavior_counts": {
+    "random": 1424,
+    "teacher": 11657,
+    "greedy": 1445
+  },
+  "created_at": "2026-10-21T00:03:09.887394+08:00",
+  "generation_wall_seconds": null,
+  "generation_cpu_seconds": null,
+  "timing_unavailable_reason": "No precise completion timestamp or perf/CPU timer is persisted by the unchanged generator; filesystem mtimes are not substituted for runtime measurements.",
+  "shared_cost_allocation": "One common generated dataset reused by all feature/architecture and training-seed recipes; do not multiply generation cost by model count.",
+  "sources": [
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\manifest.json",
+      "relative_path": "runs/a2c_research_20261020/stage3/expert_dataset/manifest.json",
+      "sha256": "9fe0a19903919e3bb319e7d2326c6eaa259741882ee4727e2aa48eb903f30089"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\status.json",
+      "relative_path": "runs/a2c_research_20261020/stage3/expert_dataset/status.json",
+      "sha256": "29ba7a2709cc47ffb270134f664a2ecb60b76f992a822408f25c2d4bca25e382"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\protocol.json",
+      "relative_path": "runs/a2c_research_20261020/stage3/expert_dataset/protocol.json",
+      "sha256": "92098f008a6c7f4ff1404e39ccb905e56942013861e31943f0da0db6fd12decd"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\created.json",
+      "relative_path": "runs/a2c_research_20261020/stage3/expert_dataset/created.json",
+      "sha256": "d86bc048aadba012a13691b92beda7f59819a6670564ae9086e4beae2e0e3e84"
+    }
+  ],
+  "source_modules_imported": false,
+  "locks_acquired_or_probed": false
+}

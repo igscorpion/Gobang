@@ -1,0 +1,38 @@
+{
+  "torch": "2.9.1+cu128",
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "dqn_microbenchmark": [
+    {
+      "device": "cpu",
+      "batch64_update_seconds": 0.032047215999991746,
+      "single_inference_seconds_with_transfer": 0.0002774045000023762
+    },
+    {
+      "device": "cuda",
+      "batch64_update_seconds": 0.002830823999993299,
+      "single_inference_seconds_with_transfer": 0.0003159830000004149
+    }
+  ],
+  "alphazero_400_simulations": [
+    {
+      "device": "cpu",
+      "episodes": 2,
+      "recorded_positions": 48,
+      "training_seconds": 30.749840499999664,
+      "seconds_per_position": 0.6406216770833263
+    },
+    {
+      "device": "cuda",
+      "episodes": 2,
+      "recorded_positions": 30,
+      "training_seconds": 46.13852909999969,
+      "seconds_per_position": 1.5379509699999896
+    }
+  ],
+  "choice": {
+    "dqn": "cuda",
+    "alphazero": "cpu"
+  },
+  "note": "Small speed samples, not skill results. CPU/GPU floating-point paths may differ despite equal seeds."
+}

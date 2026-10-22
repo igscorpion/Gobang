@@ -1,0 +1,224 @@
+{
+  "protocol": {
+    "kind": "paired_smoke_comparison_not_training_seed_replication",
+    "checkpoint": "runs\\production\\a2c4_seed22\\best.pt",
+    "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+    "checkpoint_selection": "validation score only",
+    "training_performed": false,
+    "rules": [
+      "freestyle",
+      "renju"
+    ],
+    "games_per_color": 2,
+    "opponent": "greedy",
+    "base_seed": 1200000,
+    "color_offset": 100000,
+    "rule_offset": 200000,
+    "device": "cpu",
+    "tactical_config": {
+      "enabled": true,
+      "forcing_depth": 5,
+      "max_nodes": 1500,
+      "candidate_limit": 12,
+      "cache_size": 4096
+    },
+    "started_at": "2026-10-20T09:04:44.021466+08:00",
+    "limitations": [
+      "Both policies use one already validation-selected A2C checkpoint.",
+      "Opponent seeds are paired, but policies induce different game trajectories.",
+      "This is not a new three-training-seed experiment or a replacement for the original final tests.",
+      "Freestyle-trained weights in renju measure rule transfer, not renju training.",
+      "Tactical A2C uses additional CPU search/heuristics; runtime is reported separately."
+    ]
+  },
+  "results": [
+    {
+      "algorithm": "a2c4",
+      "rules": "freestyle",
+      "color": 1,
+      "games": 2,
+      "wins": 1,
+      "draws": 0,
+      "losses": 1,
+      "win_rate": 0.5,
+      "score": 0.5,
+      "wilson_95": [
+        0.09452865480086614,
+        0.9054713451991339
+      ],
+      "inference_samples": 18,
+      "mean_move_ms": 0.6763444451078411,
+      "median_move_ms": 0.5912500055273995,
+      "p95_move_ms": 1.9732000000658445,
+      "tactical_reasons": {}
+    },
+    {
+      "algorithm": "a2c4",
+      "rules": "freestyle",
+      "color": -1,
+      "games": 2,
+      "wins": 0,
+      "draws": 0,
+      "losses": 2,
+      "win_rate": 0.0,
+      "score": 0.0,
+      "wilson_95": [
+        0.0,
+        0.6576280471103807
+      ],
+      "inference_samples": 8,
+      "mean_move_ms": 0.598499997977342,
+      "median_move_ms": 0.5627999998978339,
+      "p95_move_ms": 0.8276999942609109,
+      "tactical_reasons": {}
+    },
+    {
+      "algorithm": "a2c4_tactical",
+      "rules": "freestyle",
+      "color": 1,
+      "games": 2,
+      "wins": 2,
+      "draws": 0,
+      "losses": 0,
+      "win_rate": 1.0,
+      "score": 1.0,
+      "wilson_95": [
+        0.34237195288961925,
+        1.0
+      ],
+      "inference_samples": 21,
+      "mean_move_ms": 44.786385714403536,
+      "median_move_ms": 50.70280000654748,
+      "p95_move_ms": 79.72290000179783,
+      "tactical_reasons": {
+        "quiet_candidates": 5,
+        "tactical_candidates": 10,
+        "defend_forcing_threat": 2,
+        "create_double_threat": 2,
+        "immediate_win": 2
+      }
+    },
+    {
+      "algorithm": "a2c4_tactical",
+      "rules": "freestyle",
+      "color": -1,
+      "games": 2,
+      "wins": 2,
+      "draws": 0,
+      "losses": 0,
+      "win_rate": 1.0,
+      "score": 1.0,
+      "wilson_95": [
+        0.34237195288961925,
+        1.0
+      ],
+      "inference_samples": 24,
+      "mean_move_ms": 47.873829166140546,
+      "median_move_ms": 49.34200000207056,
+      "p95_move_ms": 81.03989999654004,
+      "tactical_reasons": {
+        "quiet_candidates": 4,
+        "tactical_candidates": 9,
+        "defend_forcing_threat": 5,
+        "forced_win": 2,
+        "create_double_threat": 2,
+        "immediate_win": 2
+      }
+    },
+    {
+      "algorithm": "a2c4",
+      "rules": "renju",
+      "color": 1,
+      "games": 2,
+      "wins": 0,
+      "draws": 0,
+      "losses": 2,
+      "win_rate": 0.0,
+      "score": 0.0,
+      "wilson_95": [
+        0.0,
+        0.6576280471103807
+      ],
+      "inference_samples": 14,
+      "mean_move_ms": 0.89311428590528,
+      "median_move_ms": 0.9284999978262931,
+      "p95_move_ms": 1.0758999997051433,
+      "tactical_reasons": {}
+    },
+    {
+      "algorithm": "a2c4",
+      "rules": "renju",
+      "color": -1,
+      "games": 2,
+      "wins": 0,
+      "draws": 0,
+      "losses": 2,
+      "win_rate": 0.0,
+      "score": 0.0,
+      "wilson_95": [
+        0.0,
+        0.6576280471103807
+      ],
+      "inference_samples": 8,
+      "mean_move_ms": 0.61195000216685,
+      "median_move_ms": 0.5820000005769543,
+      "p95_move_ms": 0.7741000008536503,
+      "tactical_reasons": {}
+    },
+    {
+      "algorithm": "a2c4_tactical",
+      "rules": "renju",
+      "color": 1,
+      "games": 2,
+      "wins": 0,
+      "draws": 2,
+      "losses": 0,
+      "win_rate": 0.0,
+      "score": 0.5,
+      "wilson_95": [
+        0.0,
+        0.6576280471103807
+      ],
+      "inference_samples": 82,
+      "mean_move_ms": 78.59807682937726,
+      "median_move_ms": 39.33144999973592,
+      "p95_move_ms": 223.5664000036195,
+      "tactical_reasons": {
+        "quiet_candidates": 36,
+        "tactical_candidates": 27,
+        "defend_forcing_threat": 10,
+        "block_immediate_win": 9
+      }
+    },
+    {
+      "algorithm": "a2c4_tactical",
+      "rules": "renju",
+      "color": -1,
+      "games": 2,
+      "wins": 2,
+      "draws": 0,
+      "losses": 0,
+      "win_rate": 1.0,
+      "score": 1.0,
+      "wilson_95": [
+        0.34237195288961925,
+        1.0
+      ],
+      "inference_samples": 27,
+      "mean_move_ms": 473.8331111112967,
+      "median_move_ms": 257.38319999800297,
+      "p95_move_ms": 1966.46449999389,
+      "tactical_reasons": {
+        "quiet_candidates": 3,
+        "tactical_candidates": 10,
+        "defend_forcing_threat": 6,
+        "block_immediate_win": 3,
+        "forced_win": 1,
+        "create_double_threat": 2,
+        "immediate_win": 2
+      }
+    }
+  ],
+  "weights_unchanged": true,
+  "wall_seconds": 22.865971300001547
+}

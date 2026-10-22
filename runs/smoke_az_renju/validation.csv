@@ -1,0 +1,5 @@
+episode,opponent,color,games,wins,draws,losses,win_rate,score,wilson_low,wilson_high,rules
+2,random,1,1,1,0,0,1.0,1.0,0.20654329147389294,1.0,renju
+2,random,-1,1,1,0,0,1.0,1.0,0.20654329147389294,1.0,renju
+2,greedy,1,1,1,0,0,1.0,1.0,0.20654329147389294,1.0,renju
+2,greedy,-1,1,0,1,0,0.0,0.5,0.0,0.7934567085261071,renju

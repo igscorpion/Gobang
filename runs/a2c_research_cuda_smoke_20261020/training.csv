@@ -1,0 +1,5 @@
+episode,completion_index,kind,color,winner,moves,game_transitions,updates,learner_transitions,environment_plies
+2,1,greedy,-1,1,9,4,2,12,26
+1,2,greedy,1,-1,10,5,2,12,26
+4,3,greedy,-1,1,9,4,3,18,38
+3,4,greedy,1,1,25,13,6,26,53

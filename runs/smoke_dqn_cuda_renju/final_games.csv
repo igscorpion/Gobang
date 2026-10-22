@@ -1,0 +1,5 @@
+opponent,color,game,seed,outcome,moves,rules
+random,1,0,800000,-1,32,renju
+random,-1,0,900000,1,66,renju
+greedy,1,0,800000,-1,10,renju
+greedy,-1,0,900000,-1,9,renju

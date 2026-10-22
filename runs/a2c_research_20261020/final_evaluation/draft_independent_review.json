@@ -1,0 +1,590 @@
+{
+  "passed": true,
+  "draft_sha256": "054b5f127faf18fbff84a9b5f31305181f6e7a64665cdc55448b3bbbb3aaf55b",
+  "status": "planned_not_frozen",
+  "jobs": 32,
+  "games": 6400,
+  "runner_sha_matches_draft": false,
+  "actual_runner_sha256": "e961eed7ed58b39d42ce698bf60beeb9498bfad6e289546baa2c330ab6a82c64",
+  "identity_fields": 16,
+  "candidate_jobs": 24,
+  "contextual_reference_jobs": 8,
+  "same_checkpoint_policy_ablation": true,
+  "three_seed_recipe_signature_equal": true,
+  "three_candidate_state_fingerprints_distinct": true,
+  "source_and_weight_sha_match": true,
+  "development_only_selection_matches": true,
+  "models": {
+    "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898": {
+      "run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_seed": 11,
+      "training_protocol_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\protocol.json",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "legacy_config_provenance": false,
+      "training_os_lock_present": true,
+      "training_completion_verified": true,
+      "checkpoint_state_sha256": "57a47052a3a50e884f73d0c6fd303ae1c10b7af8b2fb4b771a82f35ada1c230c",
+      "parameter_count": 305538,
+      "complete_candidate_checkpoint_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_030000.checkpoint",
+      "complete_candidate_checkpoint_sha256": "f734b29a700d750ac4bbb2f51cfd8e329da85af83bf851db82c6c3e9781ad967",
+      "model_spec": {
+        "architecture": "residual",
+        "board_size": 9,
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "features": "tactical10",
+        "hidden_units": 256,
+        "residual_blocks": 4,
+        "residual_width": 64
+      },
+      "model_variant": "residual/tactical10",
+      "selected_episode": 30000,
+      "selected_epoch": null,
+      "selected_checkpoint_stage": "after_A2C_updates",
+      "selected_candidate_has_A2C_updates": true,
+      "demonstration_or_warm_start_origin": {
+        "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+        "sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1",
+        "stage": "imitation",
+        "epoch": 16,
+        "state_sha256": "1d2808bc9d49e25b267e3dd17473c2fccaebbf041fe3c9394eff697d7f2d4bbf",
+        "selected_state_equals_initial": false,
+        "pretraining_protocol_sha256": "53e22f258681da05f866e6a2c6ecb13d9680bf317eb20df54497b5ba43368668",
+        "pretraining_seed": 11,
+        "same_seed_as_A2C_run": true
+      },
+      "training_rules": "freestyle",
+      "recipe_signature": "e313a49909e19945bebd7a7588a228593fff886133d95d012cb507e5899436ac",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "initial_model": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\pretrain\\best.pt",
+      "initial_sha256": "d2b22ca4ac461cf9f634107de7f77a88eaae8bb7424f89d1ac9743716067bfa1",
+      "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+      "limitations": [
+        "Protocol seed verifies lineage; checkpoint bytes do not prove independent initialization.",
+        "Common expert data and any shared warm-start must be disclosed."
+      ]
+    },
+    "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c": {
+      "run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_seed": 22,
+      "training_protocol_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\protocol.json",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "legacy_config_provenance": false,
+      "training_os_lock_present": true,
+      "training_completion_verified": true,
+      "checkpoint_state_sha256": "dff0934c8fd612abb3d7f9febeb3f657d8110b5e6d4a4f7ef48022688705be24",
+      "parameter_count": 305538,
+      "complete_candidate_checkpoint_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.checkpoint",
+      "complete_candidate_checkpoint_sha256": "ba11e5fc6643dd2d093b84d1541c1a7a83cf3ce3192e5346fedc0372e90d7304",
+      "model_spec": {
+        "architecture": "residual",
+        "board_size": 9,
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "features": "tactical10",
+        "hidden_units": 256,
+        "residual_blocks": 4,
+        "residual_width": 64
+      },
+      "model_variant": "residual/tactical10",
+      "selected_episode": 15000,
+      "selected_epoch": null,
+      "selected_checkpoint_stage": "after_A2C_updates",
+      "selected_candidate_has_A2C_updates": true,
+      "demonstration_or_warm_start_origin": {
+        "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+        "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4",
+        "stage": "imitation",
+        "epoch": 17,
+        "state_sha256": "69b5a3f3176f65ab8b3ef9ba8adccb294a0abbca4d01af71508d16273145a07c",
+        "selected_state_equals_initial": false,
+        "pretraining_protocol_sha256": "0b11e819bc6821999c4b2c262324c81a238f82d99c93f246e4767aec4ada9c42",
+        "pretraining_seed": 22,
+        "same_seed_as_A2C_run": true
+      },
+      "training_rules": "freestyle",
+      "recipe_signature": "e313a49909e19945bebd7a7588a228593fff886133d95d012cb507e5899436ac",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "initial_model": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+      "initial_sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4",
+      "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+      "limitations": [
+        "Protocol seed verifies lineage; checkpoint bytes do not prove independent initialization.",
+        "Common expert data and any shared warm-start must be disclosed."
+      ]
+    },
+    "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881": {
+      "run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_seed": 33,
+      "training_protocol_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "legacy_config_provenance": false,
+      "training_os_lock_present": true,
+      "training_completion_verified": true,
+      "checkpoint_state_sha256": "0ee446fbf4a93b2e6c826095f2dc34ca28840df33c100ef8f012f32648fa4348",
+      "parameter_count": 305538,
+      "complete_candidate_checkpoint_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\candidates\\episode_025000.checkpoint",
+      "complete_candidate_checkpoint_sha256": "7d3c3d66dd2e62e6d1814ef941e5c12e29026e8e9e92c5ead78cadce444c481c",
+      "model_spec": {
+        "architecture": "residual",
+        "board_size": 9,
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "features": "tactical10",
+        "hidden_units": 256,
+        "residual_blocks": 4,
+        "residual_width": 64
+      },
+      "model_variant": "residual/tactical10",
+      "selected_episode": 25000,
+      "selected_epoch": null,
+      "selected_checkpoint_stage": "after_A2C_updates",
+      "selected_candidate_has_A2C_updates": true,
+      "demonstration_or_warm_start_origin": {
+        "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+        "sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7",
+        "stage": "imitation",
+        "epoch": 16,
+        "state_sha256": "72ca4fd57d5d6d5a43c74410b69e4efb4362d2841354a997b3c7b437a19d49f0",
+        "selected_state_equals_initial": false,
+        "pretraining_protocol_sha256": "b880a70d7b37a96977f796502141cfbb1023c5706f788632893558083b9c7c1d",
+        "pretraining_seed": 33,
+        "same_seed_as_A2C_run": true
+      },
+      "training_rules": "freestyle",
+      "recipe_signature": "e313a49909e19945bebd7a7588a228593fff886133d95d012cb507e5899436ac",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "initial_model": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\best.pt",
+      "initial_sha256": "72729df8a2048abd4fb5bf5090fa338061f677e7a98060c979fe1c4e0438ebd7",
+      "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+      "limitations": [
+        "Protocol seed verifies lineage; checkpoint bytes do not prove independent initialization.",
+        "Common expert data and any shared warm-start must be disclosed."
+      ]
+    },
+    "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1": {
+      "run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train",
+      "training_seed": 22,
+      "training_protocol_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train\\protocol.json",
+      "training_protocol_sha256": "a747e624f437f027b775c07ec28da28fa2f89fa93eca44d1f0f31a316c9efc55",
+      "legacy_config_provenance": false,
+      "training_os_lock_present": true,
+      "training_completion_verified": true,
+      "checkpoint_state_sha256": "c242710f62e5deeeb41fd3ad650f478137f603969c9078b8741968cc47a95002",
+      "parameter_count": 1406770,
+      "complete_candidate_checkpoint_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train\\candidates\\episode_030000.checkpoint",
+      "complete_candidate_checkpoint_sha256": "b3fef35d5c708fedee88e3dbca95dae69ecaba07159a8e5aaff430b1dfd72572",
+      "model_spec": {
+        "architecture": "flat",
+        "board_size": 9,
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "features": "tactical10",
+        "hidden_units": 256,
+        "residual_blocks": 4,
+        "residual_width": 64
+      },
+      "model_variant": "flat/tactical10",
+      "selected_episode": 30000,
+      "selected_epoch": null,
+      "selected_checkpoint_stage": "after_A2C_updates",
+      "selected_candidate_has_A2C_updates": true,
+      "demonstration_or_warm_start_origin": {
+        "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_tactical10_seed22\\pretrain\\best.pt",
+        "sha256": "6f1fc49b7a113ff89b3cb1af91addffb38695d500093f03690b915773e9c2ffc",
+        "stage": "imitation",
+        "epoch": 20,
+        "state_sha256": "1e33daa6e2bfaffcad396f05854286a25e4b534e4f9b1f3be0c5107759504a2e",
+        "selected_state_equals_initial": false,
+        "pretraining_protocol_sha256": "af4b87fe5ee5688466e14d3e1ac7a2429d431f7320d608e63178a15a79d2a4a9",
+        "pretraining_seed": 22,
+        "same_seed_as_A2C_run": true
+      },
+      "training_rules": "freestyle",
+      "recipe_signature": "5479f26edec442551d6b2bd316d440dab03ebcc74b6334f114bc69247305b3eb",
+      "recipe": "flat_tactical10_ce20_a2c_ce01_dev_selected",
+      "initial_model": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_tactical10_seed22\\pretrain\\best.pt",
+      "initial_sha256": "6f1fc49b7a113ff89b3cb1af91addffb38695d500093f03690b915773e9c2ffc",
+      "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+      "limitations": [
+        "Protocol seed verifies lineage; checkpoint bytes do not prove independent initialization.",
+        "Common expert data and any shared warm-start must be disclosed."
+      ]
+    },
+    "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2": {
+      "run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22",
+      "training_seed": 22,
+      "training_protocol_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22\\config.json",
+      "training_protocol_sha256": "ae15a86b9dfc7d909f208d85587036c34de79d2e397188f8ccde7c6fe0c4f299",
+      "legacy_config_provenance": true,
+      "training_os_lock_present": true,
+      "training_completion_verified": true,
+      "checkpoint_state_sha256": "6e8c93c7d79351a2982a9fc77cf3c0f781aaf059ce783f55c8c2bd6a9ec415c8",
+      "parameter_count": 1405042,
+      "complete_candidate_checkpoint_path": null,
+      "complete_candidate_checkpoint_sha256": null,
+      "model_spec": {
+        "board_size": 9,
+        "channels": [
+          32,
+          64,
+          64
+        ],
+        "hidden_units": 256,
+        "input_channels": 4
+      },
+      "model_variant": null,
+      "selected_episode": null,
+      "selected_epoch": null,
+      "selected_checkpoint_stage": "legacy_reference_selection_metadata_unavailable",
+      "selected_candidate_has_A2C_updates": false,
+      "demonstration_or_warm_start_origin": null,
+      "training_rules": "freestyle",
+      "recipe_signature": "8338cf81682642088504dd3e7213a938a12f5b4a5d391b62c92d016d37dc7863",
+      "recipe": "original_a2c4_tactical_seed22",
+      "initial_model": null,
+      "initial_sha256": null,
+      "dataset_sha256": null,
+      "limitations": [
+        "Protocol seed verifies lineage; checkpoint bytes do not prove independent initialization.",
+        "Common expert data and any shared warm-start must be disclosed."
+      ]
+    },
+    "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf": {
+      "run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed",
+      "training_seed": 11,
+      "training_protocol_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\config.json",
+      "training_protocol_sha256": "0b96d341f66ab1138df6e46c1ca886528e2edbbf4cdf596001f833722cc825c3",
+      "legacy_config_provenance": true,
+      "training_os_lock_present": false,
+      "training_completion_verified": true,
+      "checkpoint_state_sha256": "5b947cc32351ec382adba90616181db963e8984644d3eece24fc7b1c3c8df6c5",
+      "parameter_count": 132055,
+      "complete_candidate_checkpoint_path": null,
+      "complete_candidate_checkpoint_sha256": null,
+      "model_spec": {
+        "board_size": null,
+        "channels": [
+          64,
+          64,
+          128
+        ],
+        "hidden_units": null,
+        "input_channels": null
+      },
+      "model_variant": null,
+      "selected_episode": null,
+      "selected_epoch": null,
+      "selected_checkpoint_stage": "legacy_reference_selection_metadata_unavailable",
+      "selected_candidate_has_A2C_updates": false,
+      "demonstration_or_warm_start_origin": null,
+      "training_rules": "freestyle",
+      "recipe_signature": "5ba98f689139a1be7c208c6eecaab0a00ebee58c29fb562a92d28b69ecf89aa5",
+      "recipe": "alphazero_width128_400",
+      "initial_model": null,
+      "initial_sha256": null,
+      "dataset_sha256": null,
+      "limitations": [
+        "Protocol seed verifies lineage; checkpoint bytes do not prove independent initialization.",
+        "Common expert data and any shared warm-start must be disclosed."
+      ]
+    }
+  },
+  "matrix": [
+    {
+      "job": "residual_seed11_guarded_freestyle_greedy",
+      "mode": "guarded",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 11,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed11_guarded_freestyle_random",
+      "mode": "guarded",
+      "rules": "freestyle",
+      "opponent": "random",
+      "training_seed": 11,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed11_guarded_renju_greedy",
+      "mode": "guarded",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 11,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed11_guarded_renju_random",
+      "mode": "guarded",
+      "rules": "renju",
+      "opponent": "random",
+      "training_seed": 11,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed11_policy_freestyle_greedy",
+      "mode": "policy",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 11,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed11_policy_freestyle_random",
+      "mode": "policy",
+      "rules": "freestyle",
+      "opponent": "random",
+      "training_seed": 11,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed11_policy_renju_greedy",
+      "mode": "policy",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 11,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed11_policy_renju_random",
+      "mode": "policy",
+      "rules": "renju",
+      "opponent": "random",
+      "training_seed": 11,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed22_guarded_freestyle_greedy",
+      "mode": "guarded",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 22,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed22_guarded_freestyle_random",
+      "mode": "guarded",
+      "rules": "freestyle",
+      "opponent": "random",
+      "training_seed": 22,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed22_guarded_renju_greedy",
+      "mode": "guarded",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 22,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed22_guarded_renju_random",
+      "mode": "guarded",
+      "rules": "renju",
+      "opponent": "random",
+      "training_seed": 22,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed22_policy_freestyle_greedy",
+      "mode": "policy",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 22,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed22_policy_freestyle_random",
+      "mode": "policy",
+      "rules": "freestyle",
+      "opponent": "random",
+      "training_seed": 22,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed22_policy_renju_greedy",
+      "mode": "policy",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 22,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed22_policy_renju_random",
+      "mode": "policy",
+      "rules": "renju",
+      "opponent": "random",
+      "training_seed": 22,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed33_guarded_freestyle_greedy",
+      "mode": "guarded",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 33,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed33_guarded_freestyle_random",
+      "mode": "guarded",
+      "rules": "freestyle",
+      "opponent": "random",
+      "training_seed": 33,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed33_guarded_renju_greedy",
+      "mode": "guarded",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 33,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed33_guarded_renju_random",
+      "mode": "guarded",
+      "rules": "renju",
+      "opponent": "random",
+      "training_seed": 33,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed33_policy_freestyle_greedy",
+      "mode": "policy",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 33,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed33_policy_freestyle_random",
+      "mode": "policy",
+      "rules": "freestyle",
+      "opponent": "random",
+      "training_seed": 33,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed33_policy_renju_greedy",
+      "mode": "policy",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 33,
+      "role": "candidate"
+    },
+    {
+      "job": "residual_seed33_policy_renju_random",
+      "mode": "policy",
+      "rules": "renju",
+      "opponent": "random",
+      "training_seed": 33,
+      "role": "candidate"
+    },
+    {
+      "job": "flat_seed22_guarded_freestyle_greedy",
+      "mode": "guarded",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 22,
+      "role": "contextual_reference"
+    },
+    {
+      "job": "flat_seed22_guarded_renju_greedy",
+      "mode": "guarded",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 22,
+      "role": "contextual_reference"
+    },
+    {
+      "job": "original_a2c4_tactical_freestyle_greedy",
+      "mode": "tactical",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 22,
+      "role": "contextual_reference"
+    },
+    {
+      "job": "original_a2c4_tactical_renju_greedy",
+      "mode": "tactical",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 22,
+      "role": "contextual_reference"
+    },
+    {
+      "job": "alphazero_width128_alphazero_freestyle_greedy",
+      "mode": "alphazero",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": 11,
+      "role": "contextual_reference"
+    },
+    {
+      "job": "alphazero_width128_alphazero_renju_greedy",
+      "mode": "alphazero",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": 11,
+      "role": "contextual_reference"
+    },
+    {
+      "job": "minimax_depth2_minimax_freestyle_greedy",
+      "mode": "minimax",
+      "rules": "freestyle",
+      "opponent": "greedy",
+      "training_seed": null,
+      "role": "contextual_reference"
+    },
+    {
+      "job": "minimax_depth2_minimax_renju_greedy",
+      "mode": "minimax",
+      "rules": "renju",
+      "opponent": "greedy",
+      "training_seed": null,
+      "role": "contextual_reference"
+    }
+  ],
+  "legacy_external_metadata": {
+    "a2c_sidecar": {
+      "checkpoint": "best.pt",
+      "selection": "validation greedy score only",
+      "selected_episode": 19000,
+      "test_seed": 800000
+    },
+    "a2c_status_best_episode": 19000,
+    "az_sidecar": {
+      "checkpoint": "best.pt",
+      "selection": "validation greedy score only",
+      "test_seed": 800000
+    },
+    "az_warm_start": "backups/upstream-2711cca/models/alphazero.pt",
+    "note": "Legacy episode metadata is external to weights and not added to exact models.selected_episode. No old or new final-game results were read."
+  },
+  "final_test_executed_or_results_read": false,
+  "freeze_conditions": [
+    "Independent full56 audit passes and its exact artifact SHA/path is recorded.",
+    "Independent final-runner review passes and runner SHA remains exact.",
+    "Set status=frozen only after prerequisites pass; retain immutable frozen artifact and planned draft history."
+  ],
+  "nonblocking_notes": [
+    "Policy is a same-checkpoint inference ablation, not independently policy-best checkpoint selection.",
+    "Reference methods differ in initialization, training budget and inference compute; do not pool with candidate training seeds.",
+    "Legacy A2C episode19000 is sidecar/status evidence; legacy AZ selected episode remains unspecified without exact checkpoint linkage."
+  ]
+}

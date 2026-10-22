@@ -1,0 +1,17 @@
+algorithm,rules,color,game,seed,outcome,moves,policy_seconds,tactical_reasons
+a2c4,freestyle,1,0,1200000,-1,10,0.004217200003040489,{}
+a2c4,freestyle,1,1,1200001,1,25,0.00795700000890065,{}
+a2c4,freestyle,-1,0,1300000,-1,9,0.0023162999932537787,{}
+a2c4,freestyle,-1,1,1300001,-1,9,0.0024716999905649573,{}
+a2c4_tactical,freestyle,1,0,1200000,1,21,0.5776889000044321,"{""create_double_threat"": 1, ""defend_forcing_threat"": 2, ""immediate_win"": 1, ""quiet_candidates"": 2, ""tactical_candidates"": 5}"
+a2c4_tactical,freestyle,1,1,1200001,1,19,0.3628251999980421,"{""create_double_threat"": 1, ""immediate_win"": 1, ""quiet_candidates"": 3, ""tactical_candidates"": 5}"
+a2c4_tactical,freestyle,-1,0,1300000,1,26,0.6890283999891835,"{""create_double_threat"": 1, ""defend_forcing_threat"": 4, ""forced_win"": 1, ""immediate_win"": 1, ""quiet_candidates"": 1, ""tactical_candidates"": 5}"
+a2c4_tactical,freestyle,-1,1,1300001,1,22,0.4599434999981895,"{""create_double_threat"": 1, ""defend_forcing_threat"": 1, ""forced_win"": 1, ""immediate_win"": 1, ""quiet_candidates"": 3, ""tactical_candidates"": 4}"
+a2c4,renju,1,0,1400000,-1,14,0.006309300006250851,{}
+a2c4,renju,1,1,1400001,-1,14,0.006194299996423069,{}
+a2c4,renju,-1,0,1500000,-1,9,0.0025259000103687868,{}
+a2c4,renju,-1,1,1500001,-1,9,0.0023697000069660135,{}
+a2c4_tactical,renju,1,0,1400000,0,81,3.330063500041433,"{""block_immediate_win"": 3, ""defend_forcing_threat"": 5, ""quiet_candidates"": 20, ""tactical_candidates"": 13}"
+a2c4_tactical,renju,1,1,1400001,0,81,3.1149787999675027,"{""block_immediate_win"": 6, ""defend_forcing_threat"": 5, ""quiet_candidates"": 16, ""tactical_candidates"": 14}"
+a2c4_tactical,renju,-1,0,1500000,1,22,4.824810600010096,"{""block_immediate_win"": 1, ""create_double_threat"": 1, ""defend_forcing_threat"": 2, ""forced_win"": 1, ""immediate_win"": 1, ""quiet_candidates"": 1, ""tactical_candidates"": 4}"
+a2c4_tactical,renju,-1,1,1500001,1,32,7.968683399994916,"{""block_immediate_win"": 2, ""create_double_threat"": 1, ""defend_forcing_threat"": 4, ""immediate_win"": 1, ""quiet_candidates"": 2, ""tactical_candidates"": 6}"

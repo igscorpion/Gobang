@@ -1,0 +1,476 @@
+{
+  "format": "a2c_search_development_completed_cell_replay_audit_v1",
+  "passed": true,
+  "partial": false,
+  "created_at": "2026-10-20T21:24:30.657439+00:00",
+  "split": "validation",
+  "final_tests_opened": false,
+  "observations": {
+    "controller_record": null,
+    "controller_lock": {
+      "held": false
+    }
+  },
+  "cells": [
+    {
+      "name": "depth2_value0",
+      "status": {
+        "state": "complete",
+        "games": 80
+      },
+      "launcher_record": {
+        "pid": 65628,
+        "alive": true,
+        "birth": "134370018162996877",
+        "exit_code": null
+      },
+      "launcher_actual": {
+        "pid": 65628,
+        "alive": false,
+        "birth": null,
+        "query_error": 87
+      },
+      "launcher_birth_matches": false,
+      "runtime_actual": {
+        "pid": null,
+        "alive": false,
+        "birth": null
+      },
+      "writer_lock": {
+        "held": false
+      },
+      "console_last_modified_ns": 1792528787088474800,
+      "console_bytes": 1781,
+      "console_tail": "202.8877277578827, \"median_move_ms\": 204.92819999344647, \"p95_move_ms\": 394.20500000414904, \"max_move_ms\": 586.420999999973, \"tactical_reasons\": {\"quiet_candidates\": 787, \"tactical_candidates\": 465, \"defend_forcing_threat\": 56, \"block_immediate_win\": 60, \"unavoidable_loss\": 2, \"create_double_threat\": 8, \"immediate_win\": 8, \"forced_win\": 1}, \"mean_search_nodes\": 103.93439077144917}, {\"color\": -1, \"games\": 40, \"wins\": 5, \"draws\": 33, \"losses\": 2, \"win_rate\": 0.125, \"score\": 0.5375, \"wilson_95\": [0.05459419773541284, 0.26112420670238146], \"mean_game_plies\": 72.575, \"inference_samples\": 1434, \"mean_move_ms\": 197.65856520205736, \"median_move_ms\": 185.53430000611115, \"p95_move_ms\": 411.71010000107344, \"max_move_ms\": 643.7235000048531, \"tactical_reasons\": {\"quiet_candidates\": 742, \"tactical_candidates\": 479, \"block_immediate_win\": 108, \"defend_forcing_threat\": 91, \"unavoidable_loss\": 2, \"forced_win\": 2, \"create_double_threat\": 5, \"immediate_win\": 5}, \"mean_search_nodes\": 97.82426778242677}]}\n"
+    },
+    {
+      "name": "depth3_value0",
+      "status": {
+        "state": "complete",
+        "games": 80
+      },
+      "launcher_record": {
+        "pid": 51864,
+        "alive": true,
+        "birth": "134370018162998742",
+        "exit_code": null
+      },
+      "launcher_actual": {
+        "pid": 51864,
+        "alive": false,
+        "birth": null,
+        "query_error": 87
+      },
+      "launcher_birth_matches": false,
+      "runtime_actual": {
+        "pid": null,
+        "alive": false,
+        "birth": null
+      },
+      "writer_lock": {
+        "held": false
+      },
+      "console_last_modified_ns": 1792529387432029600,
+      "console_bytes": 1785,
+      "console_tail": "2.2501573964189, \"median_move_ms\": 1032.7476999955252, \"p95_move_ms\": 1659.4941999937873, \"max_move_ms\": 2342.1374000026844, \"tactical_reasons\": {\"quiet_candidates\": 120, \"tactical_candidates\": 221, \"defend_forcing_threat\": 57, \"block_immediate_win\": 12, \"create_double_threat\": 38, \"immediate_win\": 38, \"forced_win\": 20, \"unavoidable_loss\": 1}, \"mean_search_nodes\": 324.6686390532544}, {\"color\": -1, \"games\": 40, \"wins\": 13, \"draws\": 22, \"losses\": 5, \"win_rate\": 0.325, \"score\": 0.6, \"wilson_95\": [0.20084316962661725, 0.4798254191110201], \"mean_game_plies\": 57.525, \"inference_samples\": 1137, \"mean_move_ms\": 637.08376622709, \"median_move_ms\": 580.5149999941932, \"p95_move_ms\": 1470.9719999955269, \"max_move_ms\": 2020.3924999950686, \"tactical_reasons\": {\"quiet_candidates\": 343, \"tactical_candidates\": 498, \"defend_forcing_threat\": 144, \"forced_win\": 7, \"create_double_threat\": 13, \"immediate_win\": 13, \"block_immediate_win\": 114, \"unavoidable_loss\": 5}, \"mean_search_nodes\": 338.82673702726476}]}\n"
+    },
+    {
+      "name": "depth2_value05",
+      "status": {
+        "state": "complete",
+        "games": 80
+      },
+      "launcher_record": {
+        "pid": 58140,
+        "alive": true,
+        "birth": "134370018163000596",
+        "exit_code": null
+      },
+      "launcher_actual": {
+        "pid": 58140,
+        "alive": false,
+        "birth": null,
+        "query_error": 87
+      },
+      "launcher_birth_matches": false,
+      "runtime_actual": {
+        "pid": null,
+        "alive": false,
+        "birth": null
+      },
+      "writer_lock": {
+        "held": false
+      },
+      "console_last_modified_ns": 1792529317251609900,
+      "console_bytes": 1787,
+      "console_tail": "6.6622586372539, \"median_move_ms\": 480.6465000001481, \"p95_move_ms\": 902.2770000010496, \"max_move_ms\": 1341.0917000001064, \"tactical_reasons\": {\"quiet_candidates\": 646, \"tactical_candidates\": 445, \"block_immediate_win\": 58, \"defend_forcing_threat\": 52, \"forced_win\": 5, \"create_double_threat\": 12, \"immediate_win\": 12, \"unavoidable_loss\": 3}, \"mean_search_nodes\": 101.15977291159773}, {\"color\": -1, \"games\": 40, \"wins\": 5, \"draws\": 24, \"losses\": 11, \"win_rate\": 0.125, \"score\": 0.425, \"wilson_95\": [0.05459419773541284, 0.26112420670238146], \"mean_game_plies\": 60.575, \"inference_samples\": 1194, \"mean_move_ms\": 425.30946088774675, \"median_move_ms\": 446.45070000115084, \"p95_move_ms\": 802.8083999961382, \"max_move_ms\": 1139.3405999988317, \"tactical_reasons\": {\"quiet_candidates\": 557, \"tactical_candidates\": 433, \"block_immediate_win\": 91, \"defend_forcing_threat\": 89, \"create_double_threat\": 5, \"immediate_win\": 5, \"unavoidable_loss\": 11, \"forced_win\": 3}, \"mean_search_nodes\": 96.46901172529313}]}\n"
+    },
+    {
+      "name": "depth3_value05",
+      "status": {
+        "state": "complete",
+        "games": 80
+      },
+      "launcher_record": {
+        "pid": 20944,
+        "alive": true,
+        "birth": "134370018163003280",
+        "exit_code": null
+      },
+      "launcher_actual": {
+        "pid": 20944,
+        "alive": false,
+        "birth": null,
+        "query_error": 87
+      },
+      "launcher_birth_matches": false,
+      "runtime_actual": {
+        "pid": null,
+        "alive": false,
+        "birth": null
+      },
+      "writer_lock": {
+        "held": false
+      },
+      "console_last_modified_ns": 1792531456648721800,
+      "console_bytes": 1785,
+      "console_tail": "1358.8321606199033, \"median_move_ms\": 1450.2034000033746, \"p95_move_ms\": 2854.6207000035793, \"max_move_ms\": 4522.211099989363, \"tactical_reasons\": {\"quiet_candidates\": 492, \"tactical_candidates\": 581, \"defend_forcing_threat\": 93, \"create_double_threat\": 8, \"immediate_win\": 8, \"block_immediate_win\": 132, \"unavoidable_loss\": 5, \"forced_win\": 4}, \"mean_search_nodes\": 405.33106575963717}, {\"color\": -1, \"games\": 40, \"wins\": 10, \"draws\": 27, \"losses\": 3, \"win_rate\": 0.25, \"score\": 0.5875, \"wilson_95\": [0.14186967895549518, 0.40194259066970106], \"mean_game_plies\": 64, \"inference_samples\": 1265, \"mean_move_ms\": 1136.217943162118, \"median_move_ms\": 1163.3570000121836, \"p95_move_ms\": 2582.9171999939717, \"max_move_ms\": 3718.4403000137536, \"tactical_reasons\": {\"quiet_candidates\": 398, \"tactical_candidates\": 561, \"defend_forcing_threat\": 120, \"create_double_threat\": 9, \"immediate_win\": 10, \"block_immediate_win\": 163, \"forced_win\": 1, \"unavoidable_loss\": 3}, \"mean_search_nodes\": 374.096442687747}]}\n"
+    }
+  ],
+  "audited_cases": [
+    {
+      "name": "depth2_value0",
+      "games": 80,
+      "legal_steps_replayed": 5639,
+      "greedy_actions_exactly_reproduced": 2818,
+      "file_sha256": {
+        "protocol.json": "122d5a5b24e7c6cd81c608035c53191f8b0286dc038918aeb65d4e5fbc13ad3a",
+        "summary.json": "dafdf7d6c53094d14508d91dcf1a1cb1d30ca86fdc2fc4c513f4250538ea070c",
+        "games.csv": "27667c565c17b5aaf50101ec1ffe3121ca4ddf6b4471a087de4cd735558a3e74",
+        "moves.csv": "ee30f61bb39aeaf932987ef401add00d62bb848915da38c9e8620a6b7507c15b"
+      },
+      "results": [
+        {
+          "color": 1,
+          "games": 40,
+          "wins": 8,
+          "draws": 30,
+          "losses": 2,
+          "win_rate": 0.2,
+          "score": 0.575,
+          "wilson_95": [
+            0.10499864973166874,
+            0.34757607381856676
+          ],
+          "mean_game_plies": 68.4,
+          "inference_samples": 1387,
+          "mean_move_ms": 202.8877277578827,
+          "median_move_ms": 204.92819999344647,
+          "p95_move_ms": 394.20500000414904,
+          "max_move_ms": 586.420999999973,
+          "tactical_reasons": {
+            "quiet_candidates": 787,
+            "tactical_candidates": 465,
+            "defend_forcing_threat": 56,
+            "block_immediate_win": 60,
+            "unavoidable_loss": 2,
+            "create_double_threat": 8,
+            "immediate_win": 8,
+            "forced_win": 1
+          },
+          "mean_search_nodes": 103.93439077144917
+        },
+        {
+          "color": -1,
+          "games": 40,
+          "wins": 5,
+          "draws": 33,
+          "losses": 2,
+          "win_rate": 0.125,
+          "score": 0.5375,
+          "wilson_95": [
+            0.05459419773541284,
+            0.26112420670238146
+          ],
+          "mean_game_plies": 72.575,
+          "inference_samples": 1434,
+          "mean_move_ms": 197.65856520205736,
+          "median_move_ms": 185.53430000611115,
+          "p95_move_ms": 411.71010000107344,
+          "max_move_ms": 643.7235000048531,
+          "tactical_reasons": {
+            "quiet_candidates": 742,
+            "tactical_candidates": 479,
+            "block_immediate_win": 108,
+            "defend_forcing_threat": 91,
+            "unavoidable_loss": 2,
+            "forced_win": 2,
+            "create_double_threat": 5,
+            "immediate_win": 5
+          },
+          "mean_search_nodes": 97.82426778242677
+        }
+      ],
+      "mean_score": 0.5562499999999999,
+      "mean_win_rate": 0.1625
+    },
+    {
+      "name": "depth3_value0",
+      "games": 80,
+      "legal_steps_replayed": 3276,
+      "greedy_actions_exactly_reproduced": 1632,
+      "file_sha256": {
+        "protocol.json": "c351b247ac2458f167b777ccb43dbdfaca43c2be971f493c122d6bb0c90e618c",
+        "summary.json": "f69978ffc5951749a866b0941140fab26a0ccd26f75a7fa0f935e13ab6fee5f9",
+        "games.csv": "6c2c160cfab37e0276903af8e6113718d64eab92cce2751fcf12baf48ea11dae",
+        "moves.csv": "93c72db69fb6ea9864b4b911d99a0e32f48c3690619fbfab7484ee614866e8c4"
+      },
+      "results": [
+        {
+          "color": 1,
+          "games": 40,
+          "wins": 38,
+          "draws": 1,
+          "losses": 1,
+          "win_rate": 0.95,
+          "score": 0.9625,
+          "wilson_95": [
+            0.834958291820748,
+            0.9861796228538989
+          ],
+          "mean_game_plies": 24.375,
+          "inference_samples": 507,
+          "mean_move_ms": 872.2501573964189,
+          "median_move_ms": 1032.7476999955252,
+          "p95_move_ms": 1659.4941999937873,
+          "max_move_ms": 2342.1374000026844,
+          "tactical_reasons": {
+            "quiet_candidates": 120,
+            "tactical_candidates": 221,
+            "defend_forcing_threat": 57,
+            "block_immediate_win": 12,
+            "create_double_threat": 38,
+            "immediate_win": 38,
+            "forced_win": 20,
+            "unavoidable_loss": 1
+          },
+          "mean_search_nodes": 324.6686390532544
+        },
+        {
+          "color": -1,
+          "games": 40,
+          "wins": 13,
+          "draws": 22,
+          "losses": 5,
+          "win_rate": 0.325,
+          "score": 0.6,
+          "wilson_95": [
+            0.20084316962661725,
+            0.4798254191110201
+          ],
+          "mean_game_plies": 57.525,
+          "inference_samples": 1137,
+          "mean_move_ms": 637.08376622709,
+          "median_move_ms": 580.5149999941932,
+          "p95_move_ms": 1470.9719999955269,
+          "max_move_ms": 2020.3924999950686,
+          "tactical_reasons": {
+            "quiet_candidates": 343,
+            "tactical_candidates": 498,
+            "defend_forcing_threat": 144,
+            "forced_win": 7,
+            "create_double_threat": 13,
+            "immediate_win": 13,
+            "block_immediate_win": 114,
+            "unavoidable_loss": 5
+          },
+          "mean_search_nodes": 338.82673702726476
+        }
+      ],
+      "mean_score": 0.78125,
+      "mean_win_rate": 0.6375
+    },
+    {
+      "name": "depth2_value05",
+      "games": 80,
+      "legal_steps_replayed": 4852,
+      "greedy_actions_exactly_reproduced": 2425,
+      "file_sha256": {
+        "protocol.json": "000da9b09dfea619022f2cadb9991e5baf68ae43fe153cbb9ac5d916e2b796e0",
+        "summary.json": "2c52933080037c03388745343e514f62834bee821c2d3dec8b03b4d9f880e265",
+        "games.csv": "82a475e324255739fd8663e3f4c8e7f53f1262f7fbc6a2b3eba632c634fba8b9",
+        "moves.csv": "58ed3a820610016e4619afdc0b3dca8be75c1e13903e53f254571a4312607cf6"
+      },
+      "results": [
+        {
+          "color": 1,
+          "games": 40,
+          "wins": 12,
+          "draws": 25,
+          "losses": 3,
+          "win_rate": 0.3,
+          "score": 0.6125,
+          "wilson_95": [
+            0.18074670915695296,
+            0.454303106543204
+          ],
+          "mean_game_plies": 60.725,
+          "inference_samples": 1233,
+          "mean_move_ms": 476.6622586372539,
+          "median_move_ms": 480.6465000001481,
+          "p95_move_ms": 902.2770000010496,
+          "max_move_ms": 1341.0917000001064,
+          "tactical_reasons": {
+            "quiet_candidates": 646,
+            "tactical_candidates": 445,
+            "block_immediate_win": 58,
+            "defend_forcing_threat": 52,
+            "forced_win": 5,
+            "create_double_threat": 12,
+            "immediate_win": 12,
+            "unavoidable_loss": 3
+          },
+          "mean_search_nodes": 101.15977291159773
+        },
+        {
+          "color": -1,
+          "games": 40,
+          "wins": 5,
+          "draws": 24,
+          "losses": 11,
+          "win_rate": 0.125,
+          "score": 0.425,
+          "wilson_95": [
+            0.05459419773541284,
+            0.26112420670238146
+          ],
+          "mean_game_plies": 60.575,
+          "inference_samples": 1194,
+          "mean_move_ms": 425.30946088774675,
+          "median_move_ms": 446.45070000115084,
+          "p95_move_ms": 802.8083999961382,
+          "max_move_ms": 1139.3405999988317,
+          "tactical_reasons": {
+            "quiet_candidates": 557,
+            "tactical_candidates": 433,
+            "block_immediate_win": 91,
+            "defend_forcing_threat": 89,
+            "create_double_threat": 5,
+            "immediate_win": 5,
+            "unavoidable_loss": 11,
+            "forced_win": 3
+          },
+          "mean_search_nodes": 96.46901172529313
+        }
+      ],
+      "mean_score": 0.51875,
+      "mean_win_rate": 0.2125
+    },
+    {
+      "name": "depth3_value05",
+      "games": 80,
+      "legal_steps_replayed": 5171,
+      "greedy_actions_exactly_reproduced": 2583,
+      "file_sha256": {
+        "protocol.json": "e99ffaf44b5c8dc6576793d96f8338089654ddfb57f3461efad6d57a8959b7af",
+        "summary.json": "ea2806258837e843b9ecc2a0e29ee9f83e6dae7767d4c79632522b2b0264ed2e",
+        "games.csv": "90a6a01f66d4068a07087f00c65d5e48c0c4b5ab760b9b0c6ffa44e957897078",
+        "moves.csv": "0b1fabc954a4d1d4ed57b418fc7219bc63014bd56e0209752c67f6459d35a64e"
+      },
+      "results": [
+        {
+          "color": 1,
+          "games": 40,
+          "wins": 8,
+          "draws": 27,
+          "losses": 5,
+          "win_rate": 0.2,
+          "score": 0.5375,
+          "wilson_95": [
+            0.10499864973166874,
+            0.34757607381856676
+          ],
+          "mean_game_plies": 65.275,
+          "inference_samples": 1323,
+          "mean_move_ms": 1358.8321606199033,
+          "median_move_ms": 1450.2034000033746,
+          "p95_move_ms": 2854.6207000035793,
+          "max_move_ms": 4522.211099989363,
+          "tactical_reasons": {
+            "quiet_candidates": 492,
+            "tactical_candidates": 581,
+            "defend_forcing_threat": 93,
+            "create_double_threat": 8,
+            "immediate_win": 8,
+            "block_immediate_win": 132,
+            "unavoidable_loss": 5,
+            "forced_win": 4
+          },
+          "mean_search_nodes": 405.33106575963717
+        },
+        {
+          "color": -1,
+          "games": 40,
+          "wins": 10,
+          "draws": 27,
+          "losses": 3,
+          "win_rate": 0.25,
+          "score": 0.5875,
+          "wilson_95": [
+            0.14186967895549518,
+            0.40194259066970106
+          ],
+          "mean_game_plies": 64,
+          "inference_samples": 1265,
+          "mean_move_ms": 1136.217943162118,
+          "median_move_ms": 1163.3570000121836,
+          "p95_move_ms": 2582.9171999939717,
+          "max_move_ms": 3718.4403000137536,
+          "tactical_reasons": {
+            "quiet_candidates": 398,
+            "tactical_candidates": 561,
+            "defend_forcing_threat": 120,
+            "create_double_threat": 9,
+            "immediate_win": 10,
+            "block_immediate_win": 163,
+            "forced_win": 1,
+            "unavoidable_loss": 3
+          },
+          "mean_search_nodes": 374.096442687747
+        }
+      ],
+      "mean_score": 0.5625,
+      "mean_win_rate": 0.225
+    }
+  ],
+  "games": 320,
+  "legal_steps_replayed": 18938,
+  "greedy_actions_exactly_reproduced": 9458,
+  "source_sha256": {
+    "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+    "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+    "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+    "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+    "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+    "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+    "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+    "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+    "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+    "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+    "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+    "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+    "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+    "rl/agents/a2c_search.py": "a3f4f0b078837e618b70e6ad8638702254febc2317d5f01daf2e31604918abb1",
+    "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+    "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+  },
+  "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+  "all_sources_and_weights_unchanged": true,
+  "scope": "Replay of recorded actions and Greedy RNG, not recomputation of candidate search decisions",
+  "root_summary_matches_cells": true,
+  "root_file_sha256": {
+    "study_protocol.json": "e8b1b99f80e080805a7c3781987998000faa83e520b76b6fb3a870f45b433d91",
+    "study_summary.json": "99a5e251d8efbcc1747dc3a888c8e242cdf2b8c605a3672ff9527481372aaf0f",
+    "report.md": "d34787660bf228251488646d84d202f53fe179167c695f216e336b99f577041f"
+  }
+}

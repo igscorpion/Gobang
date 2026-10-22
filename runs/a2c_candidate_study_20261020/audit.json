@@ -1,0 +1,163 @@
+{
+  "state": "passed",
+  "development_games": 320,
+  "loss_replays": 72,
+  "totals": {
+    "greedy_actions_exact": 7458,
+    "legal_moves": 14947,
+    "policy_actions_rank_verified": 7489,
+    "draws": 122,
+    "wins": 144,
+    "losses": 54
+  },
+  "source_checkpoint_baseline_hashes_match": true,
+  "all_eight_cells_complete": true,
+  "all_four_paired_differences_verified": true,
+  "cells": [
+    {
+      "cell": "development_a2c_freestyle_-1",
+      "counts": {
+        "greedy_actions_exact": 947,
+        "legal_moves": 1867,
+        "policy_actions_rank_verified": 920,
+        "draws": 15,
+        "wins": 13,
+        "losses": 12
+      },
+      "fingerprints": {
+        "games.csv": "4e7d114c103381a89852a8bcd0fa68b78c9bef5826a862dae2bc7324235416fd",
+        "moves.csv": "0ba2eb8cb00c463a54c1f7ef3a1d7462ffd77fa2315c0636e5c627f8ea660d62",
+        "candidates.csv": "2c9c9d23c3dc85d03a1220c69f5a27a0a0c07fdc64d24fd5ec1cb39e539bc88e",
+        "summary.json": "b6b78a8b30453ad0a85bbe98195cb6afb1dc2ab507e68a2073590657b2ab7cda",
+        "protocol.json": "08b73661c99879d2f5cec13481a9c62ada22674aa5d5a7cd695131c28dec6153"
+      }
+    },
+    {
+      "cell": "development_a2c_freestyle_1",
+      "counts": {
+        "policy_actions_rank_verified": 608,
+        "legal_moves": 1182,
+        "greedy_actions_exact": 574,
+        "wins": 29,
+        "losses": 6,
+        "draws": 5
+      },
+      "fingerprints": {
+        "games.csv": "467f2c8f1da8f7306fbf2acd62ff540b6af144381205e78931add7735539c76b",
+        "moves.csv": "0125d8feac902f5f1a4bcce44a78475f5437600c940e13d7525a117aad6d5435",
+        "candidates.csv": "5b3525f5f5fe709cd2c29a3c1ed0049a00fba7db2c483fa6f9444b415a8840fe",
+        "summary.json": "e8bdff360e53be896286f65d43e7539c5ced69f707cc8a27d195d42240042d26",
+        "protocol.json": "fa8c7a4f66f11c8a56687aba13da28b00e46a9f377cb683b3e1de26ffe2f9855"
+      }
+    },
+    {
+      "cell": "development_a2c_renju_1",
+      "counts": {
+        "policy_actions_rank_verified": 760,
+        "legal_moves": 1482,
+        "greedy_actions_exact": 722,
+        "wins": 28,
+        "draws": 10,
+        "losses": 2
+      },
+      "fingerprints": {
+        "games.csv": "c8336344117bb43e88b8dfb920d22da4fed52f195f76ef4186e615dded2696a4",
+        "moves.csv": "103c05b59c7d1ccea422c86b9c69df7c190dcae720e886352711a1ca0f6e0804",
+        "candidates.csv": "178feb97fc8f04720a05e34375722e8ea3b87b4cb19452b4ebd1f1ed32a5064b",
+        "summary.json": "4a991a118bfb450813ed3f4465974d18b053f6fd366683b21a7e25b30fdb1942",
+        "protocol.json": "d6532ffe479210f556d7c7a057374ae5d95a7e93b001ddaf4b3d04471631f3bd"
+      }
+    },
+    {
+      "cell": "development_hand_freestyle_-1",
+      "counts": {
+        "greedy_actions_exact": 1144,
+        "legal_moves": 2259,
+        "policy_actions_rank_verified": 1115,
+        "draws": 21,
+        "losses": 8,
+        "wins": 11
+      },
+      "fingerprints": {
+        "games.csv": "13eac9e857c60818ab81e9c78aa7b02a721fe556ef0e87841c0fefeb9d7ee9f0",
+        "moves.csv": "74c768b92efc690bf5613e0e26ca39fe09d26fbf784b7f2d70d57a954b198aec",
+        "candidates.csv": "39dfc3d29f912e3945e33ab9b1ad8a412b7851772cb53a07c34603aed52c6296",
+        "summary.json": "cede0992309421eea865e518b98d0a07cd93f57e8249d1f4230372c5bc7b6bbf",
+        "protocol.json": "7a7a3e5a3d234d8af1f1cd451cf95b2d6e99cdf699ae061438c2e0b2d2f260d9"
+      }
+    },
+    {
+      "cell": "development_hand_freestyle_1",
+      "counts": {
+        "policy_actions_rank_verified": 899,
+        "legal_moves": 1765,
+        "greedy_actions_exact": 866,
+        "wins": 19,
+        "draws": 14,
+        "losses": 7
+      },
+      "fingerprints": {
+        "games.csv": "7dca064438651d987b6263405cb7e8bf8cb440aa31a33f06b20a2060b8acd29f",
+        "moves.csv": "003b6401130aa2b071483919ef44cc257a7ec7ac64435eaad5cd7a9e54b37a84",
+        "candidates.csv": "dc6ac1d0193da6e677d950b9eaff4858a56b2e60653f4f07dcfd05e9c0ef7f4a",
+        "summary.json": "7170c0e7892717a79f93c19097594b1b6b9afb4b8f4048209205225113642f65",
+        "protocol.json": "24d686c92740fb582fc094de8bf17e8d8ee5591c6e62970a0122175705cb8c7f"
+      }
+    },
+    {
+      "cell": "development_hand_renju_1",
+      "counts": {
+        "policy_actions_rank_verified": 1022,
+        "legal_moves": 2011,
+        "greedy_actions_exact": 989,
+        "losses": 7,
+        "draws": 18,
+        "wins": 15
+      },
+      "fingerprints": {
+        "games.csv": "26dd480161b3029a5e5fef2b994133a4a4e6b499c508f7234f1b51aee8b870b0",
+        "moves.csv": "3a6f41afe7e3215be9d9e52072a8a7ca99e7d89dc34749b87cb9369cee1f3dd3",
+        "candidates.csv": "d1985b16aba962afd9da3db91160a0a495100cb9f3c7e8713d3975013db4927d",
+        "summary.json": "fd8cb6ff87937eb925f4c86c37d7e6b211919c0d5255d0bc79e4fc6411eeb7be",
+        "protocol.json": "49dff032fe5f759ea78f3848f0a798fcb7f278338eeffa1372230e6f5d3fbd72"
+      }
+    },
+    {
+      "cell": "development_a2c_renju_-1",
+      "counts": {
+        "greedy_actions_exact": 1023,
+        "legal_moves": 2023,
+        "policy_actions_rank_verified": 1000,
+        "draws": 16,
+        "wins": 17,
+        "losses": 7
+      },
+      "fingerprints": {
+        "games.csv": "57863beb0dce8d6f8e4c56dba42bab0c6c84038c86f80501340c095bdfadbe04",
+        "moves.csv": "7aba7252e3dc857d649a8ecce78b8397bc3d862644aa7ea7886eed0899d2e7b7",
+        "candidates.csv": "7957338d73aa516bbd0141384452f41bc0ea58d6c11090ee7c91d2b02bcdf35a",
+        "summary.json": "7785f12b9092c7766f2fd95813636ebee935e18d14fc3c2120b14fcb0bd576b7",
+        "protocol.json": "05d2edc76a147ae5dbb593139d70b9fb38f29cad75cf274c3286c875bd50e4f9"
+      }
+    },
+    {
+      "cell": "development_hand_renju_-1",
+      "counts": {
+        "greedy_actions_exact": 1193,
+        "legal_moves": 2358,
+        "policy_actions_rank_verified": 1165,
+        "draws": 23,
+        "losses": 5,
+        "wins": 12
+      },
+      "fingerprints": {
+        "games.csv": "4706843377d42201cbe5fb5e348d547fc2b75e0559f7a3764de088f6952215d3",
+        "moves.csv": "6209164899fe1d1ed6f32b86ba6467d252eaa7ab14bc9b3ca50efa5654d8b938",
+        "candidates.csv": "a42bfa0cc18d1898585967c95ab879f2e7ef1a99396d44d1001dc21689c30cad",
+        "summary.json": "2ef61eae1afdc46f98727ff5406f16da72d1281c01878cea28c1470cbd1f5333",
+        "protocol.json": "021a2ed8c50cf42fb3e26d4899f6c098faeeeaa38334716c84133e78ae0c7b71"
+      }
+    }
+  ],
+  "limitation": "Candidate-set proofs were not independently recomputed for development trajectories; rank selection, all legality, Greedy actions and outcomes were replayed. Original losses did fully recompute the frozen TacticalEngine."
+}

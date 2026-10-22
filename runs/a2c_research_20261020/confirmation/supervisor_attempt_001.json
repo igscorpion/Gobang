@@ -1,0 +1,28 @@
+{
+  "pid": 65904,
+  "birth": "134370016778357897",
+  "process": {
+    "pid": 65904,
+    "alive": true,
+    "birth": "134370016778357897",
+    "exit_code": null
+  },
+  "attempt": 1,
+  "started_at": "2026-10-20T20:27:57.838453+00:00",
+  "command": [
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\.venv\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "rl.training.a2c_confirmation_suite",
+    "--device",
+    "cuda",
+    "--research-root",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020",
+    "--output",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation"
+  ],
+  "cwd": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work",
+  "log": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\supervisor_attempt_001.log",
+  "creationflags": 134218248,
+  "lifecycle": "hidden subprocess; Codex OS job membership may still apply"
+}

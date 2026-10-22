@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "verified_at": "2026-10-20T23:20:52.884288+08:00",
+  "method": "Independent complete replay of all 400 games and exact seeded Greedy choices; independent per-game and summary recomputation.",
+  "games_replayed": 400,
+  "legal_moves_verified": 16026,
+  "greedy_moves_exactly_reproduced": 7976,
+  "all_moves_legal": true,
+  "per_game_outcome_length_latency_reason_counts_verified": true,
+  "all_summary_statistics_verified": true,
+  "win_wilson_95_independently_recomputed": true,
+  "root_csv_equal_cell_concatenation": true,
+  "seed_ranges_disjoint_and_match_protocol": true,
+  "source_sha256_matches_protocol": true,
+  "checkpoint_sha256_matches_protocol": true,
+  "checkpoint_and_tactical_config_match_prior_random_evaluation": true,
+  "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+  "per_cell_replay": [
+    {
+      "rules": "freestyle",
+      "color": 1,
+      "legal_moves": 3796,
+      "greedy_moves": 1856
+    },
+    {
+      "rules": "freestyle",
+      "color": -1,
+      "legal_moves": 3720,
+      "greedy_moves": 1883
+    },
+    {
+      "rules": "renju",
+      "color": 1,
+      "legal_moves": 4005,
+      "greedy_moves": 1962
+    },
+    {
+      "rules": "renju",
+      "color": -1,
+      "legal_moves": 4505,
+      "greedy_moves": 2275
+    }
+  ],
+  "root_file_sha256": {
+    "games.csv": "808949625318411e41deeacd2b712909acaa8f40cc5c85bf7e00bd2acf07ed51",
+    "moves.csv": "852e2223eda34ce7f6767c1b7b7d0826b3a50cdb3ce3cc62ad26624f37833768",
+    "protocol.json": "add9edccf6dc40f1ea56f0cedd072656a2d8cf142e5be4352058786b7e840bb7",
+    "summary.json": "2e2b154412c9df51cc88e10f174af573a24e486aae4a78987513b6247077c208"
+  },
+  "training_performed": false,
+  "issues": []
+}

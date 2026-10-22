@@ -54,7 +54,8 @@ def _make_mcts_pure():
     from rl.agents.mcts_pure import PureMCTSAgent  # 延迟导入
 
     return PureMCTSAgent(
-        num_playouts=int(os.environ.get("GOMOKU_AI_PURE_PLAYOUTS", "1000")))
+        num_playouts=int(os.environ.get("GOMOKU_AI_PURE_PLAYOUTS", "1000"))
+    )
 
 
 def _make_q_learning():
@@ -90,16 +91,16 @@ def _make_alphazero():
     from rl.agents.alphazero import AlphaZeroAgent  # 延迟导入
 
     # 搜索次数（CPU 上约 1~2s/步）；温度 >0 时仅开局抽样，之后仍走最优手
-    agent = AlphaZeroAgent(num_sims=400,
-                           temperature=ALPHAZERO_TEMPERATURE,
-                           opening_moves=ALPHAZERO_OPENING_MOVES,
-                           candidate_ratio=ALPHAZERO_CANDIDATE_RATIO)
+    agent = AlphaZeroAgent(
+        num_sims=400,
+        device=os.environ.get("GOMOKU_AI_DEVICE", "cpu"),
+        temperature=ALPHAZERO_TEMPERATURE,
+        opening_moves=ALPHAZERO_OPENING_MOVES,
+        candidate_ratio=ALPHAZERO_CANDIDATE_RATIO,
+    )
     model = MODELS_DIR / "alphazero.pt"
     if model.exists():
-        try:
-            agent.load(str(model))
-        except Exception:
-            pass  # 检查点与网络结构不兼容时，退回未训练权重
+        agent.load(str(model))
     return agent
 
 
@@ -117,11 +118,116 @@ REGISTRY = {
 
 def available_agents():
     """返回可用的 AI 名称列表。"""
-    return list(REGISTRY)
+    local = _local_models()
+    names = list(REGISTRY) + list(local)
+    if local.get("a2c4", {}).get("algorithm") == "a2c" and "a2c4_tactical" not in names:
+        names.append("a2c4_tactical")
+    return names
+
+
+def _make_research_a2c(item, path):
+    """Published frozen research inference; old model factories stay separate."""
+    import hashlib
+    from dataclasses import asdict
+    import torch
+    from rl.agents.a2c_research import ModelSpec, ResearchA2CAgent
+    from rl.agents.a2c_guarded import GuardedA2CAgent
+    from rl.agents.tactics import TacticalConfig
+    from rl.environment.rules import rule_mode
+
+    checksum = item.get("checkpoint_sha256")
+    if not isinstance(checksum, str) or hashlib.sha256(path.read_bytes()).hexdigest() != checksum:
+        raise ValueError("Research checkpoint SHA256 does not match published metadata")
+    if item.get("device", "cpu") != "cpu" or item.get("wrapper") != "guarded":
+        raise ValueError("Published research recipe requires CPU and guarded inference")
+    config = TacticalConfig()
+    if item.get("tactical_config") != asdict(config):
+        raise ValueError("Research tactical configuration differs from the published recipe")
+    metadata = torch.load(path, map_location="cpu", weights_only=True)
+    if metadata.get("format") != "a2c_research_v1" or "spec" not in metadata:
+        raise ValueError("Research model requires explicit versioned ModelSpec metadata")
+    model_spec = ModelSpec.from_dict(metadata["spec"])
+    if ModelSpec.from_dict(item["model_spec"]) != model_spec:
+        raise ValueError("Research model specification differs from published metadata")
+    policy = ResearchA2CAgent(model_spec, device="cpu", rules=metadata["rules"], training=False)
+    policy.load(path)
+    # Rule-aware transfer is explicit: load under training rules first, then
+    # use the current game's rules for BOTH feature planes and the guard.
+    requested_rules = rule_mode()
+    policy.rules = requested_rules
+    return GuardedA2CAgent(policy, rules=requested_rules, tactical_config=config)
 
 
 def create_agent(name):
     """按名称实例化一个 AI 对手。"""
+    local = _local_models()
+    tactical_a2c = name == "a2c4_tactical"
+    source = "a2c4" if tactical_a2c else name
+    if tactical_a2c and local.get(source, {}).get("algorithm") != "a2c":
+        raise ValueError("a2c4_tactical requires a validation-selected a2c4 checkpoint")
+    if source in local:
+        item = local[source]
+        path = (PROJECT_ROOT / item["checkpoint"]).resolve()
+        if not path.is_relative_to(PROJECT_ROOT) or not path.is_file():
+            raise ValueError("Local model is missing or outside project")
+        if item["algorithm"] == "alphazero":
+            from rl.agents.alphazero import AlphaZeroAgent
+
+            agent = AlphaZeroAgent(
+                num_sims=400,
+                temperature=0.0,
+                device=os.environ.get("GOMOKU_AI_DEVICE", "cpu"),
+            )
+        elif item["algorithm"] == "a2c_research":
+            return _make_research_a2c(item, path)
+        elif item["algorithm"] == "a2c":
+            if tactical_a2c:
+                from rl.agents.a2c_tactical import TacticalA2CAgent
+                from rl.agents.tactics import TacticalConfig
+
+                config = TacticalConfig(
+                    forcing_depth=int(os.environ.get("GOMOKU_A2C_TACTIC_DEPTH", "5")),
+                    max_nodes=int(os.environ.get("GOMOKU_A2C_TACTIC_NODES", "1500")),
+                    candidate_limit=int(os.environ.get("GOMOKU_A2C_TACTIC_CANDIDATES", "12")),
+                )
+                agent = TacticalA2CAgent(
+                    device=os.environ.get("GOMOKU_AI_DEVICE", "cpu"),
+                    tactical_config=config,
+                )
+            else:
+                from rl.agents.a2c import A2CAgent
+
+                agent = A2CAgent(device=os.environ.get("GOMOKU_AI_DEVICE", "cpu"))
+        else:
+            from rl.agents.dqn import DQNAgent
+
+            agent = DQNAgent(epsilon=0.0)
+        agent.load(path)
+        return agent
     if name not in REGISTRY:
         raise ValueError(f"未知 AI '{name}'，可选: {available_agents()}")
     return REGISTRY[name]()
+
+
+def _local_models():
+    import json
+
+    models = {}
+    for name in ("models.json", "a2c_models.json"):
+        path = PROJECT_ROOT / "runs/production" / name
+        if path.exists():
+            models.update(json.loads(path.read_text(encoding="utf-8")))
+    path = PROJECT_ROOT / "runs/production/a2c_research_models.json"
+    if path.exists():
+        published = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(published, dict):
+            raise ValueError("Research model catalog must be an object")
+        for name, item in published.items():
+            if not isinstance(item, dict) or item.get("enabled") is not True:
+                continue
+            if name in models or name in REGISTRY or name == "a2c4_tactical":
+                raise ValueError("Research model name collides with an existing option")
+            if item.get("algorithm") != "a2c_research":
+                raise ValueError("Research catalog contains an unsupported algorithm")
+            models[name] = item
+    return models

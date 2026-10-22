@@ -1,0 +1,23 @@
+{
+  "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\resume_exact_alphazero\\split",
+  "episodes": 3,
+  "channels": [
+    64,
+    64,
+    128
+  ],
+  "sims": 8,
+  "seed": 17,
+  "device": "cpu",
+  "fixed_ratio": null,
+  "warm_start": "backups/upstream-2711cca/models/alphazero.pt",
+  "resume": true,
+  "rules": "freestyle",
+  "batch_size": 32,
+  "eval_every": 2,
+  "save_every": 1,
+  "validation_games": 1,
+  "final_games": 1,
+  "parameters": 132055,
+  "device_used": "cpu"
+}

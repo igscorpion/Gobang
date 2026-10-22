@@ -1,0 +1,2 @@
+algorithm,opponent,rules,color,game,seed,outcome,moves,policy_seconds,tactical_reasons
+a2c4_tactical,greedy,renju,-1,0,2300000,1,22,4.699603699998988,"{""block_immediate_win"": 1, ""create_double_threat"": 1, ""defend_forcing_threat"": 1, ""immediate_win"": 1, ""quiet_candidates"": 2, ""tactical_candidates"": 5}"

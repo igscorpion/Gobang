@@ -1,0 +1,21 @@
+{
+  "mode": "replay",
+  "rules": "renju",
+  "color": 1,
+  "losses": 19,
+  "counts": {
+    "agent_positions": 317,
+    "ranking_positions": 261,
+    "disagreements": 179,
+    "budget_exhausted": 33,
+    "actual_outside_candidates": 0,
+    "reason:quiet_candidates": 54,
+    "reason:tactical_candidates": 127,
+    "reason:defend_forcing_threat": 81,
+    "reference_positions": 57,
+    "reference_action_omitted": 1,
+    "reason:block_immediate_win": 36,
+    "reason:unavoidable_loss": 19
+  },
+  "limitation": "Observed loss trajectories only. Minimax depth2 is a pruned heuristic reference, not ground truth or a counterfactual win label."
+}

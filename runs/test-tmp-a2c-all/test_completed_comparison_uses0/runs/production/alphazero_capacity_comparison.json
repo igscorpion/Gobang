@@ -1,0 +1,120 @@
+{
+  "complete": true,
+  "experiments": [
+    {
+      "name": "az_width64_fixed",
+      "channels": [
+        64,
+        64,
+        64
+      ],
+      "parameters": 94935,
+      "state": "complete",
+      "episode": 1000,
+      "config": {
+        "seed": 11,
+        "episodes": 1000,
+        "sims": 400,
+        "fixed_ratio": 0.6,
+        "rules": "freestyle",
+        "batch_size": 512,
+        "eval_every": 250,
+        "validation_games": 40,
+        "final_games": 100
+      },
+      "evaluation_model": {
+        "checkpoint": "best.pt",
+        "test_seed": 800000
+      },
+      "best_episode": 0,
+      "validation_score": 0.8,
+      "checkpoint_sha256": "6fb82a46696074977f095af25a85171d2ea451cec7bef4bbbbb655d57fe5f61f",
+      "greedy": [
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 81,
+          "draws": 5,
+          "losses": 14,
+          "win_rate": 0.81,
+          "score": 0.835,
+          "wilson_low": 0.5,
+          "wilson_high": 0.95
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 61,
+          "draws": 5,
+          "losses": 34,
+          "win_rate": 0.61,
+          "score": 0.635,
+          "wilson_low": 0.5,
+          "wilson_high": 0.95
+        }
+      ]
+    },
+    {
+      "name": "az_width128_fixed",
+      "channels": [
+        64,
+        64,
+        128
+      ],
+      "parameters": 132055,
+      "state": "complete",
+      "episode": 1000,
+      "config": {
+        "seed": 11,
+        "episodes": 1000,
+        "sims": 400,
+        "fixed_ratio": 0.6,
+        "rules": "freestyle",
+        "batch_size": 512,
+        "eval_every": 250,
+        "validation_games": 40,
+        "final_games": 100
+      },
+      "evaluation_model": {
+        "checkpoint": "best.pt",
+        "test_seed": 800000
+      },
+      "best_episode": 0,
+      "validation_score": 0.8,
+      "checkpoint_sha256": "6fb82a46696074977f095af25a85171d2ea451cec7bef4bbbbb655d57fe5f61f",
+      "greedy": [
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 82,
+          "draws": 5,
+          "losses": 13,
+          "win_rate": 0.82,
+          "score": 0.845,
+          "wilson_low": 0.5,
+          "wilson_high": 0.95
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 62,
+          "draws": 5,
+          "losses": 33,
+          "win_rate": 0.62,
+          "score": 0.645,
+          "wilson_low": 0.5,
+          "wilson_high": 0.95
+        }
+      ]
+    }
+  ],
+  "win_rate_differences_percentage_points": [
+    0.9999999999999898,
+    1.0000000000000009
+  ],
+  "interpretation": "Single-seed controlled comparison; final tests do not select models."
+}

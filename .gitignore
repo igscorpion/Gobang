@@ -49,3 +49,13 @@ htmlcov/
 tmp/
 temp/
 *.tmp
+
+# Local experiment outputs
+backups/
+runs/
+*.checkpoint
+
+# Local test artifacts and release verification
+.tmp*/
+pytest-of-*/
+.github-upload/

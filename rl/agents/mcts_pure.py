@@ -26,7 +26,7 @@ class _Node:
         self.state = state
         self.N = 0
         self.W = 0.0
-        self.children = {}                    # action -> _Node
+        self.children = {}  # action -> _Node
         self.untried = _legal_actions(state, size)
         self.terminal = terminal
 
@@ -34,8 +34,9 @@ class _Node:
 class PureMCTSAgent(BaseAgent):
     """纯 MCTS：UCB1 选择 + 随机模拟 + 反向传播。"""
 
-    def __init__(self, board_size=9, win_count=5, num_playouts=1000,
-                 c_uct=1.4, seed=None):
+    def __init__(
+        self, board_size=9, win_count=5, num_playouts=1000, c_uct=1.4, seed=None
+    ):
         self.board_size = board_size
         self.win_count = win_count
         self.num_playouts = num_playouts
@@ -56,18 +57,17 @@ class PureMCTSAgent(BaseAgent):
 
             # 2) 扩展 + 3) 模拟
             if node.terminal:
-                value = -1.0                        # 该节点玩家已输
+                value = -1.0  # 该节点玩家已输
             elif node.untried:
                 a = node.untried.pop(self.rng.randrange(len(node.untried)))
-                child_state, won = _move(node.state, a, self.board_size,
-                                         self.win_count)
+                child_state, won = _move(node.state, a, self.board_size, self.win_count)
                 child = _Node(child_state, self.board_size, terminal=won)
                 node.children[a] = child
                 path.append((node, a))
                 node = child
                 value = -1.0 if won else self._rollout(child.state)
             else:
-                value = 0.0                         # 无合法动作：和棋
+                value = 0.0  # 无合法动作：和棋
 
             # 4) 反向传播：逐层取反（对手视角）
             node.N += 1
@@ -87,7 +87,7 @@ class PureMCTSAgent(BaseAgent):
         log_total = math.log(total) if total > 0 else 0.0
         best_a, best_v = None, float("-inf")
         for a, c in node.children.items():
-            exploit = c.W / c.N if c.N else 0.0
+            exploit = -c.W / c.N if c.N else 0.0
             explore = self.c_uct * math.sqrt(log_total / c.N) if c.N else float("inf")
             v = exploit + explore
             if v > best_v:
@@ -97,10 +97,14 @@ class PureMCTSAgent(BaseAgent):
     def _rollout(self, state):
         """随机走到底，返回「该局面当前玩家」视角的结果：胜 1 / 负 -1 / 和 0。"""
         size = self.board_size
-        empties = [r * size + c for r in range(size) for c in range(size)
-                   if state[r][c] == 0]
+        empties = [
+            r * size + c for r in range(size) for c in range(size) if state[r][c] == 0
+        ]
         sign = 1
         while empties:
+            empties = _legal_actions(state, size)
+            if not empties:
+                return float(-sign)
             i = self.rng.randrange(len(empties))
             a = empties[i]
             empties[i] = empties[-1]

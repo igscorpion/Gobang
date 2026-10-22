@@ -16,6 +16,8 @@ import random
 
 import torch
 import torch.nn as nn
+from rl.environment.state import state_to_tensor4, last_move_action
+from rl.environment.rules import relative_legal_actions, rule_mode, winning_move
 
 from rl.agents.base_agent import BaseAgent
 
@@ -23,57 +25,40 @@ from rl.agents.base_agent import BaseAgent
 class AlphaZeroNetwork(nn.Module):
     """小型 CNN，4 通道输入，双头输出：策略 logits 与价值。"""
 
-    def __init__(self, board_size: int = 9):
+    def __init__(self, board_size: int = 9, channels=(64, 64, 128)):
         super().__init__()
+        self.channels = tuple(channels)
         self.board_size = board_size
         self.action_size = board_size * board_size
         self.conv = nn.Sequential(
-            nn.Conv2d(4, 64, kernel_size=3, padding=1), nn.ReLU(),
-            nn.Conv2d(64, 64, kernel_size=3, padding=1), nn.ReLU(),
-            nn.Conv2d(64, 64, kernel_size=3, padding=1), nn.ReLU(),
+            nn.Conv2d(4, channels[0], kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(channels[0], channels[1], kernel_size=3, padding=1),
+            nn.ReLU(),
+            nn.Conv2d(channels[1], channels[2], kernel_size=3, padding=1),
+            nn.ReLU(),
         )
         self.policy_head = nn.Sequential(
-            nn.Conv2d(64, 2, kernel_size=1), nn.ReLU(), nn.Flatten(),
+            nn.Conv2d(channels[2], 2, kernel_size=1),
+            nn.ReLU(),
+            nn.Flatten(),
             nn.Linear(2 * self.action_size, self.action_size),
         )
         self.value_head = nn.Sequential(
-            nn.Conv2d(64, 1, kernel_size=1), nn.ReLU(), nn.Flatten(),
-            nn.Linear(self.action_size, 64), nn.ReLU(),
-            nn.Linear(64, 1), nn.Tanh(),
+            nn.Conv2d(channels[2], 1, kernel_size=1),
+            nn.ReLU(),
+            nn.Flatten(),
+            nn.Linear(self.action_size, 64),
+            nn.ReLU(),
+            nn.Linear(64, 1),
+            nn.Tanh(),
         )
 
     def forward(self, x):
         h = self.conv(x)
-        policy = self.policy_head(h)   # (B, action_size)
-        value = self.value_head(h)     # (B, 1)
+        policy = self.policy_head(h)  # (B, action_size)
+        value = self.value_head(h)  # (B, 1)
         return policy, value
-
-
-def state_to_tensor4(state, board_size=9):
-    """(棋盘, 对手上一步) -> (4, H, W) 张量。
-
-    通道依次为：己方棋子、对手棋子、对手上一步位置、当前执子方是否先手。
-    """
-    board, last_move = state
-    t = torch.tensor(board, dtype=torch.long)
-    own = (t == 1).float()
-    opp = (t == -1).float()
-    last = torch.zeros(board_size, board_size)
-    if last_move is not None:
-        last[last_move // board_size, last_move % board_size] = 1.0
-    # 已落子数为偶数 => 轮到先手（黑）走
-    stones = int((t != 0).sum().item())
-    first = torch.full((board_size, board_size),
-                       1.0 if stones % 2 == 0 else 0.0)
-    return torch.stack([own, opp, last, first], dim=0)
-
-
-def last_move_action(last_move, board_size=9):
-    """把 env.last_move（(row, col) 或 None）转成动作编号，供网络输入使用。"""
-    if last_move is None:
-        return None
-    r, c = last_move
-    return r * board_size + c
 
 
 def sample_action(counts, temperature, candidate_ratio=0.0, rng=None):
@@ -89,40 +74,29 @@ def sample_action(counts, temperature, candidate_ratio=0.0, rng=None):
     # 候选筛选：搜索已明确判定优劣时（如必须堵活三）只剩正确手，不会被抽样换掉；
     # 局面不明、多个走法势均力敌时才体现多样性
     best = max(counts.values())
-    candidates = [a for a, n in counts.items()
-                  if n > 0 and n >= candidate_ratio * best]
+    candidates = [a for a, n in counts.items() if n > 0 and n >= candidate_ratio * best]
     if len(candidates) <= 1:
         return max(counts, key=counts.get)
     weights = [counts[a] ** (1.0 / temperature) for a in candidates]
     return rng.choices(candidates, weights=weights)[0]
 
 
-def _legal_actions(state, size=9):
-    return [r * size + c for r in range(size) for c in range(size)
-            if state[r][c] == 0]
+def _legal_actions(state, size=9, rules=None):
+    return relative_legal_actions(state, rules)
 
 
-def _check_win(state, r, c, size=9, win=5):
-    player = 1
-    for dr, dc in ((1, 0), (0, 1), (1, 1), (1, -1)):
-        cnt = 1
-        for s in (1, -1):
-            rr, cc = r + dr * s, c + dc * s
-            while 0 <= rr < size and 0 <= cc < size and state[rr][cc] == player:
-                cnt += 1
-                rr += dr * s
-                cc += dc * s
-        if cnt >= win:
-            return True
-    return False
+def _check_win(state, r, c, size=9, win=5, rules=None):
+    color = 1 if sum(v != 0 for row in state for v in row) % 2 else -1
+    absolute = [[v * color for v in row] for row in state]
+    return winning_move(absolute, r, c, color, rule_mode(rules), win)
 
 
-def _move(state, action, size=9, win=5):
+def _move(state, action, size=9, win=5, rules=None):
     """在相对棋盘落子并翻转视角；返回 (新棋盘, 是否成五)。"""
     r, c = divmod(action, size)
     grid = [list(row) for row in state]
     grid[r][c] = 1
-    won = _check_win(grid, r, c, size, win)
+    won = _check_win(grid, r, c, size, win, rules)
     flipped = tuple(tuple(-cell for cell in row) for row in grid)
     return flipped, won
 
@@ -130,19 +104,29 @@ def _move(state, action, size=9, win=5):
 class _Node:
     """MCTS 树节点。state 为相对「该节点当前玩家」的棋盘。"""
 
-    __slots__ = ("state", "action", "P", "P_raw", "N", "W", "children",
-                 "terminal", "value", "add_noise")
+    __slots__ = (
+        "state",
+        "action",
+        "P",
+        "P_raw",
+        "N",
+        "W",
+        "children",
+        "terminal",
+        "value",
+        "add_noise",
+    )
 
     def __init__(self, state, action=None, P=1.0):
         self.state = state
         self.action = action  # 走到本节点的那一手（即对手上一步）
-        self.P = P            # 先验概率（根节点的子节点会混入 Dirichlet 噪声）
-        self.P_raw = P        # 未加噪的先验，供复用根时重新加噪
-        self.N = 0            # 访问次数
-        self.W = 0.0          # 累计价值（本节点玩家视角）
-        self.children = {}    # action -> _Node
+        self.P = P  # 先验概率（根节点的子节点会混入 Dirichlet 噪声）
+        self.P_raw = P  # 未加噪的先验，供复用根时重新加噪
+        self.N = 0  # 访问次数
+        self.W = 0.0  # 累计价值（本节点玩家视角）
+        self.children = {}  # action -> _Node
         self.terminal = False
-        self.value = 0.0      # 终局节点的价值
+        self.value = 0.0  # 终局节点的价值
         self.add_noise = False
 
 
@@ -153,19 +137,30 @@ class MCTS:
     且局面一致，就直接以它为新的根（保留访问次数与价值），省下对已搜索部分的重复计算。
     """
 
-    def __init__(self, net, c_puct=1.4, num_sims=50, device="cpu",
-                 board_size=9, win_count=5, add_noise=False,
-                 noise_eps=0.25, noise_alpha=0.3):
+    def __init__(
+        self,
+        net,
+        c_puct=1.4,
+        num_sims=50,
+        device="cpu",
+        board_size=9,
+        win_count=5,
+        add_noise=False,
+        noise_eps=0.25,
+        noise_alpha=0.3,
+        rules=None,
+    ):
+        self.rules = rule_mode(rules)
         self.net = net
         self.c_puct = c_puct
         self.num_sims = num_sims
         self.device = device
         self.board_size = board_size
         self.win_count = win_count
-        self.add_noise = add_noise          # 自对弈时在根节点加噪声
-        self.noise_eps = noise_eps          # 噪声混合比例
-        self.noise_alpha = noise_alpha      # Dirichlet 浓度参数
-        self.root = None                    # 上一次搜索的根，供跨步复用
+        self.add_noise = add_noise  # 自对弈时在根节点加噪声
+        self.noise_eps = noise_eps  # 噪声混合比例
+        self.noise_alpha = noise_alpha  # Dirichlet 浓度参数
+        self.root = None  # 上一次搜索的根，供跨步复用
 
     def search(self, state, last_move=None):
         """返回 {action: 访问次数}；无合法动作返回 None。
@@ -183,15 +178,17 @@ class MCTS:
         if root is None:
             root = _Node(state, action=last_move)
         root.add_noise = self.add_noise  # 仅根节点加 Dirichlet 噪声
-        if not _legal_actions(state, self.board_size):
+        if not _legal_actions(state, self.board_size, self.rules):
             return None
         if reused and root.add_noise and root.children:
             # 复用根时重新加噪：子节点先验是上一轮混过噪声的，这里从未加噪版本重新混合
             noise = torch.distributions.Dirichlet(
-                torch.full((len(root.children),), self.noise_alpha)).sample()
+                torch.full((len(root.children),), self.noise_alpha)
+            ).sample()
             for i, child in enumerate(root.children.values()):
-                child.P = ((1.0 - self.noise_eps) * child.P_raw
-                           + self.noise_eps * float(noise[i]))
+                child.P = (1.0 - self.noise_eps) * child.P_raw + self.noise_eps * float(
+                    noise[i]
+                )
         self.root = root
 
         for _ in range(self.num_sims):
@@ -219,7 +216,7 @@ class MCTS:
         total = sum(c.N for c in node.children.values())
         if total == 0:
             return max(node.children.items(), key=lambda kv: kv[1].P)[0]
-        sqrt_total = total ** 0.5
+        sqrt_total = total**0.5
         best_a, best_v = None, float("-inf")
         for a, c in node.children.items():
             # c.W 是「子节点（对手）视角」的价值，我方视角应取负
@@ -231,29 +228,37 @@ class MCTS:
         return best_a
 
     def _expand(self, node):
-        x = state_to_tensor4((node.state, node.action),
-                             self.board_size).unsqueeze(0).to(self.device)
+        x = (
+            state_to_tensor4((node.state, node.action), self.board_size)
+            .unsqueeze(0)
+            .to(self.device)
+        )
         with torch.no_grad():
             logits, value = self.net(x)
         logits = logits[0]
         value = value[0].item()
 
-        legal = _legal_actions(node.state, self.board_size)
+        legal = _legal_actions(node.state, self.board_size, self.rules)
         if not legal:
-            return 0.0  # 棋盘填满且无人获胜 => 和棋
+            node.terminal = True
+            node.value = -1.0 if any(v == 0 for row in node.state for v in row) else 0.0
+            return node.value
 
         # 只对合法动作做 softmax，得到先验概率
         raw = torch.softmax(logits[legal], dim=0)
         probs = raw
         if node.add_noise:
             # 根节点加 Dirichlet 噪声，鼓励探索
-            concentration = torch.full((len(legal),), self.noise_alpha,
-                                       device=logits.device)
+            concentration = torch.full(
+                (len(legal),), self.noise_alpha, device=logits.device
+            )
             noise = torch.distributions.Dirichlet(concentration).sample()
             probs = (1.0 - self.noise_eps) * raw + self.noise_eps * noise
 
         for i, a in enumerate(legal):
-            new_state, won = _move(node.state, a, self.board_size, self.win_count)
+            new_state, won = _move(
+                node.state, a, self.board_size, self.win_count, self.rules
+            )
             child = _Node(new_state, action=a, P=float(probs[i]))
             child.P_raw = float(raw[i])  # 未加噪先验，供复用根时重新加噪
             if won:
@@ -275,20 +280,32 @@ class AlphaZeroAgent(BaseAgent):
 
     needs_last_move = True  # 输入含「对手上一步」，调用方需传 (棋盘, 上一步动作)
 
-    def __init__(self, board_size=9, num_sims=50, c_puct=1.4,
-                 device=None, seed=None, temperature=0.0, opening_moves=6,
-                 candidate_ratio=0.1):
+    def __init__(
+        self,
+        board_size=9,
+        num_sims=50,
+        c_puct=1.4,
+        device=None,
+        seed=None,
+        temperature=0.0,
+        opening_moves=6,
+        candidate_ratio=0.1,
+        channels=(64, 64, 128),
+        rules=None,
+    ):
         self.board_size = board_size
         self.num_sims = num_sims
         self.c_puct = c_puct
         self.device = device or ("cuda" if torch.cuda.is_available() else "cpu")
-        self.net = AlphaZeroNetwork(board_size).to(self.device)
+        self.net = AlphaZeroNetwork(board_size, channels).to(self.device)
         self.rng = random.Random(seed)
         self.temperature = temperature
         self.opening_moves = opening_moves
         self.candidate_ratio = candidate_ratio
         # 常驻一个 MCTS 实例以复用搜索树；换局（局面不符）时会自动重建
-        self.mcts = MCTS(self.net, c_puct, num_sims, self.device, board_size)
+        self.mcts = MCTS(
+            self.net, c_puct, num_sims, self.device, board_size, rules=rules
+        )
 
     def select_action(self, state, legal_actions):
         # 兼容两种输入：纯棋盘，或 (棋盘, 对手上一步)
@@ -305,13 +322,31 @@ class AlphaZeroAgent(BaseAgent):
         counts = self.mcts.search(s, last_move)
         if counts is None:
             raise ValueError("没有合法动作可选择")
+        counts = {a: n for a, n in counts.items() if a in legal_actions}
+        if not counts:
+            raise ValueError("search and environment legality disagree")
         return sample_action(counts, temp, self.candidate_ratio, self.rng)
 
     def save(self, path):
-        torch.save(self.net.state_dict(), path)
+        torch.save(
+            {"state_dict": self.net.state_dict(), "channels": self.net.channels}, path
+        )
 
     def load(self, path):
-        self.net.load_state_dict(torch.load(path, map_location=self.device))
+        checkpoint = torch.load(path, map_location=self.device, weights_only=True)
+        weights = checkpoint.get("state_dict", checkpoint)
+        channels = checkpoint.get(
+            "channels",
+            (
+                weights["conv.0.weight"].shape[0],
+                weights["conv.2.weight"].shape[0],
+                weights["conv.4.weight"].shape[0],
+            ),
+        )
+        self.net = AlphaZeroNetwork(self.board_size, channels).to(self.device)
+        self.net.load_state_dict(weights)
+        self.mcts.net = self.net
+        self.mcts.root = None
         self.net.to(self.device)
 
     def update(self, state, action, reward, next_state, done):

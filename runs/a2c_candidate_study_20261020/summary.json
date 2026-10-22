@@ -1,0 +1,340 @@
+{
+  "protocol": {
+    "started_at": "2026-10-20T23:40:47.953355+08:00",
+    "study_role": "reusable development validation",
+    "checkpoint": "runs/production/a2c4_seed22/best.pt",
+    "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+    "source_sha256": {
+      "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+      "rl/agents/a2c_tactical.py": "4348a7f99e95ea199a8e0381ff06d4469b2c95886206502577c0c13166b7d7a4",
+      "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+      "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+      "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+      "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+      "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+      "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+      "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+      "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+      "rl/evaluation/a2c_candidate_study.py": "56331ea2b5ebd637fd25046edb72530869e60f2b27d5a258d69ec5489d4698e2"
+    },
+    "tactical_config": {
+      "enabled": true,
+      "forcing_depth": 5,
+      "max_nodes": 1500,
+      "candidate_limit": 12,
+      "cache_size": 4096
+    },
+    "baseline_sha256": {
+      "games.csv": "808949625318411e41deeacd2b712909acaa8f40cc5c85bf7e00bd2acf07ed51",
+      "moves.csv": "852e2223eda34ce7f6767c1b7b7d0826b3a50cdb3ce3cc62ad26624f37833768",
+      "protocol.json": "add9edccf6dc40f1ea56f0cedd072656a2d8cf142e5be4352058786b7e840bb7",
+      "summary.json": "2e2b154412c9df51cc88e10f174af573a24e486aae4a78987513b6247077c208"
+    },
+    "training_performed": false,
+    "hand_weights": {
+      "win": 10000,
+      "opp_win": 9000,
+      "open4": 1000,
+      "opp_open4": 500,
+      "opp_half4": 450,
+      "half4": 400,
+      "open3": 100,
+      "opp_open3": 80,
+      "half3": 20,
+      "open2": 10
+    },
+    "direct_reasons_unchanged": [
+      "block_immediate_win",
+      "create_double_threat",
+      "forced_win",
+      "immediate_win",
+      "unavoidable_loss"
+    ],
+    "tie_break": "smallest action index",
+    "games_per_ranking_per_cell": 40,
+    "development_seeds": {
+      "freestyle/1": 3100000,
+      "freestyle/-1": 3200000,
+      "renju/1": 3300000,
+      "renju/-1": 3400000
+    },
+    "reference": {
+      "depth": 2,
+      "candidate_limit": 8,
+      "neighborhood": 2,
+      "last_agent_turns_per_loss": 3
+    }
+  },
+  "results": [
+    {
+      "mode": "replay",
+      "rules": "freestyle",
+      "color": 1,
+      "losses": 16,
+      "counts": {
+        "agent_positions": 265,
+        "ranking_positions": 212,
+        "disagreements": 152,
+        "budget_exhausted": 33,
+        "actual_outside_candidates": 0,
+        "reason:quiet_candidates": 43,
+        "reason:tactical_candidates": 99,
+        "reason:defend_forcing_threat": 72,
+        "reference_positions": 48,
+        "reference_action_omitted": 0,
+        "reason:block_immediate_win": 35,
+        "reason:unavoidable_loss": 16
+      },
+      "limitation": "Observed loss trajectories only. Minimax depth2 is a pruned heuristic reference, not ground truth or a counterfactual win label."
+    },
+    {
+      "mode": "replay",
+      "rules": "freestyle",
+      "color": -1,
+      "losses": 26,
+      "counts": {
+        "agent_positions": 367,
+        "ranking_positions": 270,
+        "disagreements": 202,
+        "budget_exhausted": 72,
+        "actual_outside_candidates": 0,
+        "reason:quiet_candidates": 38,
+        "reason:tactical_candidates": 151,
+        "reason:defend_forcing_threat": 89,
+        "reference_positions": 78,
+        "reference_action_omitted": 6,
+        "reason:block_immediate_win": 63,
+        "reason:unavoidable_loss": 26
+      },
+      "limitation": "Observed loss trajectories only. Minimax depth2 is a pruned heuristic reference, not ground truth or a counterfactual win label."
+    },
+    {
+      "mode": "development",
+      "ranking": "a2c",
+      "rules": "freestyle",
+      "color": 1,
+      "games": 40,
+      "wins": 29,
+      "draws": 5,
+      "losses": 6,
+      "win_rate": 0.725,
+      "score": 0.7875,
+      "wilson_95": [
+        0.5716474916687543,
+        0.8389214656685692
+      ],
+      "mean_inference_ms": 37.793602466679566,
+      "base_seed": 3100000
+    },
+    {
+      "mode": "development",
+      "ranking": "hand",
+      "rules": "freestyle",
+      "color": 1,
+      "games": 40,
+      "wins": 19,
+      "draws": 14,
+      "losses": 7,
+      "win_rate": 0.475,
+      "score": 0.65,
+      "wilson_95": [
+        0.32935229550181694,
+        0.6250289314607027
+      ],
+      "mean_inference_ms": 34.36895150191941,
+      "base_seed": 3100000
+    },
+    {
+      "mode": "replay",
+      "rules": "renju",
+      "color": 1,
+      "losses": 19,
+      "counts": {
+        "agent_positions": 317,
+        "ranking_positions": 261,
+        "disagreements": 179,
+        "budget_exhausted": 33,
+        "actual_outside_candidates": 0,
+        "reason:quiet_candidates": 54,
+        "reason:tactical_candidates": 127,
+        "reason:defend_forcing_threat": 81,
+        "reference_positions": 57,
+        "reference_action_omitted": 1,
+        "reason:block_immediate_win": 36,
+        "reason:unavoidable_loss": 19
+      },
+      "limitation": "Observed loss trajectories only. Minimax depth2 is a pruned heuristic reference, not ground truth or a counterfactual win label."
+    },
+    {
+      "mode": "development",
+      "ranking": "a2c",
+      "rules": "freestyle",
+      "color": -1,
+      "games": 40,
+      "wins": 13,
+      "draws": 15,
+      "losses": 12,
+      "win_rate": 0.325,
+      "score": 0.5125,
+      "wilson_95": [
+        0.20084316962661725,
+        0.4798254191110201
+      ],
+      "mean_inference_ms": 35.08277173913603,
+      "base_seed": 3200000
+    },
+    {
+      "mode": "replay",
+      "rules": "renju",
+      "color": -1,
+      "losses": 11,
+      "counts": {
+        "agent_positions": 174,
+        "ranking_positions": 132,
+        "disagreements": 107,
+        "budget_exhausted": 34,
+        "actual_outside_candidates": 0,
+        "reason:quiet_candidates": 17,
+        "reason:tactical_candidates": 73,
+        "reason:defend_forcing_threat": 45,
+        "reason:block_immediate_win": 28,
+        "reference_positions": 33,
+        "reference_action_omitted": 4,
+        "reason:unavoidable_loss": 11
+      },
+      "limitation": "Observed loss trajectories only. Minimax depth2 is a pruned heuristic reference, not ground truth or a counterfactual win label."
+    },
+    {
+      "mode": "development",
+      "ranking": "hand",
+      "rules": "freestyle",
+      "color": -1,
+      "games": 40,
+      "wins": 11,
+      "draws": 21,
+      "losses": 8,
+      "win_rate": 0.275,
+      "score": 0.5375,
+      "wilson_95": [
+        0.1610785343314309,
+        0.4283525083312457
+      ],
+      "mean_inference_ms": 37.54559399095737,
+      "base_seed": 3200000
+    },
+    {
+      "mode": "development",
+      "ranking": "a2c",
+      "rules": "renju",
+      "color": 1,
+      "games": 40,
+      "wins": 28,
+      "draws": 10,
+      "losses": 2,
+      "win_rate": 0.7,
+      "score": 0.825,
+      "wilson_95": [
+        0.545696893456796,
+        0.8192532908430471
+      ],
+      "mean_inference_ms": 118.46838776304809,
+      "base_seed": 3300000
+    },
+    {
+      "mode": "development",
+      "ranking": "hand",
+      "rules": "renju",
+      "color": 1,
+      "games": 40,
+      "wins": 15,
+      "draws": 18,
+      "losses": 7,
+      "win_rate": 0.375,
+      "score": 0.6,
+      "wilson_95": [
+        0.2422277353579172,
+        0.529678399454681
+      ],
+      "mean_inference_ms": 86.63581585154859,
+      "base_seed": 3300000
+    },
+    {
+      "mode": "development",
+      "ranking": "a2c",
+      "rules": "renju",
+      "color": -1,
+      "games": 40,
+      "wins": 17,
+      "draws": 16,
+      "losses": 7,
+      "win_rate": 0.425,
+      "score": 0.625,
+      "wilson_95": [
+        0.28509168524815875,
+        0.5780519956394001
+      ],
+      "mean_inference_ms": 436.792090800227,
+      "base_seed": 3400000
+    },
+    {
+      "mode": "development",
+      "ranking": "hand",
+      "rules": "renju",
+      "color": -1,
+      "games": 40,
+      "wins": 12,
+      "draws": 23,
+      "losses": 5,
+      "win_rate": 0.3,
+      "score": 0.5875,
+      "wilson_95": [
+        0.18074670915695296,
+        0.454303106543204
+      ],
+      "mean_inference_ms": 375.8846884975964,
+      "base_seed": 3400000
+    }
+  ],
+  "paired": [
+    {
+      "rules": "freestyle",
+      "color": 1,
+      "pairs": 40,
+      "score_difference_hand_minus_a2c": -0.1375,
+      "paired_sample_sd": 0.4802176322866273,
+      "hand_better": 5,
+      "equal": 19,
+      "hand_worse": 16
+    },
+    {
+      "rules": "freestyle",
+      "color": -1,
+      "pairs": 40,
+      "score_difference_hand_minus_a2c": 0.025,
+      "paired_sample_sd": 0.5986094998689324,
+      "hand_better": 16,
+      "equal": 11,
+      "hand_worse": 13
+    },
+    {
+      "rules": "renju",
+      "color": 1,
+      "pairs": 40,
+      "score_difference_hand_minus_a2c": -0.225,
+      "paired_sample_sd": 0.42290206176626033,
+      "hand_better": 4,
+      "equal": 19,
+      "hand_worse": 17
+    },
+    {
+      "rules": "renju",
+      "color": -1,
+      "pairs": 40,
+      "score_difference_hand_minus_a2c": -0.0375,
+      "paired_sample_sd": 0.4855277329743168,
+      "hand_better": 10,
+      "equal": 15,
+      "hand_worse": 15
+    }
+  ]
+}

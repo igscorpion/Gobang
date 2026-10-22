@@ -1,0 +1,9 @@
+episode,opponent,color,games,wins,draws,losses,win_rate,score,wilson_low,wilson_high,rules
+20,random,1,2,1,0,1,0.5,0.5,0.09452865480086614,0.9054713451991339,freestyle
+20,random,-1,2,2,0,0,1.0,1.0,0.34237195288961925,1.0,freestyle
+20,greedy,1,2,0,0,2,0.0,0.0,0.0,0.6576280471103807,freestyle
+20,greedy,-1,2,0,0,2,0.0,0.0,0.0,0.6576280471103807,freestyle
+40,random,1,2,2,0,0,1.0,1.0,0.34237195288961925,1.0,freestyle
+40,random,-1,2,0,0,2,0.0,0.0,0.0,0.6576280471103807,freestyle
+40,greedy,1,2,0,0,2,0.0,0.0,0.0,0.6576280471103807,freestyle
+40,greedy,-1,2,0,0,2,0.0,0.0,0.0,0.6576280471103807,freestyle

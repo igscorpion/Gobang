@@ -1,0 +1,14 @@
+[
+  {
+    "algorithm": "dqn",
+    "full_episodes": 8,
+    "split_at": 5,
+    "exact_net_match": true
+  },
+  {
+    "algorithm": "alphazero",
+    "full_episodes": 3,
+    "split_at": 2,
+    "exact_net_match": true
+  }
+]

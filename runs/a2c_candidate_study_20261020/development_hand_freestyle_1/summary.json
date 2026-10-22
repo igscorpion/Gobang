@@ -1,0 +1,18 @@
+{
+  "mode": "development",
+  "ranking": "hand",
+  "rules": "freestyle",
+  "color": 1,
+  "games": 40,
+  "wins": 19,
+  "draws": 14,
+  "losses": 7,
+  "win_rate": 0.475,
+  "score": 0.65,
+  "wilson_95": [
+    0.32935229550181694,
+    0.6250289314607027
+  ],
+  "mean_inference_ms": 34.36895150191941,
+  "base_seed": 3100000
+}

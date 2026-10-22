@@ -1,0 +1,29 @@
+{
+  "pid": 65444,
+  "birth": "134370017491431399",
+  "process": {
+    "pid": 65444,
+    "alive": true,
+    "birth": "134370017491431399",
+    "exit_code": null
+  },
+  "attempt": 2,
+  "started_at": "2026-10-20T20:29:09.141396+00:00",
+  "command": [
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\.venv\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "rl.training.a2c_confirmation_suite",
+    "--device",
+    "cuda",
+    "--research-root",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020",
+    "--output",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation"
+  ],
+  "cwd": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work",
+  "log": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\supervisor_attempt_002.log",
+  "creationflags": 134218248,
+  "lifecycle": "hidden subprocess; Codex OS job membership may still apply",
+  "migration": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\migrations\\20261021_json_protocol_normalization_0training\\migration.json"
+}

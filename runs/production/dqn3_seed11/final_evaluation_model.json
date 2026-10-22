@@ -1,0 +1,5 @@
+{
+  "checkpoint": "best.pt",
+  "selection": "validation greedy score only",
+  "test_seed": 800000
+}

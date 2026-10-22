@@ -1,0 +1,16 @@
+split,mode,opponent,rules,color,game,seed,outcome,moves,policy_seconds
+test,tactical,greedy,freestyle,1,0,8100000,1,19,0.45234379995963536
+test,tactical,greedy,freestyle,1,1,8100001,1,19,0.3965730000054464
+test,tactical,greedy,freestyle,1,2,8100002,0,81,1.2117575000738725
+test,tactical,greedy,freestyle,1,3,8100003,1,19,0.008154499984811991
+test,tactical,greedy,freestyle,1,4,8100004,-1,24,0.5138034999545198
+test,tactical,greedy,freestyle,1,5,8100005,-1,44,0.9495905000076164
+test,tactical,greedy,freestyle,1,6,8100006,-1,22,0.6276440000219736
+test,tactical,greedy,freestyle,1,7,8100007,1,19,0.056841100013116375
+test,tactical,greedy,freestyle,1,8,8100008,1,19,0.3656826999213081
+test,tactical,greedy,freestyle,1,9,8100009,-1,30,0.6403664000390563
+test,tactical,greedy,freestyle,1,10,8100010,-1,30,0.7168550000351388
+test,tactical,greedy,freestyle,1,11,8100011,0,81,1.1765201000671368
+test,tactical,greedy,freestyle,1,12,8100012,1,19,0.3671390999807045
+test,tactical,greedy,freestyle,1,13,8100013,1,21,0.41944169998168945
+test,tactical,greedy,freestyle,1,14,8100014,1,19,0.43956570004229434

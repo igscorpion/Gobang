@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+from typing import Literal
 import sys
 from pathlib import Path
 
@@ -25,6 +26,7 @@ app.add_middleware(
         "http://localhost:5173",
         "http://127.0.0.1:5173",
     ],
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1):\d+",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -47,6 +49,10 @@ class AgentRequest(BaseModel):
     name: str
 
 
+class RulesRequest(BaseModel):
+    rules: Literal["freestyle", "renju"]
+
+
 def _snapshot(ai_move: dict | None = None) -> dict:
     winner = None
     if env.winner == env.BLACK:
@@ -60,6 +66,7 @@ def _snapshot(ai_move: dict | None = None) -> dict:
     if env.last_move is not None:
         last_move = {"row": env.last_move[0], "col": env.last_move[1]}
 
+    legal = set(env.get_legal_actions())
     return {
         "board": env.get_board(),
         "board_size": env.board_size,
@@ -69,6 +76,14 @@ def _snapshot(ai_move: dict | None = None) -> dict:
         "winner": winner,
         "game_over": env.done,
         "agent": current_agent,
+        "rules": env.rules,
+        "forbidden_moves": [
+            a
+            for a in range(env.board_size**2)
+            if not env.done
+            and env.board[a // env.board_size][a % env.board_size] == 0
+            and a not in legal
+        ],
     }
 
 
@@ -126,6 +141,21 @@ def start_game():
     return _snapshot()
 
 
+@app.post("/game/rules")
+def set_rules(body: RulesRequest):
+    global env, agent
+    previous = os.environ.get("GOMOKU_RULES", "freestyle")
+    os.environ["GOMOKU_RULES"] = body.rules
+    try:
+        new_agent = create_agent(current_agent)
+    except Exception as exc:
+        os.environ["GOMOKU_RULES"] = previous
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    env = GomokuEnv(rules=body.rules)
+    agent = new_agent
+    return _snapshot()
+
+
 @app.post("/game/reset")
 def reset_game():
     env.reset()
@@ -140,6 +170,9 @@ def player_move(body: MoveRequest):
 
     if env.current_player != env.BLACK:
         raise HTTPException(status_code=400, detail="当前不是黑棋（玩家）回合")
+
+    if body.row >= env.board_size or body.col >= env.board_size:
+        raise HTTPException(status_code=400, detail="落子越界")
 
     try:
         env.step(encode_action(body.row, body.col, env.board_size))

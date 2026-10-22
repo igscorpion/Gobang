@@ -1,4 +1,4 @@
-name: gobang
+name: gobang-local
 channels:
   - conda-forge
 dependencies:
@@ -7,3 +7,7 @@ dependencies:
   - pip:
       - fastapi>=0.115.0,<1.0.0
       - uvicorn>=0.32.0,<1.0.0
+      - numpy>=2.4.6
+      - torch==2.9.1
+# Windows CUDA: install Torch from the official cu128 index.
+# The prepared local .venv and uv.lock are the primary reproduction path.

@@ -1,0 +1,144 @@
+{
+  "format": "a2c_confirmation_cost_record_v1",
+  "name": "residual_tactical10_seed33",
+  "training_seed": 33,
+  "architecture": "residual",
+  "parameters": 305538,
+  "features": "tactical10",
+  "rules": "freestyle",
+  "device": "cuda",
+  "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+  "initialization": "Fresh random network, expert-CE best checkpoint, then fresh Adam for A2C+CE; copied 10k continuation retains A2C Adam/RNG.",
+  "pretraining": {
+    "epochs_run": 20,
+    "optimizer_updates_run": 1000,
+    "train_unique_states": 12673,
+    "training_state_presentations_run": 253460,
+    "validation_state_presentations": 34900,
+    "best_epoch_loaded_by_a2c": 16,
+    "best_epoch_training_state_presentations": 202768,
+    "best_epoch_optimizer_updates": 800,
+    "state_augmentation": "D4 augmentation sampled during expert_batch; presentations are not new independent expert states.",
+    "best_validation_ce": 1.7185336061056842,
+    "net_training_wall_seconds": null,
+    "net_training_wall_unavailable_reason": "The unchanged pretrain implementation does not persist a performance timer.",
+    "launcher_elapsed": {
+      "started_at": "2026-10-20T21:34:57.057970+00:00",
+      "finished_at": "2026-10-20T21:36:17.096234+00:00",
+      "seconds": 80.038264,
+      "meaning": "Observed launcher start-to-supervisor-finished window; includes startup, preprocessing, saving and polling delay. Not GPU kernel time."
+    }
+  },
+  "a2c_total_unique_training": {
+    "episodes": 30000,
+    "updates": 14767,
+    "learner_transitions": 559937,
+    "environment_plies": 902942,
+    "trainer_wall_seconds": 2025.1941876999917,
+    "auxiliary_ce_draws_with_replacement": 945088,
+    "imitation_coefficient": 0.1,
+    "imitation_batch_size": 64,
+    "environment_opponent_episode_counts": {
+      "greedy:-1": 9076,
+      "random:1": 3009,
+      "greedy:1": 9032,
+      "selfplay:both": 5909,
+      "random:-1": 2974
+    },
+    "learner_transitions_by_opponent": {
+      "greedy": 314786,
+      "selfplay": 211950,
+      "random": 33201
+    }
+  },
+  "selected_checkpoint_prefix": {
+    "episodes": 25000,
+    "updates": 12318,
+    "learner_transitions": 467433,
+    "environment_plies": 758513,
+    "auxiliary_ce_draws_with_replacement": 788352,
+    "note": "Counters at the completion barrier of the development-selected checkpoint; not a separate training run. Training continued to 30k before final selection."
+  },
+  "confirmation_process_launcher_elapsed": {
+    "started_at": "2026-10-20T21:36:17.185992+00:00",
+    "finished_at": "2026-10-20T22:10:58.133660+00:00",
+    "seconds": 2080.947668,
+    "meaning": "Observed launcher start-to-supervisor-finished window; includes startup, preprocessing, saving and polling delay. Not GPU kernel time."
+  },
+  "cost_scope": {
+    "trainer_wall": "Logged accumulated perf_counter timer, including internal Greedy validation, CSV/checkpoint work; excludes some model/data/feature setup before timer start and final post-status save. Not GPU kernel time.",
+    "expert_generation": "Shared and reported separately, never charged as four newly generated datasets.",
+    "search_and_development_evaluation": "Not included in trainer counters; report separately from optimizer training.",
+    "teacher_pretraining": "Existing frozen AZ checkpoint; historical AZ training is not measured by these A2C records."
+  },
+  "sources": [
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\status.json",
+      "relative_path": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/status.json",
+      "sha256": "c867c7217d5099a94ec4700098d735af531f7070e3b42923304ab17eae4bc843"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\protocol.json",
+      "relative_path": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/protocol.json",
+      "sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\training.csv",
+      "relative_path": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/training.csv",
+      "sha256": "1b40ac7a901de577baf83a151b89d03cfb9d40800ae26303d1bb05518d8298e0"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train\\updates.csv",
+      "relative_path": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/train/updates.csv",
+      "sha256": "dd986c59947423f0d2fc7d1a7938bbb2ba5b128932f809b19fbf96703dacdd36"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\status.json",
+      "relative_path": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/pretrain/status.json",
+      "sha256": "ca2eabd2f9a0887afc57842774e53d4c28408cb215031a2bdac9bd329a28e2ba"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\protocol.json",
+      "relative_path": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/pretrain/protocol.json",
+      "sha256": "b880a70d7b37a96977f796502141cfbb1023c5706f788632893558083b9c7c1d"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\pretrain\\pretraining.csv",
+      "relative_path": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed33/pretrain/pretraining.csv",
+      "sha256": "93570139ddfd17f6a52ad64781896f177d38d14b4fd75cd5ff2b0892f7d7a80b"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\jobs\\residual_tactical10_seed33_pretrain\\launcher.json",
+      "relative_path": "runs/a2c_research_20261020/confirmation/jobs/residual_tactical10_seed33_pretrain/launcher.json",
+      "sha256": "de12a1614b4a7e511b9ef45b0cc3a6aa9d8b989f8eff79944a6e1de8884cf641"
+    },
+    {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\jobs\\residual_tactical10_seed33\\launcher.json",
+      "relative_path": "runs/a2c_research_20261020/confirmation/jobs/residual_tactical10_seed33/launcher.json",
+      "sha256": "4f8fcaf6547a0758da8c7da133d72237f1c51eabba94ad119edbd241d548b9a2"
+    }
+  ],
+  "new_confirmation_extension": {
+    "episodes": 30000,
+    "updates": 14767,
+    "learner_transitions": 559937,
+    "environment_plies": 902942,
+    "trainer_wall_seconds": 2025.1941876999917,
+    "auxiliary_ce_draws_with_replacement": 945088,
+    "imitation_coefficient": 0.1,
+    "imitation_batch_size": 64,
+    "environment_opponent_episode_counts": {
+      "greedy:-1": 9076,
+      "random:1": 3009,
+      "greedy:1": 9032,
+      "selfplay:both": 5909,
+      "random:-1": 2974
+    },
+    "learner_transitions_by_opponent": {
+      "greedy": 314786,
+      "selfplay": 211950,
+      "random": 33201
+    }
+  },
+  "copy": null
+}

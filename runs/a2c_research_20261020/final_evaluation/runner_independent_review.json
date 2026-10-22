@@ -1,0 +1,65 @@
+{
+  "format": "a2c_final_runner_independent_review_v1",
+  "reviewed_at": "2026-10-21T02:04:01.211968+00:00",
+  "passed": true,
+  "blocking_findings": [],
+  "reviewed_files": {
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\evaluation\\a2c_research_final_suite.py": "65975832487c33e80d5be82e200bfb19f4ea0b119f135e631e9c4badc6d0b406",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\tests\\test_a2c_research_final_suite.py": "32bc9a3b59820b876eed451a384d05ad4e01b7884e44094fccb51da9af525ded",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\docs\\a2c-final-queue.md": "e9711996ea522fd5d91ee62b31658d4969f363c1e75b192d140ebd10a9130edd"
+  },
+  "expected_runner_sha256": "65975832487c33e80d5be82e200bfb19f4ea0b119f135e631e9c4badc6d0b406",
+  "checks": {
+    "frozen_status_development_only_and_self_SHA_required": true,
+    "evaluation_identity_exact_original_16_fields": true,
+    "jobs_cover_identities_bijectively_and_no_duplicate_names": true,
+    "SHA_indexed_models_actual_seed_full_spec_complete_companion_dataset_initial_lineage": true,
+    "Minimax_null_checkpoint_no_fabricated_training_seed": true,
+    "all_attempt_writers_checked_before_old_completion_reuse": true,
+    "unknown_PID_or_missing_birth_waits_conservatively": true,
+    "known_different_birth_allows_recycled_PID": true,
+    "failed_partial_attempts_preserved_and_identical_policy_retried_new_directory": true,
+    "plan_only_creates_no_experiment_outputs_or_children": true,
+    "sources_weight_provenance_and_manifest_guards_before_launch": true,
+    "local_control_IO_WinError5_retry_bounded_other_errors_not_retried": true,
+    "audit_inputs_context_flatten_absolute_paths_compatible_with_frozen_a0a_tool": true,
+    "legacy_missing_episode_is_unknown_None_not_false_no_training": true,
+    "core_trainer_tactics_and_old_evaluators_unchanged": true
+  },
+  "changes_since_first_review": "Conservative missing birth/unknown PID observation plus legacy missing-episode snapshot None; no core/evaluator changes.",
+  "synthetic_tests": {
+    "command": "python -B with tempfile.tempdir=visualization; pytest tests/test_a2c_research_final_suite.py -q -p no:cacheprovider --basetemp <visual> --junitxml <visual>",
+    "tests": 26,
+    "errors": 0,
+    "failures": 0,
+    "skipped": 0,
+    "junit_path": "C:\\Users\\29024\\.codex\\visualizations\\2026\\10\\08\\01a11b5a-bef7-7131-b4d7-d8c302a6db25\\final_runner_review_659758_junit.xml",
+    "junit_sha256": "e88fe6e0ad6f627eb609a8a12a0b87877c3d358ed32ac2d7851a75dcb1eef9ad",
+    "reserved_seed_checks": "Dictionary fixtures only; no reserved-seed result trajectories",
+    "CSV_fixture_seeds": [
+      6100000,
+      6200000
+    ],
+    "subprocess_probe": "Print-only Python child, no evaluator or model inference"
+  },
+  "independent_auditor_sha256": "a0a5268cd09f301a03a8786d381fc6fcee900a2d4398e81781e3422b2e6a73ce",
+  "unchanged_core_sources": {
+    "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+    "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+    "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+    "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+    "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+    "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b",
+    "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8"
+  },
+  "prior_confirmation_audit_sha256": "a9529be699658f9f81adaf7d8fa854d47def432e8462a85ee8d004a4a121d7d8",
+  "real_final_tests_started": false,
+  "real_8m_final_results_read": false,
+  "limitations": [
+    "Review and synthetic scheduler tests do not certify future playing strength.",
+    "Completed final data still require independent environment legality/terminal and Greedy/Random RNG replay.",
+    "Operational retries must preserve all attempts and must never be chosen by score.",
+    "Legacy checkpoint episode metadata may be unavailable; omit assertions instead of fabricating it."
+  ],
+  "execution_note": "Initial pytest launch stopped before tests because system temporary paths were unwritable; reran with Python tempfile.tempdir inside the allowed visualization directory. No project code was changed."
+}

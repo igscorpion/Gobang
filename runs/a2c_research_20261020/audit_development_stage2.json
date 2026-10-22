@@ -1,0 +1,178 @@
+{
+  "state": "passed",
+  "verified_at": "2026-10-21T00:09:14.907732+08:00",
+  "scope": "Independent read-only replay of stage2 and teacher development validation",
+  "games": 344,
+  "legal_moves_replayed": 20359,
+  "greedy_moves_exactly_reproduced": 10169,
+  "frozen_source_matches_all_protocol_sha256": true,
+  "current_replay_dependencies_match_frozen_source": true,
+  "checkpoint_sha256_verified": true,
+  "per_game_outcome_length_and_logged_latency_verified": true,
+  "summary_wdl_score_winrate_wilson_verified": true,
+  "summary_mean_median_p95_max_latency_verified": true,
+  "tactical_reason_counts_verified": true,
+  "mean_search_nodes_recomputed_from_move_logs": true,
+  "seed_mapping_verified": true,
+  "seed_mapping": "black=3100000+game; white=3200000+game",
+  "candidate_policies_rerun": false,
+  "training_performed": false,
+  "runs": [
+    {
+      "name": "stage2/minimax_depth2",
+      "games": 80,
+      "legal_moves": 4899,
+      "greedy_moves": 2452,
+      "black_wdl": [
+        3,
+        30,
+        7
+      ],
+      "white_wdl": [
+        2,
+        23,
+        15
+      ],
+      "scores": [
+        0.45,
+        0.3375
+      ],
+      "mean_search_nodes": [
+        31.854014598540147,
+        30.8644382544104
+      ],
+      "file_sha256": {
+        "games.csv": "a2f498f572128a8cf5541725f09dadc8d07d3c5ad5318e0a5a59d11b92d5a833",
+        "moves.csv": "8ef1447b76de3c23a1191b5d68fe8670902cbd5feb24e1c02dcb64c4792095b9",
+        "protocol.json": "4e87560d3f9a668e33f5eaff2e796226b6cb57f588f2ac609338a0a0710dc31c",
+        "summary.json": "baf2eef79e44cdf7918f5466ecfb0a6a7c938a7a7501059badbd94ef99834c94"
+      }
+    },
+    {
+      "name": "stage2/search_depth2",
+      "games": 80,
+      "legal_moves": 5574,
+      "greedy_moves": 2786,
+      "black_wdl": [
+        6,
+        31,
+        3
+      ],
+      "white_wdl": [
+        5,
+        30,
+        5
+      ],
+      "scores": [
+        0.5375,
+        0.5
+      ],
+      "mean_search_nodes": [
+        102.0794096978215,
+        97.88791208791208
+      ],
+      "file_sha256": {
+        "games.csv": "a3044b20bc308291815b30e3ec1e51b6c326581cbffed9e601ae43ea70687303",
+        "moves.csv": "e075ba4c5f8a782ff026339f4f441b51e5b6d05dadf4a775054b70a6e1ea0012",
+        "protocol.json": "0f0f1174b2d56a975f582a83f2740d53e9961b81c77cddd41cd3b6a8b277d810",
+        "summary.json": "047560386b6bb2ce4fafcff5fc65c6837457e625300eef364e81a3226e7c6607"
+      }
+    },
+    {
+      "name": "stage2/search_depth3",
+      "games": 80,
+      "legal_moves": 3653,
+      "greedy_moves": 1821,
+      "black_wdl": [
+        31,
+        8,
+        1
+      ],
+      "white_wdl": [
+        12,
+        22,
+        6
+      ],
+      "scores": [
+        0.875,
+        0.575
+      ],
+      "mean_search_nodes": [
+        333.4743024963289,
+        333.3492615117289
+      ],
+      "file_sha256": {
+        "games.csv": "179e90b968d3c2c046fbf45ebd4263322255273188cc1fc816743bdce0bfd293",
+        "moves.csv": "2c802a65e2cafc061c877ad552078078ed7f1cd54508b423298540be1d8b180f",
+        "protocol.json": "0e9b30c26444bc1aab3807c3f9388b11a8999df2099b9afb9d25b46e7b281a55",
+        "summary.json": "1253c3cf8ce6ac0661f89785b509fd3c95e406676403531c7d7e4af27a9a25bb"
+      }
+    },
+    {
+      "name": "stage2/search_wide24_depth2",
+      "games": 80,
+      "legal_moves": 5568,
+      "greedy_moves": 2782,
+      "black_wdl": [
+        2,
+        34,
+        4
+      ],
+      "white_wdl": [
+        8,
+        28,
+        4
+      ],
+      "scores": [
+        0.475,
+        0.55
+      ],
+      "mean_search_nodes": [
+        185.87433155080214,
+        182.41162790697675
+      ],
+      "file_sha256": {
+        "games.csv": "4306bdce7263e972a268492ec73d7b6e7921eff38edd6b2ecd9fb36568d4432a",
+        "moves.csv": "c875f0f1c613f13f2c09f9e30565d3233e5412838ac125e351c7583261ceb650",
+        "protocol.json": "c0d9c415fe4af8d9be4bf0d6d44c8c39c2b6b004b141463ceed1d079d1f7f8d2",
+        "summary.json": "e55420d34f5e4ae3f7116c603cda4a3974e92f8f91e8ee870e7582af2caff00c"
+      }
+    },
+    {
+      "name": "stage3/teacher_alphazero_probe",
+      "games": 24,
+      "legal_moves": 665,
+      "greedy_moves": 328,
+      "black_wdl": [
+        11,
+        1,
+        0
+      ],
+      "white_wdl": [
+        9,
+        0,
+        3
+      ],
+      "scores": [
+        0.9583333333333334,
+        0.75
+      ],
+      "mean_search_nodes": [
+        0,
+        0
+      ],
+      "file_sha256": {
+        "games.csv": "acf51d12bbe2917ea08daccde19ead3424ff7ce8da636d4ab27d9fcd20805344",
+        "moves.csv": "71b8bef8b6ae73c051f7d4395c40ec4c813f6f3465c8e873c14cc3fc16cb6f74",
+        "protocol.json": "02ad33aa32af24162a23a8a43b9890f089a2fcf87f7beb6079fa888d13b939d2",
+        "summary.json": "a570112282a6ff01507bcea45a9d13319e18a38efa3efb55df9efb8bbf47641c"
+      }
+    }
+  ],
+  "limitations": [
+    "Candidate policy actions were not regenerated; legal replay, Greedy reproducibility and logged metrics were audited.",
+    "AlphaZero mean_search_nodes=0 is unavailable instrumentation, not absence of search.",
+    "These shared development validation seeds are not independent final tests.",
+    "Archived sources preserve provenance before the evaluator integrity guard was extended."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "device": "cuda",
+  "batch_size": 1,
+  "samples": 48,
+  "median_ms": 0.8861500000421074,
+  "p95_ms": 1.557699999466422,
+  "protocol": "fixed synthetic legal positions; encoding, transfer and argmax included",
+  "measured_at": "2026-10-15T12:40:10.859735+08:00",
+  "recovery_note": "Fresh audit measurement after the original latency JSON was found entirely NUL-filled; original status median remains unchanged.",
+  "original_status_median_ms": 1.7528000025777146
+}

@@ -1,0 +1,448 @@
+{
+  "checked_at_utc": "2026-10-20T21:20:58.230967+00:00",
+  "scope": "read-only provenance/statistics/retry-prefix audit; no new inference, no move legality replay",
+  "read_method": "Windows CreateFileW FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE for active JSON",
+  "sources_frozen": true,
+  "selector_sha256": "9c4a5ee7bd8bc6c8b1871f7468d5a8613cb6530c9473e2adbc37b2967627dc9e",
+  "seed22_completed_cases": 14,
+  "seed22_case_games": 1120,
+  "seed22_original_10k_directory_unchanged": true,
+  "seed22_initialization": "fresh random stage4 residual/tactical10 CE20; full 10k copy extended to30k; shared formal AZ400 expert data",
+  "seed22_case_results": [
+    {
+      "key": "residual_tactical10_seed22/episode_000000/policy",
+      "episode": 0,
+      "mode": "policy",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_000000.pt",
+      "checkpoint_sha256": "27b9cfa843f5b635010a295b77039269b57a24fadd0f51cadc37c57ffc450280",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_000000\\policy\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.8,
+      "mean_win_rate": 0.7125
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_000000/guarded",
+      "episode": 0,
+      "mode": "guarded",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_000000.pt",
+      "checkpoint_sha256": "27b9cfa843f5b635010a295b77039269b57a24fadd0f51cadc37c57ffc450280",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_000000\\guarded\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.81875,
+      "mean_win_rate": 0.7375
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_005000/policy",
+      "episode": 5000,
+      "mode": "policy",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_005000.pt",
+      "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage5\\guarded_policy_study\\residual10_005k_policy",
+      "reused_exact_development_case": true,
+      "mean_score": 0.8875,
+      "mean_win_rate": 0.825
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_005000/guarded",
+      "episode": 5000,
+      "mode": "guarded",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_005000.pt",
+      "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage5\\guarded_policy_study\\residual10_005k_guarded",
+      "reused_exact_development_case": true,
+      "mean_score": 0.89375,
+      "mean_win_rate": 0.8374999999999999
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_010000/policy",
+      "episode": 10000,
+      "mode": "policy",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_010000.pt",
+      "checkpoint_sha256": "e2cb85f02161a22638f50685a844f40a7794f43c7b92631e8e455fc2892b80a5",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage5\\guarded_policy_study\\residual10_010k_policy",
+      "reused_exact_development_case": true,
+      "mean_score": 0.7749999999999999,
+      "mean_win_rate": 0.7
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_010000/guarded",
+      "episode": 10000,
+      "mode": "guarded",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_010000.pt",
+      "checkpoint_sha256": "e2cb85f02161a22638f50685a844f40a7794f43c7b92631e8e455fc2892b80a5",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage5\\guarded_policy_study\\residual10_010k_guarded",
+      "reused_exact_development_case": true,
+      "mean_score": 0.85625,
+      "mean_win_rate": 0.8
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_015000/policy",
+      "episode": 15000,
+      "mode": "policy",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_015000\\policy\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.8875,
+      "mean_win_rate": 0.8374999999999999
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_015000/guarded",
+      "episode": 15000,
+      "mode": "guarded",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_015000.pt",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_015000\\guarded\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.9125,
+      "mean_win_rate": 0.875
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_020000/policy",
+      "episode": 20000,
+      "mode": "policy",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_020000.pt",
+      "checkpoint_sha256": "9ce3c1960cd9e9ed0f94f1f8fa00ecad9974e228592b55d510037dff798c2d2a",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_020000\\policy\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.8375,
+      "mean_win_rate": 0.775
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_020000/guarded",
+      "episode": 20000,
+      "mode": "guarded",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_020000.pt",
+      "checkpoint_sha256": "9ce3c1960cd9e9ed0f94f1f8fa00ecad9974e228592b55d510037dff798c2d2a",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_020000\\guarded\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.86875,
+      "mean_win_rate": 0.8125
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_025000/policy",
+      "episode": 25000,
+      "mode": "policy",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "15b1ed6289981b0e7f648a074246477e0f54316a949ce39dbd20e67ad3ab0e7b",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_025000\\policy\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.8812500000000001,
+      "mean_win_rate": 0.825
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_025000/guarded",
+      "episode": 25000,
+      "mode": "guarded",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_025000.pt",
+      "checkpoint_sha256": "15b1ed6289981b0e7f648a074246477e0f54316a949ce39dbd20e67ad3ab0e7b",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_025000\\guarded\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.8812500000000001,
+      "mean_win_rate": 0.825
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_030000/policy",
+      "episode": 30000,
+      "mode": "policy",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "eceaa9b050813159fbf058a843834157f36c1f3623d582061e4415a3a93c3380",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_030000\\policy\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.8687499999999999,
+      "mean_win_rate": 0.8125
+    },
+    {
+      "key": "residual_tactical10_seed22/episode_030000/guarded",
+      "episode": 30000,
+      "mode": "guarded",
+      "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train\\candidates\\episode_030000.pt",
+      "checkpoint_sha256": "eceaa9b050813159fbf058a843834157f36c1f3623d582061e4415a3a93c3380",
+      "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed22\\episode_030000\\guarded\\attempt_001",
+      "reused_exact_development_case": false,
+      "mean_score": 0.89375,
+      "mean_win_rate": 0.85
+    }
+  ],
+  "seed22_selection": {
+    "policy": {
+      "episode": 15000,
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "mean_score": 0.8875,
+      "mean_win_rate": 0.8374999999999999,
+      "results": [
+        {
+          "color": 1,
+          "games": 40,
+          "wins": 39,
+          "draws": 0,
+          "losses": 1,
+          "win_rate": 0.975,
+          "score": 0.975,
+          "wilson_95": [
+            0.8711834051199223,
+            0.9955732825922052
+          ],
+          "mean_game_plies": 21.075,
+          "inference_samples": 441,
+          "mean_move_ms": 5.004586394342474,
+          "median_move_ms": 4.982400001608767,
+          "p95_move_ms": 8.629099989775568,
+          "max_move_ms": 11.892599999555387,
+          "tactical_reasons": {
+            "": 441
+          },
+          "mean_search_nodes": 0
+        },
+        {
+          "color": -1,
+          "games": 40,
+          "wins": 28,
+          "draws": 8,
+          "losses": 4,
+          "win_rate": 0.7,
+          "score": 0.8,
+          "wilson_95": [
+            0.545696893456796,
+            0.8192532908430471
+          ],
+          "mean_game_plies": 36.7,
+          "inference_samples": 728,
+          "mean_move_ms": 4.541783654121401,
+          "median_move_ms": 4.738249997899402,
+          "p95_move_ms": 6.946800000150688,
+          "max_move_ms": 11.936399998376146,
+          "tactical_reasons": {
+            "": 728
+          },
+          "mean_search_nodes": 0
+        }
+      ]
+    },
+    "guarded": {
+      "episode": 15000,
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "mean_score": 0.9125,
+      "mean_win_rate": 0.875,
+      "results": [
+        {
+          "color": 1,
+          "games": 40,
+          "wins": 39,
+          "draws": 0,
+          "losses": 1,
+          "win_rate": 0.975,
+          "score": 0.975,
+          "wilson_95": [
+            0.8711834051199223,
+            0.9955732825922052
+          ],
+          "mean_game_plies": 20.875,
+          "inference_samples": 437,
+          "mean_move_ms": 62.2532068652453,
+          "median_move_ms": 79.60119999188464,
+          "p95_move_ms": 119.18109998805448,
+          "max_move_ms": 163.2126999902539,
+          "tactical_reasons": {
+            "guarded_policy_full_legal": 347,
+            "create_double_threat": 38,
+            "immediate_win": 39,
+            "block_immediate_win": 5,
+            "forced_win": 7,
+            "unavoidable_loss": 1
+          },
+          "mean_search_nodes": 0
+        },
+        {
+          "color": -1,
+          "games": 40,
+          "wins": 31,
+          "draws": 6,
+          "losses": 3,
+          "win_rate": 0.775,
+          "score": 0.85,
+          "wilson_95": [
+            0.6249660359590695,
+            0.8768404674532148
+          ],
+          "mean_game_plies": 34.625,
+          "inference_samples": 688,
+          "mean_move_ms": 55.873906540656144,
+          "median_move_ms": 64.96390000393149,
+          "p95_move_ms": 119.02060000284109,
+          "max_move_ms": 165.1205999951344,
+          "tactical_reasons": {
+            "guarded_policy_full_legal": 581,
+            "create_double_threat": 31,
+            "immediate_win": 31,
+            "block_immediate_win": 36,
+            "forced_win": 6,
+            "unavoidable_loss": 3
+          },
+          "mean_search_nodes": 0
+        }
+      ]
+    }
+  },
+  "retry_audit": [
+    {
+      "case": "residual_tactical10_seed11\\episode_000000\\guarded",
+      "failure": "WinError 5 at atomic status.json.tmp replacement; exact holder unknown",
+      "failed_attempt": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed11\\episode_000000\\guarded\\attempt_001",
+      "completed_attempt": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed11\\episode_000000\\guarded\\attempt_002",
+      "failed_complete_games_in_csv": 38,
+      "failed_recorded_moves": 1246,
+      "retry_games": 80,
+      "retry_moves": 2932,
+      "outcome_and_action_prefix_exact": true,
+      "partial_not_merged": true,
+      "same_full_evaluation_identity": true
+    },
+    {
+      "case": "residual_tactical10_seed11\\episode_015000\\guarded",
+      "failure": "WinError 5 at atomic status.json.tmp replacement; exact holder unknown",
+      "failed_attempt": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed11\\episode_015000\\guarded\\attempt_001",
+      "completed_attempt": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed11\\episode_015000\\guarded\\attempt_002",
+      "failed_complete_games_in_csv": 44,
+      "failed_recorded_moves": 1211,
+      "retry_games": 80,
+      "retry_moves": 2553,
+      "outcome_and_action_prefix_exact": true,
+      "partial_not_merged": true,
+      "same_full_evaluation_identity": true
+    }
+  ],
+  "processes": {
+    "training": {
+      "launcher": {
+        "pid": 65444,
+        "alive": true,
+        "birth": "134370017491431399",
+        "exit_code": null
+      },
+      "runtime": {
+        "pid": 63460,
+        "alive": true,
+        "birth": "134370017491520920",
+        "exit_code": null
+      },
+      "lock_held": true,
+      "state": "running_child",
+      "updated_at": "2026-10-20T21:20:56.575376+00:00"
+    },
+    "selector": {
+      "launcher": {
+        "pid": 57288,
+        "alive": true,
+        "birth": "134370022395903205",
+        "exit_code": null
+      },
+      "runtime": {
+        "pid": 66296,
+        "alive": true,
+        "birth": "134370022396072322",
+        "exit_code": null
+      },
+      "lock_held": true,
+      "state": "waiting_training_candidates",
+      "updated_at": "2026-10-20T21:20:49.067812+00:00"
+    }
+  },
+  "stages": {
+    "residual_tactical10_seed11": {
+      "pretrain": {
+        "status": {
+          "state": "complete",
+          "pid": 27336,
+          "epoch": 20,
+          "target_epochs": 20,
+          "updates": 1000,
+          "best_epoch": 16,
+          "best_validation_ce": 1.7352137038905846
+        },
+        "actual_process": {
+          "pid": 27336,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "lock_held": false
+      },
+      "train": {
+        "status": {
+          "state": "training",
+          "pid": 52400,
+          "episode": 18250,
+          "target_episodes": 30000,
+          "updates": 9344,
+          "learner_transitions": 356588,
+          "environment_plies": 579555,
+          "best_pure_score": 0.89375,
+          "best_pure_episode": 10000,
+          "opponent_counts": {
+            "random:1": 1756,
+            "random:-1": 1787,
+            "greedy:-1": 5535,
+            "selfplay:both": 3619,
+            "greedy:1": 5553
+          },
+          "transition_counts": {
+            "selfplay": 131484,
+            "random": 20089,
+            "greedy": 205015
+          },
+          "wall_seconds": 1339.275314899991
+        },
+        "actual_process": {
+          "pid": 52400,
+          "alive": true,
+          "birth": "134370034759196905",
+          "exit_code": null
+        },
+        "lock_held": true
+      }
+    },
+    "residual_tactical10_seed22": {
+      "train": {
+        "status": {
+          "state": "complete",
+          "pid": 66392,
+          "episode": 30000,
+          "target_episodes": 30000,
+          "updates": 14883,
+          "learner_transitions": 568379,
+          "environment_plies": 918026,
+          "best_pure_score": 0.91875,
+          "best_pure_episode": 15000,
+          "opponent_counts": {
+            "random:-1": 3022,
+            "greedy:1": 9053,
+            "greedy:-1": 9127,
+            "selfplay:both": 5823,
+            "random:1": 2975
+          },
+          "transition_counts": {
+            "greedy": 321274,
+            "selfplay": 213788,
+            "random": 33317
+          },
+          "wall_seconds": 2251.1079285000014,
+          "final_test": "not run; requires explicit evaluate after selection is frozen"
+        },
+        "actual_process": {
+          "pid": 66392,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "lock_held": false
+      }
+    },
+    "residual_tactical10_seed33": {},
+    "flat_tactical10_seed22": {}
+  },
+  "selector_completed_cases": 22,
+  "common_wrapper_selected": null,
+  "final_tests_started": false,
+  "recommendation": "Keep active queues and frozen sources. Both isolated retries succeeded. Monitor transient Windows status-file replacement conflict without assigning a specific holder. Any future fix requires explicit version/freeze; do not silently edit common.py."
+}

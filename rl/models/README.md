@@ -1,18 +1,5 @@
-# 模型保存目录
+# 上游模型与本地训练产物
 
-存放各 Agent 的训练产物（权重、检查点）与训练进度元数据，由训练脚本自动读写，无需手动维护。
+此目录保留源码包原有权重，不覆盖它们：alphazero.pt 为 64/64/64 三层网络，dqn.pt 为三通道 DQN。原始元信息和 SHA-256 见本地来源/变更清单；上游模型解释存档在 docs/history/upstream-models-README.md。
 
-```text
-rl/models/
-├── alphazero.pt            AlphaZero 检查点（权重的指数滑动平均，供对战与评估使用）
-├── alphazero_meta.json     AlphaZero 累计训练局数与历史最佳成绩
-├── alphazero_best.pt       AlphaZero 历史最佳，只在对 greedy 胜率创新高时写入
-├── dqn.pt                  DQN 权重
-├── dqn_meta.json           DQN 累计训练局数
-├── q_learning.json         线性 Q-Learning 权重
-├── old_alphazero.pt        改进前的 AlphaZero 检查点（3 通道输入，留档）
-├── old_alphazero_meta.json 改进前的累计训练局数（17700 局）
-└── README.md               本文件
-```
-
-各算法的实现要点、实验结果与当前状态见 [../README.md](../README.md)。
+新训练产物存放于 runs/production/<实验名>/，包括 current.pt、best.pt、final.pt 与 latest.checkpoint。网页通过 runs/production/models.json 加载验证选出的新权重，在对应实验完成前不会把随机初始网络当作新模型展示。
