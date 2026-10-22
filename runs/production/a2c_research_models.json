@@ -1,0 +1,54 @@
+{
+  "a2c_residual10_guarded": {
+    "enabled": true,
+    "algorithm": "a2c_research",
+    "wrapper": "guarded",
+    "device": "cpu",
+    "checkpoint": "runs/a2c_research_20261020/confirmation/residual_tactical10_seed11/train/candidates/episode_030000.pt",
+    "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+    "model_spec": {
+      "architecture": "residual",
+      "features": "tactical10",
+      "board_size": 9,
+      "channels": [
+        32,
+        64,
+        64
+      ],
+      "hidden_units": 256,
+      "residual_width": 64,
+      "residual_blocks": 4
+    },
+    "tactical_config": {
+      "enabled": true,
+      "forcing_depth": 5,
+      "max_nodes": 1500,
+      "candidate_limit": 12,
+      "cache_size": 4096
+    },
+    "selection": {
+      "selected_using": "development only",
+      "training_seed": 11,
+      "selected_episode": 30000
+    },
+    "deployment_gate": "31 user-scoped jobs/6200 games independently audited; AZ renju reference explicitly deferred.",
+    "provenance": {
+      "final_selection.json": {
+        "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json",
+        "sha256": "4d0d0acc5a49fa604d1d773b5730ea352c08b77f935dfda592d83017f8721c7a"
+      },
+      "delivery_scope_31_jobs.json": {
+        "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\delivery_scope_31_jobs.json",
+        "sha256": "e477a51c3a9a3f70e87ef7d7f6a82991ca1a53ae3631b700e220805ad655fe41"
+      },
+      "final_audit_31_jobs.json": {
+        "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_audit_31_jobs.json",
+        "sha256": "bdd441be7ded416b1daa8608e17b5d94c7f92636476b65b5adc9b8b3ed45fa05"
+      },
+      "operational_retry_prefix_audit_31_jobs.json": {
+        "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\operational_retry_prefix_audit_31_jobs.json",
+        "sha256": "9f86ce6db102d002f06a78873447ef9d1225f1b1ec2221cde49192985c0fa1d5"
+      }
+    }
+  }
+}

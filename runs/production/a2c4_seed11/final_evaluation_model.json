@@ -1,0 +1,9 @@
+{
+  "checkpoint": "best.pt",
+  "selection": "validation greedy score only",
+  "selected_episode": 1000,
+  "test_seed": 800000,
+  "recovered_at": "2026-10-15T12:40:10.859735+08:00",
+  "checkpoint_sha256": "0780be21b0414aa3bd9e260c85415149a61150a6c4f15d76276684b9ff7c3736",
+  "recovery_evidence": "Validation, durable checkpoint and status agree; all 400 independently rerun game rows and summary match the original frozen test exactly."
+}

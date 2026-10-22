@@ -52,3 +52,6 @@ export function setAgent(name) {
     body: JSON.stringify({ name }),
   });
 }
+export function setRules(rules) {
+  return request("/game/rules", { method: "POST", body: JSON.stringify({ rules }) });
+}

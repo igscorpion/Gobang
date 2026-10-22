@@ -1,0 +1,102 @@
+[
+  {
+    "name": "launcher",
+    "pid": 53420,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857877132147,
+    "creation_utc": "2026-10-20T16:03:07.713215+00:00"
+  },
+  {
+    "name": "runtime",
+    "pid": 54360,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857877448239,
+    "creation_utc": "2026-10-20T16:03:07.744824+00:00"
+  },
+  {
+    "name": "worker_00_launcher",
+    "pid": 49680,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857899599791,
+    "creation_utc": "2026-10-20T16:03:09.959979+00:00"
+  },
+  {
+    "name": "worker_00_runtime",
+    "pid": 57156,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857899815066,
+    "creation_utc": "2026-10-20T16:03:09.981507+00:00"
+  },
+  {
+    "name": "worker_01_launcher",
+    "pid": 54876,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857899612213,
+    "creation_utc": "2026-10-20T16:03:09.961221+00:00"
+  },
+  {
+    "name": "worker_01_runtime",
+    "pid": 40684,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857899843446,
+    "creation_utc": "2026-10-20T16:03:09.984344+00:00"
+  },
+  {
+    "name": "worker_02_launcher",
+    "pid": 50056,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857899613833,
+    "creation_utc": "2026-10-20T16:03:09.961383+00:00"
+  },
+  {
+    "name": "worker_02_runtime",
+    "pid": 53232,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857899851730,
+    "creation_utc": "2026-10-20T16:03:09.985173+00:00"
+  },
+  {
+    "name": "worker_03_launcher",
+    "pid": 53620,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857899621681,
+    "creation_utc": "2026-10-20T16:03:09.962168+00:00"
+  },
+  {
+    "name": "worker_03_runtime",
+    "pid": 55612,
+    "query_success": true,
+    "exit_code": 259,
+    "alive": true,
+    "in_job": true,
+    "creation_filetime": 134369857899829882,
+    "creation_utc": "2026-10-20T16:03:09.982988+00:00"
+  }
+]

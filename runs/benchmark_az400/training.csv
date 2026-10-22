@@ -1,0 +1,2 @@
+episode,kind,color,winner,moves,greedy_ratio,policy_loss,value_loss,kl,lr,seconds,elapsed
+1,selfplay,0,1,15,0.1,nan,nan,nan,0.0005,8.771457700000155,8.772146499999963

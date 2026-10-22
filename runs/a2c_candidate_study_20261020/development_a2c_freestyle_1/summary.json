@@ -1,0 +1,18 @@
+{
+  "mode": "development",
+  "ranking": "a2c",
+  "rules": "freestyle",
+  "color": 1,
+  "games": 40,
+  "wins": 29,
+  "draws": 5,
+  "losses": 6,
+  "win_rate": 0.725,
+  "score": 0.7875,
+  "wilson_95": [
+    0.5716474916687543,
+    0.8389214656685692
+  ],
+  "mean_inference_ms": 37.793602466679566,
+  "base_seed": 3100000
+}

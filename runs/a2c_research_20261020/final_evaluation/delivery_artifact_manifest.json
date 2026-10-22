@@ -1,0 +1,25 @@
+{
+  "updated_at_utc": "2026-10-22T06:56:17.953581+00:00",
+  "artifacts": {
+    "runs/a2c_research_20261020/final_report.md": "c1ea8511e35b3e9ad3af07f8972c232703c2a9f533b3fa3e67c4595993a3daca",
+    "runs/a2c_research_20261020/final_report.json": "29648e4616531b950fca26dc63f0484e18660dabfbb93b666b080f96209f85d8",
+    "README.md": "740606b2bd17a4d2bcabdb0bd87c2d382e32632a3e5f1e7f7b1449a0294bfabd",
+    "rl/README.md": "dfccaea37e0ec7a194d9947550c6405572abd63c5562c73929eb44ef78a96cf6",
+    "docs/a2c-research.md": "cd6a75664f60fdcbbcbc0fc4058232b2e0f46ee84386fcb474a7bd10c7cdafc5",
+    "experiments/a2c_research.json": "32709e3bdb78d96c1bd57841306e4a7a3cd1927f7e116c271090f3f7c0171f90",
+    "rl/agents/registry.py": "77126a9a8fd3194cb42f2fb944a1dd1325512d9430d4aa39eba6c3569297eb2a",
+    "runs/production/a2c_research_models.json": "79b26e0122ca4b1d931e5efe63bfe712339e71ca39da726937137850ebfa9801",
+    "runs/production/alphazero_capacity_comparison.md": "c70bdfc2d7ed845da4ddd3abf69e26d168b3ca76989a59434ce5a2c493cc7d45",
+    "runs/a2c_research_20261020/final_evaluation/delivery_status_31_jobs.json": "93d97a5e1e70388acf2a7d5aa6fc02c433e5977cb40e0bd19aa0f91b5d13a201",
+    "docs/a2c-control.md": "251b7d7399bd452485f14ec92926b11c2a6aaf45d76776dc697a4d12efe01e95",
+    "docs/local-work.md": "c6e77b11538377cfb8f26aa979871e5c6ba48d54de7f75125a4ace685f7e3651",
+    "runs/production/实验报告.md": "135c7ba5028c9ec803017035efcacceda8bd3877e0a179c85adfb8a59c7236d6",
+    "runs\\a2c_research_20261020\\final_report_technical_20261022.md": "12edccd921572f2d589517319e19932d4745e1a2ca32e290b75df4a317c9f0fb",
+    "docs/experiments.md": "9da7b3aacb0c69903ff4eb45d5138400ee91195f35c04867fffccb84e462d8d4",
+    "runs\\a2c_research_20261020\\final_evaluation\\report_revision_20261022.json": "9cef16f1746448b1a66571f84c34e795dcc6ad62ee5b9d0f3ceec8404f8d4c51",
+    "runs/production/a2c_dqn_comparison.md": "a59b46c77913366aadedbd22104172c62c7724779bb794f2d07578ffad472cea",
+    "runs/a2c_research_20261020/final_evaluation/report_validation_20261022.json": "b24db073270ad9372c21cb94cf338bcc1675f335de7f6f727d4a2c8b7af47175"
+  },
+  "frozen_selection_unchanged": true,
+  "documentation_revision": "runs\\a2c_research_20261020\\final_evaluation\\report_revision_20261022.json"
+}

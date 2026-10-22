@@ -1,0 +1,23 @@
+{
+  "output": "runs/benchmark_az400",
+  "episodes": 1,
+  "channels": [
+    64,
+    64,
+    128
+  ],
+  "sims": 400,
+  "seed": 11,
+  "device": null,
+  "fixed_ratio": null,
+  "warm_start": "backups/upstream-2711cca/models/alphazero.pt",
+  "resume": false,
+  "rules": "freestyle",
+  "batch_size": 512,
+  "eval_every": 999,
+  "save_every": 1,
+  "validation_games": 40,
+  "final_games": 1,
+  "parameters": 132055,
+  "device_used": "cpu"
+}

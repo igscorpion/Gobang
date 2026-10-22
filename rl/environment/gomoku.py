@@ -19,6 +19,13 @@ EMPTY = 0
 BLACK = 1
 WHITE = -1
 
+from rl.environment.rules import (
+    rule_mode,
+    forbidden_reason,
+    legal_actions,
+    winning_move,
+)
+
 
 def encode_action(row: int, col: int, board_size: int = BOARD_SIZE) -> int:
     return row * board_size + col
@@ -40,7 +47,15 @@ class GomokuEnv:
     BLACK = BLACK
     WHITE = WHITE
 
-    def __init__(self, board_size: int = BOARD_SIZE, win_count: int = WIN_COUNT):
+    def __init__(
+        self,
+        board_size: int = BOARD_SIZE,
+        win_count: int = WIN_COUNT,
+        rules: str | None = None,
+    ):
+        self.rules = rule_mode(rules)
+        if self.rules == "renju" and win_count != 5:
+            raise ValueError("renju requires five-in-a-row")
         self.board_size = board_size
         self.win_count = win_count
         self.board: list[list[int]] = []
@@ -52,8 +67,7 @@ class GomokuEnv:
 
     def reset(self) -> list[list[int]]:
         self.board = [
-            [EMPTY for _ in range(self.board_size)]
-            for _ in range(self.board_size)
+            [EMPTY for _ in range(self.board_size)] for _ in range(self.board_size)
         ]
         self.current_player = BLACK
         self.done = False
@@ -63,10 +77,7 @@ class GomokuEnv:
 
     def get_state(self) -> list[list[int]]:
         """相对当前玩家的棋盘：1 是自己，-1 是对手。"""
-        return [
-            [cell * self.current_player for cell in row]
-            for row in self.board
-        ]
+        return [[cell * self.current_player for cell in row] for row in self.board]
 
     def get_board(self) -> list[list[int]]:
         """绝对棋盘：1 黑，-1 白。返回拷贝，避免外部修改内部状态。"""
@@ -75,12 +86,7 @@ class GomokuEnv:
     def get_legal_actions(self) -> list[int]:
         if self.done:
             return []
-        actions: list[int] = []
-        for row in range(self.board_size):
-            for col in range(self.board_size):
-                if self.board[row][col] == EMPTY:
-                    actions.append(encode_action(row, col, self.board_size))
-        return actions
+        return legal_actions(self.board, self.current_player, self.rules)
 
     def step(self, action) -> tuple[list[list[int]], float, bool]:
         """执行一步落子。
@@ -110,28 +116,31 @@ class GomokuEnv:
             return self.get_state(), 0.0, True
 
         self.current_player *= -1
+        if not self.get_legal_actions():
+            self.done = True
+            self.winner = -self.current_player
+            return self.get_state(), 1.0, True
         return self.get_state(), 0.0, False
 
     def check_winner(self) -> int | None:
         """返回 1 / -1，无人获胜则返回 None。和棋不是 winner。"""
-        size = self.board_size
-        need = self.win_count
-        directions = ((0, 1), (1, 0), (1, 1), (1, -1))
-
-        for row in range(size):
-            for col in range(size):
+        if self.last_move is not None:
+            row, col = self.last_move
+            player = self.board[row][col]
+            return (
+                player
+                if winning_move(
+                    self.board, row, col, player, self.rules, self.win_count
+                )
+                else None
+            )
+        for row in range(self.board_size):
+            for col in range(self.board_size):
                 player = self.board[row][col]
-                if player == EMPTY:
-                    continue
-                for dr, dc in directions:
-                    count = 1
-                    r, c = row + dr, col + dc
-                    while 0 <= r < size and 0 <= c < size and self.board[r][c] == player:
-                        count += 1
-                        if count >= need:
-                            return player
-                        r += dr
-                        c += dc
+                if player and winning_move(
+                    self.board, row, col, player, self.rules, self.win_count
+                ):
+                    return player
         return None
 
     def _is_full(self) -> bool:
@@ -142,6 +151,11 @@ class GomokuEnv:
             raise ValueError(f"落子越界: ({row}, {col})")
         if self.board[row][col] != EMPTY:
             raise ValueError(f"该位置已有棋子: ({row}, {col})")
+        reason = forbidden_reason(
+            self.board, row * self.board_size + col, self.current_player, self.rules
+        )
+        if reason:
+            raise ValueError(f"黑方禁手: {reason}")
 
 
 def _run_self_checks() -> None:
@@ -200,7 +214,9 @@ def _run_self_checks() -> None:
     assert relative[0][0] == -1, "轮到白棋时，黑子应显示为对手 (-1)"
 
     print("GomokuEnv self-check passed.")
-    print(f"board_size={BOARD_SIZE}, legal_actions={len(GomokuEnv().get_legal_actions())}")
+    print(
+        f"board_size={BOARD_SIZE}, legal_actions={len(GomokuEnv().get_legal_actions())}"
+    )
 
 
 if __name__ == "__main__":

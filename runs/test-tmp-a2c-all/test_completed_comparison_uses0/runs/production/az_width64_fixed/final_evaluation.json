@@ -1,0 +1,1 @@
+[{"opponent": "greedy", "color": 1, "games": 100, "wins": 81, "draws": 5, "losses": 14, "win_rate": 0.81, "score": 0.835, "wilson_low": 0.5, "wilson_high": 0.95}, {"opponent": "greedy", "color": -1, "games": 100, "wins": 61, "draws": 5, "losses": 34, "win_rate": 0.61, "score": 0.635, "wilson_low": 0.5, "wilson_high": 0.95}]

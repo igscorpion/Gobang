@@ -1,0 +1,230 @@
+{
+  "schema_version": 1,
+  "experiment": "a2c4_vs_dqn4",
+  "status": "complete",
+  "implementation_ready": true,
+  "training_started": true,
+  "description": "Same observation, network backbone, game budget and curriculum mechanism; compare complete A2C and DQN methods.",
+  "primary_reference": "dqn4_seed{seed}",
+  "reference_role_alphazero": "descriptive playing-strength reference; search and warm-start budgets differ",
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "run_name_template": "a2c4_seed{seed}",
+  "output_template": "runs/production/a2c4_seed{seed}",
+  "episodes_per_seed": 30000,
+  "total_training_episodes": 90000,
+  "initialization": "random",
+  "environment": {
+    "board_size": 9,
+    "rules": "freestyle",
+    "observation_channels": [
+      "own_stones",
+      "opponent_stones",
+      "last_opponent_move",
+      "first_player_plane"
+    ],
+    "observation_function": "rl.environment.state.state_to_tensor4",
+    "action_size": 81,
+    "action_mask": "legal_actions",
+    "reward_shaping": false,
+    "reward": "terminal outcome relative to learner for external opponents; mover-relative reward for alternating self-play"
+  },
+  "network": {
+    "convolution_channels": [
+      32,
+      64,
+      64
+    ],
+    "kernel_size": 3,
+    "padding": 1,
+    "shared_hidden_units": 256,
+    "activation": "ReLU",
+    "policy_outputs": 81,
+    "value_outputs": 1,
+    "value_activation": "identity",
+    "planned_parameters": 1405042,
+    "dqn4_reference_parameters": 1404785
+  },
+  "optimization": {
+    "algorithm": "synchronous_n_step_A2C",
+    "num_environments": 8,
+    "rollout_steps_per_environment": 5,
+    "maximum_samples_per_update": 40,
+    "updates_per_rollout": 1,
+    "gamma_per_learner_transition": 0.99,
+    "optimizer": "Adam",
+    "learning_rate": 0.0003,
+    "value_loss_coefficient": 0.5,
+    "entropy_coefficient": 0.01,
+    "max_gradient_norm": 5.0,
+    "normalize_advantages": false,
+    "replay_buffer": false,
+    "selfplay_bootstrap_sign": -1,
+    "external_opponent_bootstrap_sign": 1,
+    "training_action_selection": "masked_categorical"
+  },
+  "opponents": {
+    "curriculum_function": "rl.training.common.curriculum_ratio",
+    "initial_greedy_ratio": 0.1,
+    "fixed_ratio": null,
+    "random_ratio": 0.15,
+    "history_ratio_when_available": 0.15,
+    "remaining_ratio": "selfplay",
+    "history_snapshot_every_episodes": 1000,
+    "maximum_history_models": 4,
+    "history_policy": "frozen A2C masked argmax with probability 0.05 uniform legal exploration",
+    "external_learner_color": "alternate by globally assigned episode id",
+    "comparability_limit": "Realized opponent ratios and historical policies may differ from DQN despite using the same curriculum mechanism."
+  },
+  "evaluation": {
+    "opponents": [
+      "random",
+      "greedy"
+    ],
+    "colors": [
+      1,
+      -1
+    ],
+    "action_selection": "masked_argmax",
+    "validation_every_episodes": 1000,
+    "validation_games_per_opponent_per_color": 40,
+    "validation_seed_black": 300000,
+    "validation_seed_white": 400000,
+    "initial_validation_used_for_selection": false,
+    "checkpoint_selection": "mean validation Greedy score across colors; earliest checkpoint wins ties",
+    "score": "win_rate + 0.5 * draw_rate",
+    "test_games_per_opponent_per_color": 100,
+    "test_seed_black": 800000,
+    "test_seed_white": 900000,
+    "test_checkpoint": "best.pt",
+    "total_validation_games": 14400,
+    "total_final_test_games": 1200,
+    "interval": "95% Wilson for each per-seed win rate",
+    "across_seeds": "mean, sample standard deviation, and paired per-seed A2C-minus-DQN differences"
+  },
+  "checkpointing": {
+    "every_completed_episodes": 250,
+    "barrier": "limit new episode allocation to the next 250-game boundary; drain environments and update pending rollout before saving",
+    "save": [
+      "network",
+      "optimizer",
+      "completed_episode_ids",
+      "next_episode_id",
+      "environment_plies",
+      "learner_transitions",
+      "updates",
+      "curriculum_ratio",
+      "history_models",
+      "best_validation_score",
+      "python_rng",
+      "numpy_rng",
+      "torch_rng",
+      "cuda_rng",
+      "worker_rngs",
+      "configuration"
+    ],
+    "resume": "restore last complete barrier checkpoint; discard unsaved partial progress"
+  },
+  "required_cost_metrics": [
+    "environment_plies",
+    "learner_transitions",
+    "gradient_updates",
+    "actual_rollout_samples",
+    "training_seconds",
+    "validation_seconds",
+    "test_seconds",
+    "inference_latency_ms",
+    "parameter_count",
+    "opponent_counts_by_kind_and_color"
+  ],
+  "scheduling": {
+    "currently_in_local_suite": false,
+    "proposal": "Independent A2C three-seed queue completed; original local_suite plan and services were not modified.",
+    "independent_a2c_suite": true
+  },
+  "runtime_estimate": {
+    "kind": "engineering_planning_estimate_not_end_to_end_A2C_measurement",
+    "device": "cuda",
+    "minutes_per_seed_including_evaluation": [
+      20,
+      60
+    ],
+    "hours_all_three_seeds_including_evaluation": [
+      1,
+      3
+    ],
+    "excludes": [
+      "implementation_time",
+      "existing_queue_waiting_time",
+      "computer_sleep"
+    ],
+    "measurement_report": "experiments/benchmarks/a2c_runtime_probe.json",
+    "recalibrate_after_first_training_episodes": 1000,
+    "recommended_profile": "original_capacity_matched",
+    "reason": "1.4M parameters fit the local GPU; compact GPU sampling throughput was similar and backbone capacity matching is useful.",
+    "first_formal_run_observation": {
+      "episode": 9000,
+      "wall_seconds": 214.1347144000174,
+      "training_seconds": 175.15565609873738,
+      "validation_seconds": 25.539535299991257,
+      "steps": 243783,
+      "seed": 11,
+      "linear_minutes_for_90000_games": 35.68911906666957,
+      "note": "Early-run projection; later game length, opponent mix and load can differ."
+    },
+    "revised_planning_minutes_all_three_seeds": [
+      45,
+      90
+    ],
+    "completed_run_observation": {
+      "training_seconds": 1791.2639328972123,
+      "validation_seconds": 278.60364889994025,
+      "test_seconds": 25.364829499991174,
+      "active_wall_seconds": 2229.201668599987,
+      "note": "Sum of per-seed active timers; excludes interrupted downtime, and the additional 400-game integrity replay. Wall values include each run initialization/saving, not a continuous elapsed total."
+    }
+  },
+  "network_alternatives": [
+    {
+      "name": "compact_fc64",
+      "status": "optional_design_not_started",
+      "convolution_channels": [
+        32,
+        64,
+        64
+      ],
+      "shared_hidden_units": 64,
+      "planned_parameters": 393778,
+      "role": "lighter practical alternative; not approximately capacity matched to existing DQN4",
+      "included_in_current_90000_game_budget": false
+    }
+  ],
+  "trainer_module": "rl.training.local_a2c",
+  "suite_module": "rl.training.a2c_suite",
+  "progress_file": "runs/production/a2c_suite_status.json",
+  "report_file": "runs/production/a2c_dqn_comparison.md",
+  "training_completed": true,
+  "final_testing_completed": true,
+  "completed_at": "2026-10-15T04:28:30.742297+00:00",
+  "completed_training_episodes": 90000,
+  "completed_validation_games": 14400,
+  "completed_final_test_games": 1200,
+  "completion_audit": "runs/production/a2c_completion_audit.json",
+  "selected_model": {
+    "algorithm": "a2c",
+    "checkpoint": "runs/production/a2c4_seed22/best.pt",
+    "selection": "validation score only",
+    "validation_score": 0.0125,
+    "seed": 22,
+    "selected_episode": 19000
+  },
+  "completion_notes": [
+    "Seed22 recovered from the complete episode0 checkpoint after a CUDA failure; the full original budget and configuration were preserved.",
+    "Seed11 model-selection and latency metadata were found entirely NUL-filled. Damaged files were archived; the unchanged best.pt reproduced all 400 frozen game rows exactly before metadata repair. Fresh latency is explicitly marked; original status median is preserved.",
+    "Only DQN4 seed11 is complete; seed22/33 results are absent and paired comparisons have n=1.",
+    "The selected candidate is seed22 episode19000 based only on validation Greedy score .0125. Final test results did not change selection or hyperparameters."
+  ]
+}

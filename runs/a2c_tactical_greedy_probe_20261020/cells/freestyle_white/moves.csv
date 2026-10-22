@@ -1,0 +1,27 @@
+rules,color,game,seed,ply,player,actor,action,inference_seconds,tactical_reason,proven,proof_scope
+freestyle,-1,0,2100000,1,1,greedy,32,0.0004202999989502132,,,
+freestyle,-1,0,2100000,2,-1,a2c4_tactical,41,0.07427789999928791,quiet_candidates,False,
+freestyle,-1,0,2100000,3,1,greedy,42,0.0004074000025866553,,,
+freestyle,-1,0,2100000,4,-1,a2c4_tactical,31,0.059019500004069414,tactical_candidates,False,
+freestyle,-1,0,2100000,5,1,greedy,22,0.00040219999937107787,,,
+freestyle,-1,0,2100000,6,-1,a2c4_tactical,52,0.07472190000407863,defend_forcing_threat,False,
+freestyle,-1,0,2100000,7,1,greedy,12,0.00039539999852422625,,,
+freestyle,-1,0,2100000,8,-1,a2c4_tactical,2,0.006162500001664739,block_immediate_win,False,removes every legal next-move win; no deeper safety claim
+freestyle,-1,0,2100000,9,1,greedy,21,0.00038920000224607065,,,
+freestyle,-1,0,2100000,10,-1,a2c4_tactical,50,0.07145080000191228,tactical_candidates,False,
+freestyle,-1,0,2100000,11,1,greedy,30,0.0003910000014002435,,,
+freestyle,-1,0,2100000,12,-1,a2c4_tactical,48,0.08402349999960279,defend_forcing_threat,False,
+freestyle,-1,0,2100000,13,1,greedy,39,0.0003864999962388538,,,
+freestyle,-1,0,2100000,14,-1,a2c4_tactical,3,0.00532010000461014,block_immediate_win,False,removes every legal next-move win; no deeper safety claim
+freestyle,-1,0,2100000,15,1,greedy,20,0.0003934999986086041,,,
+freestyle,-1,0,2100000,16,-1,a2c4_tactical,23,0.07587869999406394,defend_forcing_threat,False,
+freestyle,-1,0,2100000,17,1,greedy,19,0.0003770000039367005,,,
+freestyle,-1,0,2100000,18,-1,a2c4_tactical,18,0.0046612000005552545,block_immediate_win,False,removes every legal next-move win; no deeper safety claim
+freestyle,-1,0,2100000,19,1,greedy,29,0.00034700000105658546,,,
+freestyle,-1,0,2100000,20,-1,a2c4_tactical,49,0.07907839999825228,defend_forcing_threat,False,
+freestyle,-1,0,2100000,21,1,greedy,51,0.0003426000039326027,,,
+freestyle,-1,0,2100000,22,-1,a2c4_tactical,33,0.040065399996819906,tactical_candidates,False,
+freestyle,-1,0,2100000,23,1,greedy,13,0.00033269999403273687,,,
+freestyle,-1,0,2100000,24,-1,a2c4_tactical,57,0.0030350000015459955,create_double_threat,True,"two legal winning endpoints; every opponent reply loses, unless already terminal"
+freestyle,-1,0,2100000,25,1,greedy,25,0.0003119000029982999,,,
+freestyle,-1,0,2100000,26,-1,a2c4_tactical,65,0.00013199999375501648,immediate_win,True,legal win on this move

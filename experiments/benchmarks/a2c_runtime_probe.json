@@ -1,0 +1,223 @@
+{
+  "timestamp": "2026-10-15T10:31:17.505909+08:00",
+  "purpose": "synthetic throughput and heuristic overhead only; no production training",
+  "torch": "2.9.1+cu128",
+  "cpu_threads": 1,
+  "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "greedy_one_action": {
+    "median_ms": 0.451450003311038,
+    "mean_ms": 0.4651899987948127,
+    "min_ms": 0.3431999939493835,
+    "max_ms": 0.8150999783538282,
+    "repeats": 60
+  },
+  "encode_eight_states": {
+    "median_ms": 0.4838500026380643,
+    "mean_ms": 0.6352899974444881,
+    "min_ms": 0.4621999978553504,
+    "max_ms": 3.982099995482713,
+    "repeats": 30
+  },
+  "ten_environment_plies": {
+    "median_ms": 0.28345000464469194,
+    "mean_ms": 0.31405000093703467,
+    "min_ms": 0.2688000095076859,
+    "max_ms": 0.5600000149570405,
+    "repeats": 30
+  },
+  "networks": [
+    {
+      "channels": [
+        32,
+        64,
+        64
+      ],
+      "hidden": 256,
+      "device": "cpu",
+      "parameters": 1405042,
+      "sample_eight": {
+        "median_ms": 2.1512500097742304,
+        "mean_ms": 2.1517666667932644,
+        "min_ms": 1.812300004530698,
+        "max_ms": 2.393700007814914,
+        "repeats": 30
+      },
+      "infer_one": {
+        "median_ms": 0.450699997600168,
+        "mean_ms": 0.4871733350834499,
+        "min_ms": 0.39579998701810837,
+        "max_ms": 0.6867000192869455,
+        "repeats": 30
+      },
+      "update_forty": {
+        "median_ms": 22.96904999820981,
+        "mean_ms": 22.906715000863187,
+        "min_ms": 20.894500019494444,
+        "max_ms": 27.006399992387742,
+        "repeats": 20
+      }
+    },
+    {
+      "channels": [
+        32,
+        64,
+        64
+      ],
+      "hidden": 256,
+      "device": "cuda",
+      "parameters": 1405042,
+      "sample_eight": {
+        "median_ms": 1.0279999987687916,
+        "mean_ms": 1.0598166661414627,
+        "min_ms": 0.9298000077251345,
+        "max_ms": 1.3942000223323703,
+        "repeats": 30
+      },
+      "infer_one": {
+        "median_ms": 0.5945500015513971,
+        "mean_ms": 0.629933334615392,
+        "min_ms": 0.519299996085465,
+        "max_ms": 0.9868999768514186,
+        "repeats": 30
+      },
+      "update_forty": {
+        "median_ms": 4.279500004486181,
+        "mean_ms": 4.366800005664118,
+        "min_ms": 3.565299994079396,
+        "max_ms": 5.4352000006474555,
+        "repeats": 20
+      }
+    },
+    {
+      "channels": [
+        32,
+        64,
+        64
+      ],
+      "hidden": 64,
+      "device": "cpu",
+      "parameters": 393778,
+      "sample_eight": {
+        "median_ms": 1.485899992985651,
+        "mean_ms": 1.493126666173339,
+        "min_ms": 1.3279000122565776,
+        "max_ms": 1.8299999937880784,
+        "repeats": 30
+      },
+      "infer_one": {
+        "median_ms": 0.33459998667240143,
+        "mean_ms": 0.34955000252618146,
+        "min_ms": 0.31010000384412706,
+        "max_ms": 0.5110999918542802,
+        "repeats": 30
+      },
+      "update_forty": {
+        "median_ms": 14.088800002355129,
+        "mean_ms": 14.39898999815341,
+        "min_ms": 13.89309999649413,
+        "max_ms": 18.055900000035763,
+        "repeats": 20
+      }
+    },
+    {
+      "channels": [
+        32,
+        64,
+        64
+      ],
+      "hidden": 64,
+      "device": "cuda",
+      "parameters": 393778,
+      "sample_eight": {
+        "median_ms": 1.0528999991947785,
+        "mean_ms": 1.1956500015609588,
+        "min_ms": 0.9144999785348773,
+        "max_ms": 2.395299990894273,
+        "repeats": 30
+      },
+      "infer_one": {
+        "median_ms": 0.5494500073837116,
+        "mean_ms": 0.6770466667755196,
+        "min_ms": 0.4959999932907522,
+        "max_ms": 1.244000013684854,
+        "repeats": 30
+      },
+      "update_forty": {
+        "median_ms": 3.550349982106127,
+        "mean_ms": 3.7272400004439987,
+        "min_ms": 3.339300019433722,
+        "max_ms": 5.109399993671104,
+        "repeats": 20
+      }
+    },
+    {
+      "channels": [
+        16,
+        32,
+        32
+      ],
+      "hidden": 64,
+      "device": "cpu",
+      "parameters": 185762,
+      "sample_eight": {
+        "median_ms": 0.7974000182002783,
+        "mean_ms": 0.8412399998633191,
+        "min_ms": 0.721300020813942,
+        "max_ms": 1.110500015784055,
+        "repeats": 30
+      },
+      "infer_one": {
+        "median_ms": 0.2044500142801553,
+        "mean_ms": 0.24242999982864907,
+        "min_ms": 0.1815000141505152,
+        "max_ms": 0.6161000055726618,
+        "repeats": 30
+      },
+      "update_forty": {
+        "median_ms": 6.0376500186976045,
+        "mean_ms": 6.303340010344982,
+        "min_ms": 5.9535000182222575,
+        "max_ms": 8.081899984972551,
+        "repeats": 20
+      }
+    },
+    {
+      "channels": [
+        16,
+        32,
+        32
+      ],
+      "hidden": 64,
+      "device": "cuda",
+      "parameters": 185762,
+      "sample_eight": {
+        "median_ms": 1.0108499991474673,
+        "mean_ms": 1.2009300000499934,
+        "min_ms": 0.8959000115282834,
+        "max_ms": 2.680100005818531,
+        "repeats": 30
+      },
+      "infer_one": {
+        "median_ms": 0.556350001716055,
+        "mean_ms": 0.6342833328138416,
+        "min_ms": 0.5122000002302229,
+        "max_ms": 1.1489999887999147,
+        "repeats": 30
+      },
+      "update_forty": {
+        "median_ms": 3.7636500055668876,
+        "mean_ms": 4.279055001097731,
+        "min_ms": 3.3644000068306923,
+        "max_ms": 6.226299999980256,
+        "repeats": 20
+      }
+    }
+  ],
+  "historical_dqn4_reference": {
+    "episodes": 30000,
+    "logged_elapsed_seconds": 1655.9283123999994,
+    "learner_transitions_per_game": 31.4937,
+    "environment_plies_per_game": 37.163066666666666,
+    "note": "Historical DQN wall time, not measured A2C training time."
+  }
+}

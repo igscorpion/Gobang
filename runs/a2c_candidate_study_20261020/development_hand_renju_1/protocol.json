@@ -1,0 +1,66 @@
+{
+  "started_at": "2026-10-20T23:42:08.629305+08:00",
+  "study_role": "reusable development validation",
+  "checkpoint": "runs/production/a2c4_seed22/best.pt",
+  "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+  "source_sha256": {
+    "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+    "rl/agents/a2c_tactical.py": "4348a7f99e95ea199a8e0381ff06d4469b2c95886206502577c0c13166b7d7a4",
+    "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+    "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+    "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+    "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+    "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+    "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+    "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+    "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+    "rl/evaluation/a2c_candidate_study.py": "56331ea2b5ebd637fd25046edb72530869e60f2b27d5a258d69ec5489d4698e2"
+  },
+  "tactical_config": {
+    "enabled": true,
+    "forcing_depth": 5,
+    "max_nodes": 1500,
+    "candidate_limit": 12,
+    "cache_size": 4096
+  },
+  "baseline_sha256": {
+    "games.csv": "808949625318411e41deeacd2b712909acaa8f40cc5c85bf7e00bd2acf07ed51",
+    "moves.csv": "852e2223eda34ce7f6767c1b7b7d0826b3a50cdb3ce3cc62ad26624f37833768",
+    "protocol.json": "add9edccf6dc40f1ea56f0cedd072656a2d8cf142e5be4352058786b7e840bb7",
+    "summary.json": "2e2b154412c9df51cc88e10f174af573a24e486aae4a78987513b6247077c208"
+  },
+  "training_performed": false,
+  "hand_weights": {
+    "win": 10000,
+    "opp_win": 9000,
+    "open4": 1000,
+    "opp_open4": 500,
+    "opp_half4": 450,
+    "half4": 400,
+    "open3": 100,
+    "opp_open3": 80,
+    "half3": 20,
+    "open2": 10
+  },
+  "direct_reasons_unchanged": [
+    "block_immediate_win",
+    "create_double_threat",
+    "forced_win",
+    "immediate_win",
+    "unavoidable_loss"
+  ],
+  "tie_break": "smallest action index",
+  "games_per_ranking_per_cell": 40,
+  "development_seeds": {
+    "freestyle/1": 3100000,
+    "freestyle/-1": 3200000,
+    "renju/1": 3300000,
+    "renju/-1": 3400000
+  },
+  "reference": {
+    "depth": 2,
+    "candidate_limit": 8,
+    "neighborhood": 2,
+    "last_agent_turns_per_loss": 3
+  }
+}

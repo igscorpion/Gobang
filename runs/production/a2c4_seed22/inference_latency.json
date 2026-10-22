@@ -1,0 +1,8 @@
+{
+  "device": "cuda",
+  "batch_size": 1,
+  "samples": 48,
+  "median_ms": 1.6037000000324042,
+  "p95_ms": 1.9079000003330293,
+  "protocol": "fixed synthetic legal positions; encoding, transfer and argmax included"
+}

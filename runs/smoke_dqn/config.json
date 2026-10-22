@@ -1,0 +1,18 @@
+{
+  "output": "runs/smoke_dqn",
+  "episodes": 42,
+  "seed": 11,
+  "input_channels": 4,
+  "device": null,
+  "rules": "freestyle",
+  "fixed_ratio": null,
+  "epsilon_decay": 40,
+  "replay_capacity": 30000,
+  "batch_size": 8,
+  "save_every": 20,
+  "eval_every": 20,
+  "validation_games": 2,
+  "final_games": 2,
+  "resume": true,
+  "warm_start": null
+}

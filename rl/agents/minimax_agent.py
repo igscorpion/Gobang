@@ -9,6 +9,7 @@
 from __future__ import annotations
 
 from math import inf
+from rl.environment.rules import relative_legal_actions, rule_mode, winning_move
 from time import perf_counter
 
 from rl.agents.base_agent import BaseAgent
@@ -28,15 +29,23 @@ class MinimaxAgent(BaseAgent):
 
     MATE_SCORE = 1_000_000_000.0
 
-    def __init__(self, board_size: int = 9, win_count: int = 5, depth: int = 2,
-                 candidate_limit: int = 8, neighborhood: int = 2,
-                 use_alpha_beta: bool = True):
+    def __init__(
+        self,
+        board_size: int = 9,
+        win_count: int = 5,
+        depth: int = 2,
+        candidate_limit: int = 8,
+        neighborhood: int = 2,
+        use_alpha_beta: bool = True,
+        rules=None,
+    ):
         if depth < 1:
             raise ValueError("depth 必须至少为 1")
         if candidate_limit < 1:
             raise ValueError("candidate_limit 必须至少为 1")
         if neighborhood < 1:
             raise ValueError("neighborhood 必须至少为 1")
+        self.rules = rule_mode(rules)
         self.board_size = board_size
         self.win_count = win_count
         self.depth = depth
@@ -53,9 +62,13 @@ class MinimaxAgent(BaseAgent):
         if not legal_actions:
             raise ValueError("没有合法动作可选择")
         board = [list(row) for row in state]
-        legal = [int(action) for action in legal_actions
-                 if 0 <= int(action) < self.board_size * self.board_size
-                 and board[int(action) // self.board_size][int(action) % self.board_size] == 0]
+        legal = [
+            int(action)
+            for action in legal_actions
+            if 0 <= int(action) < self.board_size * self.board_size
+            and board[int(action) // self.board_size][int(action) % self.board_size]
+            == 0
+        ]
         if not legal:
             raise ValueError("没有与当前棋盘匹配的合法动作")
 
@@ -90,10 +103,14 @@ class MinimaxAgent(BaseAgent):
                 score = 0.0
             else:
                 next_board = [[-cell for cell in line] for line in board]
-                next_legal = [a for a in legal_actions if a != action]
+                next_legal = relative_legal_actions(next_board, self.rules)
                 child_score, _ = self._search(
-                    next_board, next_legal, depth - 1,
-                    -beta, -alpha, ply + 1,
+                    next_board,
+                    next_legal,
+                    depth - 1,
+                    -beta,
+                    -alpha,
+                    ply + 1,
                 )
                 score = -child_score
 
@@ -124,17 +141,23 @@ class MinimaxAgent(BaseAgent):
             # 若对方有一个或多个下一手胜点，搜索所有对应堵点，不被 branch cap 截断。
             return opponent_wins
 
-        stones = [(r, c) for r, line in enumerate(board)
-                  for c, value in enumerate(line) if value]
+        stones = [
+            (r, c)
+            for r, line in enumerate(board)
+            for c, value in enumerate(line)
+            if value
+        ]
         if not stones:
             center = (self.board_size // 2) * self.board_size + self.board_size // 2
-            return [center] if center in legal else legal[:self.candidate_limit]
+            return [center] if center in legal else legal[: self.candidate_limit]
 
         nearby = []
         for action in legal:
             row, col = divmod(action, self.board_size)
-            if any(max(abs(row - sr), abs(col - sc)) <= self.neighborhood
-                   for sr, sc in stones):
+            if any(
+                max(abs(row - sr), abs(col - sc)) <= self.neighborhood
+                for sr, sc in stones
+            ):
                 nearby.append(action)
         pool = nearby or legal
         ranked = sorted(
@@ -142,13 +165,16 @@ class MinimaxAgent(BaseAgent):
             key=lambda action: self._move_score(board, action),
             reverse=True,
         )
-        return ranked[:self.candidate_limit]
+        return ranked[: self.candidate_limit]
 
     def _evaluate(self, board):
         """静态估值：己方最佳单步棋型潜力减去对手潜力。"""
-        legal = [r * self.board_size + c
-                 for r in range(self.board_size)
-                 for c in range(self.board_size) if board[r][c] == 0]
+        legal = [
+            r * self.board_size + c
+            for r in range(self.board_size)
+            for c in range(self.board_size)
+            if board[r][c] == 0
+        ]
         if not legal:
             return 0.0
         own = max(self._move_score(board, action) for action in legal)
@@ -158,8 +184,9 @@ class MinimaxAgent(BaseAgent):
 
     def _move_score(self, board, action):
         features = _features(board, action, self.board_size, self.win_count)
-        return sum(GREEDY_WEIGHTS.get(name, 0.0) * value
-                   for name, value in features.items())
+        return sum(
+            GREEDY_WEIGHTS.get(name, 0.0) * value for name, value in features.items()
+        )
 
     def _wins_after(self, board, action, player):
         row, col = divmod(action, self.board_size)
@@ -169,18 +196,11 @@ class MinimaxAgent(BaseAgent):
         return won
 
     def _is_winning_move(self, board, row, col, player):
-        for dr, dc in ((1, 0), (0, 1), (1, 1), (1, -1)):
-            count = 1
-            for sign in (1, -1):
-                r, c = row + sign * dr, col + sign * dc
-                while (0 <= r < self.board_size and 0 <= c < self.board_size
-                       and board[r][c] == player):
-                    count += 1
-                    r += sign * dr
-                    c += sign * dc
-            if count >= self.win_count:
-                return True
-        return False
+        color = 1 if sum(v != 0 for row in board for v in row) % 2 else -1
+        # board already contains the hypothetical move.
+        actual = color * player
+        absolute = [[v * color for v in row] for row in board]
+        return winning_move(absolute, row, col, actual, self.rules, self.win_count)
 
     def update(self, state, action, reward, next_state, done):
         """Minimax 是无训练参数的搜索策略，不执行逐步更新。"""

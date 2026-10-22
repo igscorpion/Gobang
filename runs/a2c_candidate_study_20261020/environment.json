@@ -1,0 +1,7 @@
+{
+  "python": "3.11.17 (main, Oct  3 2026, 01:03:09) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "torch": "2.9.1+cu128",
+  "device": "cpu",
+  "torch_threads": 1
+}

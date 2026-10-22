@@ -1,0 +1,76 @@
+{
+  "format": "a2c_original_training_cost_context_v1",
+  "prepared_at_utc": "2026-10-21T11:40:25.991367+00:00",
+  "source_only_no_final_tests_read": true,
+  "training_or_eval_locks_touched": false,
+  "baseline_wrapper": "a2c4_tactical reuses seed22 validation-selected episode19000; adding the wrapper trained zero additional updates.",
+  "per_seed": [
+    {
+      "seed": 11,
+      "training_games": 30000,
+      "updates": 16763,
+      "learner_transitions": 647695,
+      "environment_plies": 762777,
+      "training_seconds": 653.58131559717,
+      "validation_seconds": 102.06914279994089,
+      "original_test_seconds": 8.410166499990737,
+      "logged_active_wall_seconds": 811.3672287999943,
+      "selected_episode": 1000,
+      "parameters": 1405042,
+      "device": "cuda",
+      "status_sha256": "a7b06851cfc7f84f4c03f77aa93f462a6ce551777008c4ab43d7f17e3958843a",
+      "config_sha256": "be0dce840524b853b62e78da73d5a811e8c7b917649d4befd29dd8bb8f8b2725",
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed11"
+    },
+    {
+      "seed": 22,
+      "training_games": 30000,
+      "updates": 16875,
+      "learner_transitions": 652921,
+      "environment_plies": 771030,
+      "training_seconds": 567.5380790000058,
+      "validation_seconds": 91.44905450000124,
+      "original_test_seconds": 8.664790900000298,
+      "logged_active_wall_seconds": 714.3313861999932,
+      "selected_episode": 19000,
+      "parameters": 1405042,
+      "device": "cuda",
+      "status_sha256": "55fdfe2f9827ec1d973b9b22e0ac4638fee7673d6459a963b1f95d5545417f85",
+      "config_sha256": "ae15a86b9dfc7d909f208d85587036c34de79d2e397188f8ccde7c6fe0c4f299",
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22"
+    },
+    {
+      "seed": 33,
+      "training_games": 30000,
+      "updates": 17637,
+      "learner_transitions": 681251,
+      "environment_plies": 793749,
+      "training_seconds": 570.1445383000364,
+      "validation_seconds": 85.08545159999812,
+      "original_test_seconds": 8.289872100000139,
+      "logged_active_wall_seconds": 703.5030535999995,
+      "selected_episode": 1000,
+      "parameters": 1405042,
+      "device": "cuda",
+      "status_sha256": "cb2076fc1eb491d6136d48915778f12d4da39fb2aed60b89f9c79b143120bb88",
+      "config_sha256": "1e1942e67a573deb33bd40cf4505514725d60a8354b758774a745961992a6842",
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed33"
+    }
+  ],
+  "totals": {
+    "training_games": 90000,
+    "updates": 51275,
+    "learner_transitions": 1981867,
+    "environment_plies": 2327556,
+    "training_seconds": 1791.2639328972123,
+    "validation_seconds": 278.60364889994025,
+    "original_test_seconds": 25.364829499991174,
+    "logged_active_wall_seconds": 2229.201668599987
+  },
+  "limits": [
+    "The original three seeds each trained30000 games, totaling90000, not90000 each.",
+    "These are original completed-training counters; original test times refer to its historical frozen protocol, not the new6400-game tests.",
+    "New research wall timing includes internal validation/IO and differs in attribution; compare recorded cost fields descriptively, not as a strict hardware-matched speed ratio.",
+    "Shared expert generation, CE pretraining, all development experiments and final evaluation costs are additional to the selected A2C fine-tuning budget."
+  ]
+}

@@ -33,7 +33,7 @@ Environment.step(action)
       ↓
 reward + next_state + done
       ↓
-Agent.update(...)
+local_dqn.train_batch / az_games.train_step
 ```
 
 ## 数据流（人机对战）
@@ -51,3 +51,9 @@ Web 使用绝对颜色，是为了棋盘显示稳定；Agent 训练仍使用 `ge
 Web 对战使用注册表中的 Agent，前端可切换名称。新增算法可继承 `BaseAgent` 并注册到 `rl/agents/registry.py`。
 
 Minimax 实现在 `rl/agents/minimax_agent.py`：采用 Negamax + Alpha-Beta，并复用 Greedy 的棋型特征作为叶节点估值。为控制分支因子，普通走法通过邻域和候选数量作启发式筛选，直接获胜与必须防守对手下一手成五的落点会全部保留；因此它不是全动作空间的完备搜索。运行、参数和对照评估命令见 `rl/README.md`。
+
+## 共用规则与实验调度
+
+`environment/state.py` 统一相对棋盘与四通道状态；`environment/rules.py` 统一无禁手和黑方禁手合法性。`training/common.py` 管理随机数、冻结评估、原子保存与日志；`local_suite.py` 串行调度对照实验，避免同一 GPU 上多个训练进程互相竞争。
+
+训练器直接优化网络，DQNAgent.update 只是旧接口占位；不能用通用随机演示循环替代神经网络训练。检查点在 runs 下，网页只加载权重，不加载训练 replay 或优化器状态。

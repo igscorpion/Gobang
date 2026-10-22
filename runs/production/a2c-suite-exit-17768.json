@@ -1,0 +1,17 @@
+{
+  "pid": 12400,
+  "bootstrap_pid": 17768,
+  "command": [
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\.venv\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "rl.training.a2c_suite",
+    "--device",
+    "cuda"
+  ],
+  "started": "2026-10-15T12:04:20.651894+08:00",
+  "only_local": true,
+  "launch_method": "hidden service-created bootstrap independent of desktop app",
+  "exit_code": 0,
+  "finished": "2026-10-15T12:28:31.340222+08:00"
+}

@@ -1,0 +1,17 @@
+{
+  "format": "a2c_confirmation_training_queue_v1",
+  "state": "failed",
+  "process": {
+    "pid": 66004,
+    "alive": true,
+    "birth": "134370016778439505",
+    "exit_code": null
+  },
+  "updated_at": "2026-10-20T20:28:04.055740+00:00",
+  "completed_stages": [],
+  "final_tests_started": false,
+  "external_evaluations_started": false,
+  "error": "RuntimeError('Original durable checkpoint mismatches 10k protocol/status')",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\training\\a2c_confirmation_suite.py\", line 388, in main\n    suite.run()\n  File \"C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\training\\a2c_confirmation_suite.py\", line 362, in run\n    self.ensure_training(stage)\n  File \"C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\training\\a2c_confirmation_suite.py\", line 289, in ensure_training\n    copy_checkpoint(stage, self.jobs(stage) / \"copy_provenance.json\")\n  File \"C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\training\\a2c_confirmation_suite.py\", line 194, in copy_checkpoint\n    raise RuntimeError(\"Original durable checkpoint mismatches 10k protocol/status\")\nRuntimeError: Original durable checkpoint mismatches 10k protocol/status\n",
+  "child_policy": "Preserve live children; rerun supervisor to reattach via OS locks and birth"
+}

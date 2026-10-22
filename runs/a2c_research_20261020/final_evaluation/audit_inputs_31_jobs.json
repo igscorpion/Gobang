@@ -1,0 +1,315 @@
+{
+  "format": "a2c_independent_audit_inputs_v1",
+  "evaluations": [
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_002",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train",
+      "training_protocol_sha256": "bc686b9fdc8285b183c449b47c5b6365ff2b0b1a3c03d17b13c91df87c013550",
+      "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed22\\train",
+      "training_protocol_sha256": "e7db1818aabebfa5158515f45f584fa0e868b2e6fe762688a82ddcf3ebc5598a",
+      "checkpoint_sha256": "a6e9c8e1664192016dc12326a7e7f2c26e7c03ab44882c58012cb9d2ab11607c",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 33,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 33,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 33,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 33,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 33,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 33,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_greedy\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 33,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_random\\attempt_001",
+      "role": "candidate",
+      "recipe": "residual_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 33,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed33\\train",
+      "training_protocol_sha256": "35b414a8235723f2b127a9807ea3274657bac07e0c72831ac2501a22147d4bb3",
+      "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_freestyle_greedy\\attempt_001",
+      "role": "contextual_reference",
+      "recipe": "flat_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train",
+      "training_protocol_sha256": "a747e624f437f027b775c07ec28da28fa2f89fa93eca44d1f0f31a316c9efc55",
+      "checkpoint_sha256": "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_renju_greedy\\attempt_001",
+      "role": "contextual_reference",
+      "recipe": "flat_tactical10_ce20_a2c_ce01_dev_selected",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train",
+      "training_protocol_sha256": "a747e624f437f027b775c07ec28da28fa2f89fa93eca44d1f0f31a316c9efc55",
+      "checkpoint_sha256": "4c8709c5466cce9e051ff8ff2cf257d60c34ceff88bb40552a1b37291cf6d3f1",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_002",
+      "role": "contextual_reference",
+      "recipe": "original_a2c4_tactical_seed22",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22",
+      "training_protocol_sha256": "ae15a86b9dfc7d909f208d85587036c34de79d2e397188f8ccde7c6fe0c4f299",
+      "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_renju_greedy\\attempt_001",
+      "role": "contextual_reference",
+      "recipe": "original_a2c4_tactical_seed22",
+      "training_seed": 22,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22",
+      "training_protocol_sha256": "ae15a86b9dfc7d909f208d85587036c34de79d2e397188f8ccde7c6fe0c4f299",
+      "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_freestyle_greedy\\attempt_001",
+      "role": "contextual_reference",
+      "recipe": "alphazero_width128_400",
+      "training_seed": 11,
+      "training_run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed",
+      "training_protocol_sha256": "0b96d341f66ab1138df6e46c1ca886528e2edbbf4cdf596001f833722cc825c3",
+      "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf",
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_002",
+      "role": "contextual_reference",
+      "recipe": "minimax_depth2_candidates8",
+      "training_seed": null,
+      "training_run": null,
+      "training_protocol_sha256": null,
+      "checkpoint_sha256": null,
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_renju_greedy\\attempt_001",
+      "role": "contextual_reference",
+      "recipe": "minimax_depth2_candidates8",
+      "training_seed": null,
+      "training_run": null,
+      "training_protocol_sha256": null,
+      "checkpoint_sha256": null,
+      "frozen_selection": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json"
+    }
+  ]
+}

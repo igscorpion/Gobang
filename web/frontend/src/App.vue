@@ -24,6 +24,12 @@
           <option v-for="name in agents" :key="name" :value="name">{{ name }}</option>
         </select>
       </label>
+      <label class="agent-picker">规则：
+        <select :value="rules" :disabled="busy" @change="onSelectRules">
+          <option value="freestyle">无禁手</option>
+          <option value="renju">黑方禁手（9×9）</option>
+        </select>
+      </label>
       <button class="btn" :disabled="busy" @click="onReset">重新开始</button>
     </div>
   </div>
@@ -37,6 +43,7 @@ import {
   playMove,
   resetGame,
   setAgent,
+  setRules,
   startGame,
 } from "./api/game.js";
 
@@ -53,6 +60,7 @@ export default {
       error: "",
       agents: [],
       currentAgent: "",
+      rules: "freestyle",
       busyText: "",
     };
   },
@@ -82,6 +90,7 @@ export default {
   methods: {
     applyState(data) {
       this.board = data.board;
+      this.rules = data.rules || "freestyle";
       this.lastMove = data.last_move;
       this.winner = data.winner;
       this.gameOver = data.game_over;
@@ -101,6 +110,12 @@ export default {
       } finally {
         this.busy = false;
       }
+    },
+    async onSelectRules(event) {
+      this.busy = true; this.error = "";
+      try { this.applyState(await setRules(event.target.value)); }
+      catch (err) { this.error = err.message; }
+      finally { this.busy = false; }
     },
     async onSelectAgent(event) {
       const name = event.target.value;

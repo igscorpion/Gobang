@@ -1,0 +1,79 @@
+{
+  "format": "a2c_parallel_expert_generator_v1",
+  "source": "fresh_generated_expert_games",
+  "config": {
+    "teacher_checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\best.pt",
+    "simulations": 400,
+    "c_puct": 1.4,
+    "device": "cpu",
+    "rules": "freestyle",
+    "train_games": 512,
+    "validation_games": 64,
+    "train_seed": 5000000,
+    "validation_seed": 5100000,
+    "random_opening": 6,
+    "teacher_probability": 0.8,
+    "greedy_probability": 0.1,
+    "random_probability": 0.1,
+    "workers": 4,
+    "sims": 400
+  },
+  "sources": {
+    "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+    "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+    "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+    "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+    "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+    "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+    "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+    "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+    "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+    "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+    "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+    "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+    "rl/agents/alphazero.py": "3750b94b5101f3b1063b6903cb4f0e7622a17bc80afc42430bb265fad0987b05",
+    "rl/agents/base_agent.py": "491e18208d3b2a4b503c980268ca370a7dabd1a8527fefbf0f94b7264c44161e",
+    "rl/training/a2c_expert_dataset.py": "83b43962d1a17d6c14e94bfe77662f011c2afdfd3eb1eaf948f378ed72c169ba"
+  },
+  "expert": {
+    "kind": "alphazero_mcts",
+    "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\best.pt",
+    "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf",
+    "channels": [
+      64,
+      64,
+      128
+    ],
+    "input_channels": 4,
+    "num_simulations": 400,
+    "c_puct": 1.4,
+    "temperature": 0.0,
+    "opening_moves": 6,
+    "candidate_ratio": 0.1,
+    "root_dirichlet_noise": false,
+    "noise_eps_inactive": 0.25,
+    "noise_alpha_inactive": 0.3,
+    "reuse_tree_between_labels": true,
+    "new_tree_each_game": true,
+    "device": "cpu",
+    "board_size": 9,
+    "win_count": 5,
+    "rules": "freestyle"
+  },
+  "external_trajectories_allowed": false,
+  "split": "disjoint game seeds; global board+side+D4 train/validation exclusion, plus validation internal deduplication",
+  "behavior": {
+    "teacher": 0.8,
+    "greedy": 0.1,
+    "random": 0.1
+  },
+  "prefix": {
+    "distribution": "independent uniform integer 0..maximum, then uniform legal actions",
+    "maximum_plies": 6,
+    "prefix_states_labeled": false
+  },
+  "durable_unit": "complete independently seeded game",
+  "torch_version": "2.9.1+cu128",
+  "python_version": "3.11.17 (main, Oct  3 2026, 01:03:09) [MSC v.1944 64 bit (AMD64)]",
+  "protocol_id": "bb20e44bd6993f03fe7149265e39cca8f780df7e6e60810c82e1f156c3b97547"
+}

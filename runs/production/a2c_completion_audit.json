@@ -1,0 +1,456 @@
+{
+  "verified_at": "2026-10-15T12:42:00.309910+08:00",
+  "status": "passed",
+  "training_games": 90000,
+  "validation_games": 14400,
+  "final_test_games": 1200,
+  "additional_integrity_replay_games": 400,
+  "locks": [
+    {
+      "path": "a2c_suite.lock",
+      "active_writer": false
+    },
+    {
+      "path": "a2c4_seed11/run.lock",
+      "active_writer": false
+    },
+    {
+      "path": "a2c4_seed22/run.lock",
+      "active_writer": false
+    },
+    {
+      "path": "a2c4_seed33/run.lock",
+      "active_writer": false
+    }
+  ],
+  "seeds": [
+    {
+      "seed": 11,
+      "training_games": 30000,
+      "validation_games": 4800,
+      "final_test_games": 400,
+      "best_episode": 1000,
+      "validation_score": 0.0,
+      "test": [
+        {
+          "opponent": "random",
+          "color": 1,
+          "games": 100,
+          "wins": 97,
+          "draws": 0,
+          "losses": 3,
+          "win_rate": 0.97,
+          "score": 0.97,
+          "wilson_low": 0.915479219195973,
+          "wilson_high": 0.9897456617765851,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "random",
+          "color": -1,
+          "games": 100,
+          "wins": 98,
+          "draws": 0,
+          "losses": 2,
+          "win_rate": 0.98,
+          "score": 0.98,
+          "wilson_low": 0.9299868370580063,
+          "wilson_high": 0.9944981477650318,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        }
+      ],
+      "training_seconds": 653.58131559717,
+      "validation_seconds": 102.06914279994089,
+      "test_seconds": 8.410166499990737,
+      "active_wall_seconds": 811.3672287999943,
+      "best_sha256": "0780be21b0414aa3bd9e260c85415149a61150a6c4f15d76276684b9ff7c3736"
+    },
+    {
+      "seed": 22,
+      "training_games": 30000,
+      "validation_games": 4800,
+      "final_test_games": 400,
+      "best_episode": 19000,
+      "validation_score": 0.0125,
+      "test": [
+        {
+          "opponent": "random",
+          "color": 1,
+          "games": 100,
+          "wins": 99,
+          "draws": 0,
+          "losses": 1,
+          "win_rate": 0.99,
+          "score": 0.99,
+          "wilson_low": 0.9455124752390653,
+          "wilson_high": 0.9982326134344526,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "random",
+          "color": -1,
+          "games": 100,
+          "wins": 99,
+          "draws": 0,
+          "losses": 1,
+          "win_rate": 0.99,
+          "score": 0.99,
+          "wilson_low": 0.9455124752390653,
+          "wilson_high": 0.9982326134344526,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 5,
+          "draws": 0,
+          "losses": 95,
+          "win_rate": 0.05,
+          "score": 0.05,
+          "wilson_low": 0.02154336145631356,
+          "wilson_high": 0.11175196527208817,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 1,
+          "draws": 0,
+          "losses": 99,
+          "win_rate": 0.01,
+          "score": 0.01,
+          "wilson_low": 0.0017673865655472645,
+          "wilson_high": 0.0544875247609346,
+          "rules": "freestyle"
+        }
+      ],
+      "training_seconds": 567.5380790000058,
+      "validation_seconds": 91.44905450000124,
+      "test_seconds": 8.664790900000298,
+      "active_wall_seconds": 714.3313861999932,
+      "best_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2"
+    },
+    {
+      "seed": 33,
+      "training_games": 30000,
+      "validation_games": 4800,
+      "final_test_games": 400,
+      "best_episode": 1000,
+      "validation_score": 0.0,
+      "test": [
+        {
+          "opponent": "random",
+          "color": 1,
+          "games": 100,
+          "wins": 98,
+          "draws": 0,
+          "losses": 2,
+          "win_rate": 0.98,
+          "score": 0.98,
+          "wilson_low": 0.9299868370580063,
+          "wilson_high": 0.9944981477650318,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "random",
+          "color": -1,
+          "games": 100,
+          "wins": 96,
+          "draws": 0,
+          "losses": 4,
+          "win_rate": 0.96,
+          "score": 0.96,
+          "wilson_low": 0.9016278276739262,
+          "wilson_high": 0.984336949448152,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 0,
+          "draws": 0,
+          "losses": 100,
+          "win_rate": 0.0,
+          "score": 0.0,
+          "wilson_low": 0.0,
+          "wilson_high": 0.03699480747600191,
+          "rules": "freestyle"
+        }
+      ],
+      "training_seconds": 570.1445383000364,
+      "validation_seconds": 85.08545159999812,
+      "test_seconds": 8.289872100000139,
+      "active_wall_seconds": 703.5030535999995,
+      "best_sha256": "be37f2224d14b2fafcc2c078d2b95c14e9052a40cd45175fa5bb0e0a1e248de9"
+    }
+  ],
+  "selected_model": {
+    "algorithm": "a2c",
+    "checkpoint": "runs/production/a2c4_seed22/best.pt",
+    "selection": "validation score only",
+    "validation_score": 0.0125,
+    "seed": 22,
+    "selected_episode": 19000
+  },
+  "across_seeds": [
+    {
+      "family": "a2c4",
+      "opponent": "random",
+      "color": 1,
+      "win_rate": {
+        "n": 3,
+        "mean": 0.98,
+        "sample_sd": 0.010000000000000009
+      },
+      "score": {
+        "n": 3,
+        "mean": 0.98,
+        "sample_sd": 0.010000000000000009
+      }
+    },
+    {
+      "family": "a2c4",
+      "opponent": "random",
+      "color": -1,
+      "win_rate": {
+        "n": 3,
+        "mean": 0.9766666666666667,
+        "sample_sd": 0.01527525231651948
+      },
+      "score": {
+        "n": 3,
+        "mean": 0.9766666666666667,
+        "sample_sd": 0.01527525231651948
+      }
+    },
+    {
+      "family": "a2c4",
+      "opponent": "greedy",
+      "color": 1,
+      "win_rate": {
+        "n": 3,
+        "mean": 0.016666666666666666,
+        "sample_sd": 0.02886751345948129
+      },
+      "score": {
+        "n": 3,
+        "mean": 0.016666666666666666,
+        "sample_sd": 0.02886751345948129
+      }
+    },
+    {
+      "family": "a2c4",
+      "opponent": "greedy",
+      "color": -1,
+      "win_rate": {
+        "n": 3,
+        "mean": 0.0033333333333333335,
+        "sample_sd": 0.005773502691896258
+      },
+      "score": {
+        "n": 3,
+        "mean": 0.0033333333333333335,
+        "sample_sd": 0.005773502691896258
+      }
+    },
+    {
+      "family": "dqn4",
+      "opponent": "random",
+      "color": 1,
+      "win_rate": {
+        "n": 1,
+        "mean": 0.74,
+        "sample_sd": null
+      },
+      "score": {
+        "n": 1,
+        "mean": 0.74,
+        "sample_sd": null
+      }
+    },
+    {
+      "family": "dqn4",
+      "opponent": "random",
+      "color": -1,
+      "win_rate": {
+        "n": 1,
+        "mean": 0.67,
+        "sample_sd": null
+      },
+      "score": {
+        "n": 1,
+        "mean": 0.67,
+        "sample_sd": null
+      }
+    },
+    {
+      "family": "dqn4",
+      "opponent": "greedy",
+      "color": 1,
+      "win_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      },
+      "score": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      }
+    },
+    {
+      "family": "dqn4",
+      "opponent": "greedy",
+      "color": -1,
+      "win_rate": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      },
+      "score": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      }
+    }
+  ],
+  "paired_a2c_minus_dqn": [
+    {
+      "opponent": "random",
+      "color": 1,
+      "pairs": [
+        {
+          "seed": 11,
+          "win_rate_difference_percentage_points": 23.0,
+          "score_difference": 0.22999999999999998
+        }
+      ],
+      "win_rate_difference_percentage_points": {
+        "n": 1,
+        "mean": 23.0,
+        "sample_sd": null
+      },
+      "score_difference": {
+        "n": 1,
+        "mean": 0.22999999999999998,
+        "sample_sd": null
+      }
+    },
+    {
+      "opponent": "random",
+      "color": -1,
+      "pairs": [
+        {
+          "seed": 11,
+          "win_rate_difference_percentage_points": 30.999999999999993,
+          "score_difference": 0.30999999999999994
+        }
+      ],
+      "win_rate_difference_percentage_points": {
+        "n": 1,
+        "mean": 30.999999999999993,
+        "sample_sd": null
+      },
+      "score_difference": {
+        "n": 1,
+        "mean": 0.30999999999999994,
+        "sample_sd": null
+      }
+    },
+    {
+      "opponent": "greedy",
+      "color": 1,
+      "pairs": [
+        {
+          "seed": 11,
+          "win_rate_difference_percentage_points": 0.0,
+          "score_difference": 0.0
+        }
+      ],
+      "win_rate_difference_percentage_points": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      },
+      "score_difference": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      }
+    },
+    {
+      "opponent": "greedy",
+      "color": -1,
+      "pairs": [
+        {
+          "seed": 11,
+          "win_rate_difference_percentage_points": 0.0,
+          "score_difference": 0.0
+        }
+      ],
+      "win_rate_difference_percentage_points": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      },
+      "score_difference": {
+        "n": 1,
+        "mean": 0.0,
+        "sample_sd": null
+      }
+    }
+  ],
+  "artifact_recovery": "a2c4_seed11/artifact_recovery.json",
+  "all_final_cells_match_per_game_csv": true,
+  "training_budget_unchanged": true,
+  "test_used_for_selection": false,
+  "registered_a2c_model_load_verified": true,
+  "registry_inference_check": {
+    "model": "a2c4",
+    "device": "cpu",
+    "legal_deterministic_action": 41,
+    "parameters": 1405042
+  }
+}

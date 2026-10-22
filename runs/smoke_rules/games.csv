@@ -1,0 +1,9 @@
+rules,game,seed,winner,moves,opening,algorithm,sims
+freestyle,0,700000,0,81,"67,43,22,65",greedy,400
+freestyle,1,700001,0,81,"48,58,35,9",greedy,400
+freestyle,2,700002,-1,28,"37,22,36,3",greedy,400
+freestyle,3,700003,-1,32,"1,39,55,32",greedy,400
+renju,0,700000,0,81,"67,43,22,65",greedy,400
+renju,1,700001,0,81,"48,58,35,9",greedy,400
+renju,2,700002,-1,28,"37,22,36,3",greedy,400
+renju,3,700003,-1,32,"1,39,55,32",greedy,400

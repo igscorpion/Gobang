@@ -1,0 +1,138 @@
+{
+  "frontend_recovery": "runs/web-verified/frontend_recovery_20261022/launcher.json",
+  "registry_tests_passed": 15,
+  "gate_tests_passed": 24,
+  "observed_at_utc": "2026-10-21T16:06:39.3249255Z",
+  "old_services_stopped": false,
+  "original_test_run_stopped_after_successful_scoped_retest": true,
+  "new_backend": "http://127.0.0.1:8020",
+  "new_frontend": "http://127.0.0.1:5193",
+  "sandbox_frontend_attempt_failed": true,
+  "original_services_observed_before_launch": [],
+  "frontend_build_passed": true,
+  "browser_validation_passed": true,
+  "browser_verified_rules": [
+    "freestyle",
+    "renju"
+  ],
+  "browser_verified_models": [
+    "a2c4_tactical",
+    "a2c_residual10_guarded"
+  ],
+  "final_game": {
+    "board": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        -1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "board_size": 9,
+    "current_player": "black",
+    "ai_move": null,
+    "last_move": {
+      "row": 3,
+      "col": 4
+    },
+    "winner": null,
+    "game_over": false,
+    "agent": "a2c_residual10_guarded",
+    "rules": "renju",
+    "forbidden_moves": []
+  },
+  "browser_screenshot": "browser_verified.png"
+}

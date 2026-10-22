@@ -1,0 +1,32 @@
+{
+  "rows": [
+    {
+      "rules": "freestyle",
+      "games": 300,
+      "black_win_rate": 0.24,
+      "draw_rate": 0.5366666666666666,
+      "wilson_low": 0.1951523988530105,
+      "wilson_high": 0.29142218474581205
+    },
+    {
+      "rules": "renju",
+      "games": 300,
+      "black_win_rate": 0.10666666666666667,
+      "draw_rate": 0.6433333333333333,
+      "wilson_low": 0.07657538053068277,
+      "wilson_high": 0.14670411773420264
+    }
+  ],
+  "matched_openings": true,
+  "config": {
+    "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\rule_comparison_greedy",
+    "algorithm": "greedy",
+    "model": null,
+    "games": 300,
+    "sims": 400,
+    "device": "cpu",
+    "opening_moves": 4,
+    "seed": 700000
+  },
+  "interpretation": "Rule effects under the frozen policy and random opening protocol; cannot prove first-player forced win or exclude learned color bias."
+}

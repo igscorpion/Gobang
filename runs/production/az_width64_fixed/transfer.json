@@ -1,0 +1,203 @@
+{
+  "source_sha256": "d9f7821a5866ac052aad00083f1f1e65b5ff674978aedd0c2102feaa0c76014c",
+  "tensors": [
+    {
+      "tensor": "conv.0.weight",
+      "source_shape": [
+        64,
+        4,
+        3,
+        3
+      ],
+      "new_shape": [
+        64,
+        4,
+        3,
+        3
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "conv.0.bias",
+      "source_shape": [
+        64
+      ],
+      "new_shape": [
+        64
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "conv.2.weight",
+      "source_shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "new_shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "conv.2.bias",
+      "source_shape": [
+        64
+      ],
+      "new_shape": [
+        64
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "conv.4.weight",
+      "source_shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "new_shape": [
+        64,
+        64,
+        3,
+        3
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "conv.4.bias",
+      "source_shape": [
+        64
+      ],
+      "new_shape": [
+        64
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "policy_head.0.weight",
+      "source_shape": [
+        2,
+        64,
+        1,
+        1
+      ],
+      "new_shape": [
+        2,
+        64,
+        1,
+        1
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "policy_head.0.bias",
+      "source_shape": [
+        2
+      ],
+      "new_shape": [
+        2
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "policy_head.3.weight",
+      "source_shape": [
+        81,
+        162
+      ],
+      "new_shape": [
+        81,
+        162
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "policy_head.3.bias",
+      "source_shape": [
+        81
+      ],
+      "new_shape": [
+        81
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "value_head.0.weight",
+      "source_shape": [
+        1,
+        64,
+        1,
+        1
+      ],
+      "new_shape": [
+        1,
+        64,
+        1,
+        1
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "value_head.0.bias",
+      "source_shape": [
+        1
+      ],
+      "new_shape": [
+        1
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "value_head.3.weight",
+      "source_shape": [
+        64,
+        81
+      ],
+      "new_shape": [
+        64,
+        81
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "value_head.3.bias",
+      "source_shape": [
+        64
+      ],
+      "new_shape": [
+        64
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "value_head.5.weight",
+      "source_shape": [
+        1,
+        64
+      ],
+      "new_shape": [
+        1,
+        64
+      ],
+      "mode": "exact"
+    },
+    {
+      "tensor": "value_head.5.bias",
+      "source_shape": [
+        1
+      ],
+      "new_shape": [
+        1
+      ],
+      "mode": "exact"
+    }
+  ],
+  "optimizer": "fresh Adam, no state imported",
+  "new_slices": "random initialization"
+}

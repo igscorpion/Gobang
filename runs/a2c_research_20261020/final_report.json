@@ -1,0 +1,42 @@
+{
+  "status": "audited_31_job_user_scope",
+  "deferred_jobs": [
+    "alphazero_width128_alphazero_renju_greedy"
+  ],
+  "audit_sha256": "bdd441be7ded416b1daa8608e17b5d94c7f92636476b65b5adc9b8b3ed45fa05",
+  "scope_sha256": "e477a51c3a9a3f70e87ef7d7f6a82991ca1a53ae3631b700e220805ad655fe41",
+  "guarded_greedy_cross_seed": [
+    {
+      "rules": "freestyle",
+      "color": 1,
+      "mean_win_rate": 0.92,
+      "sample_sd_win_rate": 0.04582575694955838,
+      "mean_score": 0.9516666666666667,
+      "sample_sd_score": 0.025166114784235794
+    },
+    {
+      "rules": "freestyle",
+      "color": -1,
+      "mean_win_rate": 0.7866666666666666,
+      "sample_sd_win_rate": 0.05033222956847165,
+      "mean_score": 0.87,
+      "sample_sd_score": 0.02291287847477922
+    },
+    {
+      "rules": "renju",
+      "color": 1,
+      "mean_win_rate": 0.53,
+      "sample_sd_win_rate": 0.11532562594670798,
+      "mean_score": 0.71,
+      "sample_sd_score": 0.06264982043070834
+    },
+    {
+      "rules": "renju",
+      "color": -1,
+      "mean_win_rate": 0.8233333333333334,
+      "sample_sd_win_rate": 0.07637626158259735,
+      "mean_score": 0.885,
+      "sample_sd_score": 0.043588989435406775
+    }
+  ]
+}

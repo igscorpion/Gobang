@@ -1,0 +1,42 @@
+{
+  "name": "warm_imitation_seed22",
+  "pid": 57396,
+  "birth": "134369880458099718",
+  "attempt": 1,
+  "command": [
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\.venv\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "rl.training.a2c_research",
+    "pretrain",
+    "--output",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\warm_imitation_seed22",
+    "--device",
+    "cuda",
+    "--seed",
+    "22",
+    "--rules",
+    "freestyle",
+    "--epochs",
+    "20",
+    "--batch-size",
+    "256",
+    "--dataset",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\expert_dataset\\demonstrations.pt",
+    "--initial-model",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\a2c4_seed22\\best.pt"
+  ],
+  "cwd": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work",
+  "destination": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage3\\warm_imitation_seed22",
+  "started_at": "2026-10-20T16:40:45.807872+00:00",
+  "log": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\suite_jobs\\warm_imitation_seed22\\attempt_001.log",
+  "creationflags": 134218248,
+  "exit_code": 0,
+  "process": {
+    "pid": 57396,
+    "alive": false,
+    "birth": "134369880458099718",
+    "exit_code": 0
+  },
+  "finished_at": "2026-10-20T16:41:25.829918+00:00"
+}

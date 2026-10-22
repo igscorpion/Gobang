@@ -1,0 +1,774 @@
+{
+  "format": "a2c_independent_final_audit_v1",
+  "started_at": "2026-10-20T21:50:30.182488+00:00",
+  "tool_sha256": "a0a5268cd09f301a03a8786d381fc6fcee900a2d4398e81781e3422b2e6a73ce",
+  "project_root": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work",
+  "input_manifest_sha256": "63931f2373b69467d7494b30b5bf6645b1177ab1a2e9c0493a5055c3f1d89532",
+  "loaded_replay_modules": {
+    "rl.environment.gomoku": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\environment\\gomoku.py",
+    "rl.environment.rules": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\environment\\rules.py",
+    "rl.environment.state": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\environment\\state.py",
+    "rl.agents.greedy_agent": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\agents\\greedy_agent.py",
+    "rl.agents.q_learning": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\agents\\q_learning.py",
+    "rl.agents.random_agent": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\agents\\random_agent.py",
+    "rl.agents.base_agent": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\agents\\base_agent.py",
+    "rl.training.common": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\rl\\training\\common.py"
+  },
+  "allow_development": true,
+  "candidate_inference_recomputed": false,
+  "training_or_test_execution_performed": false,
+  "evaluations": [
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage5\\guarded_policy_study\\residual10_005k_policy",
+      "passed": true,
+      "frozen_selection": {
+        "verified": false,
+        "reason": "explicit development smoke",
+        "identity": {
+          "network_kind": "research",
+          "mode": "policy",
+          "device": "cpu",
+          "rules": "freestyle",
+          "opponent": "greedy",
+          "games": 40,
+          "seed_black": 3100000,
+          "seed_white": 3200000,
+          "depth": 2,
+          "nodes": 2000,
+          "search_candidates": 8,
+          "tactical_candidates": 12,
+          "value_weight": 0.0,
+          "sims": 400,
+          "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+          "source_sha256": {
+            "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+            "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+            "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+            "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+            "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+            "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+            "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+            "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+            "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+            "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+            "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+            "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+            "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+            "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+            "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+          }
+        }
+      },
+      "role": "candidate",
+      "training": {
+        "run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\train",
+        "training_seed": 22,
+        "training_protocol_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\train\\protocol.json",
+        "training_protocol_sha256": "77b89bf3b700ebc513d21d8a9c0c12bd400853e9fb261232199ea65788042acf",
+        "legacy_config_provenance": false,
+        "training_os_lock_present": true,
+        "training_completion_verified": false,
+        "checkpoint_state_sha256": "1d83400033b38d19f9109c2ae1728179ec7ed6135392ee97cf810ed2154308da",
+        "parameter_count": 305538,
+        "complete_candidate_checkpoint_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\train\\candidates\\episode_005000.checkpoint",
+        "complete_candidate_checkpoint_sha256": "c2dba9cf9113c22eda3f00bf06a6b9440da12565887f30c7230f304d0db66b82",
+        "model_spec": {
+          "architecture": "residual",
+          "board_size": 9,
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "features": "tactical10",
+          "hidden_units": 256,
+          "residual_blocks": 4,
+          "residual_width": 64
+        },
+        "model_variant": "residual/tactical10",
+        "selected_episode": 5000,
+        "selected_epoch": null,
+        "selected_checkpoint_stage": "after_A2C_updates",
+        "selected_candidate_has_A2C_updates": true,
+        "demonstration_or_warm_start_origin": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4",
+          "stage": "imitation",
+          "epoch": 17,
+          "state_sha256": "69b5a3f3176f65ab8b3ef9ba8adccb294a0abbca4d01af71508d16273145a07c",
+          "selected_state_equals_initial": false,
+          "pretraining_protocol_sha256": "0b11e819bc6821999c4b2c262324c81a238f82d99c93f246e4767aec4ada9c42",
+          "pretraining_seed": 22,
+          "same_seed_as_A2C_run": true
+        },
+        "training_rules": "freestyle",
+        "recipe_signature": "c9deb4dd88e5161cbf2b9ec35c4eab98542dd9f135a0f60dfecefbc347bb38da",
+        "recipe": "residual_tactical10_ce20_a2c_ce01",
+        "initial_model": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+        "initial_sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4",
+        "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+        "limitations": [
+          "Protocol seed verifies lineage; checkpoint bytes do not prove independent initialization.",
+          "Common expert data and any shared warm-start must be disclosed."
+        ]
+      },
+      "games": 80,
+      "legal_moves_replayed": 2480,
+      "opponent_actions_exactly_reproduced": 1227,
+      "artifact_sha256": {
+        "protocol.json": "a36ddb9e7e14b4a56d95b641ea0b49c2c561488ca20f39be0dca7c360bad86f3",
+        "summary.json": "34b94aad71dcf3a15833a48c3e890ffeab72d7e51ec253c9289f2eae285cba80",
+        "status.json": "77c2d278d8808481ac74bcf018eec49a1cda796b20ba4ee4094d44243e876b4f",
+        "games.csv": "a2567ab3aad56d0d2b85dc0b5f9408daf0e1b39b7fdb7846fd65ca3809b5a553",
+        "moves.csv": "993e882fd9b88547a5ee9681ef85529e6b3d5585a6552d1b74ba210f611a473d"
+      },
+      "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+      "identity": {
+        "network_kind": "research",
+        "mode": "policy",
+        "device": "cpu",
+        "rules": "freestyle",
+        "opponent": "greedy",
+        "games": 40,
+        "seed_black": 3100000,
+        "seed_white": 3200000,
+        "depth": 2,
+        "nodes": 2000,
+        "search_candidates": 8,
+        "tactical_candidates": 12,
+        "value_weight": 0.0,
+        "sims": 400,
+        "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+        "source_sha256": {
+          "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+          "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+          "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+          "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+          "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+          "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+          "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+          "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+          "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+          "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+          "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+          "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+          "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+          "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+          "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+        }
+      },
+      "split": "validation",
+      "results": [
+        {
+          "color": 1,
+          "games": 40,
+          "wins": 39,
+          "draws": 0,
+          "losses": 1,
+          "win_rate": 0.975,
+          "score": 0.975,
+          "wilson_95": [
+            0.8711834051199223,
+            0.9955732825922052
+          ],
+          "mean_game_plies": 21.375,
+          "inference_samples": 447,
+          "mean_move_ms": 3.24346062598226,
+          "median_move_ms": 3.49659999483265,
+          "p95_move_ms": 3.923299998859875,
+          "max_move_ms": 4.94930001150351,
+          "tactical_reasons": {
+            "": 447
+          },
+          "mean_search_nodes": 0
+        },
+        {
+          "color": -1,
+          "games": 40,
+          "wins": 27,
+          "draws": 10,
+          "losses": 3,
+          "win_rate": 0.675,
+          "score": 0.8,
+          "wilson_95": [
+            0.52017458088898,
+            0.7991568303733828
+          ],
+          "mean_game_plies": 40.625,
+          "inference_samples": 806,
+          "mean_move_ms": 3.0677016124800347,
+          "median_move_ms": 3.339900002174545,
+          "p95_move_ms": 4.051299998536706,
+          "max_move_ms": 9.112400002777576,
+          "tactical_reasons": {
+            "": 806
+          },
+          "mean_search_nodes": 0
+        }
+      ],
+      "mean_score": 0.8875,
+      "mean_win_rate": 0.825,
+      "candidate_actions_recomputed": false
+    },
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage5\\guarded_policy_study\\residual10_005k_guarded",
+      "passed": true,
+      "frozen_selection": {
+        "verified": false,
+        "reason": "explicit development smoke",
+        "identity": {
+          "network_kind": "research",
+          "mode": "guarded",
+          "device": "cpu",
+          "rules": "freestyle",
+          "opponent": "greedy",
+          "games": 40,
+          "seed_black": 3100000,
+          "seed_white": 3200000,
+          "depth": 2,
+          "nodes": 2000,
+          "search_candidates": 8,
+          "tactical_candidates": 12,
+          "value_weight": 0.0,
+          "sims": 400,
+          "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+          "source_sha256": {
+            "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+            "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+            "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+            "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+            "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+            "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+            "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+            "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+            "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+            "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+            "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+            "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+            "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+            "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+            "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+          }
+        }
+      },
+      "role": "candidate",
+      "training": {
+        "run": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\train",
+        "training_seed": 22,
+        "training_protocol_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\train\\protocol.json",
+        "training_protocol_sha256": "77b89bf3b700ebc513d21d8a9c0c12bd400853e9fb261232199ea65788042acf",
+        "legacy_config_provenance": false,
+        "training_os_lock_present": true,
+        "training_completion_verified": false,
+        "checkpoint_state_sha256": "1d83400033b38d19f9109c2ae1728179ec7ed6135392ee97cf810ed2154308da",
+        "parameter_count": 305538,
+        "complete_candidate_checkpoint_path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\train\\candidates\\episode_005000.checkpoint",
+        "complete_candidate_checkpoint_sha256": "c2dba9cf9113c22eda3f00bf06a6b9440da12565887f30c7230f304d0db66b82",
+        "model_spec": {
+          "architecture": "residual",
+          "board_size": 9,
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "features": "tactical10",
+          "hidden_units": 256,
+          "residual_blocks": 4,
+          "residual_width": 64
+        },
+        "model_variant": "residual/tactical10",
+        "selected_episode": 5000,
+        "selected_epoch": null,
+        "selected_checkpoint_stage": "after_A2C_updates",
+        "selected_candidate_has_A2C_updates": true,
+        "demonstration_or_warm_start_origin": {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+          "sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4",
+          "stage": "imitation",
+          "epoch": 17,
+          "state_sha256": "69b5a3f3176f65ab8b3ef9ba8adccb294a0abbca4d01af71508d16273145a07c",
+          "selected_state_equals_initial": false,
+          "pretraining_protocol_sha256": "0b11e819bc6821999c4b2c262324c81a238f82d99c93f246e4767aec4ada9c42",
+          "pretraining_seed": 22,
+          "same_seed_as_A2C_run": true
+        },
+        "training_rules": "freestyle",
+        "recipe_signature": "c9deb4dd88e5161cbf2b9ec35c4eab98542dd9f135a0f60dfecefbc347bb38da",
+        "recipe": "residual_tactical10_ce20_a2c_ce01",
+        "initial_model": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\residual_tactical10_seed22\\pretrain\\best.pt",
+        "initial_sha256": "b1d8bccf00633e5e1ba611223def1f7ef3361955e1a9bc43dd49f27a6deb6ab4",
+        "dataset_sha256": "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3",
+        "limitations": [
+          "Protocol seed verifies lineage; checkpoint bytes do not prove independent initialization.",
+          "Common expert data and any shared warm-start must be disclosed."
+        ]
+      },
+      "games": 80,
+      "legal_moves_replayed": 2385,
+      "opponent_actions_exactly_reproduced": 1179,
+      "artifact_sha256": {
+        "protocol.json": "f0d469ec3d56e33595e8699b514fb098bcba6c95e3b999608c62fabdd854d590",
+        "summary.json": "c60525b00794a66dc4f0dba3a1c24eb206fba398ad9b274e7a66e2690795643e",
+        "status.json": "77c2d278d8808481ac74bcf018eec49a1cda796b20ba4ee4094d44243e876b4f",
+        "games.csv": "ce6a5919554eb696aacc76618fdc4d009514033843b0acc45bb92bf6c7a8f4a8",
+        "moves.csv": "9dbd9db4c1c6a346fe8acdd90ecd270cc42ae8d5d40d18b1c5acb9d515b912f6"
+      },
+      "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+      "identity": {
+        "network_kind": "research",
+        "mode": "guarded",
+        "device": "cpu",
+        "rules": "freestyle",
+        "opponent": "greedy",
+        "games": 40,
+        "seed_black": 3100000,
+        "seed_white": 3200000,
+        "depth": 2,
+        "nodes": 2000,
+        "search_candidates": 8,
+        "tactical_candidates": 12,
+        "value_weight": 0.0,
+        "sims": 400,
+        "checkpoint_sha256": "4df704eee9d0f3b28bd1debcccb1a16ebb5f40bb4bedd67b29e877ec27098f68",
+        "source_sha256": {
+          "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+          "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+          "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+          "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+          "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+          "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+          "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+          "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+          "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+          "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+          "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+          "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+          "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+          "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+          "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+        }
+      },
+      "split": "validation",
+      "results": [
+        {
+          "color": 1,
+          "games": 40,
+          "wins": 39,
+          "draws": 0,
+          "losses": 1,
+          "win_rate": 0.975,
+          "score": 0.975,
+          "wilson_95": [
+            0.8711834051199223,
+            0.9955732825922052
+          ],
+          "mean_game_plies": 20.675,
+          "inference_samples": 433,
+          "mean_move_ms": 45.81550300235169,
+          "median_move_ms": 58.57419999665581,
+          "p95_move_ms": 91.01009998994414,
+          "max_move_ms": 107.50939999707043,
+          "tactical_reasons": {
+            "guarded_policy_full_legal": 332,
+            "block_immediate_win": 7,
+            "create_double_threat": 39,
+            "immediate_win": 39,
+            "forced_win": 15,
+            "unavoidable_loss": 1
+          },
+          "mean_search_nodes": 0
+        },
+        {
+          "color": -1,
+          "games": 40,
+          "wins": 28,
+          "draws": 9,
+          "losses": 3,
+          "win_rate": 0.7,
+          "score": 0.8125,
+          "wilson_95": [
+            0.545696893456796,
+            0.8192532908430471
+          ],
+          "mean_game_plies": 38.95,
+          "inference_samples": 773,
+          "mean_move_ms": 42.7747200519379,
+          "median_move_ms": 48.500900011276826,
+          "p95_move_ms": 93.11040000466164,
+          "max_move_ms": 113.710199992056,
+          "tactical_reasons": {
+            "guarded_policy_full_legal": 662,
+            "block_immediate_win": 45,
+            "unavoidable_loss": 3,
+            "create_double_threat": 27,
+            "immediate_win": 28,
+            "forced_win": 8
+          },
+          "mean_search_nodes": 0
+        }
+      ],
+      "mean_score": 0.89375,
+      "mean_win_rate": 0.8374999999999999,
+      "candidate_actions_recomputed": false
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "This audit checks recorded candidate moves for legality, not exact neural/search recomputation.",
+    "Per-policy Wilson95 describes game win rates only, not training-seed uncertainty or score.",
+    "Sample standard deviations use actual training seeds and ddof=1; shared expert data/warm starts remain dependent.",
+    "Reused opponent/game seeds across models, wrappers or training seeds are paired; pooled 300-game independence is not assumed.",
+    "Episode-zero selections retain demonstration/warm-start provenance and are never labelled A2C training improvement.",
+    "Finite Greedy/Random tests do not establish general playing strength.",
+    "Sources must match --project-root; mismatches are refused rather than silently importing new rules.",
+    "Source verification covers the evaluator's declared hash contract, not the entire Python dependency closure.",
+    "Complete local candidate companions use trusted-local torch pickle to verify training lineage."
+  ],
+  "random_replay_self_test": {
+    "passed": true,
+    "synthetic_games": 2,
+    "reserved_test_results_read": false,
+    "random_actions_reproduced": 60,
+    "legal_action_rng_tamper_rejected": true
+  },
+  "cross_training_seed_statistics": [
+    {
+      "group": {
+        "depth": 2,
+        "device": "cpu",
+        "games": 40,
+        "mode": "policy",
+        "model_spec": {
+          "architecture": "residual",
+          "board_size": 9,
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "features": "tactical10",
+          "hidden_units": 256,
+          "residual_blocks": 4,
+          "residual_width": 64
+        },
+        "network_kind": "research",
+        "nodes": 2000,
+        "opponent": "greedy",
+        "recipe": "residual_tactical10_ce20_a2c_ce01",
+        "recipe_signature": "c9deb4dd88e5161cbf2b9ec35c4eab98542dd9f135a0f60dfecefbc347bb38da",
+        "role": "candidate",
+        "rules": "freestyle",
+        "search_candidates": 8,
+        "sims": 400,
+        "split": "validation",
+        "tactical_candidates": 12,
+        "value_weight": 0.0
+      },
+      "n_training_seeds": 1,
+      "rows": [
+        {
+          "color": 1,
+          "training_seeds": [
+            22
+          ],
+          "n_training_seeds": 1,
+          "metrics": {
+            "win_rate": {
+              "mean": 0.975,
+              "sample_standard_deviation": null
+            },
+            "score": {
+              "mean": 0.975,
+              "sample_standard_deviation": null
+            },
+            "mean_move_ms": {
+              "mean": 3.24346062598226,
+              "sample_standard_deviation": null
+            },
+            "mean_game_plies": {
+              "mean": 21.375,
+              "sample_standard_deviation": null
+            }
+          },
+          "per_seed": [
+            {
+              "training_seed": 22,
+              "win_rate": 0.975,
+              "score": 0.975,
+              "mean_move_ms": 3.24346062598226,
+              "mean_game_plies": 21.375,
+              "games": 40,
+              "wins": 39,
+              "draws": 0,
+              "losses": 1,
+              "wilson_95": [
+                0.8711834051199223,
+                0.9955732825922052
+              ]
+            }
+          ]
+        },
+        {
+          "color": -1,
+          "training_seeds": [
+            22
+          ],
+          "n_training_seeds": 1,
+          "metrics": {
+            "win_rate": {
+              "mean": 0.675,
+              "sample_standard_deviation": null
+            },
+            "score": {
+              "mean": 0.8,
+              "sample_standard_deviation": null
+            },
+            "mean_move_ms": {
+              "mean": 3.0677016124800347,
+              "sample_standard_deviation": null
+            },
+            "mean_game_plies": {
+              "mean": 40.625,
+              "sample_standard_deviation": null
+            }
+          },
+          "per_seed": [
+            {
+              "training_seed": 22,
+              "win_rate": 0.675,
+              "score": 0.8,
+              "mean_move_ms": 3.0677016124800347,
+              "mean_game_plies": 40.625,
+              "games": 40,
+              "wins": 27,
+              "draws": 10,
+              "losses": 3,
+              "wilson_95": [
+                0.52017458088898,
+                0.7991568303733828
+              ]
+            }
+          ]
+        },
+        {
+          "color": "mean_black_white",
+          "training_seeds": [
+            22
+          ],
+          "n_training_seeds": 1,
+          "metrics": {
+            "win_rate": {
+              "mean": 0.825,
+              "sample_standard_deviation": null
+            },
+            "score": {
+              "mean": 0.8875,
+              "sample_standard_deviation": null
+            },
+            "mean_move_ms": {
+              "mean": 3.1555811192311474,
+              "sample_standard_deviation": null
+            },
+            "mean_game_plies": {
+              "mean": 31.0,
+              "sample_standard_deviation": null
+            }
+          },
+          "per_seed": [
+            {
+              "training_seed": 22,
+              "win_rate": 0.825,
+              "score": 0.8875,
+              "mean_move_ms": 3.1555811192311474,
+              "mean_game_plies": 31.0
+            }
+          ]
+        }
+      ],
+      "evaluation_seed_schedules": [
+        [
+          3100000,
+          3200000,
+          40
+        ]
+      ],
+      "paired_game_seed_reuse_across_training_seeds": false,
+      "shared_dataset_sha256": [
+        "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+      ],
+      "inference": "Across actual training seeds, not repeated games/checkpoints; n=1 sample SD is null. Reused opponent/game seeds are paired; no pooled independent-game confidence interval is computed."
+    },
+    {
+      "group": {
+        "depth": 2,
+        "device": "cpu",
+        "games": 40,
+        "mode": "guarded",
+        "model_spec": {
+          "architecture": "residual",
+          "board_size": 9,
+          "channels": [
+            32,
+            64,
+            64
+          ],
+          "features": "tactical10",
+          "hidden_units": 256,
+          "residual_blocks": 4,
+          "residual_width": 64
+        },
+        "network_kind": "research",
+        "nodes": 2000,
+        "opponent": "greedy",
+        "recipe": "residual_tactical10_ce20_a2c_ce01",
+        "recipe_signature": "c9deb4dd88e5161cbf2b9ec35c4eab98542dd9f135a0f60dfecefbc347bb38da",
+        "role": "candidate",
+        "rules": "freestyle",
+        "search_candidates": 8,
+        "sims": 400,
+        "split": "validation",
+        "tactical_candidates": 12,
+        "value_weight": 0.0
+      },
+      "n_training_seeds": 1,
+      "rows": [
+        {
+          "color": 1,
+          "training_seeds": [
+            22
+          ],
+          "n_training_seeds": 1,
+          "metrics": {
+            "win_rate": {
+              "mean": 0.975,
+              "sample_standard_deviation": null
+            },
+            "score": {
+              "mean": 0.975,
+              "sample_standard_deviation": null
+            },
+            "mean_move_ms": {
+              "mean": 45.81550300235169,
+              "sample_standard_deviation": null
+            },
+            "mean_game_plies": {
+              "mean": 20.675,
+              "sample_standard_deviation": null
+            }
+          },
+          "per_seed": [
+            {
+              "training_seed": 22,
+              "win_rate": 0.975,
+              "score": 0.975,
+              "mean_move_ms": 45.81550300235169,
+              "mean_game_plies": 20.675,
+              "games": 40,
+              "wins": 39,
+              "draws": 0,
+              "losses": 1,
+              "wilson_95": [
+                0.8711834051199223,
+                0.9955732825922052
+              ]
+            }
+          ]
+        },
+        {
+          "color": -1,
+          "training_seeds": [
+            22
+          ],
+          "n_training_seeds": 1,
+          "metrics": {
+            "win_rate": {
+              "mean": 0.7,
+              "sample_standard_deviation": null
+            },
+            "score": {
+              "mean": 0.8125,
+              "sample_standard_deviation": null
+            },
+            "mean_move_ms": {
+              "mean": 42.7747200519379,
+              "sample_standard_deviation": null
+            },
+            "mean_game_plies": {
+              "mean": 38.95,
+              "sample_standard_deviation": null
+            }
+          },
+          "per_seed": [
+            {
+              "training_seed": 22,
+              "win_rate": 0.7,
+              "score": 0.8125,
+              "mean_move_ms": 42.7747200519379,
+              "mean_game_plies": 38.95,
+              "games": 40,
+              "wins": 28,
+              "draws": 9,
+              "losses": 3,
+              "wilson_95": [
+                0.545696893456796,
+                0.8192532908430471
+              ]
+            }
+          ]
+        },
+        {
+          "color": "mean_black_white",
+          "training_seeds": [
+            22
+          ],
+          "n_training_seeds": 1,
+          "metrics": {
+            "win_rate": {
+              "mean": 0.8374999999999999,
+              "sample_standard_deviation": null
+            },
+            "score": {
+              "mean": 0.89375,
+              "sample_standard_deviation": null
+            },
+            "mean_move_ms": {
+              "mean": 44.2951115271448,
+              "sample_standard_deviation": null
+            },
+            "mean_game_plies": {
+              "mean": 29.8125,
+              "sample_standard_deviation": null
+            }
+          },
+          "per_seed": [
+            {
+              "training_seed": 22,
+              "win_rate": 0.8374999999999999,
+              "score": 0.89375,
+              "mean_move_ms": 44.2951115271448,
+              "mean_game_plies": 29.8125
+            }
+          ]
+        }
+      ],
+      "evaluation_seed_schedules": [
+        [
+          3100000,
+          3200000,
+          40
+        ]
+      ],
+      "paired_game_seed_reuse_across_training_seeds": false,
+      "shared_dataset_sha256": [
+        "ca566f90aaf7695ad8fd4b82e997ff221bb483859825ab6e5e589942266307e3"
+      ],
+      "inference": "Across actual training seeds, not repeated games/checkpoints; n=1 sample SD is null. Reused opponent/game seeds are paired; no pooled independent-game confidence interval is computed."
+    }
+  ],
+  "total_games": 160,
+  "legal_moves_replayed": 4865,
+  "opponent_actions_exactly_reproduced": 2406,
+  "passed": true,
+  "finished_at": "2026-10-20T21:50:31.235441+00:00"
+}

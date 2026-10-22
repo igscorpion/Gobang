@@ -1,13 +1,7 @@
 @echo off
 chcp 65001 >nul
 cd /d "%~dp0"
-echo ==============================================
-echo   Train AlphaZero Gomoku AI (GPU, auto-resume)
-echo   Runs forever until you close this window
-echo   Saves checkpoint every 100 games to rl\models\alphazero.pt
-echo   (sims/step = 400)
-echo ==============================================
-py -3.11 -m rl.training.train_alphazero 0 400
-echo.
-echo Stopped. Checkpoint saved.
+echo Training locally with periodic checkpoints.
+".venv\Scripts\python.exe" -u -m rl.training.local_alphazero --output runs/az_wide_manual --episodes 2000 --sims 400 --warm-start backups/upstream-2711cca/models/alphazero.pt --device cpu --resume
+echo Exit code: %errorlevel%
 pause

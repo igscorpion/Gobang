@@ -1,0 +1,150 @@
+{
+  "complete": true,
+  "experiments": [
+    {
+      "name": "az_width64_fixed",
+      "channels": [
+        64,
+        64,
+        64
+      ],
+      "parameters": 94935,
+      "state": "complete",
+      "episode": 1000,
+      "config": {
+        "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width64_fixed",
+        "episodes": 1000,
+        "channels": [
+          64,
+          64,
+          64
+        ],
+        "sims": 400,
+        "seed": 11,
+        "device": "cpu",
+        "fixed_ratio": 0.6,
+        "warm_start": "backups/upstream-2711cca/models/alphazero.pt",
+        "resume": true,
+        "rules": "freestyle",
+        "batch_size": 512,
+        "eval_every": 250,
+        "save_every": 10,
+        "validation_games": 40,
+        "final_games": 100,
+        "parameters": 94935,
+        "device_used": "cpu"
+      },
+      "evaluation_model": {
+        "checkpoint": "best.pt",
+        "selection": "validation greedy score only",
+        "test_seed": 800000
+      },
+      "best_episode": 750,
+      "validation_score": 0.88125,
+      "checkpoint_sha256": "868893a91c0e6b8337066bd425ae76ece7d423c0434ac4b733bcb3f236929f92",
+      "greedy": [
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 89,
+          "draws": 5,
+          "losses": 6,
+          "win_rate": 0.89,
+          "score": 0.915,
+          "wilson_low": 0.8136853697209698,
+          "wilson_high": 0.9374586804477487,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 69,
+          "draws": 10,
+          "losses": 21,
+          "win_rate": 0.69,
+          "score": 0.74,
+          "wilson_low": 0.5937376052204429,
+          "wilson_high": 0.7722043679386762,
+          "rules": "freestyle"
+        }
+      ]
+    },
+    {
+      "name": "az_width128_fixed",
+      "channels": [
+        64,
+        64,
+        128
+      ],
+      "parameters": 132055,
+      "state": "complete",
+      "episode": 1000,
+      "config": {
+        "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed",
+        "episodes": 1000,
+        "channels": [
+          64,
+          64,
+          128
+        ],
+        "sims": 400,
+        "seed": 11,
+        "device": "cpu",
+        "fixed_ratio": 0.6,
+        "warm_start": "backups/upstream-2711cca/models/alphazero.pt",
+        "resume": true,
+        "rules": "freestyle",
+        "batch_size": 512,
+        "eval_every": 250,
+        "save_every": 10,
+        "validation_games": 40,
+        "final_games": 100,
+        "parameters": 132055,
+        "device_used": "cpu"
+      },
+      "evaluation_model": {
+        "checkpoint": "best.pt",
+        "selection": "validation greedy score only",
+        "test_seed": 800000
+      },
+      "best_episode": 750,
+      "validation_score": 0.925,
+      "checkpoint_sha256": "9f7176655bc99d9fefad477721b7880088f6e3fdd3f7c360c1a589b96772c8cf",
+      "greedy": [
+        {
+          "opponent": "greedy",
+          "color": 1,
+          "games": 100,
+          "wins": 94,
+          "draws": 2,
+          "losses": 4,
+          "win_rate": 0.94,
+          "score": 0.95,
+          "wilson_low": 0.8752303146877748,
+          "wilson_high": 0.9722142547333433,
+          "rules": "freestyle"
+        },
+        {
+          "opponent": "greedy",
+          "color": -1,
+          "games": 100,
+          "wins": 70,
+          "draws": 8,
+          "losses": 22,
+          "win_rate": 0.7,
+          "score": 0.74,
+          "wilson_low": 0.6041496156718804,
+          "wilson_high": 0.7810524613377188,
+          "rules": "freestyle"
+        }
+      ]
+    }
+  ],
+  "win_rate_differences_percentage_points": [
+    4.999999999999993,
+    1.0000000000000009
+  ],
+  "interpretation": "Single-seed controlled comparison; final tests do not select models."
+}

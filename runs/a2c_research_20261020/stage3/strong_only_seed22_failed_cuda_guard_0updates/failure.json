@@ -1,0 +1,6 @@
+{
+  "pid": 63448,
+  "type": "RuntimeError",
+  "message": "Rollout behavior differs from the current sampled policy",
+  "resume": "latest.checkpoint, rolling back the uncommitted barrier"
+}

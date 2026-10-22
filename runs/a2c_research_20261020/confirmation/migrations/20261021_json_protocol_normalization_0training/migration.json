@@ -1,0 +1,28 @@
+{
+  "reason": "Full checkpoint metadata retains tuple channels; JSON protocol stores equivalent lists. Normalize JSON before semantic comparison. No copy or training child started.",
+  "recorded_at": "2026-10-20T20:28:39.071798+00:00",
+  "training_children_started": false,
+  "old_source_sha256": "7a43f4cc06e082a7bcd986e344086d2b6495663612ec37660b84b41117aa59b3",
+  "old_protocol_sha256": "0cab799c50fa7eb0c85bc340106284efd73153272a7f2bff6434539e60171955",
+  "original_phase4_modified": false,
+  "new_source_sha256": "350c6de4983423240519b033a9ab51bed8c57633d960561eb9df31eb427e6b86",
+  "new_protocol_sha256": "3eb3144940ee21f77a5ace5b627bcf33d9954d4afa8068e74567fc74b7338198",
+  "new_sources": {
+    "rl/training/a2c_research.py": "ff825b2463fb0b47955d54ba03730b897396eb67264d0ffd71634680751e79b8",
+    "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+    "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+    "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+    "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+    "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+    "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+    "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+    "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+    "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+    "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+    "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+    "rl/training/a2c_confirmation_suite.py": "350c6de4983423240519b033a9ab51bed8c57633d960561eb9df31eb427e6b86",
+    "rl/training/a2c_research_suite.py": "6dd61c71e4a4a170c550d3686ef3af44f61adb17c1a88d141f0d56eced65228f"
+  },
+  "tests": "7 passed; tuple/list equivalent metadata regression included",
+  "applied_at": "2026-10-20T20:29:09.140774+00:00"
+}

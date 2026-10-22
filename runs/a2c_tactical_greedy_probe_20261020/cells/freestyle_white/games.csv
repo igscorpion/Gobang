@@ -1,0 +1,2 @@
+algorithm,opponent,rules,color,game,seed,outcome,moves,policy_seconds,tactical_reasons
+a2c4_tactical,greedy,freestyle,-1,0,2100000,1,26,0.5778269000002183,"{""block_immediate_win"": 3, ""create_double_threat"": 1, ""defend_forcing_threat"": 4, ""immediate_win"": 1, ""quiet_candidates"": 1, ""tactical_candidates"": 3}"

@@ -1,0 +1,99 @@
+{
+  "key": "residual_tactical10_seed11/episode_005000/policy",
+  "recipe": "residual_tactical10_seed11",
+  "training_seed": 11,
+  "episode": 5000,
+  "mode": "policy",
+  "checkpoint": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\residual_tactical10_seed11\\train\\candidates\\episode_005000.pt",
+  "checkpoint_sha256": "e429c650be494048c717efdcb6bcb3f19b0c38f823dbd7dc7d4fee99025729ca",
+  "identity": {
+    "network_kind": "research",
+    "mode": "policy",
+    "device": "cpu",
+    "rules": "freestyle",
+    "opponent": "greedy",
+    "split": "validation",
+    "games": 40,
+    "seed_black": 3100000,
+    "seed_white": 3200000,
+    "depth": 2,
+    "nodes": 2000,
+    "search_candidates": 8,
+    "tactical_candidates": 12,
+    "value_weight": 0.0,
+    "sims": 400,
+    "checkpoint_sha256": "e429c650be494048c717efdcb6bcb3f19b0c38f823dbd7dc7d4fee99025729ca",
+    "source_sha256": {
+      "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+      "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+      "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+      "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+      "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+      "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+      "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+      "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+      "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+      "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+      "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+      "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+      "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+      "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+      "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+    }
+  },
+  "evaluation_output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\selection\\cases\\residual_tactical10_seed11\\episode_005000\\policy\\attempt_001",
+  "reused_exact_development_case": false,
+  "mean_score": 0.78125,
+  "mean_win_rate": 0.675,
+  "results": [
+    {
+      "color": 1,
+      "games": 40,
+      "wins": 30,
+      "draws": 8,
+      "losses": 2,
+      "win_rate": 0.75,
+      "score": 0.85,
+      "wilson_95": [
+        0.598057409330299,
+        0.8581303210445048
+      ],
+      "mean_game_plies": 35.4,
+      "inference_samples": 727,
+      "mean_move_ms": 3.2351907838918676,
+      "median_move_ms": 3.6063000006834045,
+      "p95_move_ms": 4.306400005589239,
+      "max_move_ms": 8.249900012742728,
+      "tactical_reasons": {
+        "": 727
+      },
+      "mean_search_nodes": 0
+    },
+    {
+      "color": -1,
+      "games": 40,
+      "wins": 24,
+      "draws": 9,
+      "losses": 7,
+      "win_rate": 0.6,
+      "score": 0.7125,
+      "wilson_95": [
+        0.445956198273935,
+        0.7365188938759863
+      ],
+      "mean_game_plies": 40.15,
+      "inference_samples": 795,
+      "mean_move_ms": 3.32620427674693,
+      "median_move_ms": 3.563399994163774,
+      "p95_move_ms": 4.440400007297285,
+      "max_move_ms": 9.334599992143922,
+      "tactical_reasons": {
+        "": 795
+      },
+      "mean_search_nodes": 0
+    }
+  ],
+  "summary_sha256": "2a00855b4530013e1683e5a111612136ec93f73c0a1f3a22daee4b1e42f6a961",
+  "games_sha256": "3237f7fbd611b9c2e4c3fbdb91575b0ca0af3221e590af7207b49a7110d396d9",
+  "moves_sha256": "c7a58b31e83253ea62eda14f651742ba122001259060f81d6ab60d6b8805025f"
+}

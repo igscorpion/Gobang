@@ -1,0 +1,1 @@
+{"seed": 11, "episodes": 1000, "sims": 400, "fixed_ratio": 0.6, "rules": "freestyle", "batch_size": 512, "eval_every": 250, "validation_games": 40, "final_games": 100}

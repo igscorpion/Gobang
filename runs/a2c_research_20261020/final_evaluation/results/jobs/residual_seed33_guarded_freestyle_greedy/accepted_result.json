@@ -1,0 +1,103 @@
+{
+  "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_greedy\\attempt_001",
+  "identity": {
+    "network_kind": "research",
+    "mode": "guarded",
+    "device": "cpu",
+    "rules": "freestyle",
+    "opponent": "greedy",
+    "games": 100,
+    "seed_black": 8100000,
+    "seed_white": 8200000,
+    "depth": 2,
+    "nodes": 2000,
+    "search_candidates": 8,
+    "tactical_candidates": 12,
+    "value_weight": 0.0,
+    "sims": 400,
+    "checkpoint_sha256": "7c318db4791998b9a6cb7c34883000eaa67fe5011b51f6dff4769f28b9252881",
+    "source_sha256": {
+      "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+      "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+      "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+      "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+      "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+      "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+      "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+      "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+      "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+      "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+      "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+      "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+      "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+      "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+      "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+    }
+  },
+  "results": [
+    {
+      "color": 1,
+      "games": 100,
+      "wins": 88,
+      "draws": 9,
+      "losses": 3,
+      "win_rate": 0.88,
+      "score": 0.925,
+      "wilson_95": [
+        0.8018773199709163,
+        0.9300066263473222
+      ],
+      "mean_game_plies": 28.41,
+      "inference_samples": 1469,
+      "mean_move_ms": 34.90989298818549,
+      "median_move_ms": 42.76519999257289,
+      "p95_move_ms": 79.63589997962117,
+      "max_move_ms": 95.98250000271946,
+      "tactical_reasons": {
+        "guarded_policy_full_legal": 1216,
+        "forced_win": 27,
+        "create_double_threat": 85,
+        "immediate_win": 88,
+        "block_immediate_win": 50,
+        "unavoidable_loss": 3
+      },
+      "mean_search_nodes": 0
+    },
+    {
+      "color": -1,
+      "games": 100,
+      "wins": 84,
+      "draws": 11,
+      "losses": 5,
+      "win_rate": 0.84,
+      "score": 0.895,
+      "wilson_95": [
+        0.7557955544110557,
+        0.8990479765052628
+      ],
+      "mean_game_plies": 29.6,
+      "inference_samples": 1472,
+      "mean_move_ms": 38.70416304378365,
+      "median_move_ms": 48.22160002368037,
+      "p95_move_ms": 87.21880000666715,
+      "max_move_ms": 119.71189998439513,
+      "tactical_reasons": {
+        "guarded_policy_full_legal": 1180,
+        "block_immediate_win": 85,
+        "create_double_threat": 84,
+        "immediate_win": 84,
+        "forced_win": 34,
+        "unavoidable_loss": 5
+      },
+      "mean_search_nodes": 0
+    }
+  ],
+  "artifacts": {
+    "protocol.json": "48347096556f76ff071f86638ef07c982b5aed83af2e8a9b77600771be75b871",
+    "summary.json": "5f49add9748ad69c4e4ff13fc2a5be2275f597d9912eda9c3fed48156aea8a77",
+    "status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "games.csv": "bfb72d9c5710ae2f36a7852d37edbeeff4e49f19467ac5ddb85f74b9820385ce",
+    "moves.csv": "ed4973f23da8e022396f1e3f7b743348464c0c375cd71369f5c0e9306c58d6f0"
+  },
+  "validated": "complete identity, source declaration and CSV statistics; independent legality/RNG replay still required"
+}

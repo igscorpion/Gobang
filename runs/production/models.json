@@ -1,0 +1,14 @@
+{
+  "dqn4": {
+    "algorithm": "dqn",
+    "checkpoint": "runs/production/dqn4_seed11/best.pt",
+    "selection": "validation score only",
+    "validation_score": 0.0
+  },
+  "alphazero_wide": {
+    "algorithm": "alphazero",
+    "checkpoint": "runs/production/az_width128_fixed/best.pt",
+    "selection": "validation score only",
+    "validation_score": 0.925
+  }
+}

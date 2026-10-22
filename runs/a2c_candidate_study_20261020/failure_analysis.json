@@ -1,0 +1,46 @@
+{
+  "counts": {
+    "agent_positions": 1123,
+    "ranking_positions": 875,
+    "ranking_disagreements": 640,
+    "actual_outside_candidates": 0,
+    "budget_exhausted": 172,
+    "reference_positions": 216,
+    "reference_omissions": 11,
+    "reference_omissions_singleton": 10
+  },
+  "by_reason": {
+    "block_immediate_win": {
+      "positions": 162,
+      "mean_network_value": 0.1498436910778652,
+      "ranking_disagreements": 0
+    },
+    "defend_forcing_threat": {
+      "positions": 287,
+      "mean_network_value": 0.16788661820028716,
+      "ranking_disagreements": 132
+    },
+    "quiet_candidates": {
+      "positions": 152,
+      "mean_network_value": 0.16550981690862068,
+      "ranking_disagreements": 121
+    },
+    "tactical_candidates": {
+      "positions": 450,
+      "mean_network_value": 0.1467291410929627,
+      "ranking_disagreements": 387
+    },
+    "unavoidable_loss": {
+      "positions": 72,
+      "mean_network_value": 0.17446877458132803,
+      "ranking_disagreements": 0
+    }
+  },
+  "losses": 72,
+  "limitations": [
+    "All positions come from previously observed losses; no causal attribution is possible.",
+    "Minimax depth2 is a pruned heuristic reference and its omitted choices are not certified rescues.",
+    "Mean values on failure positions do not measure global calibration.",
+    "The old 400-game sample is now development information for this research; future improved models need fresh final-test seeds."
+  ]
+}

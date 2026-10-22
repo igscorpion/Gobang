@@ -1,0 +1,23 @@
+{
+  "output": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width64_fixed",
+  "episodes": 1000,
+  "channels": [
+    64,
+    64,
+    64
+  ],
+  "sims": 400,
+  "seed": 11,
+  "device": "cpu",
+  "fixed_ratio": 0.6,
+  "warm_start": "backups/upstream-2711cca/models/alphazero.pt",
+  "resume": true,
+  "rules": "freestyle",
+  "batch_size": 512,
+  "eval_every": 250,
+  "save_every": 10,
+  "validation_games": 40,
+  "final_games": 100,
+  "parameters": 94935,
+  "device_used": "cpu"
+}

@@ -1,0 +1,18 @@
+{
+  "mode": "development",
+  "ranking": "a2c",
+  "rules": "renju",
+  "color": 1,
+  "games": 40,
+  "wins": 28,
+  "draws": 10,
+  "losses": 2,
+  "win_rate": 0.7,
+  "score": 0.825,
+  "wilson_95": [
+    0.545696893456796,
+    0.8192532908430471
+  ],
+  "mean_inference_ms": 118.46838776304809,
+  "base_seed": 3300000
+}

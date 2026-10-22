@@ -1,0 +1,1608 @@
+{
+  "format": "a2c_post_final_operational_retry_prefix_audit_v1",
+  "passed": true,
+  "synthetic_test_only": false,
+  "started_after_complete_final_audit": true,
+  "gate": {
+    "all_checks_passed_before_any_game_move_summary_read": true,
+    "queue_jobs_complete": 31,
+    "total_full_audit_games": 6200,
+    "final_and_eval_locks_held_uncontended_for_entire_read": 37,
+    "training_lock_paths_opened": [],
+    "processes": [
+      {
+        "recorded": {
+          "pid": 56276,
+          "alive": true,
+          "birth": "134370219804896619",
+          "exit_code": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021_audit_lock_collision\\suite_status.json.process"
+        },
+        "actual": {
+          "pid": 56276,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 65384,
+          "birth": "134370219804823387",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021_audit_lock_collision\\supervisor.launcher.json"
+        },
+        "actual": {
+          "pid": 65384,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 66868,
+          "alive": true,
+          "birth": "134370246750977960",
+          "exit_code": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\suite_status.json.process"
+        },
+        "actual": {
+          "pid": 66868,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 58552,
+          "birth": "134370246750898698",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\supervisor.launcher.json"
+        },
+        "actual": {
+          "pid": 58552,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 31480,
+          "alive": true,
+          "birth": "134370557702532863",
+          "exit_code": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T122640Z_user_deferred_az_renju\\suite_status.before.json.process"
+        },
+        "actual": {
+          "pid": 31480,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 41324,
+          "birth": "134370557702457746",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T122640Z_user_deferred_az_renju\\supervisor.launcher.before.json"
+        },
+        "actual": {
+          "pid": 41324,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 51272,
+          "birth": "134370261743482212",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 51272,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 70952,
+          "birth": "134370277063284706",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 70952,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 38708,
+          "birth": "134370557761023813",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_002\\launcher.json"
+        },
+        "actual": {
+          "pid": 38708,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 53756,
+          "birth": "134370251840787051",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 53756,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 67240,
+          "birth": "134370252988917530",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 67240,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 73048,
+          "birth": "134370327355000426",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 73048,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 39372,
+          "birth": "134370557765111669",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_002\\launcher.json"
+        },
+        "actual": {
+          "pid": 39372,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 34736,
+          "birth": "134370559021824572",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 34736,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 70568,
+          "birth": "134370257049916038",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 70568,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 68136,
+          "birth": "134370257261807718",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_002\\launcher.json"
+        },
+        "actual": {
+          "pid": 68136,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 66752,
+          "birth": "134370258722733283",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 66752,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 30600,
+          "birth": "134370219845402171",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 30600,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 57716,
+          "birth": "134370219849513932",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 57716,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 55780,
+          "birth": "134370220270312346",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 55780,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 57744,
+          "birth": "134370220898910853",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 57744,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 69284,
+          "birth": "134370221735987709",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 69284,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 53576,
+          "birth": "134370221948537118",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 53576,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 60872,
+          "birth": "134370222056798463",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 60872,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 52924,
+          "birth": "134370223309130281",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 52924,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 54084,
+          "birth": "134370223624809566",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_002\\launcher.json"
+        },
+        "actual": {
+          "pid": 54084,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 57380,
+          "birth": "134370223940963271",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 57380,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 31868,
+          "birth": "134370225193656129",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 31868,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 47348,
+          "birth": "134370225613943542",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 47348,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 54752,
+          "birth": "134370246793220634",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 54752,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 5728,
+          "birth": "134370246797162054",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_greedy\\attempt_001\\launcher.json",
+          "retirement_verified": true,
+          "before_sha256": "76445f8629a738464c68379b9108227b4374c9342302d8932b4887934f2a7801",
+          "after_sha256": "a67b6d03c85aefbdf9413f64dafde454ed6173d67c8113b7bb686aa44aeb747a"
+        },
+        "actual": {
+          "pid": 5728,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 70316,
+          "birth": "134370247009820065",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 70316,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 55012,
+          "birth": "134370247118034354",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 55012,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 20352,
+          "birth": "134370247642449633",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 20352,
+          "alive": true,
+          "birth": "134370717614762460",
+          "exit_code": null
+        },
+        "disposition": "PID_reused_known_different_birth"
+      },
+      {
+        "recorded": {
+          "pid": 56588,
+          "birth": "134370247958390406",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 56588,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 49712,
+          "birth": "134370248483168095",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 49712,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 59176,
+          "birth": "134370248903510824",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 59176,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 56636,
+          "birth": "134370249115778503",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 56636,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 54948,
+          "birth": "134370250055993800",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 54948,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 56748,
+          "birth": "134370250268313598",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 56748,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 58932,
+          "birth": "134370250376393053",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_greedy\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 58932,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 39640,
+          "birth": "134370251524751848",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_random\\attempt_001\\launcher.json"
+        },
+        "actual": {
+          "pid": 39640,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 31480,
+          "alive": true,
+          "birth": "134370557702532863",
+          "exit_code": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\suite_status.json.process"
+        },
+        "actual": {
+          "pid": 31480,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 41324,
+          "birth": "134370557702457746",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\supervisor.launcher.json"
+        },
+        "actual": {
+          "pid": 41324,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 57720,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 57720,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 54296,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 54296,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 58456,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 58456,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 67328,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 67328,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 54908,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 54908,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 65884,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 65884,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 57440,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 57440,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 67200,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 67200,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 64724,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_002/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 64724,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 60000,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 60000,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 68660,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 68660,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 54936,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 54936,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 66440,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 66440,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 58528,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 58528,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 54624,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 54624,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 39816,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 39816,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 63428,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 63428,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 66572,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 66572,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 54784,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 54784,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 51272,
+          "birth": "134370261743482212",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_greedy\\attempt_001/protocol.json.pid",
+          "birth_from_explicit_metadata": true
+        },
+        "actual": {
+          "pid": 51272,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 55736,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 55736,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 58276,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 58276,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 58856,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 58856,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 53432,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 53432,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 68500,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_random\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 68500,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 66156,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 66156,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 57672,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_renju_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 57672,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 53804,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 53804,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 53812,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_002/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 53812,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 56932,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_renju_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 56932,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 69956,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_freestyle_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 69956,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 72156,
+          "birth": "134370277063384061",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_001/protocol.json.pid",
+          "birth_from_explicit_metadata": true
+        },
+        "actual": {
+          "pid": 72156,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 43876,
+          "birth": "134370557761098495",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_002/protocol.json.pid",
+          "birth_from_explicit_metadata": true
+        },
+        "actual": {
+          "pid": 43876,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 59184,
+          "birth": "134370327355098731",
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_001/protocol.json.pid",
+          "birth_from_explicit_metadata": true
+        },
+        "actual": {
+          "pid": 59184,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 40952,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_002/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 40952,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 40104,
+          "birth": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_renju_greedy\\attempt_001/protocol.json.pid"
+        },
+        "actual": {
+          "pid": 40104,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      },
+      {
+        "recorded": {
+          "pid": 66868,
+          "alive": true,
+          "birth": "134370246750977960",
+          "exit_code": null,
+          "origin": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\incident.json.prior_state.process"
+        },
+        "actual": {
+          "pid": 66868,
+          "alive": false,
+          "birth": null,
+          "query_error": 87
+        },
+        "disposition": "exited"
+      }
+    ],
+    "final_audit": {
+      "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_audit_31_jobs.json",
+      "sha256": "bdd441be7ded416b1daa8608e17b5d94c7f92636476b65b5adc9b8b3ed45fa05",
+      "tool_sha256": "a0a5268cd09f301a03a8786d381fc6fcee900a2d4398e81781e3422b2e6a73ce"
+    }
+  },
+  "retry_jobs": [
+    {
+      "job": "residual_seed11_policy_renju_random",
+      "identity": {
+        "network_kind": "research",
+        "mode": "policy",
+        "device": "cpu",
+        "rules": "renju",
+        "opponent": "random",
+        "games": 100,
+        "seed_black": 8300000,
+        "seed_white": 8400000,
+        "depth": 2,
+        "nodes": 2000,
+        "search_candidates": 8,
+        "tactical_candidates": 12,
+        "value_weight": 0.0,
+        "sims": 400,
+        "checkpoint_sha256": "dea2fee0d128485ed20461f7ce5e793f4a9a193870af068ee4a03c9940c5b898",
+        "source_sha256": {
+          "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+          "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+          "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+          "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+          "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+          "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+          "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+          "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+          "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+          "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+          "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+          "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+          "rl/agents/a2c_research.py": "8654e51953cda2537926c21c25928c9f9bd98a5342196476f985694dcfd4755c",
+          "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+          "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+        }
+      },
+      "failed_attempts": [
+        {
+          "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_001",
+          "failure": {
+            "category": "Windows_status_atomic_replace_WinError5",
+            "exception_recorded": true,
+            "external_holder_identified": false,
+            "console_sha256": "9e9786c1e45d8cd8099e0abbb0160b4d34ab73de4993b723ab4ee8bf1d411a6e"
+          },
+          "prefix": {
+            "completed_games_compared": 188,
+            "all_moves_compared": 1798,
+            "trailing_moves_after_last_game_row": 0,
+            "all_completed_game_seeds_outcomes_lengths_identical": true,
+            "all_recorded_actions_reasons_nodes_identical": true,
+            "ignored_fields": [
+              "policy_seconds",
+              "inference_seconds"
+            ]
+          },
+          "partial_rows_counted_in_final_total": 0
+        }
+      ],
+      "accepted_attempt": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_002",
+      "accepted_games": 200,
+      "only_first_complete_attempt_counted": true,
+      "partial_games_merged": false,
+      "accepted_artifacts_match_full_a0a_audit": true,
+      "evidence_sha256": {
+        "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_001": {
+          "console.log": "9e9786c1e45d8cd8099e0abbb0160b4d34ab73de4993b723ab4ee8bf1d411a6e",
+          "games.csv": "7933ce9764390072e6049e7da8b9b726adab8c10d721a605a39ecdbd0e9bc571",
+          "launcher.json": "9f8da0e591b87654ab8c3883b0d2b847ad7c5ac1027695ff2ec6bb096a009cd6",
+          "moves.csv": "4c1c760a23320b88e7d8f76c887a1c6e2f37aac95e821ce2deba3579823bbc00",
+          "protocol.json": "0531069e34eef2bfd79cfca69b2135f1d6b7c6e65172886c3beeb18635f09312",
+          "status.json": "7e4150a8516d43d81c5162f09cc2f4f690f919a37fbcc9267500418e6c195910",
+          "status.json.tmp": "e0cd8d28c5bec3166dd42fd83c89737b7ab18fb1917c667fd3e0eed6abfa59fd"
+        },
+        "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_002": {
+          "console.log": "30e91b2ae63c5c3333e44848078ac7353bd2828b3fefb1de4e1292065d366c59",
+          "games.csv": "ec3c8c68327983ab2daa67c20b383278af2885248817237bd9e1399b61a4a0d8",
+          "launcher.json": "4059b9f0ebb8c67a5a88008af4c0d2657029e9f941d1488b46f6b4c43dea8574",
+          "moves.csv": "5d18016b16d672c380fc1b961d2397c0146b2ab8146856bbbfe03ef88c312704",
+          "protocol.json": "cefdb6f861abd34b2196fe664e53969c36ee2afed0f9acb42ab5ffd647547f42",
+          "status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+          "summary.json": "2a83b972c9f137ea58de405ed7e4dc831f372501eb4884e7589d9a21331ac765"
+        }
+      }
+    },
+    {
+      "job": "original_a2c4_tactical_freestyle_greedy",
+      "identity": {
+        "network_kind": "standard",
+        "mode": "tactical",
+        "device": "cpu",
+        "rules": "freestyle",
+        "opponent": "greedy",
+        "games": 100,
+        "seed_black": 8100000,
+        "seed_white": 8200000,
+        "depth": 2,
+        "nodes": 2000,
+        "search_candidates": 8,
+        "tactical_candidates": 12,
+        "value_weight": 0.0,
+        "sims": 400,
+        "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+        "source_sha256": {
+          "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+          "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+          "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+          "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+          "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+          "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+          "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+          "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+          "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+          "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+          "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+          "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+          "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+          "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+        }
+      },
+      "failed_attempts": [
+        {
+          "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_001",
+          "failure": {
+            "category": "Windows_status_atomic_replace_WinError5",
+            "exception_recorded": true,
+            "external_holder_identified": false,
+            "console_sha256": "9a92440873e05bb0b9b0ea6277b629d79587ecdf1b115245683915b37c2e5368"
+          },
+          "prefix": {
+            "completed_games_compared": 15,
+            "all_moves_compared": 466,
+            "trailing_moves_after_last_game_row": 0,
+            "all_completed_game_seeds_outcomes_lengths_identical": true,
+            "all_recorded_actions_reasons_nodes_identical": true,
+            "ignored_fields": [
+              "policy_seconds",
+              "inference_seconds"
+            ]
+          },
+          "partial_rows_counted_in_final_total": 0
+        }
+      ],
+      "accepted_attempt": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_002",
+      "accepted_games": 200,
+      "only_first_complete_attempt_counted": true,
+      "partial_games_merged": false,
+      "accepted_artifacts_match_full_a0a_audit": true,
+      "evidence_sha256": {
+        "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_001": {
+          "console.log": "9a92440873e05bb0b9b0ea6277b629d79587ecdf1b115245683915b37c2e5368",
+          "games.csv": "15c1e2efbead7b9de9214be5ed15d32e516d2da70dfc593d3846ae85abd7fee3",
+          "launcher.json": "6525045a2ff09c7d09756d0f0440bfb530cb24443914418d822ae42587a31d67",
+          "moves.csv": "fc06f0681f3c384c7db6bcc66f1c079abbb4ec24b0374d6a6d811b6cd3c19817",
+          "protocol.json": "adf4c78604d4cf5203b60e25900eb85e9d1fe815202b733fdef82ee2507a523d",
+          "status.json": "843f22580ad6f22675dc4872c7d32342d376374343a23b4381832310d74b9f57",
+          "status.json.tmp": "e0cd8d28c5bec3166dd42fd83c89737b7ab18fb1917c667fd3e0eed6abfa59fd"
+        },
+        "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_002": {
+          "console.log": "eaa14712fcca7b254bb7a16f7f9ed2458ae7554fd9c99eda0ea7f2f4e8d43d45",
+          "games.csv": "ffb51588261388db11f8a8e107f6aaf2bc43490eb33c560f53dd5e49876edce7",
+          "launcher.json": "d62e1abb5b10e625261dbfa7ca19c709d642c4d6c3f273f1c34c11a238f6ccf6",
+          "moves.csv": "7f2563e2631d9a9fdb81b7526a55cb67ec4a117abe1ddd6d25a957f1cc271bb6",
+          "protocol.json": "dfffa3d8a529bcb67f20902544bfb0ba7150a0f52abab92c0bdc190a0eb5b5a0",
+          "status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+          "summary.json": "28615dde38d89489eda28e10a7c27b4dd8f2b1dd72998afa8a9df1274a3f0132"
+        }
+      }
+    },
+    {
+      "job": "minimax_depth2_minimax_freestyle_greedy",
+      "identity": {
+        "network_kind": "standard",
+        "mode": "minimax",
+        "device": "cpu",
+        "rules": "freestyle",
+        "opponent": "greedy",
+        "games": 100,
+        "seed_black": 8100000,
+        "seed_white": 8200000,
+        "depth": 2,
+        "nodes": 2000,
+        "search_candidates": 8,
+        "tactical_candidates": 12,
+        "value_weight": 0.0,
+        "sims": 400,
+        "checkpoint_sha256": null,
+        "source_sha256": {
+          "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+          "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+          "rl/agents/greedy_agent.py": "5575aba856b75cda9d607bede2ae2723942a3c71dacdb0c0f3220a5f164ff9ad",
+          "rl/agents/q_learning.py": "85fba5616dcf6393a90ce7bbedaf385c25c3db32395540db7737375f787f6adb",
+          "rl/agents/random_agent.py": "a894d51910e0d8b0e6d6332ff345f480e5f7e4eb7aed9485513be16a44cd7090",
+          "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+          "rl/environment/gomoku.py": "d5408c9f701ab9c883d3b2424e14d72c8cee8dc3021537457f1e30aaca5097a7",
+          "rl/environment/state.py": "7bc8cbf6a2d844631ecda239b7e597883f5ec2d84a3b154374049dcdcd7347d5",
+          "rl/training/common.py": "f9cf737d0d9766a8cb2ce2eec06e68f74eaba2af0a281bafc38c2d13f534b483",
+          "rl/training/a2c_math.py": "b3c4ed9200c68729dfce653e3560449219abaed63073a6cf79cb9e03a319d1e4",
+          "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f",
+          "rl/evaluation/a2c_research_eval.py": "8307cf05a1e99335256450f9a73cc92d7a1a1ca4a371c336ff4a7b51b57471cc",
+          "rl/agents/minimax_agent.py": "03b613cabf3082634f785f382e5f360df6158fb75c9c77621781e3adc896ff3b",
+          "rl/agents/a2c_guarded.py": "07742ba8bada276912ddf56cc9f75e6ae96c21f82c222af90616cce956d7c0d9",
+          "rl/evaluation/a2c_research_eval_v2.py": "6e416b1e0f67ff8bcdd4aa0e1084fd733870bc4ab070681c62c878701ceb862b"
+        }
+      },
+      "failed_attempts": [
+        {
+          "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_001",
+          "failure": {
+            "category": "Windows_status_atomic_replace_WinError5",
+            "exception_recorded": true,
+            "external_holder_identified": false,
+            "console_sha256": "55805564fec366933516f59edbb65e3d4d3de6a841e2476f6133edb4e815b57a"
+          },
+          "prefix": {
+            "completed_games_compared": 74,
+            "all_moves_compared": 4827,
+            "trailing_moves_after_last_game_row": 0,
+            "all_completed_game_seeds_outcomes_lengths_identical": true,
+            "all_recorded_actions_reasons_nodes_identical": true,
+            "ignored_fields": [
+              "policy_seconds",
+              "inference_seconds"
+            ]
+          },
+          "partial_rows_counted_in_final_total": 0
+        }
+      ],
+      "accepted_attempt": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_002",
+      "accepted_games": 200,
+      "only_first_complete_attempt_counted": true,
+      "partial_games_merged": false,
+      "accepted_artifacts_match_full_a0a_audit": true,
+      "evidence_sha256": {
+        "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_001": {
+          "console.log": "55805564fec366933516f59edbb65e3d4d3de6a841e2476f6133edb4e815b57a",
+          "games.csv": "cb9d2c331b6e58eb8defba4f6a627b39caad479482b397f7aee67d0b11954758",
+          "launcher.json": "6f9e595d0943e5bb6be4ad7a4a7832fd9b5224cde7e3fc577103eb1fb099d153",
+          "moves.csv": "35dd4366b112bb494f5fb432d85d9e94e8dd241884da86985b5e2136575342e0",
+          "protocol.json": "2ae4dcd00b6ad487bc2adef42ed8c19c97f65c8de54fef2560512679d272b1f1",
+          "status.json": "b0272e9c6ad232d33e6948a328aad31609a86504eaffae76b4a1e6d3e9dc95c4",
+          "status.json.tmp": "e0cd8d28c5bec3166dd42fd83c89737b7ab18fb1917c667fd3e0eed6abfa59fd"
+        },
+        "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_002": {
+          "console.log": "a3a1edf72379f1cdb15b3d5bc4657a0e20832173d152da1fab9e1dec4e2e35bb",
+          "games.csv": "9dcee1a4b71543281b28cb4d073317f5812f96186db5c9bbc642ac63db4fc168",
+          "launcher.json": "6dda3bde3bc72292d8ab6d291f412316e374a61001f471b7b1e0a8423f8ae621",
+          "moves.csv": "de0e25418f7625328e9441702b1cac03b90c65edfe3c4a36f24c22d19c168a1b",
+          "protocol.json": "63f675081c77504987a0aa42e57f31aa45b6c948fbbf393e803039275cc9df4a",
+          "status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+          "summary.json": "92815ebd67ce1d6748577d6b5b9435d2a06b071dac1d10760d7e777097ca4757"
+        }
+      }
+    }
+  ],
+  "retry_job_count": 3,
+  "failed_attempt_count": 3,
+  "frozen_manifest_sha256": "4d0d0acc5a49fa604d1d773b5730ea352c08b77f935dfda592d83017f8721c7a",
+  "external_stop_evidence_sha256": "ba90fe58748e5946e61b1430df35745190053743e0c9bc6b74c74958517387ef",
+  "delivery_scope_sha256": "e477a51c3a9a3f70e87ef7d7f6a82991ca1a53ae3631b700e220805ad655fe41",
+  "deferred_jobs_not_counted": [
+    "alphazero_width128_alphazero_renju_greedy"
+  ],
+  "lifecycle_metadata_sha256": {
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\audit_inputs_31_jobs.json": "b949a95b900d524b16db05c4f8b6c1a1f70dbc4e5a2aab77ef52acc269c5410e",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\delivery_scope_31_jobs.json": "e477a51c3a9a3f70e87ef7d7f6a82991ca1a53ae3631b700e220805ad655fe41",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\delivery_status_31_jobs.json": "238bdfca1d8c75ff06f5df882ce87d109d29cee32a3e9c61febbb765572a0c10",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_selection.json": "4d0d0acc5a49fa604d1d773b5730ea352c08b77f935dfda592d83017f8721c7a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021_audit_lock_collision\\suite_status.json": "0a51a909eae5bf022513336a55bdde4c68622e5d31eeecdf05c73888d7f8863b",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021_audit_lock_collision\\supervisor.launcher.json": "237fbc978c2167087e7c7b3ae7deae99b72ea83b220e5cc52354aa769f01f94a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\completed_launcher_pid5728.before.json": "76445f8629a738464c68379b9108227b4374c9342302d8932b4887934f2a7801",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\incident.json": "0c3cb265e57ebd839770399e6a7309318b1359e87d52430269f50ff1cbffe5dc",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\suite_status.json": "d38c011ed748137afe1e5c5a8abdaa937173282d81c6febd2d44ce8c0b207e96",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\supervisor.launcher.json": "fc804055a16b198a8334888d40c0d734ee5eec37b01f7fd4d5d73f366ce76f4b",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T122640Z_user_deferred_az_renju\\suite_status.before.json": "451d37d232d83d283bac8ec993adc90acfd934151073ffdd0a894441073b0fab",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T122640Z_user_deferred_az_renju\\supervisor.launcher.before.json": "ae911b2298b04e0d0162d016b4dc6173a34a1f974c9cce227fe7b7736b7d17ed",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T122640Z_user_deferred_az_renju\\user_request.json": "d45b272d808c5464676b6e2135e366ae40294cec79af750ff190d7186a840616",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\completed_jobs.json": "eb2dbb73534a5c09b664dc67ee69568b3f57a57012ab2d80f9b90b238e850806",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_freestyle_greedy\\accepted_result.json": "95a115429a21bc01eb5fa13ac75f77479943d6afa5f90508a1154833c3047632",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_freestyle_greedy\\attempt_001\\launcher.json": "6d0bb3d840ef2cdb74f1b0f2034ca87dbfc34f01a59f54579749f58ae414e768",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_freestyle_greedy\\attempt_001\\protocol.json": "b421fb02f511a0afe694cb5b9333923a09f38a7dc083cbcc0d0c55378e7296be",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_freestyle_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_001\\launcher.json": "47dc92841746374a1b18f7b84c675709b2092e64f6aa1c11538ef7b95e150444",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_001\\protocol.json": "9c72fa6f5166fb3a58a8ee893fa84105ba91d102700b9ab27d65de38b8080dda",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_001\\status.json": "d14240130f38d07c1a41ca8e0c21d322e5de28d29989dbecaf7839c154fd91be",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_002\\launcher.json": "5fa9f2cecfb46f87d9086b282e83effbd6ce047ed3a429ab725709073ccde71f",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_002\\protocol.json": "75fb9cc82ef632658232422806ce35cb308a6bf6a0c8aa62d6d8c6a6462a573f",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\alphazero_width128_alphazero_renju_greedy\\attempt_002\\status.json": "68fe1ddbe2914dda8d68a9d35045d5a6d8bdd893f8e9613c5d49fbcf1331cb20",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_freestyle_greedy\\accepted_result.json": "5a66fefd8188a2275e78d8ab717085c98b3397a9fb9f99daa5fda868474232e0",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_freestyle_greedy\\attempt_001\\launcher.json": "db05dc2699230a17f211c5e15f5cf7d760094d457e59d1c05030009d362bff6a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_freestyle_greedy\\attempt_001\\protocol.json": "86a17bc230b69bd7cabef08ddf3fab845b32841c13bec336da2d5a369ed6efc3",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_freestyle_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_renju_greedy\\accepted_result.json": "49dac6ea73137e058add8e4078637f60dac9285b34c23d28f47d51ddeb0ae5ab",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_renju_greedy\\attempt_001\\launcher.json": "20d1112069e180640f9c1ece77918bfdc1554da0d23b781fd60397645420b01c",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_renju_greedy\\attempt_001\\protocol.json": "1042a6141d0c33dcff620f152eec3d25721b229c681d60a908827c72950e9c16",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\flat_seed22_guarded_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\accepted_result.json": "7002ac556306662d75e0ba631ae508116b16ece6de622ad7900ffa53da28f3ae",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_001\\launcher.json": "6f9e595d0943e5bb6be4ad7a4a7832fd9b5224cde7e3fc577103eb1fb099d153",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_001\\protocol.json": "2ae4dcd00b6ad487bc2adef42ed8c19c97f65c8de54fef2560512679d272b1f1",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_001\\status.json": "b0272e9c6ad232d33e6948a328aad31609a86504eaffae76b4a1e6d3e9dc95c4",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_002\\launcher.json": "6dda3bde3bc72292d8ab6d291f412316e374a61001f471b7b1e0a8423f8ae621",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_002\\protocol.json": "63f675081c77504987a0aa42e57f31aa45b6c948fbbf393e803039275cc9df4a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_002\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_renju_greedy\\accepted_result.json": "0662640711bbf5fb3dbdb0f59ffb093cebb2ef4b5e81d9ca3d2fd4beafc0e7f8",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_renju_greedy\\attempt_001\\launcher.json": "bc3d3bd4a3ffa0ceb4c7070a365dd7ab7c8adccbcca2f47d28c235a5fc41c9bb",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_renju_greedy\\attempt_001\\protocol.json": "0ee61af6a32fd5781380f1d1643e301d0495a0e86e0fd09ddca0a4049bce4e5f",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\accepted_result.json": "cfe3e77b77b37efc86c1f1187dcedcc429b8665b6b8dd411064c978af5914aba",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_001\\launcher.json": "6525045a2ff09c7d09756d0f0440bfb530cb24443914418d822ae42587a31d67",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_001\\protocol.json": "adf4c78604d4cf5203b60e25900eb85e9d1fe815202b733fdef82ee2507a523d",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_001\\status.json": "843f22580ad6f22675dc4872c7d32342d376374343a23b4381832310d74b9f57",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_002\\launcher.json": "d62e1abb5b10e625261dbfa7ca19c709d642c4d6c3f273f1c34c11a238f6ccf6",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_002\\protocol.json": "dfffa3d8a529bcb67f20902544bfb0ba7150a0f52abab92c0bdc190a0eb5b5a0",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_freestyle_greedy\\attempt_002\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_renju_greedy\\accepted_result.json": "7851892ed46c70b4dce2e2535e1e9c71bc76011f64ad2ed005b64f52d76caa56",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_renju_greedy\\attempt_001\\launcher.json": "258b4c6ed7c788315fc136d976f477d270126456f1a84828670fc9a51c05b798",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_renju_greedy\\attempt_001\\protocol.json": "c8a5cc725a7e172dc2bc51956dfeb930621c6da5e3ba574c46b9c84039bd35c9",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\original_a2c4_tactical_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_greedy\\accepted_result.json": "91e80411d554685dc08e59c5b48b60515924e0c6ca0d6838d153db48ecabbbe4",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_greedy\\attempt_001\\launcher.json": "253d97756b531bd41077fdf4a3aa324cd0a76133aa7f7ddfb1c08e1bff9a7be9",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_greedy\\attempt_001\\protocol.json": "51830de864c1322f00a5283657d3273495a4368c5ce544bc59b2f9bb5ee39d01",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_random\\accepted_result.json": "af1f6a6fae0da3dd2a5f18e7f4af161b99cf850004ebed6fd7bcabd52fcbd3c7",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_random\\attempt_001\\launcher.json": "62413b327ca45d6fde0b327752fc89a0f57ca4ccc2dbfada4883df302c4674e4",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_random\\attempt_001\\protocol.json": "0acee40051303a520663337141a713a522535f1c0023f737d7d5039d3c850afb",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_freestyle_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_greedy\\accepted_result.json": "8e8ff76a09b440cf946ede017847e8493a3b3053a93cc1a7df901a95b2363a63",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_greedy\\attempt_001\\launcher.json": "c50c1e51b9528f932a3e4a5bad717488d940ab8134398b0c6785b417e536a254",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_greedy\\attempt_001\\protocol.json": "5daadcef16c7f096632b0bdfc747883465d4ae3c14464c2b2ef4d131e9cee7ae",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_random\\accepted_result.json": "efc76ec04c546b6e280df124f36ab6c8f752d8cbdaa62d5cccc7548a8e0addc3",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_random\\attempt_001\\launcher.json": "c4994c327aedadfa0fe9051b8ee1a5f2d7052a2ef88d6ade5acf98b5af00a38f",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_random\\attempt_001\\protocol.json": "c07c5b1338de6f9b47dad7b2cab1e21065a82547ba667eec802ee57b71543ee3",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_guarded_renju_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_greedy\\accepted_result.json": "d034b4362a4e964bf1eaa42a3f99a09b5be6cdaef8d7b3d71767353c2bae5dc6",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_greedy\\attempt_001\\launcher.json": "a9cad84ab08b2f71f1846bd2a9e87ecf0e8623fb7f1545fcfe2a97a9bb41f29c",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_greedy\\attempt_001\\protocol.json": "a61ec1d42ce707572cc17f90e31b5ff03405f64cdbd8cc3d66677a95a91fdafa",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_random\\accepted_result.json": "15c87266086a47cc19a34d1bef060bc8a7c413fa48c3b9f79079421caeb1e53b",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_random\\attempt_001\\launcher.json": "266fad284846586d84547fe4864e367046164da78902e546bc4b080a59b8712d",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_random\\attempt_001\\protocol.json": "286466107fb0618660d4f9df8c25dca0400291ff4a7d0365ed3b13bf9df96b3a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_freestyle_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_greedy\\accepted_result.json": "0ce18e759e625b5e236c6a6fa62616008c60d1807c970dbd17dc688f2408df71",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_greedy\\attempt_001\\launcher.json": "5e6636cac1d9a396e0181533582438f7ad313cf953fb629ae5ab9356ba98e2f1",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_greedy\\attempt_001\\protocol.json": "70f47d0af09be62ae13e9f78b2bb9696b9295e06b7c7b062f935744ac0afbc0c",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\accepted_result.json": "08fc8e909fd83fc99e047eb40965b0be854ffeea552129e20e3ca7230d419548",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_001\\launcher.json": "9f8da0e591b87654ab8c3883b0d2b847ad7c5ac1027695ff2ec6bb096a009cd6",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_001\\protocol.json": "0531069e34eef2bfd79cfca69b2135f1d6b7c6e65172886c3beeb18635f09312",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_001\\status.json": "7e4150a8516d43d81c5162f09cc2f4f690f919a37fbcc9267500418e6c195910",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_002\\launcher.json": "4059b9f0ebb8c67a5a88008af4c0d2657029e9f941d1488b46f6b4c43dea8574",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_002\\protocol.json": "cefdb6f861abd34b2196fe664e53969c36ee2afed0f9acb42ab5ffd647547f42",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed11_policy_renju_random\\attempt_002\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_greedy\\accepted_result.json": "dcb6a2ddac6fe090f49cb86c49b2eff210b5c0f659375cd8ff969ee398fde115",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_greedy\\attempt_001\\launcher.json": "e519ace1970d88dec331406c80c5bc2ac83bbed35f22148e393b0ba2710b15a3",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_greedy\\attempt_001\\protocol.json": "e453059764da736134b8d4bcad4f5a7963132eebbbdb3c1886816db81b1382f6",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_random\\accepted_result.json": "b4c2cadb479fac6b2a77ae1e2b3827a228691dcb6d44e8bba3d08df2fbbf7053",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_random\\attempt_001\\launcher.json": "c701e9ab0de251f18af38685d80be998d8ab4c6cbf53584ec5211319c810f1f0",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_random\\attempt_001\\protocol.json": "95e4c06a48be42f52c6472d27988eb0aaf98e3fd3dd2b4ab27a42fe025922bcc",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_freestyle_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_greedy\\accepted_result.json": "94230758eb335bb00e20a9298eb60d1281e58ee10335c19a7c7ac933e5168179",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_greedy\\attempt_001\\launcher.json": "579b6c5b2eab17e3e0aacf85b9b2ca89482eedcb65d90563740e7c1fd1a6340a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_greedy\\attempt_001\\protocol.json": "d62d5e1ad227dc545ac8e758aa70b7133c6ce3f6cbd55585799c868050841f5c",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_random\\accepted_result.json": "0de3e22015f09ca1be273e70ac7e16bb6ca77f829fc5d419aa574a640048d533",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_random\\attempt_001\\launcher.json": "17d6ca4099cb3e787faa9d0c62b76e7d35888d22ecd19b52b039141106b4f57f",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_random\\attempt_001\\protocol.json": "a58e1c6faf95da5057c05a7959f7a4cffa1a30b06153b851695ab9d224eccb15",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_guarded_renju_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_greedy\\accepted_result.json": "38189ad15838736aa149424e2729ab6dfd5356ae374a3fe91e6d070fc9a20d0a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_greedy\\attempt_001\\launcher.json": "a67b6d03c85aefbdf9413f64dafde454ed6173d67c8113b7bb686aa44aeb747a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_greedy\\attempt_001\\protocol.json": "c0617287907de32c8eb46e7df7893893f834ce77e69646f9b4558d63c3c12d98",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_random\\accepted_result.json": "e89b81ad15e9340ac0e97aa638bc41519b28c54d4bcf57c01958ce8ce55a5396",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_random\\attempt_001\\launcher.json": "faed9d9ce150586670b7ba85c0f5d1ca87c1a450f6a8ed73bb2b058d89c12edd",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_random\\attempt_001\\protocol.json": "52ac06e177bb24fdfc5f7497c8b1312306ecb5950900a8823a944c65acb6053e",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_freestyle_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_greedy\\accepted_result.json": "a334da033a5ee2dca46bb5f6730f6327616f9f8cfa0510ad55baabb7a2230d27",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_greedy\\attempt_001\\launcher.json": "eb3b638968aa711da71b74f12481132a6e984e5beeb9a4281fd89f7a82cc1f9b",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_greedy\\attempt_001\\protocol.json": "ada727f5dae4f5e4320286fc097b6a5ee979cce6c2d500e53d8f495f41f6701f",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_random\\accepted_result.json": "210cf960574aa583b4b65a786b7798b163f2533ee506fc895ea60273ad7e609f",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_random\\attempt_001\\launcher.json": "1f12d5e60d95e6ed137cf655f75993bc6efb65649ca1f857b713b4c59ebe9cae",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_random\\attempt_001\\protocol.json": "d6a1427ca269fe0aeae2095e3548d91aea7d5fc83b75aebbdd270672f1aa7b2a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed22_policy_renju_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_greedy\\accepted_result.json": "168bf73a1efbd1a0323c2238c95ca44a522945e80f75bae9d6b8f651e76261c9",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_greedy\\attempt_001\\launcher.json": "56c43e9cc2206b42eb0f3d1364e7bd353a93085a8adf044e4b6df29adda6ec48",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_greedy\\attempt_001\\protocol.json": "48347096556f76ff071f86638ef07c982b5aed83af2e8a9b77600771be75b871",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_random\\accepted_result.json": "44fcea156741cf03dc9a1e3cf08dbdf85db3947f12c8f626c953eda70838f3dd",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_random\\attempt_001\\launcher.json": "c9699c23f17f7872f94f0122ee01b35c0663e100866d7c33fce2cf87d4aa08ee",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_random\\attempt_001\\protocol.json": "1e21d0c176fa1cbc2601692e4baf5cf71849a530b1cdea1e6765099ab284fc8d",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_freestyle_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_greedy\\accepted_result.json": "012e23fb257d842054cf45cf9ce10822cf91cf7304d40f88265832e18f84598a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_greedy\\attempt_001\\launcher.json": "25e101ef52b312892baee8c177f26da51903954fd037d0afd8e44714b92f7c0e",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_greedy\\attempt_001\\protocol.json": "b408cb39fa9796d63260e72357bdce353c706a3037df0499a744a45bdda410cb",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_random\\accepted_result.json": "1a20ddfb5cb76b5e7bd1a5bf9bdc664cda2b6ffe62fa3b12eb44b6eb5c5c1d82",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_random\\attempt_001\\launcher.json": "f41fea9a1491c3d28dd64bc34a5892e593876df1ce833bc221785558bdd27198",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_random\\attempt_001\\protocol.json": "6e33c9ea06bfef1b1f838e9259f6fce29fe192624cb35b79ae053b5a2d876a47",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_guarded_renju_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_greedy\\accepted_result.json": "dab4a2cd536b1dd740c1630234a019c27669a817258e564dda0fe26d7a3ac894",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_greedy\\attempt_001\\launcher.json": "55cb5eb31d1852f66e75f7c42767cfd3a9bb01f85f7e68adf332eeffa91404c5",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_greedy\\attempt_001\\protocol.json": "05bcb40c045b26a70b8e6be3aeecbcd3ca32a873e34dd3ff8e564f2dd9d3540a",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_random\\accepted_result.json": "763f792864ce7c5dbd88bbd450aa3077c301fb40522b837af0ff04f609f75617",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_random\\attempt_001\\launcher.json": "ec7f0d573f3053538d66103ae241c82b6684ba5985e55260e215d092d92102d4",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_random\\attempt_001\\protocol.json": "91ced5141f53b11a1743ab1cfdbd823fb01c90f543ad5efe7eb643869febec76",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_freestyle_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_greedy\\accepted_result.json": "f59feb8a3a9104c6ddaeeda46b7b047f7dd678daca16fb5aede8cc8da5020969",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_greedy\\attempt_001\\launcher.json": "75b57aa9a2b12b8f2fc2344c26c205074e3db13db2bbf7ece5962f4bdab216f4",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_greedy\\attempt_001\\protocol.json": "a8fa136768de8a9c5d9c4d3be65ae60c27410f82910d6f9d810b25e9f5a31461",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_greedy\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_random\\accepted_result.json": "7cee055440e5829e36bdc66e67a3cc0a5f0e81e062c1a3cb2a74f6d808267809",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_random\\attempt_001\\launcher.json": "27729b43df54df87e36e0632c3406bbe7cb12467b8d7e3b4f5b8e5722b629432",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_random\\attempt_001\\protocol.json": "77f8a313129058f660ea9d86373e2a109a3bc24dff3a702f5986c5a0b45afc82",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\residual_seed33_policy_renju_random\\attempt_001\\status.json": "6b86f6b023c72aa87ae17aa641b7682ed1a928977ea039ee7899c6de70f9f1c2",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\suite_protocol.json": "8a61d8b8d1ea49f1ada4fdb9eb555e4969c6e50b0171f8f8c5b9dc642ed1e531",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\suite_status.json": "451d37d232d83d283bac8ec993adc90acfd934151073ffdd0a894441073b0fab",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\supervisor.launcher.json": "ae911b2298b04e0d0162d016b4dc6173a34a1f974c9cce227fe7b7736b7d17ed"
+  },
+  "external_evidence_sha256": {
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\unexpected_exit_evidence_31_jobs.json": "ba90fe58748e5946e61b1430df35745190053743e0c9bc6b74c74958517387ef",
+    "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\incident.json": "0c3cb265e57ebd839770399e6a7309318b1359e87d52430269f50ff1cbffe5dc"
+  },
+  "candidate_inference_recomputed": false,
+  "policy_or_wrapper_selection_performed": false,
+  "full_game_legality_and_RNG_audit_reused_from": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\final_audit_31_jobs.json",
+  "limitations": [
+    "This verifies retry identity and recorded prefixes; complete accepted-game legality/RNG/statistics remain the linked a0a audit's responsibility.",
+    "Unexpected-exit classification is based on explicit recovery observations. Its mechanism remains unknown; absence of a Python traceback alone does not identify a cause.",
+    "Timing fields alone are excluded from prefix equality; moves, outcomes, reasons and node declarations must match exactly."
+  ],
+  "started_at": "2026-10-21T15:58:31.869998+00:00",
+  "finished_at": "2026-10-21T15:58:34.192053+00:00",
+  "tool_sha256": "02ce31bdbb88fe2b5e2fc7b5ebd29c11ad22475ff774ff8d193d6a55155ebaa6"
+}

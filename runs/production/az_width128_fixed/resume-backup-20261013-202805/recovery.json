@@ -1,0 +1,14 @@
+{
+  "checkpoint_episode": 190,
+  "channels": [
+    64,
+    64,
+    128
+  ],
+  "episodes": 1000,
+  "sims": 400,
+  "seed": 11,
+  "fixed_ratio": 0.6,
+  "backup": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\production\\az_width128_fixed\\resume-backup-20261013-202805",
+  "replay_samples": 24128
+}

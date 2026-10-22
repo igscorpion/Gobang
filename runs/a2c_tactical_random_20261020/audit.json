@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "verified_at": "2026-10-20T14:48:20.322250+08:00",
+  "method": "Independent read-only replay of all games and exact seeded Random choices; independently recomputed counts, rates, Wilson intervals, timing quantiles and reason counts.",
+  "games_replayed": 400,
+  "legal_moves_verified": 4858,
+  "random_moves_exactly_reproduced": 2329,
+  "all_moves_legal": true,
+  "per_game_outcomes_match": true,
+  "source_and_weight_sha_match": true,
+  "training_performed": false,
+  "issues": []
+}

@@ -1,0 +1,39 @@
+{
+  "kind": "paired_smoke_comparison_not_training_seed_replication",
+  "checkpoint": "runs\\production\\a2c4_seed22\\best.pt",
+  "checkpoint_sha256": "3ab5a205e2137ca8f3bde0d92c36d59930548a75bc6995cdcb2f98894f3ccbd2",
+  "checkpoint_selection": "validation score only",
+  "training_performed": false,
+  "rules": [
+    "freestyle",
+    "renju"
+  ],
+  "games_per_color": 20,
+  "opponent": "greedy",
+  "base_seed": 1200000,
+  "color_offset": 100000,
+  "rule_offset": 200000,
+  "device": "cpu",
+  "tactical_config": {
+    "enabled": true,
+    "forcing_depth": 5,
+    "max_nodes": 1500,
+    "candidate_limit": 12,
+    "cache_size": 4096
+  },
+  "source_sha256": {
+    "rl/agents/a2c.py": "13b3134508e881bb219670c563265c8cd77c285c9ede98102ce9a63c760e6632",
+    "rl/agents/a2c_tactical.py": "4348a7f99e95ea199a8e0381ff06d4469b2c95886206502577c0c13166b7d7a4",
+    "rl/agents/tactics.py": "aee74cf663162a1d835da24d9c5178f3b64a560a048074025773cd7ceb8383e8",
+    "rl/environment/rules.py": "22b14181c377f0395a93a6b9933a3a223682340b3e41a1bc95ef9024dc4d7145",
+    "rl/evaluation/eval_a2c_tactical.py": "680c0ec46b0c043afcb7409bf7e6170c85ec0fb1be5b0fec7dda085946b93b1f"
+  },
+  "started_at": "2026-10-20T09:09:15.935187+08:00",
+  "limitations": [
+    "Both policies use one already validation-selected A2C checkpoint.",
+    "Opponent seeds are paired, but policies induce different game trajectories.",
+    "This is not a new three-training-seed experiment or a replacement for the original final tests.",
+    "Freestyle-trained weights in renju measure rule transfer, not renju training.",
+    "Tactical A2C uses additional CPU search/heuristics; runtime is reported separately."
+  ]
+}

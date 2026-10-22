@@ -1,0 +1,54 @@
+[
+  {
+    "opponent": "random",
+    "color": 1,
+    "games": 100,
+    "wins": 100,
+    "draws": 0,
+    "losses": 0,
+    "win_rate": 1.0,
+    "score": 1.0,
+    "wilson_low": 0.9630051925239981,
+    "wilson_high": 0.9999999999999999,
+    "rules": "freestyle"
+  },
+  {
+    "opponent": "random",
+    "color": -1,
+    "games": 100,
+    "wins": 100,
+    "draws": 0,
+    "losses": 0,
+    "win_rate": 1.0,
+    "score": 1.0,
+    "wilson_low": 0.9630051925239981,
+    "wilson_high": 0.9999999999999999,
+    "rules": "freestyle"
+  },
+  {
+    "opponent": "greedy",
+    "color": 1,
+    "games": 100,
+    "wins": 94,
+    "draws": 2,
+    "losses": 4,
+    "win_rate": 0.94,
+    "score": 0.95,
+    "wilson_low": 0.8752303146877748,
+    "wilson_high": 0.9722142547333433,
+    "rules": "freestyle"
+  },
+  {
+    "opponent": "greedy",
+    "color": -1,
+    "games": 100,
+    "wins": 70,
+    "draws": 8,
+    "losses": 22,
+    "win_rate": 0.7,
+    "score": 0.74,
+    "wilson_low": 0.6041496156718804,
+    "wilson_high": 0.7810524613377188,
+    "rules": "freestyle"
+  }
+]

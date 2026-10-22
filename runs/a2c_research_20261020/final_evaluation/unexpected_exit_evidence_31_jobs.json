@@ -1,0 +1,19 @@
+{
+  "format": "a2c_external_stop_evidence_v1",
+  "preparation_only": true,
+  "reason_attribution": "unexpected exit; exact termination mechanism unknown",
+  "stops": [
+    {
+      "directory": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\results\\jobs\\minimax_depth2_minimax_freestyle_greedy\\attempt_001",
+      "reason": "unexpected_process_exit_mechanism_unknown",
+      "observed_at": "2026-10-21T11:29:30.138562+00:00",
+      "explanation": "Previously recorded launcher and runtime were absent and the eval lock was unheld at the recovery observation. The exact termination mechanism remains unknown. Policy, source, model and budget are unchanged.",
+      "evidence": [
+        {
+          "path": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\final_evaluation\\recoveries\\20261021T112930Z_unexpected_process_exit\\incident.json",
+          "sha256": "0c3cb265e57ebd839770399e6a7309318b1359e87d52430269f50ff1cbffe5dc"
+        }
+      ]
+    }
+  ]
+}

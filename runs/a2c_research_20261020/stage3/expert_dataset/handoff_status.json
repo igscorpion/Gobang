@@ -1,0 +1,21 @@
+{
+  "at": "2026-10-21T00:16:50.976903+08:00",
+  "state": "generating",
+  "committed_games": 204,
+  "target_games": 576,
+  "actual_runtime_pids_alive_with_matching_birth": [
+    54360,
+    57156,
+    40684,
+    53232,
+    55612
+  ],
+  "worker_counts": {
+    "worker_00": 46,
+    "worker_01": 49,
+    "worker_02": 58,
+    "worker_03": 51
+  },
+  "root_error_log_bytes": 0,
+  "handoff": "root and same-thread a2c heartbeat continue; background processes preserved"
+}

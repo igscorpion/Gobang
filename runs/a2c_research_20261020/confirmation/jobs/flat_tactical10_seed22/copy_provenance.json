@@ -1,0 +1,33 @@
+{
+  "source": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\stage4\\flat_tactical10_seed22\\train",
+  "destination": "C:\\Users\\29024\\Documents\\Codex\\2026-10-08\\x\\outputs\\Gobang-local-work\\runs\\a2c_research_20261020\\confirmation\\flat_tactical10_seed22\\train",
+  "source_episode": 10000,
+  "target_episode": 30000,
+  "source_file_sha256": {
+    "best_pure.pt": "3455ccf7fd6d67f7bb3baa8704076ebe80fe993cc74be72a38b66b6acf78da50",
+    "candidates\\episode_000000.checkpoint": "6fae6502ebcf9511067fcd968880279285c140303d01d07e0d87630977ce9c85",
+    "candidates\\episode_000000.pt": "6bd1d9c4bf035d533be9bcecb6cc1e8bdb21d5bd8a6877c63559243ceb880f2b",
+    "candidates\\episode_005000.checkpoint": "21810796b528f0bfe1d678e588c0056f4f3543cfdbee8e8a73692f5254f0fd64",
+    "candidates\\episode_005000.pt": "0a88f3133dae1e0b1ea50db8f8eca51ec5202c2597de82d33811bbc2292b39d8",
+    "candidates\\episode_010000.checkpoint": "743bf2ae41f2b72c8032e9785d4e9950d09bbdf188528ee5332d3809a1583303",
+    "candidates\\episode_010000.pt": "99b174916e71c124330714bf6b2739603a0a043c9769d2aa3a0d689f2046d8a8",
+    "current.pt": "96bde789ff70906bb728e3cbd491022317c7da987a761260f3dfa567061e59df",
+    "final.pt": "80e8dd949ceb77d3d8b9ca7fd5aa314ba691aa3164566b49e668c6148f48ce1b",
+    "first_rollout.audit.pt": "bf3dc0bd9073a15340f532fc2c0a829d436b1e41f97906ec326c0312974b4516",
+    "latest.checkpoint": "2006c34969d2225d29c00911c8b874f3d1f6cf274772a8b55c90ddc9526307e2",
+    "protocol.json": "617bc8a3351757301c54f8097f3252bd69d814f5c6eb57f5c0de32dbea7e32f2",
+    "run.lock": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+    "status.json": "d48c527d29b3111bda3df7e33db5d2f0730e0ea566c3e1142a50c559a7b23fe6",
+    "training.csv": "021d61719a9b7acb345dca5e3acc38844b61f0813a4f62cfe873627a721762ca",
+    "updates.csv": "841d31213a81e13379135ec901acc5ead18e46d3a328b2fce9e019b27024ee16",
+    "validation.csv": "bdf4e87a0b4bef204d170f92560a0adc2c4c63678c583712c31fea9dad61c73d",
+    "validation_000000_games.csv": "5a2a60971ca7c505a1d80907630aeb4b11b6b718e5dacd088d2780a22a19dae8",
+    "validation_005000_games.csv": "d706c42f0f328b5363854b73402a64275d44fef5dd2fca8cb54c3578a29fb7fe",
+    "validation_010000_games.csv": "e501873498ead05320172eee2427edcec6f0c76fb94a64f93dcba19ed3037509"
+  },
+  "copy_started_at": "2026-10-20T22:10:58.408765+00:00",
+  "copy_verified": true,
+  "original_preserved": true,
+  "copy_finished_at": "2026-10-20T22:10:58.809622+00:00",
+  "checkpoint_sha256": "2006c34969d2225d29c00911c8b874f3d1f6cf274772a8b55c90ddc9526307e2"
+}
