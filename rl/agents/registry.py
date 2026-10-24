@@ -104,6 +104,24 @@ def _make_alphazero():
     return agent
 
 
+def _make_dqn_improved():
+    """Rainbow checkpoint with shallow alpha-beta tactical correction."""
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        raise ValueError("DQN_improved 需要 torch")
+    from rl.agents.rainbow import RainbowHybridAgent
+
+    agent = RainbowHybridAgent(
+        search_depth=int(os.environ.get("GOMOKU_DQN_SEARCH_DEPTH", "2")),
+        candidate_limit=int(os.environ.get("GOMOKU_DQN_SEARCH_CANDIDATES", "8")),
+        device=os.environ.get("GOMOKU_AI_DEVICE", "cpu"),
+    )
+    model = MODELS_DIR / "DQN_improved.pt"
+    if model.exists():
+        agent.load(str(model))
+    return agent
+
+
 # 名称 -> 工厂函数；后续新增算法在此加一行即可
 REGISTRY = {
     "random": _make_random,
@@ -112,6 +130,7 @@ REGISTRY = {
     "mcts_pure": _make_mcts_pure,
     "q_learning": _make_q_learning,
     "dqn": _make_dqn,
+    "DQN_improved": _make_dqn_improved,
     "alphazero": _make_alphazero,
 }
 
