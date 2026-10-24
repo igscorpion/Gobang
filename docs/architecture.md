@@ -1,6 +1,6 @@
 # 架构说明
 
-本项目分成两层：强化学习核心与 Web 展示。当前阶段只提供可运行骨架，不包含具体 RL 算法。
+本项目分成两层：强化学习核心与 Web 展示。核心包含五子棋环境、多种 Agent、训练和评估入口；Web 负责提供对战界面。
 
 ## 分层
 
@@ -8,8 +8,8 @@
 浏览器 (Vue, :5173)
         ↓ fetch
 FastAPI (:8000)
-        ↓
-GomokuEnv + RandomAgent
+      ↓
+GomokuEnv + registry 选择的 Agent
 ```
 
 ```text
@@ -41,11 +41,13 @@ Agent.update(...)
 1. 玩家在网页点击交叉点。
 2. `POST /game/move` 把 `(row, col)` 交给 FastAPI。
 3. 后端检查合法性并调用 `env.step`（玩家固定执黑）。
-4. 若未结束，`RandomAgent.select_action` 选择白棋落子。
+4. 若未结束，后端通过 `rl/agents/registry.py` 创建的 Agent 选择白棋落子；可由 `GOMOKU_AI` 指定。
 5. 返回绝对棋盘（1 黑，-1 白）给 Vue 渲染。
 
 Web 使用绝对颜色，是为了棋盘显示稳定；Agent 训练仍使用 `get_state()` 的相对视角。
 
-## 当前 Agent
+## Agent 与 Minimax
 
-Web 与训练演示都使用 `RandomAgent`。把新算法放到 `rl/agents/` 后，只需在 `web/backend/main.py` 里替换默认 Agent 实例即可接入网页，无需改前端。
+Web 对战使用注册表中的 Agent，前端可切换名称。新增算法可继承 `BaseAgent` 并注册到 `rl/agents/registry.py`。
+
+Minimax 实现在 `rl/agents/minimax_agent.py`：采用 Negamax + Alpha-Beta，并复用 Greedy 的棋型特征作为叶节点估值。为控制分支因子，普通走法通过邻域和候选数量作启发式筛选，直接获胜与必须防守对手下一手成五的落点会全部保留；因此它不是全动作空间的完备搜索。运行、参数和对照评估命令见 `rl/README.md`。

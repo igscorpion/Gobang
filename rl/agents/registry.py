@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 
 from rl.agents.greedy_agent import GreedyAgent
+from rl.agents.minimax_agent import MinimaxAgent
 from rl.agents.random_agent import RandomAgent
 from rl.agents.q_learning import QLearningAgent
 
@@ -34,6 +35,14 @@ def _make_random():
 def _make_greedy():
     """贪心启发式，会进攻与防守，作为更强的基准 / 训练对手。"""
     return GreedyAgent()
+
+
+def _make_minimax():
+    """Negamax + Alpha-Beta 搜索；深度与分支上限可由环境变量配置。"""
+    return MinimaxAgent(
+        depth=int(os.environ.get("GOMOKU_MINIMAX_DEPTH", "2")),
+        candidate_limit=int(os.environ.get("GOMOKU_MINIMAX_CANDIDATES", "8")),
+    )
 
 
 def _make_mcts_pure():
@@ -72,6 +81,100 @@ def _make_dqn():
     return agent
 
 
+def _make_dqn_improved():
+    """Load the Double-Dueling DQN checkpoint trained by train_dqn."""
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        raise ValueError("dqn_improved 需要 torch")
+    from rl.agents.dqn import DQNAgent
+    agent = DQNAgent(epsilon=0.0)
+    model = MODELS_DIR / "dqn_improved.pt"
+    if model.exists():
+        agent.load(str(model))
+    return agent
+
+
+def _make_dqn_league():
+    """Load DQN trained with alternating colors and a mixed opponent league."""
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        raise ValueError("dqn_league 需要 torch")
+    from rl.agents.dqn import DQNAgent
+    agent = DQNAgent(epsilon=0.0)
+    model = MODELS_DIR / "dqn_league.pt"
+    if model.exists():
+        agent.load(str(model))
+    return agent
+
+
+def _make_dqn_vs_alphazero():
+    """Load the experimental DQN checkpoint trained against AlphaZero."""
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        raise ValueError("dqn_vs_alphazero 需要 torch")
+    from rl.agents.dqn import DQNAgent
+    agent = DQNAgent(epsilon=0.0)
+    model = MODELS_DIR / "dqn_league_vs_alphazero.pt"
+    if model.exists():
+        agent.load(str(model))
+    return agent
+
+
+def _make_ppo():
+    """Load the masked PPO checkpoint."""
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        raise ValueError("ppo 需要 torch")
+    from rl.agents.ppo import PPOAgent
+    agent = PPOAgent()
+    model = MODELS_DIR / "ppo.pt"
+    if model.exists():
+        agent.load(str(model))
+    return agent
+
+
+def _make_rainbow():
+    """Load the Rainbow DQN checkpoint."""
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        raise ValueError("rainbow 需要 torch")
+    from rl.agents.rainbow import RainbowAgent
+    agent = RainbowAgent()
+    model = MODELS_DIR / "rainbow.pt"
+    if model.exists():
+        agent.load(str(model))
+    return agent
+
+
+def _make_rainbow_v2():
+    """Load Rainbow DQN with tactical rewards and expert imitation."""
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        raise ValueError("rainbow_v2 需要 torch")
+    from rl.agents.rainbow import RainbowAgent
+    agent = RainbowAgent()
+    model = MODELS_DIR / "rainbow_v2.pt"
+    if model.exists():
+        agent.load(str(model))
+    return agent
+
+
+def _make_rainbow_hybrid():
+    """Rainbow checkpoint plus shallow alpha-beta correction search."""
+    import importlib.util
+    if importlib.util.find_spec("torch") is None:
+        raise ValueError("rainbow_hybrid 需要 torch")
+    from rl.agents.rainbow import RainbowHybridAgent
+    agent = RainbowHybridAgent(
+        search_depth=int(os.environ.get("GOMOKU_RAINBOW_SEARCH_DEPTH", "2")),
+        candidate_limit=int(os.environ.get("GOMOKU_RAINBOW_SEARCH_CANDIDATES", "8")),
+    )
+    model = MODELS_DIR / "rainbow_v2.pt"
+    if model.exists():
+        agent.load(model)
+    return agent
+
+
 def _make_alphazero():
     """加载训练好的 AlphaZero 权重；torch 未安装时给出明确报错。"""
     import importlib.util
@@ -98,9 +201,17 @@ def _make_alphazero():
 REGISTRY = {
     "random": _make_random,
     "greedy": _make_greedy,
+    "minimax": _make_minimax,
     "mcts_pure": _make_mcts_pure,
     "q_learning": _make_q_learning,
     "dqn": _make_dqn,
+    "dqn_improved": _make_dqn_improved,
+    "dqn_league": _make_dqn_league,
+    "dqn_vs_alphazero": _make_dqn_vs_alphazero,
+    "ppo": _make_ppo,
+    "rainbow": _make_rainbow,
+    "rainbow_v2": _make_rainbow_v2,
+    "rainbow_hybrid": _make_rainbow_hybrid,
     "alphazero": _make_alphazero,
 }
 
